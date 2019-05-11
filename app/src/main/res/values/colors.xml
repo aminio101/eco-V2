@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
+    <color name="black">#0000</color>
+    <color name="black0">#263238</color>
+    <color name="narenji">#FF0000</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#9da6ac</color>
+    <color name="toolbar">#1A237E</color>
+    <color name="main">#5ebc20</color>
+    <color name="white">#ffffff</color>
+    <color name="toosi">#eceff1</color>
+    <color name="fili">#90a4ae</color>
+    <color name="fili0">#8d8d8d</color>
+    <color name="fili1">#546e7a</color>
+    <color name="fili2">#455a64</color>
+    <color name="fili3">#37474f</color>
+    <color name="fili4">#bbc7cd</color>
+    <color name="fili5">#78909c</color>
+    <color name="fili6">#607d8b</color>
+    <color name="button_color">#F4426B</color>
+
+    <color name="bgList">#c8c6c7</color>
+    <color name="bg_LightWhite">#EFEFF1</color>
+    <color name="red">#cc0001</color>
+
+    <color name="green">#2F5A14</color>
+    <color name="brown">#442714</color>
+    <color name="brick">#947824</color>
+
+
+    <color name="teal_200">#d0d1f1</color>
+    <color name="teal_300">#a4a5e3</color>
+    <color name="teal_400">#7779d5</color>
+    <color name="teal_500">#595bcb</color>
+    <color name="teal_600">#2e3094</color>
+
+
+    <color name="red_200">#FFCDD2</color>
+    <color name="red_300">#EF9A9A</color>
+    <color name="red_400">#E57373</color>
+    <color name="red_500">#EF5350</color>
+    <color name="red_600">#e02f39</color>
+
+    <color name="green_200">#C8E6C9</color>
+    <color name="green_300">#A5D6A7</color>
+    <color name="green_400">#66BB6A</color>
+    <color name="green_500">#4CAF50</color>
+    <color name="green_600">#0fc324</color>
+
+
+
+    <color name="yellow_200">#fbebd0</color>
+    <color name="yellow_300">#f8d8a0</color>
+    <color name="yellow_400">#f4c471</color>
+    <color name="yellow_500">#f0b142</color>
+    <color name="yellow_600">#ed9f17</color>
+    <color name="yellow_700">#ff6d00</color>
+    <color name="yellow_800">#ef6c00</color>
+    <color name="bgDelet">#cc0001</color>
+    <color name="bgWait">#feef58</color>
+
+    <color name="refresh1">#DF4D54</color>
+    <color name="refresh2">#9C2753</color>
+    <color name="refresh3">#5EA4D9</color>
+    <color name="refresh4">#0097a7</color>
+    <color name="firozi">#008d9c</color>
+    <color name="loginBackground">#008b9a</color>
+
+    <color name="bg_SnkBar">#bc616161</color>
 </resources>

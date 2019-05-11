@@ -1,3 +1,41 @@
 <resources>
+    <string name="txtLogin">تایید شماره همراه </string>
+    <string name="expand">تفکیک زباله در خانه کار سختی نیست... </string>
+    <string name="scoreofvideo">امتیاز ویدیو:</string>
+    <string name="seen">دیده شده</string>
+    <string name="sharp">#</string>
+    <string name="namewaste">نام پسماند</string>
+    <string name="count">تعداد</string>
+    <string name="shop">خرید</string>
+    <string name="learn">آموزش</string>
+    <string name="learn1">نکات و دانستنی های آموزشی</string>
+    <string name="appname">سامانه هوشمند اکو</string>
+    <string name="loginstring">تمامی حق و حقوق برای اکو محفوظ است</string>
+    <string name="verificationHeader">تایید شماره همراه</string>
+    <string name="AcceptPhoneHeader">لطفا شماره همراه خود را تایید نمایید</string>
+    <string name="sendcode">ارسال کد تایید</string>
+    <string name="wallet">کیف پول</string>
+    <string name="despositAcc">واریز به حساب</string>
+    <string name="settingsAcc">تنظیمات حساب</string>
+    <string name="nextstep">مرحله بعد</string>
+    <string name="mylocation">برو به مکان من</string>
+    <string name="selectdate">انتخاب تاریخ</string>
+    <string name="selecttime">انتخاب زمان</string>
+    <string name="Verifycodeverification">بررسی صحت کد</string>
+    <string name="nameaddress">نام این آدرس :</string>
+    <string name="reset">بازنشانی</string>
+    <string name="xchanges">تبادلات</string>
+    <string name="detailsxchanges">جزئیات تبادلات صورت گرفته</string>
+    <string name="Authenticationcode">کد احراز هویت</string>
+    <string name="Submitapplication">ثبت درخواست</string>
+    <string name="Wastesregistered">پسماندهای ثبت شده</string>
+    <string name="timerleft">زمان باقی مانده تا جمع آوری</string>
+    <string name="Store">فروشگاه</string>
+    <string name="addaddress">اضافه کردن این آدرس</string>
+    <string name="dexcadd">توضیحات آدرس جهت مسیریابی :</string>
+    <string name="Specifiedselectedaddress">مشخصات آدرس منتخب</string>
+    <string name="EcoSamane">سامانه هوشمند اکو</string>
+    <string name="rightOfOwnership">تمام حق و حقوق برای اکو محفوض است</string>
+
     <string name="app_name">Eco</string>
 </resources>
