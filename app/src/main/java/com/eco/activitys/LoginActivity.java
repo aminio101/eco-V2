@@ -1,5 +1,6 @@
 package com.eco.activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -30,7 +31,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_login);
         init();
     }
     private void init(){
@@ -52,6 +53,11 @@ public class LoginActivity extends AppCompatActivity implements ILoginView{
                 presenter.sendCode(getPhoneNumber.getText().toString());
             }
         });
-
     }
+
+    @Override
+    public void goToVeryFyCodeActivity() {
+        startActivity(new Intent(LoginActivity.this, VeryFyCodeActivity.class));
+    }
+
 }

@@ -13,12 +13,10 @@ public class ErrorEntity   {
     private InteractorResponse interactorResponse;
 
     public ErrorEntity(String status, String uiErrorMessage, String exceptionMessage, InteractorResponse interactorResponse) {
-
         this.status = status;
         this.uiErrorMessage = uiErrorMessage;
         this.exceptionMessage = exceptionMessage;
         this.interactorResponse = interactorResponse;
-
     }
 
     public ErrorEntity(String status, String uiErrorMessage, String exceptionMessage) {

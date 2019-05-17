@@ -28,6 +28,7 @@ public class BasePresenter<T> {
         this.context = context;
         this.mView = new WeakReference(view);
     }
+
     public BasePresenter(T view, Context context, ProgressBar progressBars, View views) {
         this.progressBars = new ArrayList<>();
         this.progressBars.add(progressBars);
@@ -35,6 +36,12 @@ public class BasePresenter<T> {
         this.views.add(views);
         this.context = context;
         this.mView = new WeakReference(view);
+        if (progressBars == null) {
+            this.progressBars = null;
+        }
+        if (views==null){
+            this.views = null;
+        }
     }
 
 
@@ -50,6 +57,7 @@ public class BasePresenter<T> {
     public void showMsg(String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
     }
+
     public void startProgress() {
         if (progressBars != null) {
             for (int i = 0; i < progressBars.size(); i++)

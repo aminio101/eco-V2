@@ -35,6 +35,7 @@ public class LoginPresenter extends BasePresenter<ILoginView> implements ILoginP
 
                     @Override
                     public void onSuccess(Void result) {
+                        mView.get().
                         goToVeryFyCodeActivity();
                     }
 
@@ -63,8 +64,5 @@ public class LoginPresenter extends BasePresenter<ILoginView> implements ILoginP
             showMsg("لطفا شماره خود را صحیح وارد کنید");
     }
 
-    void goToVeryFyCodeActivity() {
-        context.startActivity(new Intent(context, VeryFyCodeActivity.class));
-    }
 }
 
