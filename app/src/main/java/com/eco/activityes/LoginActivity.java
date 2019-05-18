@@ -1,4 +1,4 @@
-package com.eco.activitys;
+package com.eco.activityes;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,12 +19,12 @@ import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity implements ILoginView{
     @OnClick(R.id.login_button_send_code) public void sendCode(){
-        presenter.sendCode(getPhoneNumber.getText().toString());
+        presenter.sendCode(editTextPhoneNumber.getText().toString());
     }
     @BindView(R.id.login_progress_circular_send_code)
     ProgressBar progressBar ;
     @BindView(R.id.editText_login_number)
-    EditText getPhoneNumber;
+    EditText editTextPhoneNumber;
     @BindView(R.id.login_button_send_code)
     Button buttonSendCode;
     LoginPresenter presenter;
@@ -50,14 +50,16 @@ public class LoginActivity extends AppCompatActivity implements ILoginView{
         DialogConnection dialogConnection = new DialogConnection(this, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.sendCode(getPhoneNumber.getText().toString());
+                presenter.sendCode(editTextPhoneNumber.getText().toString());
             }
         });
     }
 
     @Override
     public void goToVeryFyCodeActivity() {
-        startActivity(new Intent(LoginActivity.this, VeryFyCodeActivity.class));
+        Intent intent =new Intent(LoginActivity.this, VerifyCodeActivity.class);
+        intent.putExtra("phone", editTextPhoneNumber.getText().toString());
+        startActivity(intent);
     }
 
 }

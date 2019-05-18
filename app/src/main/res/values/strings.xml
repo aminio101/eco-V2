@@ -13,7 +13,7 @@
     <string name="loginstring">تمامی حق و حقوق برای اکو محفوظ است</string>
     <string name="verificationHeader">تایید شماره همراه</string>
     <string name="AcceptPhoneHeader">لطفا شماره همراه خود را تایید نمایید</string>
-    <string name="sendcode">ارسال کد تایید</string>
+    <string name="sendCode">ارسال کد تایید</string>
     <string name="wallet">کیف پول</string>
     <string name="despositAcc">واریز به حساب</string>
     <string name="settingsAcc">تنظیمات حساب</string>
@@ -38,4 +38,5 @@
     <string name="rightOfOwnership">تمام حق و حقوق برای اکو محفوض است</string>
 
     <string name="app_name">Eco</string>
+    <string name="verifyCode">بررسی صحت کد</string>
 </resources>

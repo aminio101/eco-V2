@@ -1,4 +1,4 @@
-package com.eco.activitys;
+package com.eco.activityes;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;

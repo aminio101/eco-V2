@@ -1,12 +1,10 @@
 package com.eco.presenters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.eco.PV;
-import com.eco.activitys.VeryFyCodeActivity;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.PhoneEntity;
 import com.eco.interfaces.ILoginPresenter;

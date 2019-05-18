@@ -44,9 +44,12 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.0.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.jakewharton:butterknife:8.8.1' // bind view
+
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-jackson:2.5.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
-    implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0' // parse json
+    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.3'// get verify code
+
 }
