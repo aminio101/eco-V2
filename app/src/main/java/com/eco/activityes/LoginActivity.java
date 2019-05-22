@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView{
     private void init(){
         ButterKnife.bind(this);
         presenter = new LoginPresenter(this,this,progressBar,buttonSendCode);
+
     }
 
     @Override

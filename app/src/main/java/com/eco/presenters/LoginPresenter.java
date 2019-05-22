@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.eco.PV;
+import com.eco.PrefManager;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.PhoneEntity;
 import com.eco.interfaces.ILoginPresenter;
@@ -61,6 +62,8 @@ public class LoginPresenter extends BasePresenter<ILoginView> implements ILoginP
         } else
             showMsg("لطفا شماره خود را صحیح وارد کنید");
     }
+
+
 
 }
 

@@ -42,13 +42,15 @@ public class VerifyCodeActivity extends Activity implements IVerifyCodeView {
 
     @OnClick(R.id.verify_code_text_timer)
     public void sendCode() {
-        presenter.sendCode(getIntent().getStringExtra("phone"));
+        if (textViewTimer.getText().equals("ارسال مجدد")) {
+            presenter.sendCode(getIntent().getStringExtra("phone"));
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_veryfy_cod);
+        setContentView(R.layout.activity_verify_cod);
         init();
     }
 
@@ -61,7 +63,7 @@ public class VerifyCodeActivity extends Activity implements IVerifyCodeView {
                 presenter.verifyCode(new VerifiCodeEntity(getIntent().getStringExtra("phone"), otp));
             }
         });
-        countDownTimer = new CountDownTimer(1000, 1000) {
+        countDownTimer = new CountDownTimer(4000, 1000) {
             public void onTick(long millisUntilFinished) {
                 textViewTimer.setTextColor(Color.BLACK);
                 textViewTimer.setText("ارسال کد احراز هویت  " + millisUntilFinished / 1000 + "  ثانیه ای دیگر ");
@@ -113,5 +115,10 @@ public class VerifyCodeActivity extends Activity implements IVerifyCodeView {
                 presenter.sendCode(getIntent().getStringExtra("phone"));
             }
         });
+    }
+
+    @Override
+    public void onSuccessSendCode() {
+        countDownTimer.start();
     }
 }

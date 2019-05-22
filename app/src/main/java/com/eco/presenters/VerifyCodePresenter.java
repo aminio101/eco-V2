@@ -38,6 +38,7 @@ public class VerifyCodePresenter extends BasePresenter<IVerifyCodeView> implemen
                     @Override
                     public void onSuccess(Void result) {
                         showMsg("ارسال کد موفقیت آمیز بود");
+                        mView.get().onSuccessSendCode();
                     }
 
                     @Override
