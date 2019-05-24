@@ -85,10 +85,10 @@
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="@dimen/_5sdp"
         app:cardElevation="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
         app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
-        app:layout_constraintTop_toTopOf="@+id/guideline6">
+        app:layout_constraintTop_toTopOf="@+id/guideline7">
 
         <RelativeLayout
             android:layout_width="match_parent"
