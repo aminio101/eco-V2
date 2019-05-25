@@ -34,6 +34,10 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     public void sendCode() {
         presenter.sendCode(editTextPhoneNumber.getText().toString());
         onBackClick();
+        hideKeyboard();
+    }
+
+    private void hideKeyboard() {
         View view1 = getCurrentFocus();
         if (view1 != null) {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
