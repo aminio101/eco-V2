@@ -1,11 +1,16 @@
 package com.eco.activityes;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
@@ -31,6 +36,8 @@ public class SplashActivity extends AppCompatActivity {
     String mainVersion;
     String lastVersion;
     TextView cancel, download;
+    private static final int MULTIPLE_PERMISSION_REQUEST_CODE = 4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +46,9 @@ public class SplashActivity extends AppCompatActivity {
         setOnClick();
         new GetContacts().execute();
     }
+
+
+
     void init() {
         versionEntity = new VersionEntity();
         dialog = new Dialog(SplashActivity.this);
@@ -120,13 +130,56 @@ public class SplashActivity extends AppCompatActivity {
                 }
                 mainVersion = versionEntity.eco_android.substring(0, 1);
                 lastVersion = versionEntity.eco_android.substring(2);
-                if (PV.mainVersion.equals(mainVersion) && PV.lasteVrsion.equals(lastVersion)) {
-                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                    finish();
-                } else {
+                if (PV.mainVersion.equals(mainVersion) && PV.lasteVrsion.equals(lastVersion))
+                    getPermission();
+                else {
                     dialog.show();
                 }
             }
+        }
+
+        private void getPermission() {
+            int internetPermissionCheck = ContextCompat.checkSelfPermission(SplashActivity.this,
+                    Manifest.permission.INTERNET);
+
+            int networkStatePermissionCheck = ContextCompat.checkSelfPermission(SplashActivity.this,
+                    Manifest.permission.ACCESS_NETWORK_STATE);
+
+            int writeExternalStoragePermissionCheck = ContextCompat.checkSelfPermission(SplashActivity.this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+            int coarseLocationPermissionCheck = ContextCompat.checkSelfPermission(SplashActivity.this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION);
+
+            int fineLocationPermissionCheck = ContextCompat.checkSelfPermission(SplashActivity.this,
+                    Manifest.permission.ACCESS_FINE_LOCATION);
+
+            int wifiStatePermissionCheck = ContextCompat.checkSelfPermission(SplashActivity.this,
+                    Manifest.permission.ACCESS_WIFI_STATE);
+
+            if (internetPermissionCheck == PackageManager.PERMISSION_GRANTED &&
+                    networkStatePermissionCheck == PackageManager.PERMISSION_GRANTED &&
+                    writeExternalStoragePermissionCheck == PackageManager.PERMISSION_GRANTED &&
+                    coarseLocationPermissionCheck == PackageManager.PERMISSION_GRANTED &&
+                    fineLocationPermissionCheck == PackageManager.PERMISSION_GRANTED &&
+                    wifiStatePermissionCheck == PackageManager.PERMISSION_GRANTED) {
+                goToLoginActivity();
+            } else {
+                ActivityCompat.requestPermissions(SplashActivity.this,
+                        new String[]{
+                                Manifest.permission.INTERNET,
+                                Manifest.permission.ACCESS_NETWORK_STATE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.ACCESS_COARSE_LOCATION,
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_WIFI_STATE},
+                        MULTIPLE_PERMISSION_REQUEST_CODE);
+            }
+        }
+
+        private void goToLoginActivity() {
+            startActivity(new Intent(SplashActivity.this,LoginActivity.class));
+            finish();
         }
 
     }

@@ -6,7 +6,7 @@
     <string name="sharp">#</string>
     <string name="namewaste">نام پسماند</string>
     <string name="count">تعداد</string>
-    <string name="shop">خرید</string>
+    <string name="sell">خرید</string>
     <string name="learn">آموزش</string>
     <string name="learn1">نکات و دانستنی های آموزشی</string>
     <string name="appname">سامانه هوشمند اکو</string>
@@ -41,4 +41,7 @@
     <string name="verifyCode">بررسی صحت کد</string>
     <string name="numberPackage">تعداد بسته ها</string>
     <string name="package1">کیسه</string>
+    <string name="shop">فروشگاه</string>
+    <string name="home">خانه</string>
+    <string name="xChange">لیست تبادلات</string>
 </resources>

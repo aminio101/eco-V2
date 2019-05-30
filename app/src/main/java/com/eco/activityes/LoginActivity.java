@@ -109,6 +109,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         constraintSetOld.clone(root);
         constraintSetNew.clone(this, R.layout.activity_login_2);
         openKeyboard = false;
+        presenter.checkLogin();
     }
 
     @Override
@@ -132,6 +133,13 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         Intent intent = new Intent(LoginActivity.this, VerifyCodeActivity.class);
         intent.putExtra("phone", editTextPhoneNumber.getText().toString());
         startActivity(intent);
+    }
+
+    @Override
+    public void goToMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

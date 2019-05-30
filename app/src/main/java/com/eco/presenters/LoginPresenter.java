@@ -63,6 +63,11 @@ public class LoginPresenter extends BasePresenter<ILoginView> implements ILoginP
             showMsg("لطفا شماره خود را صحیح وارد کنید");
     }
 
+    @Override
+    public void checkLogin() {
+        if (PrefManager.getInstance().getToken()!=null)
+            mView.get().goToMainActivity();
+    }
 
 
 }

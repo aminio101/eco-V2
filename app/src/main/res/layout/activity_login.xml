@@ -135,7 +135,7 @@
                     android:background="#0097a7"
                     android:id="@+id/drawable_left"
                     android:padding="@dimen/_2sdp"
-                    android:src="@drawable/ic_phone" />
+                    app:srcCompat="@drawable/ic_phone" />
 
                 <EditText
                     android:id="@+id/editText_login_number"

@@ -39,5 +39,9 @@ public class PrefManager {
         editor.putString(USER, gson.toJson(userEntity));
         editor.commit();
     }
+    public  String getToken(){
+        return pref.getString(TOKEN,null);
+    }
+
 
 }
