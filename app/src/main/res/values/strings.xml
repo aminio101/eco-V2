@@ -17,7 +17,7 @@
     <string name="wallet">کیف پول</string>
     <string name="despositAcc">واریز به حساب</string>
     <string name="settingsAcc">تنظیمات حساب</string>
-    <string name="nextstep">مرحله بعد</string>
+    <string name="nextStep">مرحله بعد</string>
     <string name="mylocation">برو به مکان من</string>
     <string name="selectdate">انتخاب تاریخ</string>
     <string name="selecttime">انتخاب زمان</string>
@@ -39,4 +39,6 @@
 
     <string name="app_name">Eco</string>
     <string name="verifyCode">بررسی صحت کد</string>
+    <string name="numberPackage">تعداد بسته ها</string>
+    <string name="package1">کیسه</string>
 </resources>
