@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.eco.entitys.ErrorEntity;
+
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
@@ -56,6 +58,9 @@ public class BasePresenter<T> {
 
     public void showMsg(String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+    }
+    public void showMsg(ErrorEntity msg) {
+        Toast.makeText(context, msg.getUiErrorMessage(), Toast.LENGTH_LONG).show();
     }
 
     public void startProgress() {

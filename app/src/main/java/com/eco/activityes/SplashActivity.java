@@ -9,6 +9,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -113,11 +115,24 @@ public class SplashActivity extends AppCompatActivity {
                 versionEntity.eco_android = jsonObj.getString("eco_android");
                 versionEntity.eco_android_link = jsonObj.getString("eco_android_link");
             } catch (IOException e) {
-                Toast.makeText(SplashActivity.this, "مشکل در ارتباط با سرور", Toast.LENGTH_LONG).show();
+                Handler handler = new Handler(Looper.getMainLooper());
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(SplashActivity.this, "مشکل در ارتباط با سرور", Toast.LENGTH_LONG).show();
+                    }
+                }, 0 );
+
                 e.printStackTrace();
             } catch (JSONException e) {
-                Toast.makeText(SplashActivity.this, "مشکل در ارتباط با سرور", Toast.LENGTH_LONG).show();
-
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(SplashActivity.this, "مشکل در ارتباط با سرور", Toast.LENGTH_LONG).show();
+                    }
+                }, 0 );
                 e.printStackTrace();
             }
             return null;

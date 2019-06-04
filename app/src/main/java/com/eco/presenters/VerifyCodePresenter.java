@@ -120,6 +120,7 @@ public class VerifyCodePresenter extends BasePresenter<IVerifyCodeView> implemen
 
             @Override
             public void onSuccess(UserEntity result) {
+                PrefManager.getInstance().setToken(result.token);
                 PrefManager.getInstance().setUser(result);
             }
 

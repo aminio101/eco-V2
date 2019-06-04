@@ -35,7 +35,7 @@ public interface SignatureApi {
     Call<UserEntity> getUser(@Body SendUserEntity auth);
 
     @Headers({"Content-Type:application/json"})
-    @GET("api/store/categories?pageSize=100&pageNumber=1")
+    @GET("/api/store/categories?pageSize=100&pageNumber=1")
     Call<StoreCategoryListEntity> getStoreCategories(@Header("Authorization") String auth);
 
 }

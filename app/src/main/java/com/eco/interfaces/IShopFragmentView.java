@@ -6,4 +6,6 @@ public interface IShopFragmentView {
     void showNullCategory();
 
     void showCategory(StoreCategoryListEntity result);
+
+    void rGetCategory();
 }

@@ -2,28 +2,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ProgressBar
+        android:id="@+id/progress_circular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:id="@+id/progress_circular"
-        />
+        android:layout_centerInParent="true" />
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/root"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <TextView
+            android:id="@+id/textNull"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textNull"
-            android:layout_centerInParent="true"
-            />
+            android:layout_centerInParent="true" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/shop_fragment_recyclerView_header"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp" />
+            android:layout_height="@dimen/_40sdp"
+
+            />
 
     </RelativeLayout>
 </RelativeLayout>

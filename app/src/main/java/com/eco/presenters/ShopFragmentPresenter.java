@@ -21,6 +21,7 @@ public class ShopFragmentPresenter extends BasePresenter<IShopFragmentView> impl
 
     @Override
     public void getCategory() {
+        startProgress();
         MethodApi.getInstance().getStoreCategories(new IRemoteCallback<StoreCategoryListEntity>() {
             @Override
             public void onResponse(Boolean answer) {
@@ -43,12 +44,17 @@ public class ShopFragmentPresenter extends BasePresenter<IShopFragmentView> impl
 
             @Override
             public void onFail(ErrorEntity errorObject) {
-
+                if (isViewAvailable()) showMsg(errorObject);
             }
 
             @Override
             public void onFinish(Boolean answer, boolean connection) {
-
+                if (isViewAvailable()) {
+                    stoptProgress();
+                    if (!connection){
+                        mView.get().rGetCategory();
+                    }
+                }
             }
         });
     }

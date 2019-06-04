@@ -11,8 +11,7 @@ import android.view.MenuItem;
 import com.eco.R;
 import com.eco.fragments.MainFragment;
 import com.eco.fragments.MapFragment;
-
-import java.util.Map;
+import com.eco.fragments.ShopFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,12 +45,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.cartFragment:
                         if (!firstLoad)
-                            loadMainFragment();
+                            loadShopFragment();
                         break;
 
                     case R.id.xChangeList:
                         if (!firstLoad)
-                            loadMainMapFragment();
+                            loadMapFragment();
                         break;
 
                 }
@@ -72,12 +71,20 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    public void loadMainMapFragment() {
+    public void loadMapFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new MapFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "MapFragment");
         fragmentTransaction.addToBackStack("MapFragment");
+        fragmentTransaction.commit();
+    }
+    public void loadShopFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        currentFragment = new ShopFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "ShopFragment");
+        fragmentTransaction.addToBackStack("ShopFragment");
         fragmentTransaction.commit();
     }
 }

@@ -2,6 +2,7 @@ package com.eco;
 
 import android.app.Application;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.eco.entitys.UserEntity;
 import com.google.gson.Gson;
@@ -16,6 +17,7 @@ public class PrefManager {
     SharedPreferences.Editor editor;
     int PRIVATE_MODE = 0;
     Gson gson;
+
     public PrefManager(Application application) {
         PrefManager.application = application;
         pref = application.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
@@ -35,12 +37,16 @@ public class PrefManager {
         editor.putString(TOKEN, token);
         editor.commit();
     }
-    public void setUser(UserEntity userEntity){
+
+    public void setUser(UserEntity userEntity) {
         editor.putString(USER, gson.toJson(userEntity));
         editor.commit();
     }
-    public  String getToken(){
-        return pref.getString(TOKEN,null);
+
+    public String getToken() {
+        String token = pref.getString(TOKEN, null);
+        if (null != token) Log.i("Amirhosen Token", token);
+        return token;
     }
 
 
