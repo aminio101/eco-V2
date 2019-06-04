@@ -50,9 +50,12 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         init();
         setOnClick();
-        new GetContacts().execute();
+        getData();
     }
 
+    private void getData() {
+        new GetContacts().execute();
+    }
 
 
     void init() {
@@ -121,6 +124,7 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(SplashActivity.this, "مشکل در ارتباط با سرور", Toast.LENGTH_LONG).show();
+                        getData();
                     }
                 }, 0 );
 
@@ -131,6 +135,7 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(SplashActivity.this, "مشکل در ارتباط با سرور", Toast.LENGTH_LONG).show();
+                        getData();
                     }
                 }, 0 );
                 e.printStackTrace();

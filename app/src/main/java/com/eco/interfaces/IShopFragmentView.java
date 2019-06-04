@@ -1,5 +1,6 @@
 package com.eco.interfaces;
 
+import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.StoreCategoryListEntity;
 
 public interface IShopFragmentView {
@@ -8,4 +9,8 @@ public interface IShopFragmentView {
     void showCategory(StoreCategoryListEntity result);
 
     void rGetCategory();
+
+    void showProductList(ProductListEntity result);
+
+    void rGetProductList(int id);
 }

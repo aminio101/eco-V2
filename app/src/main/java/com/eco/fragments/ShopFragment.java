@@ -2,18 +2,21 @@ package com.eco.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.eco.adapter.CatergoryShopAdapter;
+
+import com.eco.adapter.CategoryShopAdapter;
 import com.eco.R;
+import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.StoreCategoryListEntity;
+import com.eco.interfaces.IGetShopItem;
 import com.eco.interfaces.IShopFragmentView;
 import com.eco.interfaces.IShopPresenter;
 import com.eco.presenters.ShopFragmentPresenter;
@@ -27,13 +30,22 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
     IShopPresenter presenter;
     @BindView(R.id.progress_circular)
     ProgressBar progressBar;
-    @BindView(R.id.root)
-    RelativeLayout root;
+    @BindView(R.id.shop_fragment_recyclerView_product)
+    RecyclerView mainList;
     @BindView(R.id.textNull)
     TextView textViewNull;
     @BindView(R.id.shop_fragment_recyclerView_header)
     RecyclerView recyclerViewCategory;
-    CatergoryShopAdapter categoryAdapter;
+    @BindView(R.id.header_card)
+    CardView cardView;
+    CategoryShopAdapter categoryAdapter;
+    LinearLayoutManager linearLayoutManagerCategoryList;
+    IGetShopItem iGetShopItem = new IGetShopItem() {
+        @Override
+        public void getShopItem(int id) {
+            presenter.getProduct(id);
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,9 +57,11 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
 
     private void init() {
         ButterKnife.bind(this, view);
-        presenter = new ShopFragmentPresenter(this, getContext(), progressBar, root);
-        categoryAdapter = new CatergoryShopAdapter(getContext());
-        recyclerViewCategory.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayout.HORIZONTAL,false));
+        presenter = new ShopFragmentPresenter(this, getContext(), progressBar, mainList);
+        categoryAdapter = new CategoryShopAdapter(getContext(), iGetShopItem);
+        linearLayoutManagerCategoryList = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        linearLayoutManagerCategoryList.setReverseLayout(true);
+        recyclerViewCategory.setLayoutManager(linearLayoutManagerCategoryList);
         recyclerViewCategory.setAdapter(categoryAdapter);
     }
 
@@ -57,10 +71,13 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
         textViewNull.setText("فروشگاه خالی میباشد");
         recyclerViewCategory.setVisibility(View.GONE);
     }
-    public void showCategoryList(){
+
+    public void showCategoryList() {
         textViewNull.setVisibility(View.GONE);
+        cardView.setVisibility(View.VISIBLE);
         recyclerViewCategory.setVisibility(View.VISIBLE);
     }
+
     @Override
     public void showCategory(StoreCategoryListEntity result) {
         showCategoryList();
@@ -73,6 +90,21 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
             @Override
             public void onClick(View v) {
                 presenter.getCategory();
+            }
+        });
+    }
+
+    @Override
+    public void showProductList(ProductListEntity result) {
+
+    }
+
+    @Override
+    public void rGetProductList(final int id) {
+        DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.getProduct(id);
             }
         });
     }

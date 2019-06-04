@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.eco.entitys.ErrorEntity;
+import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.StoreCategoryListEntity;
 import com.eco.interfaces.IShopFragmentView;
 import com.eco.interfaces.IShopPresenter;
@@ -51,9 +52,40 @@ public class ShopFragmentPresenter extends BasePresenter<IShopFragmentView> impl
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
                     stoptProgress();
-                    if (!connection){
+                    if (!connection) {
                         mView.get().rGetCategory();
                     }
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getProduct(final int id) {
+        startProgress();
+        MethodApi.getInstance().getStoreItems(String.valueOf(id), new IRemoteCallback<ProductListEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+
+            }
+
+            @Override
+            public void onSuccess(ProductListEntity result) {
+                if (isViewAvailable())
+                    mView.get().showProductList(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                if (isViewAvailable()) showMsg(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer, boolean connection) {
+                if (isViewAvailable()) {
+                    if (!connection)
+                        mView.get().rGetProductList(id);
+                    stoptProgress();
                 }
             }
         });

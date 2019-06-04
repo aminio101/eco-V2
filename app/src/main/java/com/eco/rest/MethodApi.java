@@ -7,6 +7,7 @@ import com.eco.PrefManager;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.GifEntity;
 import com.eco.entitys.PhoneEntity;
+import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.SendUserEntity;
 import com.eco.entitys.StoreCategoryListEntity;
 import com.eco.entitys.UserEntity;
@@ -31,6 +32,34 @@ public class MethodApi {
     public static MethodApi getInstance() {
         return instance;
     }
+
+    public void getStoreItems(String id, final IRemoteCallback<ProductListEntity> callback) {
+
+        final Call<ProductListEntity> call = signatureApi.getStoreItems(id, PV.tokenPrefix+PrefManager.getInstance().getToken());
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ProductListEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ProductListEntity result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
+
+
     public void getStoreCategories(final IRemoteCallback<StoreCategoryListEntity> callback) {
 
         final Call<StoreCategoryListEntity> call = signatureApi.getStoreCategories(PV.tokenPrefix+ PrefManager.getInstance().getToken());

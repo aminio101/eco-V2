@@ -2,6 +2,7 @@ package com.eco.rest;
 
 import com.eco.entitys.GifEntity;
 import com.eco.entitys.PhoneEntity;
+import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.SendUserEntity;
 import com.eco.entitys.StoreCategoryListEntity;
 import com.eco.entitys.UserEntity;
@@ -17,11 +18,16 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface SignatureApi {
     @Headers({"Content-Type:application/json"})
     @GET("/api/users/randomAdvertise")
     Call<ArrayList<GifEntity>> getAdvertise();
+
+    @Headers({"Content-Type:application/json"})
+    @GET("api/store/categories/{id}?pageSize=100&pageNumber=1")
+    Call<ProductListEntity> getStoreItems(@Path("id") String id, @Header("Authorization") String auth);
 
     @Headers({"Content-Type:application/json"})
     @PUT("/api/otp/userSendOtp")
