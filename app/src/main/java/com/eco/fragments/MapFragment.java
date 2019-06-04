@@ -31,7 +31,6 @@ import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.compass.CompassOverlay;
-import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
 import com.eco.R;
 

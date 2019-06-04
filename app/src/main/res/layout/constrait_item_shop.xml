@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline161"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline162"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline163"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline164"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline165"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline166"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.09" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline167"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.31" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline168"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.28" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline169"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.67168266" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline170"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.48" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:text="امتیاز"
+        android:textColor="#ff6d00"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline169"
+        app:layout_constraintEnd_toStartOf="@+id/guideline167"
+        app:layout_constraintStart_toStartOf="@+id/guideline166"
+        app:layout_constraintTop_toTopOf="@+id/guideline170" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:text="850000"
+        android:textColor="@color/yellow_700"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        app:layout_constraintEnd_toStartOf="@+id/guideline167"
+        app:layout_constraintStart_toStartOf="@+id/guideline166"
+        app:layout_constraintTop_toTopOf="@+id/guideline168" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textColor="@color/fili2"
+        android:textSize="@dimen/_13sdp"
+
+        android:text="فلش مموری سونی 8 گیگ"
+        app:layout_constraintBottom_toTopOf="@+id/guideline165"
+        app:layout_constraintEnd_toStartOf="@+id/guideline163"
+        app:layout_constraintStart_toStartOf="@+id/guideline167"
+        app:layout_constraintTop_toTopOf="@+id/guideline171" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline171"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7154583" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/guideline170"
+        app:layout_constraintEnd_toStartOf="@+id/guideline163"
+        app:layout_constraintStart_toStartOf="@+id/guideline162"
+        app:layout_constraintTop_toTopOf="@+id/guideline168"
+        app:srcCompat="@drawable/flash" />
+
+
+</android.support.constraint.ConstraintLayout>

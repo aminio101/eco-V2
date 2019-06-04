@@ -16,6 +16,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
     Fragment currentFragment = null;
@@ -23,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.navigation)
     BottomNavigationView bottomNavigationView;
     boolean firstLoad;
+    @OnClick(R.id.main_activity_image_back)public void back(){
+        onBackPressed();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

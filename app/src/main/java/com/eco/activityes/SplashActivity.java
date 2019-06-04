@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.entitys.VersionEntity;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +31,8 @@ import java.io.IOException;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+
+import static com.eco.MyApplication.getContext;
 
 public class SplashActivity extends AppCompatActivity {
     VersionEntity versionEntity;
@@ -163,13 +167,18 @@ public class SplashActivity extends AppCompatActivity {
                     coarseLocationPermissionCheck == PackageManager.PERMISSION_GRANTED &&
                     fineLocationPermissionCheck == PackageManager.PERMISSION_GRANTED &&
                     wifiStatePermissionCheck == PackageManager.PERMISSION_GRANTED) {
-                goToLoginActivity();
+                try {
+                    goToLoginActivity();
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
             } else {
                 ActivityCompat.requestPermissions(SplashActivity.this,
                         new String[]{
                                 Manifest.permission.INTERNET,
                                 Manifest.permission.ACCESS_NETWORK_STATE,
                                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
+
                                 Manifest.permission.ACCESS_COARSE_LOCATION,
                                 Manifest.permission.ACCESS_FINE_LOCATION,
                                 Manifest.permission.ACCESS_WIFI_STATE},
@@ -177,7 +186,12 @@ public class SplashActivity extends AppCompatActivity {
             }
         }
 
-        private void goToLoginActivity() {
+        private void goToLoginActivity() throws PackageManager.NameNotFoundException {
+            int v = getPackageManager().getPackageInfo(GoogleApiAvailability.GOOGLE_PLAY_SERVICES_PACKAGE, 0 ).versionCode;
+            Log.i ("amirhosen",""+v);
+            int apkVersion = GoogleApiAvailability.getInstance().getApkVersion(SplashActivity.this);
+            Log.i ("amirhosen",""+apkVersion);
+
             startActivity(new Intent(SplashActivity.this,LoginActivity.class));
             finish();
         }
