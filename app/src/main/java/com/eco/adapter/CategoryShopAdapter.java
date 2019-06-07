@@ -59,4 +59,5 @@ public class CategoryShopAdapter extends RecyclerView.Adapter<CategoryShopViewHo
     public int getItemCount() {
         return list.size();
     }
+
 }

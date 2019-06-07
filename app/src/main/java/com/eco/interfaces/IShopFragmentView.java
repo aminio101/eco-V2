@@ -13,4 +13,6 @@ public interface IShopFragmentView {
     void showProductList(ProductListEntity result);
 
     void rGetProductList(int id);
+
+    void showNullProductList();
 }

@@ -16,7 +16,7 @@ import com.eco.rest.MethodApi;
 import java.util.ArrayList;
 
 public class ShopFragmentPresenter extends BasePresenter<IShopFragmentView> implements IShopPresenter {
-    public ShopFragmentPresenter(IShopFragmentView view, Context context, ProgressBar progressBars, View views) {
+    public ShopFragmentPresenter(IShopFragmentView view, Context context, ProgressBar progressBars, ArrayList<View> views) {
         super(view, context, progressBars, views);
     }
 
@@ -71,8 +71,14 @@ public class ShopFragmentPresenter extends BasePresenter<IShopFragmentView> impl
 
             @Override
             public void onSuccess(ProductListEntity result) {
-                if (isViewAvailable())
-                    mView.get().showProductList(result);
+                if (isViewAvailable()){
+                    if(result.data==null)
+                        mView.get().showNullProductList();
+                    else if (result.data.size()==0)
+                        mView.get().showNullProductList();
+                    else
+                        mView.get().showProductList(result);
+                }
             }
 
             @Override
