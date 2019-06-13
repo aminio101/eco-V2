@@ -12,16 +12,20 @@ import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eco.adapter.FavoriteAddressAdapter;
 import com.eco.entitys.FavoriteAddressEntity;
+import com.eco.interfaces.ILocationClick;
 import com.eco.interfaces.IMapPresenter;
 import com.eco.interfaces.IMapView;
 import com.eco.presenters.MapFragmentPresenter;
@@ -52,6 +56,8 @@ public class MapFragment extends Fragment implements GoogleApiClient.ConnectionC
     @BindView
             (R.id.mapView)
     MapView mapView;
+    @BindView(R.id.list)
+    RecyclerView recyclerView;
     FavoriteAddressAdapter adapter;
     private Location mLastLocation;
     private GoogleApiClient mGoogleApiClient;
@@ -60,7 +66,6 @@ public class MapFragment extends Fragment implements GoogleApiClient.ConnectionC
     ProgressBar progressBar;
     @BindView(R.id.root)
     ConstraintLayout constraintLayout;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.map_fragment, container, false);
@@ -74,16 +79,17 @@ public class MapFragment extends Fragment implements GoogleApiClient.ConnectionC
         mapCheck();
         adapter = new FavoriteAddressAdapter(getContext(), onLocationClick);
         presenter = new MapFragmentPresenter(this, getContext(), progressBar, constraintLayout);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         setupMap();
     }
 
-    View.OnClickListener onLocationClick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            FavoriteAddressEntity favoriteAddressEntity = (FavoriteAddressEntity) v.getTag();
-            mapView.getController().setCenter(new GeoPoint(favoriteAddressEntity.getLocation().getLat(), mLastLocation.getLongitude()));
-        }
-    };
+   ILocationClick onLocationClick = new ILocationClick() {
+       @Override
+       public void onClick(FavoriteAddressEntity favoriteAddressEntity) {
+           mapView.getController().setCenter(new GeoPoint(favoriteAddressEntity.getLocation().getLat(), mLastLocation.getLongitude()));
+       }
+   };
 
     void mapCheck() {
         if (mGoogleApiClient == null) {
@@ -177,16 +183,16 @@ public class MapFragment extends Fragment implements GoogleApiClient.ConnectionC
 
     @Override
     public void showFavoriteLocation(ArrayList<FavoriteAddressEntity> result) {
+        adapter.addItem(result);
+    }
+
+    @Override
+    public void rGetFavoriteLocation() {
         DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.getFavoriteLocation();
             }
         });
-    }
-
-    @Override
-    public void rGetFavoriteLocation() {
-
     }
 }

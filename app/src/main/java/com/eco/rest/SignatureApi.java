@@ -49,7 +49,7 @@ public interface SignatureApi {
 
     @Headers({"Content-Type:application/json"})
     @GET("/api/users/favoriteLocation")
-    Call<ArrayList<FavoriteAddressEntity>> getFavoriteLocations();
+    Call<ArrayList<FavoriteAddressEntity>> getFavoriteLocations(@Header("Authorization") String auth);
 
 
 }

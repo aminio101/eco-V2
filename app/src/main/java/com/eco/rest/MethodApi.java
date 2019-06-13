@@ -61,7 +61,7 @@ public class MethodApi {
     }
 
     public void getFavoriteLocation(final IRemoteCallback<ArrayList<FavoriteAddressEntity>> callback) {
-        final Call<ArrayList<FavoriteAddressEntity>> call = signatureApi.getFavoriteLocations();
+        final Call<ArrayList<FavoriteAddressEntity>> call = signatureApi.getFavoriteLocations(PV.tokenPrefix+PrefManager.getInstance().getToken());
         call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<FavoriteAddressEntity>>() {
             @Override
             public void onResponse(Boolean answer) {

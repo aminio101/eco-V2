@@ -90,7 +90,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     void loadMain() {
-        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
         finish();
     }
 

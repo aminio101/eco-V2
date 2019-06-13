@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         bottomNavigationView.setSelectedItemId(R.id.mainFragment);
-        loadMainFragment();
+        loadMapFragment();// todo;
         firstLoad = false;
     }
 

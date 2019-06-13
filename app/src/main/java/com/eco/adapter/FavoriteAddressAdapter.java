@@ -1,6 +1,7 @@
 package com.eco.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,18 +10,20 @@ import android.view.ViewGroup;
 
 import com.eco.R;
 import com.eco.entitys.FavoriteAddressEntity;
-import com.eco.viewHolder.CategoryShopViewHolder;
+import com.eco.interfaces.ILocationClick;
 import com.eco.viewHolder.FavoriteAddressViewHolder;
 
 import java.util.ArrayList;
 
 public class FavoriteAddressAdapter extends RecyclerView.Adapter<FavoriteAddressViewHolder> {
+    ILocationClick  onClick;
     ArrayList<FavoriteAddressEntity> list;
     Context context;
-    View.OnClickListener onClickListener;
-    public FavoriteAddressAdapter(Context context, View.OnClickListener onClickListener) {
+    ArrayList<FavoriteAddressViewHolder> favoriteAddressViewHolderArrayList;
+    public FavoriteAddressAdapter(Context context, ILocationClick onClickListener) {
         this.context = context;
-        this.onClickListener = onClickListener;
+        this.onClick = onClickListener;
+        favoriteAddressViewHolderArrayList = new ArrayList<>();
         list = new ArrayList<>();
     }
 
@@ -34,15 +37,23 @@ public class FavoriteAddressAdapter extends RecyclerView.Adapter<FavoriteAddress
     @Override
     public FavoriteAddressViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         FavoriteAddressViewHolder favoriteAddressViewHolder = new FavoriteAddressViewHolder(LayoutInflater.from(context).
-                inflate(R.layout.item_favorite_location, viewGroup, false));
+                inflate(R.layout.favorite_location_item, viewGroup, false));
+        favoriteAddressViewHolderArrayList.add(favoriteAddressViewHolder);
          return favoriteAddressViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FavoriteAddressViewHolder favoriteLocationViewHolder, int i) {
+    public void onBindViewHolder(@NonNull FavoriteAddressViewHolder favoriteLocationViewHolder,final int i) {
         favoriteLocationViewHolder.setAddressName(list.get(i).getName());
-        favoriteLocationViewHolder.constraintLayout.setTag(list.get(i));
-        favoriteLocationViewHolder.constraintLayout.setOnClickListener(onClickListener);
+        favoriteLocationViewHolder.root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int j=0;j<favoriteAddressViewHolderArrayList.size();j++)
+                    favoriteAddressViewHolderArrayList.get(j).root.setCardBackgroundColor(Color.parseColor("#686666"));
+                favoriteAddressViewHolderArrayList.get(i).root.setCardBackgroundColor(Color.parseColor("#0097a7"));
+                onClick.onClick(list.get(i));
+            }
+        });
     }
 
     @Override
