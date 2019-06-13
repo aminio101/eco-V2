@@ -9,15 +9,23 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.eco.adapter.FavoriteAddressAdapter;
+import com.eco.entitys.FavoriteAddressEntity;
+import com.eco.interfaces.IMapPresenter;
+import com.eco.interfaces.IMapView;
+import com.eco.presenters.MapFragmentPresenter;
+import com.eco.views.DialogConnection;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -34,26 +42,50 @@ import org.osmdroid.views.overlay.compass.CompassOverlay;
 
 import com.eco.R;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MapFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class MapFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, IMapView {
     View view;
     @BindView
             (R.id.mapView)
     MapView mapView;
+    FavoriteAddressAdapter adapter;
     private Location mLastLocation;
     private GoogleApiClient mGoogleApiClient;
+    IMapPresenter presenter;
+    @BindView(R.id.progress_circular)
+    ProgressBar progressBar;
+    @BindView(R.id.root)
+    ConstraintLayout constraintLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.map_fragment, container, false);
         init();
+        presenter.getFavoriteLocation();
         return view;
     }
 
     private void init() {
         ButterKnife.bind(this, view);
+        mapCheck();
+        adapter = new FavoriteAddressAdapter(getContext(), onLocationClick);
+        presenter = new MapFragmentPresenter(this, getContext(), progressBar, constraintLayout);
+        setupMap();
+    }
+
+    View.OnClickListener onLocationClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            FavoriteAddressEntity favoriteAddressEntity = (FavoriteAddressEntity) v.getTag();
+            mapView.getController().setCenter(new GeoPoint(favoriteAddressEntity.getLocation().getLat(), mLastLocation.getLongitude()));
+        }
+    };
+
+    void mapCheck() {
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(getContext())
                     .addConnectionCallbacks(this)
@@ -61,7 +93,6 @@ public class MapFragment extends Fragment implements GoogleApiClient.ConnectionC
                     .addApi(LocationServices.API)
                     .build();
         }
-        setupMap();
     }
 
     private void setupMap() {
@@ -75,13 +106,6 @@ public class MapFragment extends Fragment implements GoogleApiClient.ConnectionC
 
         mapView.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE);
 
-        /*
-        MyLocationNewOverlay oMapLocationOverlay = new MyLocationNewOverlay(getContext(), mapView);
-        mapView.getOverlays().add(oMapLocationOverlay);
-        oMapLocationOverlay.enableFollowLocation();
-        oMapLocationOverlay.enableMyLocation();
-        oMapLocationOverlay.enableFollowLocation();
-        */
 
         CompassOverlay compassOverlay = new CompassOverlay(getContext(), mapView);
         compassOverlay.enableCompass();
@@ -148,6 +172,21 @@ public class MapFragment extends Fragment implements GoogleApiClient.ConnectionC
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void showFavoriteLocation(ArrayList<FavoriteAddressEntity> result) {
+        DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.getFavoriteLocation();
+            }
+        });
+    }
+
+    @Override
+    public void rGetFavoriteLocation() {
 
     }
 }

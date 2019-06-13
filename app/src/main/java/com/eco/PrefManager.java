@@ -50,4 +50,9 @@ public class PrefManager {
     }
 
 
+    public UserEntity getUser() {
+      String json = null; json = pref.getString(USER, null);
+        UserEntity userEntity =  gson.fromJson(json,UserEntity.class);
+        return userEntity;
+    }
 }

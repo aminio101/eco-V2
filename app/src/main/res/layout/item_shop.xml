@@ -5,50 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_130sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:cardCornerRadius="@dimen/_10sdp"
-        app:cardElevation="@dimen/_8sdp"
-
-        >
-
-        <include
-            layout="@layout/constrait_item_shop"
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </android.support.v7.widget.CardView>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_below="@+id/cardView"
-    android:layout_marginRight="@dimen/_40sdp"
-    android:layout_marginLeft="@dimen/_40sdp"
-    android:background="#ffc343"
-    android:layout_height="@dimen/_30sdp">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:drawableRight="@drawable/ic_cart"
-    android:text="خرید"
-    android:textColor="@color/fili0"
-    android:layout_centerVertical="true"
-    android:layout_marginLeft="@dimen/_15sdp"
-    android:drawableTint="@color/fili0"
-    />
-<TextView
-    android:layout_centerVertical="true"
-    android:layout_marginRight="@dimen/_15sdp"
-    android:layout_alignParentRight="true"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textColor="@android:color/white"
-    android:text="فلش مموری"
-    />
-</RelativeLayout>
+            android:layout_height="@dimen/_130sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardElevation="@dimen/_5sdp">
+
+            <include
+                layout="@layout/constrait_item_shop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_below="@+id/relative"
+        android:id="@+id/relative_layout_sell_product_item"
+        android:layout_marginLeft="@dimen/_50sdp"
+        android:layout_marginRight="@dimen/_50sdp"
+        android:background="#ffc343">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:drawableRight="@drawable/ic_cart"
+            android:drawableTint="@color/fili0"
+            android:text="خرید"
+            android:textColor="@color/fili0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:id="@+id/nickName"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:text="فلش مموری"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+    <com.dinuscxj.progressbar.CircleProgressBar
+        android:id="@+id/line_progress"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        app:progress_background_color="#2f2f2f"
+        app:progress_start_color="#105FC0"
+        app:progress_end_color="#105FC0"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        app:progress_text_color="@android:color/black"
+        app:progress_text_size="@dimen/_11ssp"
+        app:style="solid_line" />
 
 </RelativeLayout>

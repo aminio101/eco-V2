@@ -48,9 +48,10 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        init();
-        setOnClick();
-        getData();
+        loadMain(); // todo test
+//        init();
+//        setOnClick();
+//        getData();
     }
 
     private void getData() {
@@ -117,12 +118,13 @@ public class SplashActivity extends AppCompatActivity {
                 versionEntity.apiUrl = jsonObj.getString("apiUrl");
                 versionEntity.eco_android = jsonObj.getString("eco_android");
                 versionEntity.eco_android_link = jsonObj.getString("eco_android_link");
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 Handler handler = new Handler(Looper.getMainLooper());
 
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        Log.i("splashError",e.getMessage());
                         Toast.makeText(SplashActivity.this, "مشکل در ارتباط با سرور", Toast.LENGTH_LONG).show();
                         getData();
                     }

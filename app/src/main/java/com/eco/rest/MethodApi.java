@@ -5,6 +5,7 @@ import android.app.Application;
 import com.eco.PV;
 import com.eco.PrefManager;
 import com.eco.entitys.ErrorEntity;
+import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.entitys.GifEntity;
 import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
@@ -44,6 +45,31 @@ public class MethodApi {
 
             @Override
             public void onSuccess(ProductListEntity result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
+
+    public void getFavoriteLocation(final IRemoteCallback<ArrayList<FavoriteAddressEntity>> callback) {
+        final Call<ArrayList<FavoriteAddressEntity>> call = signatureApi.getFavoriteLocations();
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<FavoriteAddressEntity>>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ArrayList<FavoriteAddressEntity> result) {
                 callback.onSuccess(result);
             }
 

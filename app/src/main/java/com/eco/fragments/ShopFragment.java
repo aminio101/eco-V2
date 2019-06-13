@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.eco.activityes.MainActivity;
 import com.eco.adapter.CategoryShopAdapter;
 import com.eco.R;
 import com.eco.adapter.ProductListAdapter;
@@ -70,7 +71,7 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
         linearLayoutManagerCategoryList.setReverseLayout(true);
         recyclerViewCategory.setLayoutManager(linearLayoutManagerCategoryList);
         recyclerViewCategory.setAdapter(categoryAdapter);
-        adapter = new ProductListAdapter(getContext());
+        adapter = new ProductListAdapter(getContext(),sellOnclickListener);
         mainList.setAdapter(adapter);
         mainList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
     }
@@ -95,7 +96,12 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
 
         categoryAdapter.addItem(result.data);
     }
-
+    View.OnClickListener sellOnclickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ((MainActivity)getActivity()).loadMapFragment();
+        }
+    };
     @Override
     public void rGetCategory() {
         DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
@@ -125,15 +131,11 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
 
     public void showProductList() {
         textViewNull.setText("");
-//        textViewNull.setVisibility(View.INVISIBLE);
-//        mainList.setVisibility(View.VISIBLE);
-    }
+      }
 
     @Override
     public void showNullProductList() {
-//        textViewNull.setVisibility(View.VISIBLE);
-        textViewNull.setText("لیست خالی میباشد");
-//        mainList.setVisibility(View.GONE);
-        adapter.clearItem();
+         textViewNull.setText("لیست خالی میباشد");
+         adapter.clearItem();
     }
 }

@@ -26,4 +26,7 @@ public class PV {
             return true;
         return false;
     }
+    public static String getImage(String image){
+        return "http://185.252.29.12/storage/" + image;
+    }
 }

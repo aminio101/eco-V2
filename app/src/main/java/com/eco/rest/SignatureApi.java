@@ -1,5 +1,6 @@
 package com.eco.rest;
 
+import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.entitys.GifEntity;
 import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
@@ -43,5 +44,12 @@ public interface SignatureApi {
     @Headers({"Content-Type:application/json"})
     @GET("/api/store/categories?pageSize=100&pageNumber=1")
     Call<StoreCategoryListEntity> getStoreCategories(@Header("Authorization") String auth);
+
+
+
+    @Headers({"Content-Type:application/json"})
+    @GET("/api/users/favoriteLocation")
+    Call<ArrayList<FavoriteAddressEntity>> getFavoriteLocations();
+
 
 }

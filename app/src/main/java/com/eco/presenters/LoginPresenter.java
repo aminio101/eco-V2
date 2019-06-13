@@ -41,9 +41,6 @@ public class LoginPresenter extends BasePresenter<ILoginView> implements ILoginP
                     @Override
                     public void onFail(ErrorEntity errorObject) {
                         if (isViewAvailable()) {
-                            if (PV.checkTimeOutError(errorObject))
-                                mView.get().rSendCode();
-                            else
                                 showMsg(errorObject.getUiErrorMessage());
                         }
                     }
