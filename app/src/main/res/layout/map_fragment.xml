@@ -113,6 +113,7 @@
             android:layout_marginEnd="8dp"
             android:background="#0E89B9"
             android:text="@string/nextStep"
+            android:id="@+id/map_fragment_button_next_step"
             android:textColor="@android:color/white"
             app:layout_constraintBottom_toTopOf="@+id/guideline25"
             app:layout_constraintEnd_toStartOf="@+id/guideline22"

@@ -12,6 +12,7 @@ import com.eco.R;
 import com.eco.fragments.MainFragment;
 import com.eco.fragments.MapFragment;
 import com.eco.fragments.ShopFragment;
+import com.eco.fragments.TimeFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,5 +87,12 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "ShopFragment");
         fragmentTransaction.addToBackStack("ShopFragment");
         fragmentTransaction.commit();
+    }    public void loadTimeFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        currentFragment = new TimeFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "TimeFragment");
+        fragmentTransaction.addToBackStack("TimeFragment");
+        fragmentTransaction.commit();
     }
-}
+ }

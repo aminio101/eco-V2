@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ShopFragment extends Fragment implements IShopFragmentView {
     View view;
@@ -52,6 +53,11 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
     };
     ProductListAdapter adapter;
 
+    @OnClick(R.id.map_fragment_button_next_step)
+    public void nextFragment() {
+        ((MainActivity)getActivity()).loadTimeFragment();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.shop_fragment, container, false);
@@ -71,7 +77,7 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
         linearLayoutManagerCategoryList.setReverseLayout(true);
         recyclerViewCategory.setLayoutManager(linearLayoutManagerCategoryList);
         recyclerViewCategory.setAdapter(categoryAdapter);
-        adapter = new ProductListAdapter(getContext(),sellOnclickListener);
+        adapter = new ProductListAdapter(getContext(), sellOnclickListener);
         mainList.setAdapter(adapter);
         mainList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
     }
@@ -96,12 +102,14 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
 
         categoryAdapter.addItem(result.data);
     }
+
     View.OnClickListener sellOnclickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            ((MainActivity)getActivity()).loadMapFragment();
+            ((MainActivity) getActivity()).loadMapFragment();
         }
     };
+
     @Override
     public void rGetCategory() {
         DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
@@ -131,11 +139,11 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
 
     public void showProductList() {
         textViewNull.setText("");
-      }
+    }
 
     @Override
     public void showNullProductList() {
-         textViewNull.setText("لیست خالی میباشد");
-         adapter.clearItem();
+        textViewNull.setText("لیست خالی میباشد");
+        adapter.clearItem();
     }
 }
