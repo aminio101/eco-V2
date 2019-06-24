@@ -23,6 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.eco.activityes.MainActivity;
 import com.eco.adapter.FavoriteAddressAdapter;
 import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.interfaces.ILocationClick;
@@ -50,6 +51,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MapFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, IMapView {
     View view;
@@ -66,6 +68,10 @@ public class MapFragment extends Fragment implements GoogleApiClient.ConnectionC
     ProgressBar progressBar;
     @BindView(R.id.root)
     ConstraintLayout constraintLayout;
+    @OnClick(R.id.map_fragment_button_next_step)public void timeFragment(){
+        ((MainActivity) getActivity()).loadTimeFragment();
+
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.map_fragment, container, false);
@@ -87,7 +93,7 @@ public class MapFragment extends Fragment implements GoogleApiClient.ConnectionC
    ILocationClick onLocationClick = new ILocationClick() {
        @Override
        public void onClick(FavoriteAddressEntity favoriteAddressEntity) {
-           mapView.getController().setCenter(new GeoPoint(favoriteAddressEntity.getLocation().getLat(), mLastLocation.getLongitude()));
+           mapView.getController().setCenter(new GeoPoint(favoriteAddressEntity.getLocation().getLat(), favoriteAddressEntity.getLocation().getLat()));
        }
    };
 

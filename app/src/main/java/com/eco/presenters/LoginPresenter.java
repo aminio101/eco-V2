@@ -48,7 +48,7 @@ public class LoginPresenter extends BasePresenter<ILoginView> implements ILoginP
                     @Override
                     public void onFinish(Boolean answer, boolean connection) {
                         if (isViewAvailable()) {
-                            stoptProgress();
+                            stopProgress();
                             if (!connection)
                                 mView.get().rSendCode();
 

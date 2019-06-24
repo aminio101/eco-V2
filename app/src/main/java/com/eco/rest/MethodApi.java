@@ -6,12 +6,17 @@ import com.eco.PV;
 import com.eco.PrefManager;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.FavoriteAddressEntity;
-import com.eco.entitys.GifEntity;
+import com.eco.entitys.AdvertisingEntity;
+import com.eco.entitys.LocationEntity;
 import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
+import com.eco.entitys.RequestGetDayListEntity;
+import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.SendUserEntity;
 import com.eco.entitys.StoreCategoryListEntity;
+import com.eco.entitys.TimeStampEntity;
 import com.eco.entitys.UserEntity;
+import com.eco.entitys.UserNumberEntity;
 import com.eco.entitys.VerifiCodeEntity;
 import com.eco.entitys.VerifyCodeSuccessEntity;
 
@@ -85,6 +90,84 @@ public class MethodApi {
         }));
     }
 
+    public void getNow(final IRemoteCallback<ArrayList<TimeStampEntity>> callback) {
+        final Call<ArrayList<TimeStampEntity>> call = signatureApi.getNow(PV.tokenPrefix+ PrefManager.getInstance().getToken());
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<TimeStampEntity>>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ArrayList<TimeStampEntity> result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
+
+    public void getTimes(LocationEntity locationEntity,final IRemoteCallback<ArrayList<RunDatePeriodsEntity>> callback){
+        RequestGetDayListEntity requestGetDayListEntity = new RequestGetDayListEntity();
+        requestGetDayListEntity.location.setLng(locationEntity.getLng());
+        requestGetDayListEntity.location.setLat(locationEntity.getLat());
+        Call <ArrayList<RunDatePeriodsEntity>> call =signatureApi.getRunDatePeriods(PV.tokenPrefix+PrefManager.getInstance().getToken(),requestGetDayListEntity);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<RunDatePeriodsEntity>>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ArrayList<RunDatePeriodsEntity> result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+
+    }
+    public void getRequestNumber(LocationEntity location, final IRemoteCallback<ArrayList<UserNumberEntity>> callback) {
+        final Call<ArrayList<UserNumberEntity>> call = signatureApi.getUserNumber(PV.tokenPrefix+ PrefManager.getInstance().getToken(),location);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<UserNumberEntity>>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ArrayList<UserNumberEntity> result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
+
 
     public void getStoreCategories(final IRemoteCallback<StoreCategoryListEntity> callback) {
 
@@ -137,16 +220,16 @@ public class MethodApi {
         }));
     }
 
-    public void getGif(final IRemoteCallback<ArrayList<GifEntity>> callback) {
-        final Call<ArrayList<GifEntity>> call = signatureApi.getAdvertise();
-        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<GifEntity>>() {
+    public void getAdvertising(final IRemoteCallback<ArrayList<AdvertisingEntity>> callback) {
+        final Call<ArrayList<AdvertisingEntity>> call = signatureApi.getAdvertise(PV.tokenPrefix+PrefManager.getInstance().getToken());
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<AdvertisingEntity>>() {
             @Override
             public void onResponse(Boolean answer) {
                 callback.onResponse(answer);
             }
 
             @Override
-            public void onSuccess(ArrayList<GifEntity> result) {
+            public void onSuccess(ArrayList<AdvertisingEntity> result) {
                 callback.onSuccess(result);
             }
 

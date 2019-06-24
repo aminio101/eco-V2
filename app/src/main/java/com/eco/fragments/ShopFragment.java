@@ -53,10 +53,7 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
     };
     ProductListAdapter adapter;
 
-    @OnClick(R.id.map_fragment_button_next_step)
-    public void nextFragment() {
-        ((MainActivity)getActivity()).loadTimeFragment();
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

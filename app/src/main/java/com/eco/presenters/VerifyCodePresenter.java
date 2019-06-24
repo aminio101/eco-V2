@@ -52,7 +52,7 @@ public class VerifyCodePresenter extends BasePresenter<IVerifyCodeView> implemen
                     @Override
                     public void onFinish(Boolean answer, boolean connection) {
                         if (isViewAvailable()) {
-                            stoptProgress();
+                            stopProgress();
                             if (!connection)
                                 mView.get().rSendCode();
 
@@ -89,7 +89,7 @@ public class VerifyCodePresenter extends BasePresenter<IVerifyCodeView> implemen
                 @Override
                 public void onFail(ErrorEntity errorObject) {
                     if (isViewAvailable()) {
-                        stoptProgress();
+                        stopProgress();
                         showMsg(errorObject.getUiErrorMessage());
                     }
                 }
@@ -98,7 +98,7 @@ public class VerifyCodePresenter extends BasePresenter<IVerifyCodeView> implemen
                 public void onFinish(Boolean answer, boolean connection) {
                     if (isViewAvailable()) {
                         if (!newUser)
-                            stoptProgress();
+                            stopProgress();
                         if (!connection)
                             mView.get().rVerifyCode();
 
@@ -130,7 +130,7 @@ public class VerifyCodePresenter extends BasePresenter<IVerifyCodeView> implemen
             @Override
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
-                    stoptProgress();
+                    stopProgress();
                     if (!connection)
                         mView.get().rGetUser(userName, token);
                     if (answer)

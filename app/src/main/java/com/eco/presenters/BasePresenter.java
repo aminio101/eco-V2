@@ -11,10 +11,10 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class BasePresenter<T> {
-    Context context;
-    ArrayList<ProgressBar> progressBars;
-    ArrayList<View> views;
-    protected WeakReference<T> mView;
+    private Context context;
+    private ArrayList<ProgressBar> progressBars;
+    private ArrayList<View> views;
+      WeakReference<T> mView;
 
     public BasePresenter(T view, Context context, ArrayList<ProgressBar> progressBars, ArrayList<View> views) {
         this.progressBars = progressBars;
@@ -23,7 +23,7 @@ public class BasePresenter<T> {
         this.mView = new WeakReference(view);
     }
 
-    public BasePresenter(T view, Context context, ProgressBar progressBars, ArrayList<View> views) {
+      BasePresenter(T view, Context context, ProgressBar progressBars, ArrayList<View> views) {
         this.progressBars = new ArrayList<>();
         this.progressBars.add(progressBars);
         this.views = views;
@@ -31,7 +31,7 @@ public class BasePresenter<T> {
         this.mView = new WeakReference(view);
     }
 
-    public BasePresenter(T view, Context context, ProgressBar progressBars, View views) {
+      BasePresenter(T view, Context context, ProgressBar progressBars, View views) {
         this.progressBars = new ArrayList<>();
         this.progressBars.add(progressBars);
         this.views = new ArrayList<>();
@@ -47,7 +47,7 @@ public class BasePresenter<T> {
     }
 
 
-    protected boolean isViewAvailable() {
+      boolean isViewAvailable() {
         return this.mView != null && this.mView.get() != null;
     }
 
@@ -56,14 +56,14 @@ public class BasePresenter<T> {
     }
 
 
-    public void showMsg(String msg) {
+        void showMsg(String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
     }
-    public void showMsg(ErrorEntity msg) {
+      void showMsg(ErrorEntity msg) {
         Toast.makeText(context, msg.getUiErrorMessage(), Toast.LENGTH_LONG).show();
     }
 
-    public void startProgress() {
+      void startProgress() {
         if (progressBars != null) {
             for (int i = 0; i < progressBars.size(); i++)
                 progressBars.get(i).setVisibility(View.VISIBLE);
@@ -74,7 +74,7 @@ public class BasePresenter<T> {
         }
     }
 
-    public void stoptProgress() {
+     void stopProgress() {
         if (progressBars != null) {
             for (int i = 0; i < progressBars.size(); i++)
                 progressBars.get(i).setVisibility(View.INVISIBLE);

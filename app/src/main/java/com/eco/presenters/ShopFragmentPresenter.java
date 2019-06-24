@@ -1,7 +1,6 @@
 package com.eco.presenters;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -51,7 +50,7 @@ public class ShopFragmentPresenter extends BasePresenter<IShopFragmentView> impl
             @Override
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
-                    stoptProgress();
+                    stopProgress();
                     if (!connection) {
                         mView.get().rGetCategory();
                     }
@@ -91,7 +90,7 @@ public class ShopFragmentPresenter extends BasePresenter<IShopFragmentView> impl
                 if (isViewAvailable()) {
                     if (!connection)
                         mView.get().rGetProductList(id);
-                    stoptProgress();
+                    stopProgress();
                 }
             }
         });
