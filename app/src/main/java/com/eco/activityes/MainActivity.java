@@ -7,9 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.MenuItem;
-import static android.view.Gravity.RIGHT;
 
 import com.eco.R;
 import com.eco.fragments.FinalFragment;
@@ -21,6 +19,8 @@ import com.eco.fragments.TimeFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static android.view.Gravity.RIGHT;
 
 public class MainActivity extends AppCompatActivity {
     Fragment currentFragment = null;
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         bottomNavigationView.setSelectedItemId(R.id.mainFragment);
-        loadTimeFragment();
+        loadMapFragment();
         firstLoad = false;
     }
 

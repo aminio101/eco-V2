@@ -13,6 +13,7 @@ import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.RequestEntity;
 import com.eco.entitys.RequestGetDayListEntity;
 import com.eco.entitys.RunDatePeriodsEntity;
+import com.eco.entitys.ScoreToMoneyEntity;
 import com.eco.entitys.SendUserEntity;
 import com.eco.entitys.StoreCategoryListEntity;
 import com.eco.entitys.TimeStampEntity;
@@ -25,6 +26,9 @@ import com.google.gson.JsonObject;
 import java.util.ArrayList;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.Headers;
+import retrofit2.http.PUT;
 
 public class MethodApi {
 
@@ -35,6 +39,8 @@ public class MethodApi {
         instance = new MethodApi();
         signatureApi = Api.getClient().create(SignatureApi.class);
     }
+
+
 
 
     public static MethodApi getInstance() {
@@ -115,7 +121,32 @@ public class MethodApi {
             }
         }));
     }
+    public void scoreToMony(int score, final IRemoteCallback<String> callback) {
+        ScoreToMoneyEntity scoreToMoneyEntity = new ScoreToMoneyEntity(score);
+        final Call<String> call = signatureApi.scoreToMoney(PV.tokenPrefix+PrefManager.getInstance().getToken(),scoreToMoneyEntity);
+        call.enqueue(new Enqueue<String>(new IRemoteCallback<String>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
 
+            @Override
+            public void onSuccess(String result) {
+                callback.onSuccess(result);
+
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
     public void getTimes(LocationEntity locationEntity,final IRemoteCallback<ArrayList<RunDatePeriodsEntity>> callback){
         RequestGetDayListEntity requestGetDayListEntity = new RequestGetDayListEntity();
         requestGetDayListEntity.location.setLng(locationEntity.getLng());

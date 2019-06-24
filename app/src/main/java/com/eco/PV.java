@@ -22,7 +22,7 @@ public class PV {
     public static String urlCheckVersion = "https://ecoiwm.ir/api/";
 
 
-    public static LocationEntity locationEntity = new LocationEntity(0,0); // todo test
+    public static LocationEntity locationEntity = new LocationEntity(); // todo test
 
     public static int getHour(String time){
         return  Integer.parseInt( time.substring(9,11));

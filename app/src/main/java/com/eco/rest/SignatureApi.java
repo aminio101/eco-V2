@@ -8,6 +8,7 @@ import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.RequestGetDayListEntity;
 import com.eco.entitys.RequestEntity;
 import com.eco.entitys.RunDatePeriodsEntity;
+import com.eco.entitys.ScoreToMoneyEntity;
 import com.eco.entitys.SendUserEntity;
 import com.eco.entitys.StoreCategoryListEntity;
 import com.eco.entitys.TimeStampEntity;
@@ -32,6 +33,13 @@ public interface SignatureApi {
     @Headers({"Content-Type:application/json"})
     @GET("/api/users/randomAdvertise")
     Call<ArrayList<AdvertisingEntity>> getAdvertise(@Header("Authorization") String auth);
+
+
+    @Headers({"Content-Type:application/json"})
+    @PUT("/api/shared/scoreToMoney")
+    Call<String> scoreToMoney(@Header("Authorization") String auth,@Body ScoreToMoneyEntity scoreToMoney);
+
+
 
 
 

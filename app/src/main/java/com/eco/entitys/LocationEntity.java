@@ -11,14 +11,10 @@ public class LocationEntity {
     @SerializedName("lat")
     private double lat;
 
-
-    public LocationEntity(double lng, double lat) {
-        this.lng = lng;
-        this.lat = lat;
-    }
-    public void LocationEntity() {
+    public void LocationEntity(){
 
     }
+
 
     public double getLng () {
         return lng;

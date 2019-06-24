@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_centerInParent="true"
+        android:layoutDirection="rtl">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintDimensionRatio="5:2.5"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            >
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c8c6c6">
+
+                <TextView
+                    android:id="@+id/txt_variz"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+
+                    android:padding="10dp"
+                    android:text="واریز"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/spinner_score"
+                    app:layout_constraintHorizontal_weight="0.1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/spinner_score"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/custom_profile_spinner"
+                    android:gravity="center"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+
+                    android:textDirection="ltr"
+                    app:layout_constraintBottom_toTopOf="@+id/edit_shaba"
+                    app:layout_constraintEnd_toStartOf="@id/txt_score"
+                    app:layout_constraintHorizontal_weight="0.15"
+                    app:layout_constraintStart_toEndOf="@id/txt_variz"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_score"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+
+                    android:padding="10dp"
+                    android:text="امتیاز معادل"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/txt_score_value"
+                    app:layout_constraintHorizontal_weight="0.14"
+                    app:layout_constraintStart_toEndOf="@id/spinner_score"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_score_value"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+
+                    android:paddingTop="5dp"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="0.2"
+                    app:layout_constraintStart_toEndOf="@id/txt_score"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_shaba"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+
+                    android:padding="10dp"
+                    android:text="به شماره شبا"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_score_value" />
+
+                <EditText
+                    android:id="@+id/edit_shaba"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/custom_edit_text_address"
+                    android:inputType="none"
+                    android:maxLength="22"
+                    android:padding="4dp"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintEnd_toStartOf="@id/txt_ir"
+                    app:layout_constraintStart_toEndOf="@id/txt_shaba"
+                    app:layout_constraintTop_toBottomOf="@id/txt_score_value" />
+
+                <TextView
+                    android:id="@+id/txt_ir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:text="IR"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/edit_shaba"
+                    app:layout_constraintTop_toBottomOf="@id/txt_score_value" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:padding="10dp"
+                    android:text="طی ساعات آینده به حساب شما انتقال می‌یابد"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_ir" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_buy_button"
+            android:text="@string/confirm"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@id/card"
+            app:layout_constraintStart_toStartOf="@id/card"
+            app:layout_constraintTop_toBottomOf="@id/card" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_buy_button"
+            android:text="@string/confirm"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@id/card"
+            app:layout_constraintStart_toStartOf="@id/card"
+            app:layout_constraintTop_toBottomOf="@id/card" />
+    </android.support.constraint.ConstraintLayout>
+</RelativeLayout>
