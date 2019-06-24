@@ -46,4 +46,9 @@
     <string name="xChange">لیست تبادلات</string>
     <string name="eco">اکو</string>
     <string name="myLocation">برو به مکان من</string>
+    <string name="profile">پروفایل</string>
+    <string name="introduce">معرفی به دوستان</string>
+    <string name="about_us">درباره ما</string>
+    <string name="call">تماس با ما</string>
+    <string name="exit">خروج</string>
 </resources>

@@ -5,8 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.MenuItem;
+import static android.view.Gravity.RIGHT;
 
 import com.eco.R;
 import com.eco.fragments.FinalFragment;
@@ -28,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.main_activity_image_back)public void back(){
         onBackPressed();
     }
+    @BindView(R.id.drawable_right)
+    DrawerLayout drawerLayout;
+    @OnClick(R.id.btn_menu)public void openMenu(){
+        drawerLayout.openDrawer(RIGHT);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +52,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.mainFragment:
                         if (!firstLoad)
                             loadMainFragment();
-                        break;
-                    case R.id.cartFragment:
-                        if (!firstLoad)
-                            loadShopFragment();
                         break;
 
                     case R.id.xChangeList:

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/wallet"
+        android:icon="@drawable/ic_wallet"
+        android:title="کیف پول"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/gift"
+        android:icon="@drawable/ic_gift"
+        android:title="@string/introduce"
+        app:showAsAction="withText" />
+
+    <item
+        android:id="@+id/prices"
+        android:icon="@drawable/ic_coin"
+        android:title="قیمت ها"
+        app:showAsAction="withText" />
+
+    <item
+        android:id="@+id/about_us"
+        android:icon="@drawable/ic_about"
+        android:title="@string/about_us"
+        app:showAsAction="withText" />
+
+    <item
+        android:id="@+id/support"
+        android:icon="@drawable/ic_call"
+        android:title="@string/call"
+        app:showAsAction="withText" />
+
+    <item
+        android:id="@+id/exit"
+        android:icon="@drawable/ic_exit"
+        android:title="@string/exit"
+        app:showAsAction="withText" />
+
+</menu>
