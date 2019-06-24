@@ -3,7 +3,6 @@ package com.eco.fragments;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -33,7 +33,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     @BindView(R.id.progress_circular)
     ProgressBar progressBar;
     @BindView(R.id.root)
-    ConstraintLayout root;
+    ScrollView root;
     TimeFragmentPresenter presenter;
     @BindView(R.id.textView9)
     TextView textViewRequestNumber;
@@ -63,6 +63,13 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
                 return false;
             }
         });
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+
     }
 
     @Override

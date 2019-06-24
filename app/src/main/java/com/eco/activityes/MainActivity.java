@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.eco.R;
+import com.eco.fragments.FinalFragment;
 import com.eco.fragments.MainFragment;
 import com.eco.fragments.MapFragment;
 import com.eco.fragments.ShopFragment;
@@ -95,4 +96,14 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack("TimeFragment");
         fragmentTransaction.commit();
     }
- }
+
+    public void loadFinalFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        currentFragment = new FinalFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "FinalFragment");
+        fragmentTransaction.addToBackStack("FinalFragment");
+        fragmentTransaction.commit();
+    }
+
+}

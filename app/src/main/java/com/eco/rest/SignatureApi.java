@@ -6,6 +6,7 @@ import com.eco.entitys.LocationEntity;
 import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.RequestGetDayListEntity;
+import com.eco.entitys.RequestEntity;
 import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.SendUserEntity;
 import com.eco.entitys.StoreCategoryListEntity;
@@ -14,6 +15,7 @@ import com.eco.entitys.UserEntity;
 import com.eco.entitys.UserNumberEntity;
 import com.eco.entitys.VerifiCodeEntity;
 import com.eco.entitys.VerifyCodeSuccessEntity;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
@@ -30,6 +32,19 @@ public interface SignatureApi {
     @Headers({"Content-Type:application/json"})
     @GET("/api/users/randomAdvertise")
     Call<ArrayList<AdvertisingEntity>> getAdvertise(@Header("Authorization") String auth);
+
+
+
+    @Headers({"Content-Type:application/json"})
+    @POST("/api/users/request")
+    Call<JsonObject> addRequest(@Header("Authorization") String auth,
+                                @Body RequestEntity requestModel);
+
+
+    @Headers({"Content-Type:application/json"})
+    @POST("/api/guilds/request")
+    Call<JsonObject> addRequestSenf(@Header("Authorization") String auth,
+                                    @Body RequestEntity requestModel);
 
     @Headers({"Content-Type:application/json"})
     @GET("api/store/categories/{id}?pageSize=100&pageNumber=1")

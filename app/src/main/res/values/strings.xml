@@ -27,9 +27,9 @@
     <string name="xchanges">تبادلات</string>
     <string name="detailsxchanges">جزئیات تبادلات صورت گرفته</string>
     <string name="Authenticationcode">کد احراز هویت</string>
-    <string name="Submitapplication">ثبت درخواست</string>
-    <string name="Wastesregistered">پسماندهای ثبت شده</string>
-    <string name="timerleft">زمان باقی مانده تا جمع آوری</string>
+    <string name="submitApplication">ثبت درخواست</string>
+    <string name="wastesRegistered">پسماندهای ثبت شده</string>
+    <string name="timerLeft">زمان باقی مانده تا جمع آوری</string>
     <string name="Store">فروشگاه</string>
     <string name="addaddress">اضافه کردن این آدرس</string>
     <string name="dexcadd">توضیحات آدرس جهت مسیریابی :</string>
