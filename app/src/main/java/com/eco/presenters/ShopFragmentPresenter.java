@@ -51,7 +51,7 @@ public class ShopFragmentPresenter extends BasePresenter<IShopFragmentView> impl
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
                     stopProgress();
-                    if (!connection) {
+                    if (!answer) {
                         mView.get().rGetCategory();
                     }
                 }

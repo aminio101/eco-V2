@@ -28,6 +28,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Url;
 
 public interface SignatureApi {
     @Headers({"Content-Type:application/json"})
@@ -41,6 +42,16 @@ public interface SignatureApi {
 
 
 
+
+    @Headers({"Content-Type:application/json"})
+    @POST("/api/users/favoriteLocation")
+    Call<FavoriteAddressEntity> addAddress(@Header("Authorization") String auth, @Body FavoriteAddressEntity favorite);
+
+
+
+    @Headers({"Content-Type:application/json"})
+    @PUT
+    Call<FavoriteAddressEntity> changeAddress(@Url String url, @Header("Authorization") String auth, @Body FavoriteAddressEntity favorite);
 
 
     @Headers({"Content-Type:application/json"})

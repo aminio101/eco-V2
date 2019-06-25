@@ -37,6 +37,10 @@
         <activity android:name=".activityes.VerifyCodeActivity" />
         <activity android:name=".activityes.MainActivity" />
         <activity android:name=".activityes.LoginActivity" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBOLu6K70fgpc6XqrHKu4gV_7CC1SYao7M" />
+
     </application>
 
 </manifest>

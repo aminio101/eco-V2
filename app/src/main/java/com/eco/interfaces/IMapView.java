@@ -9,4 +9,13 @@ public interface IMapView {
 
     void rGetFavoriteLocation();
 
+    void successChangeLocation();
+
+    void rChangeLocation(FavoriteAddressEntity favoriteAddressEntity);
+
+
+    void successAddLocation();
+
+    void rAddLocation( FavoriteAddressEntity favoriteAddressEntity);
+
 }

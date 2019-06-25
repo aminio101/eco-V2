@@ -27,8 +27,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.3"
-
             android:padding="@dimen/_5sdp"
+            android:id="@+id/image"
             app:srcCompat="@drawable/ic_location" />
     </LinearLayout>
 

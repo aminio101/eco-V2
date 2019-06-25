@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:drawable="@drawable/explianadres"
+        android:width="@dimen/_12sdp"
+        android:height="@dimen/_12sdp"
+        />
+
+</layer-list >

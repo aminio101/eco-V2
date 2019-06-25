@@ -9,12 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.eco.R;
 import com.eco.activityes.MainActivity;
 import com.eco.adapter.CategoryShopAdapter;
-import com.eco.R;
 import com.eco.adapter.ProductListAdapter;
 import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.StoreCategoryListEntity;
@@ -28,7 +27,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ShopFragment extends Fragment implements IShopFragmentView {
     View view;
@@ -52,8 +50,6 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
         }
     };
     ProductListAdapter adapter;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

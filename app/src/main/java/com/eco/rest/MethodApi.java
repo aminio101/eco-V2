@@ -147,6 +147,59 @@ public class MethodApi {
             }
         }));
     }
+
+    public void changeFavoriteLocation(int id, FavoriteAddressEntity addFavorite, final IRemoteCallback<FavoriteAddressEntity> callback) {
+        String url = "api/users/favoriteLocation/" + id;
+        final Call<FavoriteAddressEntity> call = signatureApi.changeAddress(url, PV.tokenPrefix + PrefManager.getInstance().getToken(), addFavorite);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<FavoriteAddressEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(FavoriteAddressEntity result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorEntity) {
+                callback.onFail(errorEntity);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
+    public void addFavoriteLocation(FavoriteAddressEntity addFavorite, final IRemoteCallback<FavoriteAddressEntity> callback) {
+
+        final Call<FavoriteAddressEntity> call = signatureApi.addAddress(PV.tokenPrefix + PrefManager.getInstance().getToken(), addFavorite);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<FavoriteAddressEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(FavoriteAddressEntity result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorEntity) {
+                callback.onFail(errorEntity);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
+
+
     public void getTimes(LocationEntity locationEntity,final IRemoteCallback<ArrayList<RunDatePeriodsEntity>> callback){
         RequestGetDayListEntity requestGetDayListEntity = new RequestGetDayListEntity();
         requestGetDayListEntity.location.setLng(locationEntity.getLng());
