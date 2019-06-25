@@ -141,7 +141,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline121"
         app:layout_constraintStart_toEndOf="@+id/textView_detailsaddress"
         app:layout_constraintTop_toTopOf="@+id/guideline118"
-        app:srcCompat="@drawable/place" />
+        app:srcCompat="@drawable/ic_place" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline121"

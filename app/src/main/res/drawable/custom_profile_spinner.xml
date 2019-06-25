@@ -14,6 +14,6 @@
         android:right="20dp">
         <bitmap
             android:gravity="end"
-            android:src="@drawable/spinner_arrow_down" />
+            android:src="@drawable/ic_arrow_down_gray" />
     </item>
 </layer-list>
