@@ -53,4 +53,16 @@
     <string name="exit">خروج</string>
     <string name="confirm"
         >تایید</string>
+    <string name="walletFragment">درآمد خود را تصویه حساب نمایید</string>
+    <string name="grade">امتیاز</string>
+    <string name="shabanumber">شماره شبا</string>
+    <string name="save">ذخیره</string>
+    <string name="edit">ویرایش</string>
+    <string name="email">ایمیل</string>
+    <string name="address">آدرس</string>
+    <string name="Introduction">معرفی</string>
+    <string name="phoneumber">َشماره موبایل</string>
+    <string name="friendIntroduction">اپلیکیشن را به دوستان خود معرفی کنید</string>
+    <string name="edituser">ویرایش اطلاعات کاربری</string>
+    <string name="namefamily">نام و نام خانوادگی</string>
 </resources>
