@@ -15,7 +15,9 @@ import com.eco.adapter.MainListAdapter;
 import com.eco.entitys.RubbishEntity;
 import com.eco.interfaces.IMainFragmentPresenter;
 import com.eco.interfaces.IMainFragmentView;
+import com.eco.interfaces.MainAdapterListener;
 import com.eco.presenters.MainFragmentPresenter;
+import com.eco.viewHolder.MainListViewHolder;
 import com.eco.views.DialogConnection;
 
 import java.util.ArrayList;
@@ -41,20 +43,23 @@ public class MainFragment extends Fragment implements IMainFragmentView {
         presenter.getList();
         return view;
     }
-
+    MainAdapterListener mainAdapterListener = new MainAdapterListener() {
+        @Override
+        public void onClick(int i ) {
+            MainListViewHolder mainListViewHolder = (MainListViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
+            mainListViewHolder.setSelected();
+        }
+    };
     private void init() {
         presenter = new MainFragmentPresenter(this,getContext(),progressBar,root);
-        mainListAdapter = new MainListAdapter(getContext());
+        mainListAdapter = new MainListAdapter(getContext(),mainAdapterListener);
         recyclerView.setAdapter(mainListAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false));
     }
 
     @Override
     public void showList(ArrayList<RubbishEntity> result) {
-        // todo test
-        ArrayList<RubbishEntity> arrayList = new ArrayList<>();
-        arrayList.add(result.get(5));
-        mainListAdapter.addItem(arrayList);
+        mainListAdapter.addItem(result);
     }
 
     @Override
