@@ -7,7 +7,9 @@ import com.eco.PrefManager;
 import com.eco.entitys.AdvertisingEntity;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.FavoriteAddressEntity;
+import com.eco.entitys.InviteEntity;
 import com.eco.entitys.LocationEntity;
+import com.eco.entitys.MobileEntitiy;
 import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.RequestEntity;
@@ -40,8 +42,59 @@ public class MethodApi {
         signatureApi = Api.getClient().create(SignatureApi.class);
     }
 
+    public void inviteFriend(String phone, final IRemoteCallback<InviteEntity> callback) {
+        MobileEntitiy mobileEntitiy = new MobileEntitiy(phone);
+        final Call<InviteEntity> call = signatureApi.inviteFriend(PV.tokenPrefix+PrefManager.getInstance().getToken(), mobileEntitiy);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<InviteEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(InviteEntity result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connect) {
+                callback.onFinish(answer,connect);
+            }
+        }));
+    }
 
 
+    public void scoreToMony(int score, final IRemoteCallback<String> callback) {
+        ScoreToMoneyEntity scoreToMony = new ScoreToMoneyEntity(score);
+        final Call<String> call = signatureApi.scoreToMoney(PV.tokenPrefix+ PrefManager.getInstance().getToken(),scoreToMony);
+        call.enqueue(new Enqueue<String>(new IRemoteCallback<String>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(String result) {
+                callback.onSuccess(result);
+
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connect) {
+                callback.onFinish(answer,connect);
+            }
+        }));
+    }
 
     public static MethodApi getInstance() {
         return instance;
@@ -121,32 +174,7 @@ public class MethodApi {
             }
         }));
     }
-    public void scoreToMony(int score, final IRemoteCallback<String> callback) {
-        ScoreToMoneyEntity scoreToMoneyEntity = new ScoreToMoneyEntity(score);
-        final Call<String> call = signatureApi.scoreToMoney(PV.tokenPrefix+PrefManager.getInstance().getToken(),scoreToMoneyEntity);
-        call.enqueue(new Enqueue<String>(new IRemoteCallback<String>() {
-            @Override
-            public void onResponse(Boolean answer) {
-                callback.onResponse(answer);
-            }
 
-            @Override
-            public void onSuccess(String result) {
-                callback.onSuccess(result);
-
-            }
-
-            @Override
-            public void onFail(ErrorEntity errorObject) {
-                callback.onFail(errorObject);
-            }
-
-            @Override
-            public void onFinish(Boolean answer,boolean connection) {
-                callback.onFinish(answer,connection);
-            }
-        }));
-    }
 
     public void changeFavoriteLocation(int id, FavoriteAddressEntity addFavorite, final IRemoteCallback<FavoriteAddressEntity> callback) {
         String url = "api/users/favoriteLocation/" + id;

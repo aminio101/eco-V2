@@ -14,6 +14,7 @@ import com.eco.interfaces.IWalletFragmentView;
 import com.eco.interfaces.IWalletPresenter;
 import com.eco.presenters.FinalFragmentPresenter;
 import com.eco.presenters.WalletFragmentPresenter;
+import com.eco.views.DialogConnection;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,5 +37,20 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
 
     private void init() {
         presenter = new WalletFragmentPresenter(this, getContext(), progressBar, root);
+    }
+
+    @Override
+    public void success() {
+
+    }
+
+    @Override
+    public void rPay(int score) {
+        DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.pay(score);
+            }
+        });
     }
 }

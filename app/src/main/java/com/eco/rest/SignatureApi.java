@@ -2,7 +2,9 @@ package com.eco.rest;
 
 import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.entitys.AdvertisingEntity;
+import com.eco.entitys.InviteEntity;
 import com.eco.entitys.LocationEntity;
+import com.eco.entitys.MobileEntitiy;
 import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.RequestGetDayListEntity;
@@ -35,6 +37,10 @@ public interface SignatureApi {
     @GET("/api/users/randomAdvertise")
     Call<ArrayList<AdvertisingEntity>> getAdvertise(@Header("Authorization") String auth);
 
+
+    @Headers({"Content-Type:application/json"})
+    @PUT("api/users/inviteFriend")
+    Call<InviteEntity> inviteFriend(@Header("Authorization") String auth, @Body MobileEntitiy user);
 
     @Headers({"Content-Type:application/json"})
     @PUT("/api/shared/scoreToMoney")

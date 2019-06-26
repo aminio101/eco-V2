@@ -3,6 +3,7 @@ package com.eco.activityes;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 
 import com.eco.R;
 import com.eco.fragments.FinalFragment;
+import com.eco.fragments.IntroduceFragment;
 import com.eco.fragments.MainFragment;
 import com.eco.fragments.MapFragment;
 import com.eco.fragments.ShopFragment;
@@ -28,23 +30,37 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.navigation)
     BottomNavigationView bottomNavigationView;
     boolean firstLoad;
-    @OnClick(R.id.main_activity_image_back)public void back(){
+    @BindView(R.id.navigation_view) NavigationView navigationView;
+
+    @OnClick(R.id.main_activity_image_back)
+    public void back() {
         onBackPressed();
     }
+
     @BindView(R.id.drawable_right)
     DrawerLayout drawerLayout;
-    @OnClick(R.id.btn_menu)public void openMenu(){
+
+    @OnClick(R.id.btn_menu)
+    public void openMenu() {
         drawerLayout.openDrawer(RIGHT);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
     }
+
     private void init() {
         ButterKnife.bind(this);
         firstLoad = true;
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                return onClick(menuItem.getItemId());
+            }
+        });
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -85,6 +101,46 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack("MapFragment");
         fragmentTransaction.commit();
     }
+
+    public boolean onClick(int id) {
+        switch (id) {
+            case R.id.invite:
+                loadIntroduceFragment();
+                drawerLayout.closeDrawer(RIGHT);
+                return true;
+         /*   case R.id.profile:
+                loadFragmentProfile();
+                drawerLayout.closeDrawer(RIGHT);
+                return true;
+            case R.id.wallet:
+                loadFragmentWallet();
+                drawerLayout.closeDrawer(RIGHT);
+                return true;
+            case R.id.gift:
+                loadFragmentInvite();
+                drawerLayout.closeDrawer(RIGHT);
+                return true;
+            case R.id.prices:
+                loadFragmentPrices();
+                drawerLayout.closeDrawer(RIGHT);
+                return true;
+            case R.id.about_us:
+                loadFragmentAboutUs();
+                drawerLayout.closeDrawer(RIGHT);
+                return true;
+            case R.id.support:
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + getString(R.string.support_number)));
+                startActivity(intent);
+                drawerLayout.closeDrawer(RIGHT);
+                return true;
+            case R.id.exit:
+                logOut();
+                return true;*/
+        }
+        return false;
+    }
+
     public void loadShopFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
@@ -92,7 +148,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "ShopFragment");
         fragmentTransaction.addToBackStack("ShopFragment");
         fragmentTransaction.commit();
-    }    public void loadTimeFragment() {
+    }
+
+    public void loadTimeFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new TimeFragment();
@@ -107,6 +165,15 @@ public class MainActivity extends AppCompatActivity {
         currentFragment = new FinalFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "FinalFragment");
         fragmentTransaction.addToBackStack("FinalFragment");
+        fragmentTransaction.commit();
+    }
+
+    public void loadIntroduceFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        currentFragment = new IntroduceFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "IntroduceFragment");
+        fragmentTransaction.addToBackStack("IntroduceFragment");
         fragmentTransaction.commit();
     }
 

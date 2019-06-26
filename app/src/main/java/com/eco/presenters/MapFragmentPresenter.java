@@ -47,7 +47,7 @@ public class MapFragmentPresenter extends BasePresenter<IMapView> implements IMa
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
                     stopProgress();
-                    if (!answer)
+                    if (!connection)
                         mView.get().rGetFavoriteLocation();
                 }
             }
@@ -79,7 +79,7 @@ public class MapFragmentPresenter extends BasePresenter<IMapView> implements IMa
             @Override
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
-                    if (!answer)
+                    if (!connection)
                         mView.get().rChangeLocation(favoriteAddressEntity);
                     stopProgress();
                 }

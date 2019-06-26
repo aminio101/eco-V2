@@ -13,7 +13,7 @@
         android:title="کیف پول"
         app:showAsAction="withText" />
     <item
-        android:id="@+id/gift"
+        android:id="@+id/invite"
         android:icon="@drawable/ic_gift"
         android:title="@string/introduce"
         app:showAsAction="withText" />
