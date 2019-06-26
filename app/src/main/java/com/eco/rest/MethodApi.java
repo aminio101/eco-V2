@@ -12,6 +12,7 @@ import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.RequestEntity;
 import com.eco.entitys.RequestGetDayListEntity;
+import com.eco.entitys.RubbishEntity;
 import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.ScoreToMoneyEntity;
 import com.eco.entitys.SendUserEntity;
@@ -431,4 +432,28 @@ public class MethodApi {
         }));
     }
 
+    public void getRubbishList(final IRemoteCallback<ArrayList<RubbishEntity>> callback) {
+        final Call<ArrayList<RubbishEntity>> call = signatureApi.getRubbishList(PV.tokenPrefix+PrefManager.getInstance().getToken());
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<RubbishEntity>>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ArrayList<RubbishEntity> result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
 }

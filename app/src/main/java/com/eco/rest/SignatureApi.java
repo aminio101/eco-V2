@@ -7,6 +7,7 @@ import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.RequestGetDayListEntity;
 import com.eco.entitys.RequestEntity;
+import com.eco.entitys.RubbishEntity;
 import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.ScoreToMoneyEntity;
 import com.eco.entitys.SendUserEntity;
@@ -98,6 +99,10 @@ public interface SignatureApi {
     @Headers({"Content-Type:application/json"})
     @PUT("/api/shared/runDatePeriods")
     Call<ArrayList<RunDatePeriodsEntity>> getRunDatePeriods(@Header("Authorization") String auth,@Body RequestGetDayListEntity username);
+
+    @Headers({"Content-Type:application/json"})
+    @GET("/api/shared/rubbish")
+    Call<ArrayList<RubbishEntity>> getRubbishList(@Header("Authorization") String auth);
 
 
 

@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.eco.R;
 
 public class MainListViewHolder extends RecyclerView.ViewHolder {
-    ImageView imageView;
-    TextView name;
-    TextView number;
+    public   ImageView imageView;
+    public  TextView name;
+    public  TextView number;
     public MainListViewHolder(@NonNull View itemView) {
         super(itemView);
         imageView = itemView.findViewById(R.id.image);
