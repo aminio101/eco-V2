@@ -27,7 +27,7 @@ public class MainListViewHolder {
     public View lineRight, lineLeft, lineBottom;
     public LayoutInflater inflater;
     public View itemView;
-    RubbishEntity rubbishEntity;
+    public RubbishEntity rubbishEntity;
     MainAdapterListener mainAdapterListener;
     public int num = 0;
     public MainListViewHolder(Context context, RubbishEntity

@@ -104,10 +104,10 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onClick(int id) {
         switch (id) {
-            case R.id.invite:
-                loadIntroduceFragment();
-                drawerLayout.closeDrawer(RIGHT);
-                return true;
+//            case R.id.invite:
+//                loadIntroduceFragment();
+//                drawerLayout.closeDrawer(RIGHT);
+//                return true;
            case R.id.profile:
                loadEditProfileFragment();
                 drawerLayout.closeDrawer(RIGHT);

@@ -41,18 +41,15 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterView
     EditText editTextFamilyNumber;
     @BindView(R.id.editText_shabaNumber)
     EditText editTextShabaNumber;
-
     @BindView(R.id.button_register)
     Button button_register;
     @BindView(R.id.rdb_female)
     RadioButton rdb_male;
-    @BindView(R.id.rdb_female)
-    RadioButton rdb_female;
+//    @BindView(R.id.rdb_female)
+//    RadioButton rdb_female;
     @BindView(R.id.type)
     Switch switch_type;
-
     RegisterPresenter presenter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +57,6 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterView
         ButterKnife.bind(this);
         init();
     }
-
     private void init() {
       //  presenter = new EditProfilePresenter(this, this, progressBar,button_register);
         switch_type.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
