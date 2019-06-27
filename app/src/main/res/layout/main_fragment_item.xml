@@ -1,34 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
+    android:background="#DFDCDC"
     android:layout_width="@dimen/_100sdp"
     android:layout_height="@dimen/_100sdp">
-    <ImageView
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:id="@+id/image"
-    />
+    <View
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:id="@+id/line_left"
+        android:visibility="gone"
+        android:background="#AFADAD"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#AFADAD"
+        android:id="@+id/line_bottom"
+        android:layout_alignParentBottom="true"
+        />
     <TextView
+        android:id="@+id/number"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="25"
         android:gravity="center"
-        android:textSize="@dimen/_55ssp"
-        android:textColor="#232F2F2F"
-        android:id="@+id/number"
+        android:text="25"
+        android:visibility="gone"
+        android:textColor="#31444040"
+        android:textSize="@dimen/_80ssp" />
+    <View
+        android:layout_width="2dp"
+        android:layout_alignParentRight="true"
+        android:layout_height="match_parent"
+        android:background="#AFADAD"
+        android:id="@+id/line_right"
         />
+    <ImageView
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_centerHorizontal="true"
+        android:tint="#AFADAD"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/image"
+    />
+
  <TextView
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:id="@+id/name"
      android:text="پلاستیکی"
+     android:textColor="#AFADAD"
+     android:layout_marginTop="@dimen/_3sdp"
      android:layout_below="@id/image"
      android:layout_centerHorizontal="true"
      android:textSize="@dimen/_18ssp"
-     android:layout_marginTop="@dimen/_10sdp"
      />
 </RelativeLayout>

@@ -52,7 +52,7 @@
 
 
 
-    <color name="yellow_200">#fbebd0</color>
+    <color name="yellow_200">#FCFBFB</color>
     <color name="yellow_300">#f8d8a0</color>
     <color name="yellow_400">#f4c471</color>
     <color name="yellow_500">#f0b142</color>
@@ -68,6 +68,6 @@
     <color name="refresh4">#0097a7</color>
     <color name="firozi">#008d9c</color>
     <color name="loginBackground">#008b9a</color>
-
+    <color name="mainColor1">#AFADAD</color>
     <color name="bg_SnkBar">#bc616161</color>
 </resources>
