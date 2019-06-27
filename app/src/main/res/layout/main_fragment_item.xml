@@ -24,9 +24,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:visibility="gone"
         android:text="25"
-        android:textColor="#16818181"
+        android:visibility="gone"
+        android:textColor="#31444040"
         android:textSize="@dimen/_80ssp" />
     <View
         android:layout_width="2dp"

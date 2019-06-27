@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.eco.R;
 import com.eco.entitys.RubbishEntity;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainFragment extends Fragment implements IMainFragmentView {
     View view;
@@ -30,14 +32,21 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     ProgressBar progressBar;
     @BindView(R.id.root)
     ConstraintLayout root;
-    //    @BindView(R.id.list)
-//    GridView recyclerView;
     @BindView(R.id.linearBottom)
     LinearLayout linearBottom;
     @BindView(R.id.linearTop)
     LinearLayout linearTop;
+    @BindView(R.id.textView4)TextView textViewNumber;
     ArrayList<MainListViewHolder> viewHolders;
-    //    CustomAdapter mainListAdapter;
+    @BindView(R.id.textView2)
+    TextView name;
+    int position;
+    @OnClick(R.id.imageView19)public void add(){
+        textViewNumber.setText(String.valueOf(viewHolders.get(position).addNum()));
+    }
+    @OnClick(R.id.imageView20)public void mines(){
+        textViewNumber.setText(String.valueOf(viewHolders.get(position).mines()));
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.main_fragment, container, false);
@@ -48,11 +57,8 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     }
 
     private void init() {
-//        mainListAdapter = new CustomAdapter(getContext());
-//        recyclerView.setAdapter(mainListAdapter);
         presenter = new MainFragmentPresenter(this,getContext(),progressBar,root);
         viewHolders = new ArrayList<>();
-
     }
 
     @Override
@@ -68,7 +74,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     }
     MainAdapterListener mainAdapterListener = new MainAdapterListener() {
         @Override
-        public void onClick(int i) {
+        public void onClick(int i, RubbishEntity rubbishEntity) {
             for (int j = 0;j<viewHolders.size();j++){
                 viewHolders.get(j).isSelected  = false;
             }
@@ -78,6 +84,9 @@ public class MainFragment extends Fragment implements IMainFragmentView {
                 if (viewHolders.get(j).haveNumber && !viewHolders.get(j).isSelected)
                     viewHolders.get(j).setHaveNumber();
             }
+            name.setText(rubbishEntity.type);
+            textViewNumber.setText(String.valueOf(viewHolders.get(i).num));
+            position = i;
         }
     };
     void addItem() {
