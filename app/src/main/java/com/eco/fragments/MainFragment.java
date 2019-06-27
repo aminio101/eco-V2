@@ -8,9 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
+import android.widget.GridView;
 import android.widget.ProgressBar;
 
 import com.eco.R;
+import com.eco.adapter.CustomAdapter;
 import com.eco.adapter.MainListAdapter;
 import com.eco.entitys.RubbishEntity;
 import com.eco.interfaces.IMainFragmentPresenter;
@@ -33,8 +36,8 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @BindView(R.id.root)
     ConstraintLayout root;
     @BindView(R.id.list)
-    RecyclerView recyclerView;
-    MainListAdapter mainListAdapter;
+    GridView recyclerView;
+    CustomAdapter mainListAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.main_fragment, container, false);
@@ -43,23 +46,25 @@ public class MainFragment extends Fragment implements IMainFragmentView {
         presenter.getList();
         return view;
     }
-    MainAdapterListener mainAdapterListener = new MainAdapterListener() {
-        @Override
-        public void onClick(int i ) {
-            MainListViewHolder mainListViewHolder = (MainListViewHolder) recyclerView.findViewHolderForAdapterPosition(i);
-            mainListViewHolder.setSelected();
-        }
-    };
+
     private void init() {
-        presenter = new MainFragmentPresenter(this,getContext(),progressBar,root);
-        mainListAdapter = new MainListAdapter(getContext(),mainAdapterListener);
+        mainListAdapter = new CustomAdapter(getContext());
+
         recyclerView.setAdapter(mainListAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.HORIZONTAL, false));
+        presenter = new MainFragmentPresenter(this,getContext(),progressBar,root);
+
+
     }
 
     @Override
     public void showList(ArrayList<RubbishEntity> result) {
-        mainListAdapter.addItem(result);
+        ArrayList<MainListViewHolder> mainListViewHolders = new ArrayList<>();
+        for (int i=0 ; i <result.size();i++)
+        {
+            MainListViewHolder mainListViewHolder = new MainListViewHolder(getContext(),result.get(i));
+            mainListViewHolders.add(mainListViewHolder);
+        }
+        mainListAdapter.addItem(result,mainListViewHolders);
     }
 
     @Override

@@ -372,15 +372,17 @@
         <!--app:layout_constraintTop_toTopOf="@+id/guideline225" />-->
 
         <!---->
-        <android.support.v7.widget.RecyclerView
+        <GridView
             android:layout_width="0dp"
             android:layout_height="@dimen/_200sdp"
             android:layout_margin="@dimen/_8sdp"
             android:id="@+id/list"
             android:layoutDirection="rtl"
+            android:numColumns="2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
 
     </android.support.constraint.ConstraintLayout>
     <ProgressBar
