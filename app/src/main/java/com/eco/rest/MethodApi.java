@@ -14,11 +14,8 @@ import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.RequestEntity;
 import com.eco.entitys.RequestGetDayListEntity;
-<<<<<<< HEAD
 import com.eco.entitys.RequstUserUpdateEntity;
-=======
 import com.eco.entitys.RubbishEntity;
->>>>>>> 1c143a9b9bcd95dc57edb373ea97b7d3759d33b8
 import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.ScoreToMoneyEntity;
 import com.eco.entitys.SendUserEntity;
@@ -505,11 +502,9 @@ public class MethodApi {
         }));
     }
 
-<<<<<<< HEAD
 
 
 
-=======
     public void getRubbishList(final IRemoteCallback<ArrayList<RubbishEntity>> callback) {
         final Call<ArrayList<RubbishEntity>> call = signatureApi.getRubbishList(PV.tokenPrefix+PrefManager.getInstance().getToken());
         call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<RubbishEntity>>() {
@@ -534,5 +529,4 @@ public class MethodApi {
             }
         }));
     }
->>>>>>> 1c143a9b9bcd95dc57edb373ea97b7d3759d33b8
 }
