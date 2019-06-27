@@ -4,14 +4,17 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.eco.PV;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.RubbishEntity;
 import com.eco.interfaces.IMainFragmentPresenter;
 import com.eco.interfaces.IMainFragmentView;
 import com.eco.rest.IRemoteCallback;
 import com.eco.rest.MethodApi;
+import com.eco.viewHolder.MainListViewHolder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> implements IMainFragmentPresenter {
     public MainFragmentPresenter(IMainFragmentView view, Context context, ProgressBar progressBars,  View views) {
@@ -50,5 +53,19 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                 }
             }
         });
+    }
+
+    @Override
+    public void save(ArrayList<MainListViewHolder> viewHolders) {
+        HashMap<String,Integer> hashMap = new HashMap<>();
+        for (int i =0 ;i < viewHolders.size();i++){
+            if (viewHolders.get(i).num!=0){
+                hashMap.put(String.valueOf(viewHolders.get(i).rubbishEntity.id),viewHolders
+                        .get(i).num);
+            }
+        }
+        PV.requestEntity.request = hashMap;
+        if (PV.requestEntity.request.size()==0)
+            showMsg("لطفا حداقل یک پسماند انتخاب کنید");
     }
 }

@@ -9,10 +9,8 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 
 import com.eco.R;
-import com.eco.interfaces.IFinalFragmentPresenter;
 import com.eco.interfaces.IWalletFragmentView;
 import com.eco.interfaces.IWalletPresenter;
-import com.eco.presenters.FinalFragmentPresenter;
 import com.eco.presenters.WalletFragmentPresenter;
 import com.eco.views.DialogConnection;
 

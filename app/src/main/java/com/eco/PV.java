@@ -2,6 +2,7 @@ package com.eco;
 
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.LocationEntity;
+import com.eco.entitys.RequestEntity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +21,7 @@ public class PV {
     public static String mainVersion = "0";
     public static String lasteVrsion = "302.8";
     public static String urlCheckVersion = "https://ecoiwm.ir/api/";
-
+    public static RequestEntity requestEntity = new RequestEntity();
 
     public static LocationEntity locationEntity = new LocationEntity(); // todo test
 
