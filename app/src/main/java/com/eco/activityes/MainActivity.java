@@ -108,11 +108,11 @@ public class MainActivity extends AppCompatActivity {
                 loadIntroduceFragment();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
-         /*   case R.id.profile:
-                loadFragmentProfile();
+           case R.id.profile:
+               loadEditProfileFragment();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
-            case R.id.wallet:
+          /*   case R.id.wallet:
                 loadFragmentWallet();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
@@ -174,6 +174,14 @@ public class MainActivity extends AppCompatActivity {
         currentFragment = new IntroduceFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "IntroduceFragment");
         fragmentTransaction.addToBackStack("IntroduceFragment");
+        fragmentTransaction.commit();
+    }
+    public void loadEditProfileFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        currentFragment = new IntroduceFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "EditProfileFragment");
+        fragmentTransaction.addToBackStack("EditProfileFragment");
         fragmentTransaction.commit();
     }
 

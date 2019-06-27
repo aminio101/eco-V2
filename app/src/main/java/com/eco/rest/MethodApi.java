@@ -14,6 +14,7 @@ import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
 import com.eco.entitys.RequestEntity;
 import com.eco.entitys.RequestGetDayListEntity;
+import com.eco.entitys.RequstUserUpdateEntity;
 import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.ScoreToMoneyEntity;
 import com.eco.entitys.SendUserEntity;
@@ -23,10 +24,16 @@ import com.eco.entitys.UserEntity;
 import com.eco.entitys.UserNumberEntity;
 import com.eco.entitys.VerifiCodeEntity;
 import com.eco.entitys.VerifyCodeSuccessEntity;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
@@ -256,6 +263,41 @@ public class MethodApi {
         }));
 
     }
+    public void update(RequstUserUpdateEntity user,
+                       final IRemoteCallback<UserEntity> callback) {
+
+        Gson gson = new Gson();
+        JSONObject data = new JSONObject();
+        try {
+            data.put("data", gson.toJson(user));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        RequestBody body = RequestBody.create(MediaType.parse("text/plain"), data.toString());
+
+        final Call<UserEntity> call = signatureApi.update(PrefManager.getInstance().getToken(), body);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<UserEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(UserEntity result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
     public void getRequestNumber(LocationEntity location, final IRemoteCallback<ArrayList<UserNumberEntity>> callback) {
         final Call<ArrayList<UserNumberEntity>> call = signatureApi.getUserNumber(PV.tokenPrefix+ PrefManager.getInstance().getToken(),location);
         call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<UserNumberEntity>>() {
@@ -458,5 +500,8 @@ public class MethodApi {
             }
         }));
     }
+
+
+
 
 }

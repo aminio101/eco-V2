@@ -38,7 +38,10 @@ public class IntroducePresenter extends BasePresenter<IIntroduceView> implements
 
             @Override
             public void onSuccess(InviteEntity result) {
-                if (isViewAvailable()) mView.get().success();
+                if (isViewAvailable()) {
+                    mView.get().success();
+                    showMsg("دعوت از دوست شما موفقیت آمیز بود");
+                }
             }
 
             @Override

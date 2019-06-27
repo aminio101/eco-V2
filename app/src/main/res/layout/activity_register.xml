@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:padding="@dimen/_8sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="right"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/toosi"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:textColor="@color/fili2"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        android:text="تکمیل پروفایل"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+
+            android:layout_gravity="right"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/swRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="@dimen/_8sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/custom_shaba_edit_text_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2">
+
+        <Switch
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/type"
+            android:text="شخصی" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@id/type"
+            android:text="صنفی" />
+    </RelativeLayout>
+
+            <TextView
+                android:gravity="right"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/textView_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نام"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_name"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+            <TextView
+                android:gravity="right"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/textView_family"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نام خانوادگی"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_family"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_address"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تحصیلات"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_Education"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="پست الکترونیک"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_email"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="شغل"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_work"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800" />
+
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_familyNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تعداد اعضای خانواده "
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+
+
+            <EditText
+                android:id="@+id/editText_familyNumber"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_shabaNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="شماره شبا "
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+
+
+            <EditText
+                android:id="@+id/editText_shabaNumber"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+            <RadioGroup
+
+                android:id="@+id/rgp_sex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="0dp"
+                android:orientation="horizontal"
+                android:theme="@style/MyRadioButton"
+                android:weightSum="1"
+               >
+
+                <RadioButton
+                    android:id="@+id/rdb_male"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/male"
+                    android:textColor="#0097a7"
+                    android:theme="@style/MyRadioButton" />
+
+                <RadioButton
+                    android:id="@+id/rdb_female"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/female"
+                    android:textColor="#0097a7" />
+
+            </RadioGroup>
+            <Button
+                android:layout_margin="@dimen/_10sdp"
+                android:id="@+id/button_register"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_button_send"
+                android:text="@string/register"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_17ssp"
+                />
+            <ProgressBar
+                android:id="@+id/progress_circular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </LinearLayout>
+</ScrollView>
+</LinearLayout>

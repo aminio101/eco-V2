@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="right"
+    android:gravity="right"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/toosi">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit"
+        android:textColor="@color/fili2"
+        android:textSize="@dimen/_22ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40"
+        app:layout_constraintTop_toTopOf="@+id/guideline41" />
+
+    <TextView
+        android:gravity="right"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/edituser"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+
+            android:layout_gravity="right"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progress_circular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+            <TextView
+                android:gravity="right"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/textView_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نام"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_name"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+            <TextView
+                android:gravity="right"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/textView_family"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="نام خانوادگی"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_family"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_address"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تحصیلات"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_Education"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="پست الکترونیک"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_email"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="شغل"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+            <EditText
+                android:id="@+id/editText_work"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800" />
+
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_familyNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تعداد اعضای خانواده "
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+
+
+            <EditText
+                android:id="@+id/editText_familyNumber"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:gravity="right"
+                android:id="@+id/textView_shabaNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="شماره شبا "
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_13ssp"
+                />
+
+
+            <EditText
+                android:id="@+id/editText_shabaNumber"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:inputType="text"
+                android:textColor="@color/yellow_800"
+                />
+            <Button
+                android:layout_margin="@dimen/_10sdp"
+                android:id="@+id/button_submit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/custom_button_send"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_17ssp"
+                />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

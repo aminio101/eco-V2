@@ -22,6 +22,7 @@ import com.eco.views.DialogConnection;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnEditorAction;
 import butterknife.Optional;
 
 public class IntroduceFragment extends Fragment implements IIntroduceView {
@@ -35,12 +36,7 @@ public class IntroduceFragment extends Fragment implements IIntroduceView {
     @BindView(R.id.editText3)
     EditText phone;
     IIntroducePresenter presenter;
-    @OnClick(R.id.editText2)public void onNameClick(){
-        name.setBackgroundResource(R.drawable.custom_shaba_edit_text_orange);
-    }
-    @OnClick(R.id.editText3)public void onPhoneClick(){
-        phone.setBackgroundResource(R.drawable.custom_shaba_edit_text_orange);
-    }
+
     @OnClick(R.id.button2)
     public void introduce() {
         presenter.invite(phone.getText().toString());
@@ -56,6 +52,26 @@ public class IntroduceFragment extends Fragment implements IIntroduceView {
 
     private void init() {
         presenter = new IntroducePresenter(this, getContext(), progressBar, root);
+        name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus)
+                    name.setBackgroundResource(R.drawable.custom_shaba_edit_text_orange);
+                else
+                    name.setBackgroundResource(R.drawable.custom_shaba_edit_text_gray);
+
+
+            }
+        });
+        phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus)
+                    phone.setBackgroundResource(R.drawable.custom_shaba_edit_text_orange);
+                else
+                    phone.setBackgroundResource(R.drawable.custom_shaba_edit_text_gray);
+            }
+        });
     }
 
     @Override

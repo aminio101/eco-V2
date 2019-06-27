@@ -22,6 +22,7 @@ import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -111,5 +112,9 @@ public interface SignatureApi {
     @Headers({"Content-Type:application/json"})
     @PUT("/api/shared/neighborRequest")
     Call<ArrayList<UserNumberEntity>> getUserNumber(@Header("Authorization") String auth,@Body LocationEntity username);
+
+    @Headers({"Content-Type:application/json"})
+    @PUT("/api/shared/users")
+    Call<UserEntity> update(@Header("Authorization") String authorization, @Body RequestBody body);
 
 }

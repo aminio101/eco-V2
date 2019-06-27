@@ -55,6 +55,7 @@
         >تایید</string>
     <string name="walletFragment">درآمد خود را تصویه حساب نمایید</string>
     <string name="grade">امتیاز</string>
+    <string name="register">ثبت نام</string>
     <string name="shabanumber">شماره شبا</string>
     <string name="save">ذخیره</string>
     <string name="edit">ویرایش</string>
@@ -65,4 +66,6 @@
     <string name="friendIntroduction">اپلیکیشن را به دوستان خود معرفی کنید</string>
     <string name="edituser">ویرایش اطلاعات کاربری</string>
     <string name="namefamily">نام و نام خانوادگی</string>
+    <string name="male">آقا</string>
+    <string name="female">خانم</string>
 </resources>
