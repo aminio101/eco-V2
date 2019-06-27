@@ -1,29 +1,35 @@
 package com.eco.viewHolder;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.eco.PV;
 import com.eco.R;
 import com.eco.entitys.RubbishEntity;
+import com.eco.interfaces.MainAdapterListener;
 
 public class MainListViewHolder {
     public   ImageView imageView;
     public  TextView name;
     public  TextView number;
     public RelativeLayout root;
-    public boolean selected;
+    public boolean haveNumber;
     public boolean isSelected;
     public Context context;
     public View lineRight, lineLeft, lineBottom;
     public LayoutInflater inflater;
     public View itemView;
     RubbishEntity rubbishEntity;
-    public MainListViewHolder(Context context,RubbishEntity
-                               rubbishEntity) {
+    MainAdapterListener mainAdapterListener;
+    public MainListViewHolder(Context context, RubbishEntity
+            rubbishEntity, int position,MainAdapterListener listener) {
 
         this.rubbishEntity = rubbishEntity;
         inflater = (LayoutInflater) context.
@@ -39,13 +45,33 @@ public class MainListViewHolder {
         lineBottom = itemView.findViewById(R.id.line_bottom);
         lineLeft = itemView.findViewById(R.id.line_left);
         root = itemView.findViewById(R.id.root);
-        selected = false;
+        haveNumber = false;
         lineRight = itemView.findViewById(R.id.line_right);
 
 
-
+        isSelected = false;
+        haveNumber = false;
 
         name.setText(rubbishEntity.type);
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.ecologo);
+        requestOptions.error(R.drawable.ecologo);
+        Glide.with(context).setDefaultRequestOptions(requestOptions).load(PV.getImage(rubbishEntity.picture)).into(imageView);
+
+
+        if (position == 0 || position == 1)
+            lineRight.setVisibility(View.GONE);
+        if (position % 2 == 1)
+            lineBottom.setVisibility(View.GONE);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelected();
+                listener.onClick(position);
+            }
+        });
+
     }
 
 //    public void setNoneSelected() {
@@ -54,14 +80,14 @@ public class MainListViewHolder {
 //        name.setTextColor(Color.parseColor("#AFADAD"));
 //    }
 //
-//    public void setSelected() {
-//        name.setTextColor(Color.parseColor("#F77401"));
-//        root.setBackgroundColor(Color.parseColor("#FFFFFF"));
-//    }
+private void setSelected() {
+    name.setTextColor(Color.parseColor("#F77401"));
+    root.setBackgroundColor(Color.parseColor("#FFFFFF"));
+}
 //
-//    public void setHaveNumber() {
-//        root.setBackgroundColor(Color.parseColor("#DFDCDC"));
-//        name.setTextColor(Color.parseColor("#0A3F75"));
-//        number.setVisibility(View.VISIBLE);
-//    }
+    public void setHaveNumber() {
+        root.setBackgroundColor(Color.parseColor("#DFDCDC"));
+        name.setTextColor(Color.parseColor("#0A3F75"));
+        number.setVisibility(View.VISIBLE);
+    }
 }

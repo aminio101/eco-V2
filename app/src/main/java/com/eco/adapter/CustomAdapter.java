@@ -75,7 +75,7 @@ public class CustomAdapter extends BaseAdapter {
 //        if (position % 2 == 1)
 //            lineBottom.setVisibility(View.GONE);
 //
-//        if (listViewHolders.get(position).selected) {
+//        if (listViewHolders.get(position).haveNumber) {
 //            setHaveNumber(root, name, number);
 //            Toast.makeText(context, position + " Selecet ", Toast.LENGTH_LONG).show();
 //        } else setNoneSelected(root, name);
@@ -83,7 +83,7 @@ public class CustomAdapter extends BaseAdapter {
 //        imageView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                listViewHolders.get(position).selected = true;
+//                listViewHolders.get(position).haveNumber = true;
 //                setHaveNumber(root, name, number);
 //                Toast.makeText(context, position + "", Toast.LENGTH_LONG).show();
 ////                setSelected();

@@ -63,7 +63,7 @@ public class MainListAdapter {
 //        if (i % 2 == 1)
 //            mainListViewHolder.lineBottom.setVisibility(View.GONE);
 //
-//        if (mainListViewHolder.selected){
+//        if (mainListViewHolder.haveNumber){
 //            mainListViewHolder.setHaveNumber();
 //            Toast.makeText(context,i+" Selecet ",Toast.LENGTH_LONG).show();
 //
@@ -73,7 +73,7 @@ public class MainListAdapter {
 //        mainListViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                mainListViewHolder.selected=true;
+//                mainListViewHolder.haveNumber=true;
 //                mainListViewHolder.setHaveNumber();
 //                Toast.makeText(context,i+"",Toast.LENGTH_LONG).show();
 ////                mainListViewHolder.setSelected();
