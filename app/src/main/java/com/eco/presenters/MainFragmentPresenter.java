@@ -67,5 +67,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
         PV.requestEntity.request = hashMap;
         if (PV.requestEntity.request.size()==0)
             showMsg("لطفا حداقل یک پسماند انتخاب کنید");
+        else
+            mView.get().loadMapFragment();
     }
 }

@@ -1,5 +1,6 @@
 package com.eco.interfaces;
 
+import com.eco.entitys.DayEntity;
 import com.eco.entitys.LocationEntity;
 import com.eco.entitys.UserNumberEntity;
 
@@ -14,4 +15,10 @@ public interface ITimeFragmentView {
     void showGif(int s);
 
     void rGetAdvertising();
+
+    void rGetNow();
+
+    void rGetTimes();
+
+    void showTimes(ArrayList <DayEntity> list);
 }

@@ -33,7 +33,10 @@ public class FavoriteAddressAdapter extends RecyclerView.Adapter<FavoriteAddress
         mapAdapterMode = SELECT;
         list = new ArrayList<>();
     }
-
+    public void unSelectAll(){
+        for (int j=0;j<favoriteAddressViewHolderArrayList.size();j++)
+            favoriteAddressViewHolderArrayList.get(j).root.setCardBackgroundColor(Color.parseColor("#686666"));
+    }
     public void addItem(ArrayList<FavoriteAddressEntity> list) {
         this.list.addAll(list);
         notifyDataSetChanged();

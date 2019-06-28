@@ -23,6 +23,7 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -103,10 +104,9 @@ public class MapFragment extends Fragment implements
         } else if (buttonNextStep.getText().toString().equals("اضافه کردن")) {
             DialogSelectAddress dialogSelectAddress = new DialogSelectAddress(null, getContext(), callBackFavoriteLocationDialog);
         } else {
-            ((MainActivity) getActivity()).loadTimeFragment();
+            presenter.checkData(des.getText().toString(), mMap);
         }
     }
-
     ArrayList<FavoriteAddressEntity> list;
     @BindView(R.id.map_fragment_button_next_step)
     Button buttonNextStep;
@@ -116,13 +116,18 @@ public class MapFragment extends Fragment implements
     ImageView imageViewAddLocation;
     @BindView(R.id.btnEditLocation)
     ImageView imageViewEditLocation;
-
+    @BindView(R.id.mapFragmentEditTextDes)
+    EditText des;
     @OnClick(R.id.addLocation)
     public void addLocation() {
         hideView();
         buttonNextStep.setText("اضافه کردن");
     }
-
+    void editMode(){
+        imageViewMyLocation.setVisibility(View.GONE);
+        imageViewAddLocation.setVisibility(View.GONE);
+        imageViewEditLocation.setVisibility(View.GONE);
+    }
     @OnClick(R.id.mapFragmentRelativeMyLocation)
     public void goToMyLocation() {
         LocationManager locationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
@@ -139,6 +144,7 @@ public class MapFragment extends Fragment implements
         adapter.setMode(EDIT);
         mapAdapterMode = EDIT;
         buttonNextStep.setText("ویرایش");
+        editMode();
     }
 
     public void showView() {
@@ -241,6 +247,8 @@ public class MapFragment extends Fragment implements
            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14), 100, null);
            if (mapAdapterMode == EDIT) {
                showAddressDialog(favoriteAddressEntity);
+           } else {
+               des.setText(favoriteAddress.getDescription());
            }
        }
    };
@@ -374,6 +382,8 @@ public class MapFragment extends Fragment implements
         presenter.getFavoriteLocation();
         adapter.setMode(SELECT);
         mapAdapterMode = SELECT;
+        adapter.unSelectAll();
+        favoriteAddressEntity = null;
     }
 
     @Override
@@ -389,6 +399,8 @@ public class MapFragment extends Fragment implements
     @Override
     public void successAddLocation() {
         showView();
+        adapter.unSelectAll();
+        favoriteAddressEntity = null;
     }
 
     @Override
@@ -399,6 +411,21 @@ public class MapFragment extends Fragment implements
                 presenter.addLocation(favoriteAddressEntity);
             }
         });
+    }
+
+    @Override
+    public void rCheckLocation(String des, GoogleMap googleMap) {
+        DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.checkData(des, googleMap);
+            }
+        });
+    }
+
+    @Override
+    public void successSaveLocation() {
+        ((MainActivity) getActivity()).loadTimeFragment();
     }
 
 

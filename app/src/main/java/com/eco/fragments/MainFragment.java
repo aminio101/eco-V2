@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.eco.R;
 import com.eco.activityes.MainActivity;
@@ -41,21 +42,41 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     ArrayList<MainListViewHolder> viewHolders;
     @BindView(R.id.textView2)
     TextView name;
+    boolean isSelect = false;
     ArrayList<RubbishEntity> rubbishEntityArrayList;
     int position;
     @OnClick(R.id.imageView19)public void add(){
-        textViewNumber.setText(String.valueOf(viewHolders.get(position).addNum()));
+        if (checkSelectItem()||isSelect) {
+            textViewNumber.setText(String.valueOf(viewHolders.get(position).addNum()));
+            if (textViewNumber.getText().toString().equals("0"))
+                isSelect = false;
+        }
+        else
+            Toast.makeText(getContext(),"لطفا یک پسماند را ابتدا انتخاب کنید",Toast.LENGTH_LONG).show();
     }
     @OnClick(R.id.imageView20)public void mines(){
-        textViewNumber.setText(String.valueOf(viewHolders.get(position).mines()));
+        if (checkSelectItem()||isSelect) {
+            textViewNumber.setText(String.valueOf(viewHolders.get(position).mines()));
+            if (textViewNumber.getText().toString().equals("0"))
+                isSelect = false;
+        }else
+            Toast.makeText(getContext(),"لطفا یک پسماند را ابتدا انتخاب کنید",Toast.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.nextFragment)
     public void nextFragment() {
         presenter.save(viewHolders);
-        ((MainActivity) getActivity()).loadMapFragment();
     }
-
+    public boolean checkSelectItem(){
+        boolean haveItem = false;
+        for (int i=0;i<viewHolders.size();i++){
+            if (viewHolders.get(i).num>0) {
+                haveItem = true;
+                break;
+            }
+        }
+        return haveItem;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.main_fragment, container, false);
@@ -66,6 +87,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     }
 
     private void init() {
+        isSelect = false;
         presenter = new MainFragmentPresenter(this,getContext(),progressBar,root);
         viewHolders = new ArrayList<>();
         rubbishEntityArrayList = new ArrayList<>();
@@ -97,7 +119,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
             name.setText(rubbishEntity.type);
             textViewNumber.setText(String.valueOf(viewHolders.get(i).num));
             position = i;
-
+            isSelect = true;
         }
     };
     void addItem() {
@@ -119,5 +141,10 @@ public class MainFragment extends Fragment implements IMainFragmentView {
                 presenter.getList();
             }
         });
+    }
+
+    @Override
+    public void loadMapFragment() {
+        ((MainActivity) getActivity()).loadMapFragment();
     }
 }

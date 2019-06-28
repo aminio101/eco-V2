@@ -21,9 +21,9 @@
     <color name="fili5">#78909c</color>
     <color name="fili6">#607d8b</color>
     <color name="button_color">#F4426B</color>
-
+    <color name="orange">#f17108</color>
     <color name="bgList">#c8c6c7</color>
-    <color name="bg_LightWhite">#EFEFF1</color>
+    <color name="bg_LightWhite">#E7E7E7</color>
     <color name="red">#cc0001</color>
 
     <color name="green">#2F5A14</color>
