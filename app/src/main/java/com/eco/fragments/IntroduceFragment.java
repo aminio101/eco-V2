@@ -45,12 +45,12 @@ public class IntroduceFragment extends Fragment implements IIntroduceView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.introduction_fragment, container, false);
-        ButterKnife.bind(this, view);
         init();
         return view;
     }
 
     private void init() {
+        ButterKnife.bind(this, view);
         presenter = new IntroducePresenter(this, getContext(), progressBar, root);
         name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

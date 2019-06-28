@@ -1,5 +1,6 @@
 package com.eco.activityes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.eco.R;
+import com.eco.fragments.EditProfileFragment;
 import com.eco.fragments.FinalFragment;
 import com.eco.fragments.IntroduceFragment;
 import com.eco.fragments.MainFragment;
@@ -112,18 +114,21 @@ public class MainActivity extends AppCompatActivity {
                loadEditProfileFragment();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
-          /*   case R.id.wallet:
-                loadFragmentWallet();
-                drawerLayout.closeDrawer(RIGHT);
-                return true;
-            case R.id.gift:
-                loadFragmentInvite();
+            case R.id.invite:
+                loadIntroduceFragment();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
             case R.id.prices:
-                loadFragmentPrices();
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
+           /*// case R.id.wallet:
+              loadFragmentWallet();
+               drawerLayout.closeDrawer(RIGHT);
+                return true;
+
+
             case R.id.about_us:
                 loadFragmentAboutUs();
                 drawerLayout.closeDrawer(RIGHT);
@@ -179,10 +184,11 @@ public class MainActivity extends AppCompatActivity {
     public void loadEditProfileFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
-        currentFragment = new IntroduceFragment();
+        currentFragment = new EditProfileFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "EditProfileFragment");
         fragmentTransaction.addToBackStack("EditProfileFragment");
         fragmentTransaction.commit();
     }
+
 
 }

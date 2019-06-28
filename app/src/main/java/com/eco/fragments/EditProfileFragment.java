@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import com.eco.PrefManager;
 import com.eco.R;
 import com.eco.entitys.RequstUserUpdateEntity;
+import com.eco.entitys.UserEntity;
 import com.eco.interfaces.IEditProfileView;
 import com.eco.presenters.EditProfilePresenter;
 import com.eco.views.DialogConnection;
@@ -26,8 +27,6 @@ public class EditProfileFragment extends Fragment implements IEditProfileView {
     View view;
     @BindView(R.id.progress_circular)
     ProgressBar progressBar;
-    @BindView(R.id.root)
-    ConstraintLayout root;
     @BindView(R.id.editText_name)
     EditText editTextName;
     @BindView(R.id.editText_family)
@@ -74,17 +73,17 @@ public class EditProfileFragment extends Fragment implements IEditProfileView {
         editTextFamilyNumber.setText(PrefManager.getInstance().getUser().familyNumber);
         editTextShabaNumber.setText(PrefManager.getInstance().getUser().shabaNumber);
 
-        presenter = new EditProfilePresenter(this, getContext(), progressBar, root);
+        presenter = new EditProfilePresenter(this, getContext(), progressBar, button_submit);
 
 
     }
     @Override
-    public void success() {
-
+    public void success(UserEntity result) {
+        PrefManager.getInstance().setUser(result);
     }
 
     @Override
-    public void rupdate() {
+    public void rupdate(RequstUserUpdateEntity requstUserUpdateEntity) {
         DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -19,6 +19,7 @@ import com.eco.entitys.RubbishEntity;
 import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.ScoreToMoneyEntity;
 import com.eco.entitys.SendUserEntity;
+import com.eco.entitys.SignupAnswerEntity;
 import com.eco.entitys.StoreCategoryListEntity;
 import com.eco.entitys.TimeStampEntity;
 import com.eco.entitys.UserEntity;
@@ -36,9 +37,6 @@ import java.util.ArrayList;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.Headers;
-import retrofit2.http.PUT;
 
 public class MethodApi {
 
@@ -515,6 +513,33 @@ public class MethodApi {
 
             @Override
             public void onSuccess(ArrayList<RubbishEntity> result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
+
+    public void signUp(UserEntity user,
+                       final IRemoteCallback<SignupAnswerEntity> callback) {
+
+        final Call<SignupAnswerEntity> call = signatureApi.signUp(user);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<SignupAnswerEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(SignupAnswerEntity result) {
                 callback.onSuccess(result);
             }
 

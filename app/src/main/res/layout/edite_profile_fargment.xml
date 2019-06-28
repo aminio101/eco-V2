@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_gravity="right"
     android:gravity="right"
+    android:id="@+id/root"
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@color/toosi">

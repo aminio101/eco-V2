@@ -124,7 +124,7 @@
             <TextView
                 android:layout_marginRight="@dimen/_10sdp"
                 android:gravity="right"
-                android:id="@+id/textView14"
+                android:id="@+id/textView_Education"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="تحصیلات"
