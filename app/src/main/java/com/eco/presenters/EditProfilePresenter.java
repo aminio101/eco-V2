@@ -30,6 +30,7 @@ public class EditProfilePresenter extends BasePresenter<IEditProfileView> implem
 
     @Override
     public void update(RequstUserUpdateEntity requstUserUpdateEntity) {
+        startProgress();
         MethodApi.getInstance().update(requstUserUpdateEntity, new IRemoteCallback<UserEntity>() {
             @Override
             public void onResponse(Boolean answer) {
@@ -39,10 +40,10 @@ public class EditProfilePresenter extends BasePresenter<IEditProfileView> implem
             @Override
             public void onSuccess(UserEntity result) {
                 if (isViewAvailable()) {
-                    PrefManager.getInstance().setUser(result);
-                stopProgress();
-                mView.get().callHome();
-                showMsg("ویرایش اطلاعات شما با موفقیت انجام شد");}
+                    mView.get().success(result);
+                    stopProgress();
+                    mView.get().callHome();
+                    showMsg("ویرایش اطلاعات شما با موفقیت انجام شد");}
             }
 
             @Override
@@ -53,7 +54,7 @@ public class EditProfilePresenter extends BasePresenter<IEditProfileView> implem
             @Override
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
-                 //   if (!connection) mView.get().rupdate(phone);
+                  if (!connection) mView.get().rupdate(requstUserUpdateEntity);
                     stopProgress();
                 }
             }

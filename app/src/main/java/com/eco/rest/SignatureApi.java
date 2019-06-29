@@ -13,6 +13,7 @@ import com.eco.entitys.RubbishEntity;
 import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.ScoreToMoneyEntity;
 import com.eco.entitys.SendUserEntity;
+import com.eco.entitys.SignupAnswerEntity;
 import com.eco.entitys.StoreCategoryListEntity;
 import com.eco.entitys.TimeStampEntity;
 import com.eco.entitys.UserEntity;
@@ -128,5 +129,9 @@ public interface SignatureApi {
     @Headers({"Content-Type:application/json"})
     @PUT("/api/shared/users")
     Call<UserEntity> update(@Header("Authorization") String authorization, @Body RequestBody body);
+
+    @Headers({"Content-Type:application/json"})
+    @POST("/api/users/userSignUp")
+    Call<SignupAnswerEntity> signUp(@Body UserEntity user);
 
 }

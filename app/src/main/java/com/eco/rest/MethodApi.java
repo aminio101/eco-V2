@@ -19,6 +19,7 @@ import com.eco.entitys.RubbishEntity;
 import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.ScoreToMoneyEntity;
 import com.eco.entitys.SendUserEntity;
+import com.eco.entitys.SignupAnswerEntity;
 import com.eco.entitys.StoreCategoryListEntity;
 import com.eco.entitys.TimeStampEntity;
 import com.eco.entitys.UserEntity;
@@ -535,6 +536,33 @@ public class MethodApi {
 
             @Override
             public void onSuccess(ArrayList<RubbishEntity> result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
+
+    public void signUp(UserEntity user,
+                       final IRemoteCallback<SignupAnswerEntity> callback) {
+
+        final Call<SignupAnswerEntity> call = signatureApi.signUp(user);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<SignupAnswerEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(SignupAnswerEntity result) {
                 callback.onSuccess(result);
             }
 
