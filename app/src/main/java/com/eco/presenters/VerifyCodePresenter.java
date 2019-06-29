@@ -76,9 +76,9 @@ public class VerifyCodePresenter extends BasePresenter<IVerifyCodeView> implemen
 
                 @Override
                 public void onSuccess(VerifyCodeSuccessEntity result) {
-                    PrefManager.getInstance().setToken(result.getToken());
+                    PrefManager.getInstance().setFirstToken(result.getToken());
                     if (result.getCheckUser().equals("0")) {
-                        mView.get().goToRegisterActivity();
+                        mView.get().goToRegisterActivity(verifiCodeentity.getUsername());
                         newUser = true;
                     } else {
                         newUser = false;

@@ -12,6 +12,7 @@ public class LocationEntity {
     private double lat;
 
 
+
     public void LocationEntity(){
 
     }

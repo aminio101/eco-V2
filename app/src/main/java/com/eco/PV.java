@@ -23,7 +23,6 @@ public class PV {
     public static String TokenURL = "identity.";
     public static String URL = "185.252.29.12";
     public static String PROTOCOL = "http://";
-    public static String token = "";
     public static String tokenPrefix = "Bearer ";
     public static String mainVersion = "0";
     public static String lasteVrsion = "302.8";

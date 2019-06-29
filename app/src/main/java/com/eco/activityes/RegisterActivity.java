@@ -3,7 +3,6 @@ package com.eco.activityes;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -13,9 +12,9 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.eco.PV;
+import com.eco.PrefManager;
 import com.eco.R;
-import com.eco.entitys.OrderList;
+import com.eco.entitys.LocationEntity;
 import com.eco.entitys.SignupAnswerEntity;
 import com.eco.entitys.UserEntity;
 import com.eco.interfaces.IRegisterView;
@@ -78,6 +77,7 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterView
     }
     private void init() {
        presenter = new RegisterPresenter(this, this, progressBar,button_register);
+        mobile = getIntent().getStringExtra("mobile");
         switch_type.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -89,31 +89,29 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterView
     @OnClick(R.id.button_register)
     public void Register()
     {
-        UserEntity user = new UserEntity(new OrderList.Location(0,0),10, 408, 1
-                , mobile, editTextName.getText().toString() // amirhosen
-                , editTextFamily.getText().toString(), editTextEmail.getText().toString()
-                , editTextAddress.getText().toString()
-                , editTexteducation.getText().toString()
-                , editTextFamilyNumber.getText().toString()
-                , ((rdb_male.isChecked()) ? "1" : "2")
-                , editTextFamilyNumber.getText().toString()
-                , ((switch_type.isChecked()) ? 2 : 1), PV.token);
-        presenter.register(user);
+        UserEntity user = new UserEntity(new LocationEntity().setFirstLat(0).setFirstLng(0),
+                10,
+                408,
+                1,
+                mobile,
+                editTextName.getText().toString(),
+                editTextFamily.getText().toString(),
+                editTextEmail.getText().toString(),
+                editTextAddress.getText().toString(),
+                editTexteducation.getText().toString(),
+                editTextShabaNumber.getText().toString(),
+                ((rdb_male.isChecked()) ? "1" : "2"),
+                editTextFamilyNumber.getText().toString(),
+                ((switch_type.isChecked()) ? 1 : 2),
+                PrefManager.getInstance().getFirstToken());
 
+
+
+        presenter.register(user);
     }
 
     @Override
     public void isChecked() {
-        textView_name.setText("نوع واحد صنفی");
-        textView_family.setText("نام واحد صنفی");
-        textView_addres.setText("نام نماینده");
-        textView_education.setText("نام خانوادگی نماینده");
-        textView_email.setText("تعداد پرسنل فعال");
-
-    }
-
-    @Override
-    public void notChecked() {
         textView_name.setText("نام");
         textView_family.setText("نام خانوادگی");
         textView_addres.setText("آدرس");
@@ -122,28 +120,23 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterView
     }
 
     @Override
-    public void success(SignupAnswerEntity result) {
-        PV.token = result.getToken();
-        Log.i("role signUp", result.roleId + "");
-        PV.token = result.token;
-        PV.tokenPrefix = "Bearer ";
-        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-        intent.putExtra("state", "data");  // change
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-
-       /* PrefManager.getInstance().setUser(result);
-
-
-        PrefManager.getInstance().setID(result.id);
-        PrefManager.getInstance().setToken(result.token);
-        PrefManager.getInstance().setroleId(result.roleId);
-        */
-       //how to set up?
+    public void notChecked() {
+        textView_name.setText("نوع واحد صنفی");
+        textView_family.setText("نام واحد صنفی");
+        textView_addres.setText("نام نماینده");
+        textView_education.setText("نام خانوادگی نماینده");
+        textView_email.setText("تعداد پرسنل فعال");
     }
 
     @Override
-    public void rRefister(UserEntity user) {
+    public void success(SignupAnswerEntity result) {
+        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void rRegister(UserEntity user) {
         DialogConnection dialogConnection = new DialogConnection(this, new View.OnClickListener() {
             @Override
             public void onClick(View v) {

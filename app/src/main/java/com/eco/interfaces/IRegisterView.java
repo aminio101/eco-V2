@@ -10,5 +10,5 @@ public interface IRegisterView {
 
     void success(SignupAnswerEntity result);
 
-    void rRefister(UserEntity user);
+    void rRegister(UserEntity user);
 }

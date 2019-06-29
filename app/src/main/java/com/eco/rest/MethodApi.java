@@ -9,6 +9,7 @@ import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.entitys.InviteEntity;
 import com.eco.entitys.LocationEntity;
+import com.eco.entitys.MUserEntity;
 import com.eco.entitys.MobileEntitiy;
 import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
@@ -499,16 +500,16 @@ public class MethodApi {
         }));
     }
 
-    public void getUser(final IRemoteCallback<UserEntity> callback) {
-        final Call<ArrayList<UserEntity>> call = signatureApi.getUser(PV.tokenPrefix+PrefManager.getInstance().getToken());
-        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<UserEntity>>() {
+    public void getUser(final IRemoteCallback<MUserEntity> callback) {
+        final Call<ArrayList<MUserEntity>> call = signatureApi.getUser(PV.tokenPrefix+PrefManager.getInstance().getToken());
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<MUserEntity>>() {
             @Override
             public void onResponse(Boolean answer) {
                 callback.onResponse(answer);
             }
 
             @Override
-            public void onSuccess(ArrayList<UserEntity> result) {
+            public void onSuccess(ArrayList<MUserEntity> result) {
                 callback.onSuccess(result.get(0));
             }
 
