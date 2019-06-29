@@ -19,12 +19,15 @@ import android.widget.VideoView;
 import com.bumptech.glide.Glide;
 import com.eco.PV;
 import com.eco.R;
+import com.eco.activityes.MainActivity;
 import com.eco.adapter.DayListAdapter;
 import com.eco.adapter.TimeAdapter;
 import com.eco.entitys.DayEntity;
 import com.eco.entitys.LocationEntity;
+import com.eco.entitys.RunDatePeriodsEntity;
 import com.eco.entitys.UserNumberEntity;
 import com.eco.interfaces.IOnDayClickListener;
+import com.eco.interfaces.IOnSetTime;
 import com.eco.interfaces.ITimeFragmentView;
 import com.eco.presenters.TimeFragmentPresenter;
 import com.eco.views.DialogConnection;
@@ -33,6 +36,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class TimeFragment extends Fragment implements ITimeFragmentView {
     View view;
@@ -52,9 +56,21 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     @BindView(R.id.recyclerView)
     RecyclerView dayList;
     DayListAdapter dayListAdapter;
-    TimeAdapter timeAdapter;
     @BindView(R.id.timeList)
     RecyclerView recyclerViewTime;
+    String timeStamp;
+    RunDatePeriodsEntity runDatePeriods;
+    IOnSetTime onSetTime = new IOnSetTime() {
+        @Override
+        public void onClick(RunDatePeriodsEntity runDatePeriodsEntity) {
+            runDatePeriods = runDatePeriodsEntity;
+            PV.requestEntity.period = String.valueOf(runDatePeriodsEntity.period);
+            PV.requestEntity.runDate = String.valueOf(runDatePeriodsEntity.runDate);
+        }
+    };
+    @OnClick(R.id.nextStep)public void nextFragmentOnclick(){
+        presenter.nextFragment(runDatePeriods);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.time_fragment, container, false);
@@ -66,17 +82,26 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     IOnDayClickListener onDayClickListener = new IOnDayClickListener() {
         @Override
         public void onClick(DayEntity dayEntity) {
+            runDatePeriods=null;
+            TimeAdapter timeAdapter= new TimeAdapter(getContext(),onSetTime);
+            timeAdapter.setTimeStamp(timeStamp);
+            recyclerViewTime.setAdapter(timeAdapter);
+            recyclerViewTime.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,true));
             timeAdapter.add(dayEntity.list);
         }
     };
+
+    @Override
+    public void onDestroy() {
+        presenter.detach();
+        super.onDestroy();
+    }
+
     private void init() {
         ButterKnife.bind(this, view);
-        timeAdapter = new TimeAdapter(getContext());
-        recyclerViewTime.setAdapter(timeAdapter);
         dayListAdapter = new DayListAdapter(getContext(), onDayClickListener);
         dayList.setAdapter(dayListAdapter);
         dayList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true));
-        recyclerViewTime.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true));
         presenter = new TimeFragmentPresenter(this, getContext(), progressBar, root);
         videoView.setOnInfoListener(new MediaPlayer.OnInfoListener() {
             @Override
@@ -172,7 +197,13 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     }
 
     @Override
-    public void showTimes(ArrayList<DayEntity> list) {
+    public void showTimes(ArrayList<DayEntity> list,String timeStamp) {
         dayListAdapter.addItem(list);
+        this.timeStamp = timeStamp;
+    }
+
+    @Override
+    public void nextFragment() {
+        ((MainActivity) getActivity()).loadFinalFragment();
     }
 }

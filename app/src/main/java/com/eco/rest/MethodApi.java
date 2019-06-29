@@ -36,9 +36,6 @@ import java.util.ArrayList;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.Headers;
-import retrofit2.http.PUT;
 
 public class MethodApi {
 
@@ -75,7 +72,6 @@ public class MethodApi {
             }
         }));
     }
-
 
     public void scoreToMony(int score, final IRemoteCallback<String> callback) {
         ScoreToMoneyEntity scoreToMony = new ScoreToMoneyEntity(score);
@@ -324,7 +320,7 @@ public class MethodApi {
         }));
     }
 
-    public void addRequest(RequestEntity request, final IRemoteCallback<JsonObject> callback) {
+    public void addNormalRequest(RequestEntity request, final IRemoteCallback<JsonObject> callback) {
 
         final Call<JsonObject> call = signatureApi.addRequest(PV.tokenPrefix + PrefManager.getInstance().getToken(), request);
         call.enqueue(new Enqueue<>(new IRemoteCallback<JsonObject>() {
@@ -477,8 +473,8 @@ public class MethodApi {
         }));
     }
 
-    public void getUser(SendUserEntity sendUserEntity, final IRemoteCallback<UserEntity> callback) {
-        final Call<UserEntity> call = signatureApi.getUser(sendUserEntity);
+    public void getUserFirst(SendUserEntity sendUserEntity, final IRemoteCallback<UserEntity> callback) {
+        final Call<UserEntity> call = signatureApi.getUserFirst(sendUserEntity);
         call.enqueue(new Enqueue<>(new IRemoteCallback<UserEntity>() {
             @Override
             public void onResponse(Boolean answer) {
@@ -502,6 +498,30 @@ public class MethodApi {
         }));
     }
 
+    public void getUser(final IRemoteCallback<UserEntity> callback) {
+        final Call<ArrayList<UserEntity>> call = signatureApi.getUser(PV.tokenPrefix+PrefManager.getInstance().getToken());
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<UserEntity>>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ArrayList<UserEntity> result) {
+                callback.onSuccess(result.get(0));
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connect) {
+                callback.onFinish(answer,connect);
+            }
+        }));
+    }
 
 
 

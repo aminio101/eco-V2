@@ -40,6 +40,13 @@ public interface SignatureApi {
     Call<ArrayList<AdvertisingEntity>> getAdvertise(@Header("Authorization") String auth);
 
 
+
+    @Headers({"Content-Type:application/json"})
+    @GET("/api/shared/userDetail")
+    Call<ArrayList<UserEntity>> getUser(@Header("Authorization") String auth);
+
+
+
     @Headers({"Content-Type:application/json"})
     @PUT("api/users/inviteFriend")
     Call<InviteEntity> inviteFriend(@Header("Authorization") String auth, @Body MobileEntitiy user);
@@ -86,7 +93,7 @@ public interface SignatureApi {
     Call<VerifyCodeSuccessEntity> verifyCode(@Body VerifiCodeEntity verifiCodeentity);
     @Headers({"Content-Type:application/json"})
     @POST("/api/auth/user")
-    Call<UserEntity> getUser(@Body SendUserEntity auth);
+    Call<UserEntity> getUserFirst(@Body SendUserEntity auth);
 
     @Headers({"Content-Type:application/json"})
     @GET("/api/store/categories?pageSize=100&pageNumber=1")

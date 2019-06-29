@@ -3,10 +3,14 @@ package com.eco;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.LocationEntity;
 import com.eco.entitys.RequestEntity;
+import com.eco.entitys.RubbishEntity;
+import com.eco.enums.RequstMode;
 
+import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -25,9 +29,9 @@ public class PV {
     public static String lasteVrsion = "302.8";
     public static String urlCheckVersion = "https://ecoiwm.ir/api/";
     public static RequestEntity requestEntity = new RequestEntity();
-
+    public static ArrayList<RubbishEntity> list = new ArrayList<>();
     public static LocationEntity locationEntity = new LocationEntity(); // todo test
-
+    public static RequstMode requstMode;
     public static int getHour(String time){
         return  Integer.parseInt( time.substring(9,11));
 

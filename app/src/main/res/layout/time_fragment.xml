@@ -142,6 +142,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@string/nextStep"
+                    android:id="@+id/nextStep"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_15ssp" />
             </RelativeLayout>

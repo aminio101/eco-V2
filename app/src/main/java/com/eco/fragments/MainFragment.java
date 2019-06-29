@@ -82,7 +82,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
         view = inflater.inflate(R.layout.main_fragment, container, false);
         ButterKnife.bind(this,view);
         init();
-        presenter.getList();
+        presenter.getUser();
         return view;
     }
 
@@ -146,5 +146,15 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @Override
     public void loadMapFragment() {
         ((MainActivity) getActivity()).loadMapFragment();
+    }
+
+    @Override
+    public void rGetUser() {
+        DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.getUser();
+            }
+        });
     }
 }

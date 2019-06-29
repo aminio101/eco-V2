@@ -11,4 +11,5 @@ public interface IMainFragmentView  {
 
     void loadMapFragment();
 
+    void rGetUser();
 }

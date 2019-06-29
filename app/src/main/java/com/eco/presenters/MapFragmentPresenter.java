@@ -173,7 +173,8 @@ public class MapFragmentPresenter extends BasePresenter<IMapView> implements IMa
             @Override
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
-                    stopProgress();
+                    if (!answer)
+                        stopProgress();
                     if (!connection)
                         mView.get().rCheckLocation(des,googleMap);
                 }

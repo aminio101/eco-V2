@@ -29,4 +29,9 @@ public class TimeViewHolder extends RecyclerView.ViewHolder {
         root.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
         date.setTextColor(context.getResources().getColor(R.color.orange));
     }
+
+    public void disable(){
+        root.setCardBackgroundColor(Color.parseColor("#546e7a"));
+     }
+
 }

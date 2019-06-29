@@ -20,5 +20,8 @@ public interface ITimeFragmentView {
 
     void rGetTimes();
 
-    void showTimes(ArrayList <DayEntity> list);
+    void showTimes(ArrayList <DayEntity> list,String dayNumber);
+
+
+    void nextFragment();
 }

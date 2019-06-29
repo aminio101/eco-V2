@@ -30,6 +30,7 @@ public class TimeFragmentPresenter extends BasePresenter<ITimeFragmentView> impl
     int hour;
     int dayNumber;
     String nowDate;
+    String timeStamp;
     @Override
     public void getTimes() {
         MethodApi.getInstance().getTimes(new LocationEntity().setFirstLng(
@@ -52,24 +53,57 @@ public class TimeFragmentPresenter extends BasePresenter<ITimeFragmentView> impl
                             list[result.get(i).runDate].list.add(result.get(i));
                         }
                     }
+                    for (int i = 0; i < result.size(); i++) {
+                        if (result.get(i).runDate < dayNumber) { // todo change
+                            if (list[result.get(i).runDate] == null)
+                                list[result.get(i).runDate] = new DayEntity();
+                            list[result.get(i).runDate].list.add(result.get(i));
+                        }
+                    }
+
                 }
 
 
                 ArrayList<DayEntity> arrayList = new ArrayList<>();
                 for (DayEntity dayEntity : list) {
-                    if (dayEntity != null) {
+                    if (dayEntity != null&&dayEntity.list.get(0).runDate >= dayNumber) {
                         try {
-                            String date = PV.addDay(nowDate, dayEntity.list.get(0).runDate-dayNumber  );
+                            String date = "0";
+                            if (dayEntity.list.get(0).runDate-dayNumber>=0)
+                             date = PV.addDay(nowDate, dayEntity.list.get(0).runDate-dayNumber  );
+                            else
+                                date = PV.addDay(nowDate, dayNumber-dayEntity.list.get(0).runDate  );
+
                             Date date1 = PV.stringToDate(date);
                             dayEntity.date = date1;
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                         arrayList.add(dayEntity);
-
                     }
                 }
-                mView.get().showTimes(arrayList);
+                for (DayEntity dayEntity : list) {
+                    if (dayEntity != null&&dayEntity.list.get(0).runDate < dayNumber) {
+                        try {
+                            String date = "0";
+                            if (dayEntity.list.get(0).runDate-dayNumber>=0)
+                             date = PV.addDay(nowDate, dayEntity.list.get(0).runDate-dayNumber  );
+                            else
+                                date = PV.addDay(nowDate,7- (dayNumber-dayEntity.list.get(0).runDate)  );
+
+                            Date date1 = PV.stringToDate(date);
+                            dayEntity.date = date1;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        arrayList.add(dayEntity);
+                    }
+                }
+                mView.get().showTimes(arrayList,timeStamp);
+
+
+
+                stopProgress();
 
             }
 
@@ -83,7 +117,6 @@ public class TimeFragmentPresenter extends BasePresenter<ITimeFragmentView> impl
                 if (isViewAvailable()) {
                     if (!answer)
                         mView.get().rGetTimes();
-                    stopProgress();
                 }
             }
         });
@@ -131,6 +164,7 @@ public class TimeFragmentPresenter extends BasePresenter<ITimeFragmentView> impl
             @Override
             public void onSuccess(ArrayList<TimeStampEntity> result) {
                 try {
+                    timeStamp = result.get(0).timestamp;
                     hour = PV.getHour(result.get(0).timestamp);
                     dayNumber = PV.getDayNumber(result.get(0).timestamp, 0);
                     nowDate = result.get(0).timestamp.substring(0, 4) + "-" + result.get(0).timestamp.substring(4, 6) + "-" + result.get(0).timestamp.substring(6, 8);
@@ -203,5 +237,17 @@ public class TimeFragmentPresenter extends BasePresenter<ITimeFragmentView> impl
         });
     }
 
+    @Override
+    public void nextFragment(RunDatePeriodsEntity runDatePeriods) {
+        if (runDatePeriods==null)
+            showMsg("انتخاب کردن زمان ارسالی الزامی است ");
+        else
+            mView.get().nextFragment();
+    }
 
+
+    @Override
+    public void detach() {
+detachView();
+    }
 }

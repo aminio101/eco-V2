@@ -10,4 +10,5 @@ public interface IMainFragmentPresenter extends IBasePresenter {
     void save(ArrayList<MainListViewHolder> viewHolders);
 
 
+    void getUser();
 }

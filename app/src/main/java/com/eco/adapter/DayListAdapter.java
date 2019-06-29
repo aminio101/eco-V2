@@ -19,6 +19,7 @@ public class DayListAdapter extends RecyclerView.Adapter<DayListViewHolder> {
     Context context;
     IOnDayClickListener onDayClickListener;
     ArrayList<DayListViewHolder> dayListViewHolders;
+    int dayNumber;
     public DayListAdapter(Context context, IOnDayClickListener onDayClickListener) {
         this.context = context;
         this.onDayClickListener = onDayClickListener;

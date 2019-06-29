@@ -110,7 +110,7 @@ public class VerifyCodePresenter extends BasePresenter<IVerifyCodeView> implemen
 
     @Override
     public void getUserData(final String userName, final String token) {
-        MethodApi.getInstance().getUser(new SendUserEntity(userName, token), new IRemoteCallback<UserEntity>() {
+        MethodApi.getInstance().getUserFirst(new SendUserEntity(userName, token), new IRemoteCallback<UserEntity>() {
             @Override
             public void onResponse(Boolean answer) {
 

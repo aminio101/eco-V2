@@ -5,8 +5,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.eco.PV;
+import com.eco.PrefManager;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.RubbishEntity;
+import com.eco.entitys.SendUserEntity;
+import com.eco.entitys.UserEntity;
 import com.eco.interfaces.IMainFragmentPresenter;
 import com.eco.interfaces.IMainFragmentView;
 import com.eco.rest.IRemoteCallback;
@@ -28,7 +31,6 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
 
     @Override
     public void getList() {
-        startProgress();
         MethodApi.getInstance().getRubbishList(new IRemoteCallback<ArrayList<RubbishEntity>>() {
             @Override
             public void onResponse(Boolean answer) {
@@ -62,6 +64,11 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
             if (viewHolders.get(i).num!=0){
                 hashMap.put(String.valueOf(viewHolders.get(i).rubbishEntity.id),viewHolders
                         .get(i).num);
+                RubbishEntity rubbishEntity = new RubbishEntity();
+                rubbishEntity = viewHolders.get(i).rubbishEntity;
+                rubbishEntity.number = viewHolders
+                        .get(i).num;
+                PV.list.add(rubbishEntity);
             }
         }
         PV.requestEntity.request = hashMap;
@@ -69,5 +76,35 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
             showMsg("لطفا حداقل یک پسماند انتخاب کنید");
         else
             mView.get().loadMapFragment();
+    }
+
+    @Override
+    public void getUser() {
+        startProgress();
+        MethodApi.getInstance().getUser(new IRemoteCallback<UserEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+
+            }
+
+            @Override
+            public void onSuccess(UserEntity result) {
+                PrefManager.getInstance().setUser(result);
+                getList();
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+
+            }
+
+            @Override
+            public void onFinish(Boolean answer, boolean connection) {
+                if (isViewAvailable()){
+                    if (!answer)
+                        mView.get().rGetUser();
+                }
+            }
+        });
     }
 }
