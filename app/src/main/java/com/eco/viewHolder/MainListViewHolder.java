@@ -114,9 +114,12 @@ private void setSelected() {
 }
 
     public void setHaveNumber() {
-        root.setBackgroundColor(Color.parseColor("#DFDCDC"));
-        name.setTextColor(Color.parseColor("#0A3F75"));
-        number.setVisibility(View.VISIBLE);
-        imageView.setColorFilter(Color.parseColor("#0A3F75"));
+        if (num != 0) {
+            root.setBackgroundColor(Color.parseColor("#DFDCDC"));
+            name.setTextColor(Color.parseColor("#0A3F75"));
+            number.setVisibility(View.VISIBLE);
+            imageView.setColorFilter(Color.parseColor("#0A3F75"));
+        }else
+            setNoneSelected();
     }
 }

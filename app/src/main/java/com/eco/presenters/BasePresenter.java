@@ -57,7 +57,7 @@ public class BasePresenter<T> {
 
 
         void showMsg(String msg) {
-        Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
       void showMsg(ErrorEntity msg) {
         Toast.makeText(context, msg.getUiErrorMessage(), Toast.LENGTH_LONG).show();

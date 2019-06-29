@@ -8,4 +8,7 @@ public interface IMainFragmentPresenter extends IBasePresenter {
     void getList();
 
     void save(ArrayList<MainListViewHolder> viewHolders);
+
+
+    void getUser();
 }

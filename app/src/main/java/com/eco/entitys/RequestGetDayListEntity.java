@@ -1,7 +1,7 @@
 package com.eco.entitys;
 
 public class RequestGetDayListEntity {
-    public   LocationEntity location  ;
+    public LocationEntity location = new LocationEntity();
 
 
 }

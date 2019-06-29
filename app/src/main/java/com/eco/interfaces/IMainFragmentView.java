@@ -9,4 +9,7 @@ public interface IMainFragmentView  {
 
     void rGetList();
 
+    void loadMapFragment();
+
+    void rGetUser();
 }

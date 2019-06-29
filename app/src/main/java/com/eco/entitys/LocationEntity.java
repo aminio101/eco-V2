@@ -11,6 +11,7 @@ public class LocationEntity {
     @SerializedName("lat")
     private double lat;
 
+
     public void LocationEntity(){
 
     }
@@ -23,6 +24,10 @@ public class LocationEntity {
     public void setLng (double lng) {
         this.lng = lng;
     }
+    public LocationEntity setFirstLng(double lng) {
+        this.lng = lng;
+        return this;
+    }
 
     public double getLat () {
         return lat;
@@ -31,4 +36,9 @@ public class LocationEntity {
     public void setLat (double lat) {
         this.lat = lat;
     }
+    public LocationEntity setFirstLat (double lat) {
+        this.lat = lat;
+        return this;
+    }
+
 }
