@@ -1,5 +1,6 @@
 package com.eco.activityes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -17,6 +18,7 @@ import com.eco.fragments.MainFragment;
 import com.eco.fragments.MapFragment;
 import com.eco.fragments.ShopFragment;
 import com.eco.fragments.TimeFragment;
+import com.eco.fragments.WalletFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -112,19 +114,22 @@ public class MainActivity extends AppCompatActivity {
                loadEditProfileFragment();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
-          /*   case R.id.wallet:
-                loadFragmentWallet();
-                drawerLayout.closeDrawer(RIGHT);
-                return true;
-            case R.id.gift:
-                loadFragmentInvite();
+            case R.id.invite:
+                loadIntroduceFragment();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
             case R.id.prices:
-                loadFragmentPrices();
+                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intent);
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
-            case R.id.about_us:
+           case R.id.wallet:
+              loadFragmentWallet();
+               drawerLayout.closeDrawer(RIGHT);
+                return true;
+
+
+           /*//  case R.id.about_us:
                 loadFragmentAboutUs();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
@@ -184,7 +189,14 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack("EditProfileFragment");
         fragmentTransaction.commit();
     }
-
+    public void loadFragmentWallet() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        currentFragment = new WalletFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "WalletFragment");
+        fragmentTransaction.addToBackStack("WalletFragment");
+        fragmentTransaction.commit();
+    }
 
 
 }
