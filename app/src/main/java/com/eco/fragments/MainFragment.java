@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @BindView(R.id.progress)
     ProgressBar progressBar;
     @BindView(R.id.root)
-    ConstraintLayout root;
+    ScrollView root;
     @BindView(R.id.linearBottom)
     LinearLayout linearBottom;
     @BindView(R.id.linearTop)
@@ -79,7 +80,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.main_fragment, container, false);
+        view = inflater.inflate(R.layout.main_fragment2, container, false);
         ButterKnife.bind(this,view);
         init();
         presenter.getUser();
