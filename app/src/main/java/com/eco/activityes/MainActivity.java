@@ -19,6 +19,7 @@ import com.eco.fragments.MainFragment;
 import com.eco.fragments.MapFragment;
 import com.eco.fragments.ShopFragment;
 import com.eco.fragments.TimeFragment;
+import com.eco.fragments.WalletFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -123,13 +124,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
-           /*// case R.id.wallet:
+           case R.id.wallet:
               loadFragmentWallet();
                drawerLayout.closeDrawer(RIGHT);
                 return true;
 
 
-            case R.id.about_us:
+           /*//  case R.id.about_us:
                 loadFragmentAboutUs();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
@@ -187,6 +188,14 @@ public class MainActivity extends AppCompatActivity {
         currentFragment = new EditProfileFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "EditProfileFragment");
         fragmentTransaction.addToBackStack("EditProfileFragment");
+        fragmentTransaction.commit();
+    }
+    public void loadFragmentWallet() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        currentFragment = new WalletFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "WalletFragment");
+        fragmentTransaction.addToBackStack("WalletFragment");
         fragmentTransaction.commit();
     }
 

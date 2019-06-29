@@ -38,4 +38,7 @@ public class UserEntity {
         this.roleId = roleId;
         this.token = token;
     }
+    public UserEntity(int score){
+        this.score=score;
+    }
 }

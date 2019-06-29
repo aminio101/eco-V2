@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/root"
     android:layout_height="match_parent"
     android:background="@color/toosi">
 
@@ -85,7 +86,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline43" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/textView_grade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
@@ -97,7 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/textView_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_30sdp"
@@ -126,7 +127,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline45" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editText_shaba"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginLeft="@dimen/_8sdp"
@@ -161,7 +162,7 @@
         app:layout_constraintGuide_percent="0.93" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_submit"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textSize="@dimen/_17ssp"
@@ -172,5 +173,17 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline40"
         app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toTopOf="@+id/guideline47" />
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/guideline46"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40"
+        app:layout_constraintStart_toStartOf="@+id/guideline29"
+        app:layout_constraintTop_toTopOf="@+id/guideline47"
+        tools:ignore="MissingConstraints" />
 
 </android.support.constraint.ConstraintLayout>
