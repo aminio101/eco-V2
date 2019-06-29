@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.eco.PV;
 import com.eco.R;
@@ -36,7 +37,9 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     @BindView(R.id.list)
     RecyclerView list;
     FinalFragmentAdapter adapter;
-    @OnClick(R.id.button) public void sendRequst(){
+    @BindView(R.id.textView6)
+    TextView timeText;
+    @OnClick(R.id.button) public void sendRequest(){
         presenter.sendRequest();
     }
     @Override
@@ -73,6 +76,12 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     @Override
     public void showList(ArrayList<RubbishEntity> list) {
         adapter.add(list);
+        try {
+            presenter.getTime();
+        }catch (Exception er){
+            er.printStackTrace();
+        }
+
     }
 
     @Override
@@ -88,5 +97,10 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     @Override
     public void success() {
         adapter.hideDelete();
+    }
+
+    @Override
+    public void showTime(int day, int hour) {
+        timeText.setText(hour+" ساعت و "+day+" روز باقی مانده است ");
     }
 }

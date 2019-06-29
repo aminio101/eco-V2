@@ -110,6 +110,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                     userEntity.shabaNumber = result.shabaNumber;
                     userEntity.username = result.userName;
                     PrefManager.getInstance().setUser(userEntity);
+                    mView.get().showUserScore(String.valueOf(userEntity.score));
                     getList();
                 }
             }

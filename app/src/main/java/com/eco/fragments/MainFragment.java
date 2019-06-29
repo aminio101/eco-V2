@@ -42,6 +42,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     LinearLayout linearTop;
     @BindView(R.id.textView4)TextView textViewNumber;
     ArrayList<MainListViewHolder> viewHolders;
+    @BindView(R.id.main_fragment_text_score)TextView textViewScore;
     @BindView(R.id.textView2)
     TextView name;
     @OnClick(R.id.button7)public void loadEditProfile(){
@@ -151,6 +152,11 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @Override
     public void loadMapFragment() {
         ((MainActivity) getActivity()).loadMapFragment();
+    }
+
+    @Override
+    public void showUserScore(String score) {
+        textViewScore.setText(score+" امتیاز ");
     }
 
     @Override

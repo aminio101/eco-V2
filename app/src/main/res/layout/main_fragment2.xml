@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:background="#DFDCDC"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#DFDCDC">
 
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_gravity="center" />
 
     <android.support.v4.widget.NestedScrollView
@@ -91,9 +91,9 @@
                     <Button
                         android:id="@+id/button6"
                         android:layout_width="@dimen/_60sdp"
-                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_height="@dimen/_20sdp"
-android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginLeft="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_marginRight="@dimen/_2sdp"
                         android:background="@drawable/background_btn_main"
                         android:text="@string/despositAcc"
@@ -103,10 +103,10 @@ android:layout_marginLeft="@dimen/_2sdp"
                     <Button
                         android:id="@+id/button7"
                         android:layout_width="@dimen/_60sdp"
-                        android:layout_marginLeft="@dimen/_2sdp"
-                        android:layout_marginRight="@dimen/_2sdp"
                         android:layout_height="@dimen/_20sdp"
+                        android:layout_marginLeft="@dimen/_2sdp"
                         android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_2sdp"
                         android:layout_marginBottom="@dimen/_2sdp"
                         android:background="@drawable/background_btn_main_fragment"
                         android:text="@string/settingsAcc"
@@ -133,6 +133,7 @@ android:layout_marginLeft="@dimen/_2sdp"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_120sdp"
                 android:layout_below="@+id/header">
+
                 <Button
                     android:id="@+id/nextFragment"
                     android:layout_width="@dimen/_70sdp"
@@ -144,17 +145,17 @@ android:layout_marginLeft="@dimen/_2sdp"
                     android:text="@string/nextStep"
                     android:textColor="#ffff"
                     android:textSize="@dimen/_12ssp" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_108sdp"
                     android:background="#0097a7" />
 
                 <RelativeLayout
-                    android:layout_width="@dimen/_65sdp"
+                    android:layout_width="@dimen/_80sdp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    >
+                    android:layout_marginTop="@dimen/_5sdp">
 
                     <TextView
                         android:id="@+id/text"
@@ -162,10 +163,11 @@ android:layout_marginLeft="@dimen/_2sdp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/textView3"
                         android:layout_marginTop="@dimen/_9sdp"
-                        android:layout_toLeftOf="@+id/textView4"
                         android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_toLeftOf="@+id/textView4"
                         android:text="@string/package1"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_7ssp" />
 
                     <ImageView
                         android:id="@+id/imageView19"
@@ -203,6 +205,7 @@ android:layout_marginLeft="@dimen/_2sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/imageView19"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="@string/numberPackage"
                         android:textColor="@android:color/white" />
@@ -219,7 +222,6 @@ android:layout_marginLeft="@dimen/_2sdp"
                     android:text="پسماند خود را انتخاب کنید"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_15ssp" />
-
 
 
                 <TextView

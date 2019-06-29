@@ -29,8 +29,9 @@ public class PV {
     public static String urlCheckVersion = "https://ecoiwm.ir/api/";
     public static RequestEntity requestEntity = new RequestEntity();
     public static ArrayList<RubbishEntity> list = new ArrayList<>();
-    public static LocationEntity locationEntity = new LocationEntity(); // todo test
     public static RequstMode requstMode;
+    public static String timeStamp;
+    public static  int endPeriod;
     public static int getHour(String time){
         return  Integer.parseInt( time.substring(9,11));
 
@@ -141,4 +142,5 @@ public class PV {
     public static String getImage(String image){
         return "http://185.252.29.12/storage/" + image;
     }
+
 }

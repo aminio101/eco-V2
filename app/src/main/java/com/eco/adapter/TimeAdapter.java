@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.eco.PV;
+import com.eco.PrefManager;
 import com.eco.R;
 import com.eco.entitys.RunDatePeriodsEntity;
+import com.eco.enums.RequstMode;
 import com.eco.interfaces.IOnSetTime;
 import com.eco.viewHolder.TimeViewHolder;
 
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
     ArrayList<TimeViewHolder> viewHolders;
     IOnSetTime onSetTime;
-
+    int roleId;
     public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
@@ -30,6 +32,7 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
     public TimeAdapter(Context context, IOnSetTime onSetTime) {
         this.context = context;
         this.onSetTime = onSetTime;
+        roleId = PrefManager.getInstance().getUser().roleId;
         viewHolders  = new ArrayList<>();
         list = new ArrayList<>();
     }
@@ -60,7 +63,10 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
                     ||
                     (list.get(i).isEnable == 0) || (list.get(i).status == 0)
             ) {
-                timeViewHolder.disable();
+                if (roleId == 2 && PV.getHour(timeStamp) >= list.get(i).startPeriod && PV.getHour(timeStamp) <= list.get(i).endPeriod) {
+                    timeViewHolder.setFastMode();
+                } else
+                    timeViewHolder.disable();
             } else
                 timeViewHolder.setUnClick();
 
@@ -79,8 +85,12 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
                             if ((PV.getDayNumber(timeStamp, 0) == list.get(j).runDate && PV.getHour(timeStamp) >= list.get(j).startPeriod)
                                     ||
                                     (list.get(j).isEnable == 0) || (list.get(j).status == 0)
-                            )
-                                viewHolders.get(j).disable();
+                            ) {
+                                if (roleId == 2 && PV.getHour(timeStamp) >= list.get(j).startPeriod && PV.getHour(timeStamp) <= list.get(j).endPeriod)
+                                    viewHolders.get(j).setFastMode();
+                                 else
+                                    viewHolders.get(j).disable();
+                            }
                             else
                                 viewHolders.get(j).setUnClick();
                         } catch (ParseException e) {
@@ -90,6 +100,15 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
                         viewHolders.get(j).setUnClick();
                 }
 
+
+
+
+
+
+
+
+
+
                 for (int j = 0; j < viewHolders.size(); j++) {
                     if (list.size() > j) {
                         try {
@@ -98,11 +117,19 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
                                         ||
                                         (list.get(i).isEnable == 0) || (list.get(i).status == 0)
                                 )
-                                    Toast.makeText(context, "غیر قابل انتخاب", Toast.LENGTH_SHORT).show();
+                                    if (roleId == 2 && PV.getHour(timeStamp) >= list.get(j).startPeriod && PV.getHour(timeStamp) <= list.get(j).endPeriod){
+                                        timeViewHolder.setClick();
+                                        onSetTime.onClick(list.get(i));
+                                        PV.requstMode = RequstMode.FAST;
+                                    }
+                                    else
+                                        Toast.makeText(context, "غیر قابل انتخاب", Toast.LENGTH_SHORT).show();
+
 
                                 else {
                                     timeViewHolder.setClick();
                                     onSetTime.onClick(list.get(i));
+                                    PV.requstMode = RequstMode.NORMAL;
                                 }
                             }
                         } catch (ParseException e) {

@@ -11,4 +11,6 @@ public interface IFinalFragmentView {
     void rSendRequest();
 
     void success();
+
+    void showTime(int day, int hour);
 }
