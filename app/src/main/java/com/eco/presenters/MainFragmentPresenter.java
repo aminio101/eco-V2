@@ -7,8 +7,8 @@ import android.widget.ProgressBar;
 import com.eco.PV;
 import com.eco.PrefManager;
 import com.eco.entitys.ErrorEntity;
+import com.eco.entitys.MUserEntity;
 import com.eco.entitys.RubbishEntity;
-import com.eco.entitys.SendUserEntity;
 import com.eco.entitys.UserEntity;
 import com.eco.interfaces.IMainFragmentPresenter;
 import com.eco.interfaces.IMainFragmentView;
@@ -81,21 +81,44 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
     @Override
     public void getUser() {
         startProgress();
-        MethodApi.getInstance().getUser(new IRemoteCallback<UserEntity>() {
+        MethodApi.getInstance().getUser(new IRemoteCallback<MUserEntity>() {
             @Override
             public void onResponse(Boolean answer) {
 
             }
 
             @Override
-            public void onSuccess(UserEntity result) {
-                PrefManager.getInstance().setUser(result);
-                getList();
+            public void onSuccess(MUserEntity result) {
+                if (isViewAvailable()) {
+                    UserEntity userEntity;
+                    userEntity = PrefManager.getInstance().getUser();
+                    if (userEntity==null)
+                        userEntity=new UserEntity();
+                    userEntity.roleId = result.roleId;
+                    userEntity.address = result.address;
+                    userEntity.cityId = result.cityId;
+                    userEntity.email = result.email;
+                    userEntity.family = result.family;
+                    userEntity.familyNumber = String.valueOf(result.familyCount);
+                    userEntity.gender = String.valueOf(result.gender);
+                    userEntity.grade = result.grade;
+                    userEntity.id = result.id;
+                    userEntity.mobileNumber = String.valueOf(result.userName);
+                    userEntity.name = result.name;
+                    userEntity.provinceId = result.provinceId;
+                    userEntity.score = result.citizenScore;
+                    userEntity.shabaNumber = result.shabaNumber;
+                    userEntity.username = result.userName;
+                    PrefManager.getInstance().setUser(userEntity);
+                    mView.get().showUserScore(String.valueOf(userEntity.score));
+                    getList();
+                }
             }
 
             @Override
             public void onFail(ErrorEntity errorObject) {
-
+                if (isViewAvailable())
+                    showMsg(errorObject);
             }
 
             @Override

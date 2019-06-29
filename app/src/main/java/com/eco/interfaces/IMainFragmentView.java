@@ -11,5 +11,7 @@ public interface IMainFragmentView  {
 
     void loadMapFragment();
 
+    void showUserScore(String score);
+
     void rGetUser();
 }

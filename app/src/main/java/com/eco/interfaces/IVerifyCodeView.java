@@ -3,7 +3,7 @@ package com.eco.interfaces;
 public interface IVerifyCodeView {
     void rVerifyCode();
 
-    void goToRegisterActivity();
+    void goToRegisterActivity(String mobile);
 
     void rGetUser(String userName, String token);
 

@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-
 import com.eco.R;
 import com.eco.fragments.EditProfileFragment;
 import com.eco.fragments.FinalFragment;

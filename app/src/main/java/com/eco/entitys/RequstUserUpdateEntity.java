@@ -13,5 +13,5 @@ public class RequstUserUpdateEntity {
     public String gender;
     public String familyNumber;
     public String mobile;
-    public OrderList.Location location = new OrderList.Location(0,0);
+    public LocationEntity location = new LocationEntity().setFirstLng(0).setFirstLat(0);
 }

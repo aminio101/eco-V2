@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 
 import com.eco.PrefManager;
 import com.eco.R;
@@ -45,11 +46,10 @@ public class EditProfileFragment extends Fragment implements IEditProfileView {
     EditText editTextShabaNumber;
     @BindView(R.id.button_submit)
     Button button_submit;
-
+    @BindView(R.id.root)
+    ScrollView root;
     RequstUserUpdateEntity requstUserUpdate;
-
     EditProfilePresenter presenter;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.edite_profile_fargment, container, false);
@@ -69,21 +69,15 @@ public class EditProfileFragment extends Fragment implements IEditProfileView {
         editTextAddress.setText(PrefManager.getInstance().getUser().address);
         editTextEmail.setText(PrefManager.getInstance().getUser().email);
         editTexteducation.setText(PrefManager.getInstance().getUser().grade);
-        editTextWork.setText(PrefManager.getInstance().getUser().work);//add work to user
+        editTextWork.setText(PrefManager.getInstance().getUser().work);
         editTextFamilyNumber.setText(PrefManager.getInstance().getUser().familyNumber);
         editTextShabaNumber.setText(PrefManager.getInstance().getUser().shabaNumber);
-
-        presenter = new EditProfilePresenter(this, getContext(), progressBar, button_submit);
-
-
-    }
-    @Override
-    public void success(UserEntity result) {
-        PrefManager.getInstance().setUser(result);
+        presenter = new EditProfilePresenter(this, getContext(), progressBar, root);
     }
 
+
     @Override
-    public void rupdate(RequstUserUpdateEntity requstUserUpdateEntity) {
+    public void rupUpdate(RequstUserUpdateEntity requstUserUpdateEntity) {
         DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,11 +86,7 @@ public class EditProfileFragment extends Fragment implements IEditProfileView {
         });
     }
 
-    @Override
-    public void callHome() {
-        Intent callHome = new Intent("ECO.UPDATE");
-        getActivity().sendBroadcast(callHome);
-    }
+
 
 
     @Override
@@ -113,8 +103,7 @@ public class EditProfileFragment extends Fragment implements IEditProfileView {
         requstUserUpdate.shabaNumber = editTextShabaNumber.getText().toString();
         requstUserUpdate.gender = String.valueOf(PrefManager.getInstance().getUser().gender);
         requstUserUpdate.familyNumber = editTextFamilyNumber.getText().toString();
-        requstUserUpdate.mobile = PrefManager.getInstance().getUser().mobileNumber;//add mobile number
-
+        requstUserUpdate.mobile = PrefManager.getInstance().getUser().mobileNumber;
         presenter.update(requstUserUpdate);
     }
 

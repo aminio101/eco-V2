@@ -15,6 +15,7 @@ import com.eco.rest.IRemoteCallback;
 import com.eco.rest.MethodApi;
 import com.google.gson.JsonObject;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -49,6 +50,7 @@ public class FinalFragmentPresenter extends BasePresenter<IFinalFragmentView> im
 
     @Override
     public void getList() {
+        startProgress();
         mView.get().showList(PV.list);
     }
 
@@ -64,11 +66,27 @@ public class FinalFragmentPresenter extends BasePresenter<IFinalFragmentView> im
         }
     }
 
+    @Override
+    public void getTime() throws ParseException {
+        int day = Integer.valueOf(PV.requestEntity.runDate) - PV.getDayNumber(PV.timeStamp,0);
+        if (day<0)
+            day = 7-(-1*day);
+        int hour = PV.endPeriod - PV.getHour(PV.timeStamp);
+        if (hour<0)
+            hour = 24-(-1*hour);
+        mView.get().showTime(day,hour);
+        stopProgress();
+    }
+
     private void sendFastRequest() {
 
     }
 
     private void sendRequestNormal() {
+        if (PV.requestEntity.request.size()==0){
+            showMsg("لیست درخوات شما خالی میباشد");
+            return;
+        }
         startProgress();
         MethodApi.getInstance().addNormalRequest(PV.requestEntity, new IRemoteCallback<JsonObject>() {
             @Override

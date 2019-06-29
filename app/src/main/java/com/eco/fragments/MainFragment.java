@@ -3,11 +3,13 @@ package com.eco.fragments;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,15 +35,19 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @BindView(R.id.progress)
     ProgressBar progressBar;
     @BindView(R.id.root)
-    ConstraintLayout root;
+    NestedScrollView root;
     @BindView(R.id.linearBottom)
     LinearLayout linearBottom;
     @BindView(R.id.linearTop)
     LinearLayout linearTop;
     @BindView(R.id.textView4)TextView textViewNumber;
     ArrayList<MainListViewHolder> viewHolders;
+    @BindView(R.id.main_fragment_text_score)TextView textViewScore;
     @BindView(R.id.textView2)
     TextView name;
+    @OnClick(R.id.button7)public void loadEditProfile(){
+        ((MainActivity) getActivity()).loadEditProfileFragment();
+    }
     boolean isSelect = false;
     ArrayList<RubbishEntity> rubbishEntityArrayList;
     int position;
@@ -79,7 +85,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.main_fragment, container, false);
+        view = inflater.inflate(R.layout.main_fragment2, container, false);
         ButterKnife.bind(this,view);
         init();
         presenter.getUser();
@@ -146,6 +152,11 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @Override
     public void loadMapFragment() {
         ((MainActivity) getActivity()).loadMapFragment();
+    }
+
+    @Override
+    public void showUserScore(String score) {
+        textViewScore.setText(score+" امتیاز ");
     }
 
     @Override

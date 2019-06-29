@@ -2,7 +2,6 @@ package com.eco.viewHolder;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,9 +16,9 @@ import com.eco.entitys.RubbishEntity;
 import com.eco.interfaces.MainAdapterListener;
 
 public class MainListViewHolder {
-    public   ImageView imageView;
-    public  TextView name;
-    public  TextView number;
+    public ImageView imageView;
+    public TextView name;
+    public TextView number;
     public RelativeLayout root;
     public boolean haveNumber;
     public boolean isSelected;
@@ -28,10 +27,10 @@ public class MainListViewHolder {
     public LayoutInflater inflater;
     public View itemView;
     public RubbishEntity rubbishEntity;
-    MainAdapterListener mainAdapterListener;
     public int num = 0;
+
     public MainListViewHolder(Context context, RubbishEntity
-            rubbishEntity, int position,MainAdapterListener listener) {
+            rubbishEntity, int position, MainAdapterListener listener) {
 
         this.rubbishEntity = rubbishEntity;
         inflater = (LayoutInflater) context.
@@ -41,7 +40,7 @@ public class MainListViewHolder {
         itemView = inflater.inflate(R.layout.main_fragment_item, null);
         this.context = context;
         imageView = itemView.findViewById(R.id.image);
-        name  =itemView.findViewById(R.id.name);
+        name = itemView.findViewById(R.id.name);
         number = itemView.findViewById(R.id.number);
         lineBottom = itemView.findViewById(R.id.line_bottom);
         lineLeft = itemView.findViewById(R.id.line_left);
@@ -94,7 +93,7 @@ public class MainListViewHolder {
         return num;
     }
 
-    public void setNoneSelected() {
+    private void setNoneSelected() {
         root.setBackgroundColor(Color.parseColor("#DFDCDC"));
         root.setBackgroundColor(Color.parseColor("#DFDCDC"));
         name.setTextColor(Color.parseColor("#AFADAD"));
@@ -102,16 +101,12 @@ public class MainListViewHolder {
         number.setVisibility(View.GONE);
     }
 
-private void setSelected() {
-    name.setTextColor(Color.parseColor("#F77401"));
-    root.setBackgroundColor(Color.parseColor("#FFFFFF"));
-    number.setVisibility(View.GONE);
-
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        imageView.setForeground(context.getDrawable(R.drawable.background_column_main_page));
-    else
+    private void setSelected() {
+        name.setTextColor(Color.parseColor("#F77401"));
+        root.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        number.setVisibility(View.GONE);
         imageView.setColorFilter(Color.parseColor("#F77401"));
-}
+    }
 
     public void setHaveNumber() {
         if (num != 0) {
@@ -119,7 +114,7 @@ private void setSelected() {
             name.setTextColor(Color.parseColor("#0A3F75"));
             number.setVisibility(View.VISIBLE);
             imageView.setColorFilter(Color.parseColor("#0A3F75"));
-        }else
+        } else
             setNoneSelected();
     }
 }

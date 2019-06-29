@@ -25,6 +25,7 @@ import com.eco.entitys.VerifiCodeEntity;
 import com.eco.interfaces.IVerifyCodeView;
 import com.eco.presenters.VerifyCodePresenter;
 import com.eco.views.DialogConnection;
+import com.j256.ormlite.stmt.query.In;
 import com.mukesh.OnOtpCompletionListener;
 import com.mukesh.OtpView;
 
@@ -150,8 +151,11 @@ public class VerifyCodeActivity extends Activity implements IVerifyCodeView {
     }
 
     @Override
-    public void goToRegisterActivity() {
-        startActivity(new Intent(VerifyCodeActivity.this, RegisterActivity.class));
+    public void goToRegisterActivity(String mobile) {
+        Intent intent = new Intent(VerifyCodeActivity.this, RegisterActivity.class);
+        intent.putExtra("mobile",mobile);
+        startActivity(intent);
+        finish();
     }
 
     @Override

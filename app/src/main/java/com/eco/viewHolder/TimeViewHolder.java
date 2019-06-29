@@ -28,6 +28,8 @@ public class TimeViewHolder extends RecyclerView.ViewHolder {
     public void setUnClick(){
         root.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
         date.setTextColor(context.getResources().getColor(R.color.orange));
+    } public void setFastMode(){
+        root.setCardBackgroundColor(Color.parseColor("#f0b142"));
     }
 
     public void disable(){

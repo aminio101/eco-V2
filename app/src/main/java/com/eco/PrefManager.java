@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 public class PrefManager {
     private static final String PREF_NAME = "ECO";
     private static final String TOKEN = "token";
+    private static final String FIRSTTOKEN = "firstToken";
     private static final String USER = "user";
     static Application application;
     private static PrefManager instance;
@@ -37,7 +38,15 @@ public class PrefManager {
         editor.putString(TOKEN, token);
         editor.commit();
     }
-
+      public void setFirstToken(String token) {
+        editor.putString(FIRSTTOKEN, token);
+        editor.commit();
+    }
+    public String getFirstToken() {
+        String token = pref.getString(FIRSTTOKEN, null);
+        if (null != token) Log.i("Amirhosen FirstToken", token);
+        return token;
+    }
     public void setUser(UserEntity userEntity) {
         editor.putString(USER, gson.toJson(userEntity));
         editor.commit();

@@ -4,6 +4,7 @@ import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.entitys.AdvertisingEntity;
 import com.eco.entitys.InviteEntity;
 import com.eco.entitys.LocationEntity;
+import com.eco.entitys.MUserEntity;
 import com.eco.entitys.MobileEntitiy;
 import com.eco.entitys.PhoneEntity;
 import com.eco.entitys.ProductListEntity;
@@ -44,7 +45,7 @@ public interface SignatureApi {
 
     @Headers({"Content-Type:application/json"})
     @GET("/api/shared/userDetail")
-    Call<ArrayList<UserEntity>> getUser(@Header("Authorization") String auth);
+    Call<ArrayList<MUserEntity>> getUser(@Header("Authorization") String auth);
 
 
 

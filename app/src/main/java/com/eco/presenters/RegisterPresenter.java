@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.eco.PrefManager;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.SignupAnswerEntity;
 import com.eco.entitys.UserEntity;
@@ -20,14 +21,10 @@ public class RegisterPresenter extends BasePresenter<IRegisterView> implements I
 
     @Override
     public void checkedChange(boolean isChecked) {
-        if(isChecked){
+        if (isChecked)
             mView.get().isChecked();
-        }
-        else{
+        else
             mView.get().notChecked();
-
-        }
-
     }
 
     @Override
@@ -42,6 +39,7 @@ public class RegisterPresenter extends BasePresenter<IRegisterView> implements I
             @Override
             public void onSuccess(SignupAnswerEntity result) {
                 mView.get().success(result);
+                PrefManager.getInstance().setToken(result.token);
                 stopProgress();
             }
 
@@ -56,7 +54,7 @@ public class RegisterPresenter extends BasePresenter<IRegisterView> implements I
             @Override
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
-                    if (!connection) mView.get().rRefister(user);
+                    if (!connection) mView.get().rRegister(user);
                     stopProgress();
                 }
             }
