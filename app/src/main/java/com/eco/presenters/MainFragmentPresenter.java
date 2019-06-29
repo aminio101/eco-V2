@@ -90,7 +90,10 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
             @Override
             public void onSuccess(MUserEntity result) {
                 if (isViewAvailable()) {
-                    UserEntity userEntity = new UserEntity();
+                    UserEntity userEntity;
+                    userEntity = PrefManager.getInstance().getUser();
+                    if (userEntity==null)
+                        userEntity=new UserEntity();
                     userEntity.roleId = result.roleId;
                     userEntity.address = result.address;
                     userEntity.cityId = result.cityId;

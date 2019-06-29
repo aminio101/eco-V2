@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -150,17 +150,20 @@ android:layout_marginLeft="@dimen/_2sdp"
                     android:background="#0097a7" />
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_65sdp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_10sdp">
+                    android:layout_marginTop="@dimen/_5sdp"
+                    >
 
                     <TextView
                         android:id="@+id/text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/textView3"
-                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_9sdp"
+                        android:layout_toLeftOf="@+id/textView4"
+                        android:layout_marginRight="@dimen/_5sdp"
                         android:text="@string/package1"
                         android:textColor="@android:color/white" />
 
@@ -189,9 +192,8 @@ android:layout_marginLeft="@dimen/_2sdp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/textView3"
-                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:layout_toRightOf="@+id/text"
                         android:text="0"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_25sdp" />
@@ -292,6 +294,6 @@ android:layout_marginLeft="@dimen/_2sdp"
             </RelativeLayout>
 
         </RelativeLayout>
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </RelativeLayout>

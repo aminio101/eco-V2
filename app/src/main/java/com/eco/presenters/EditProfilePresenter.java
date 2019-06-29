@@ -1,12 +1,10 @@
 package com.eco.presenters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.eco.PrefManager;
 import com.eco.entitys.ErrorEntity;
@@ -16,10 +14,6 @@ import com.eco.interfaces.IEditProfilePresenter;
 import com.eco.interfaces.IEditProfileView;
 import com.eco.rest.IRemoteCallback;
 import com.eco.rest.MethodApi;
-
-import java.util.ArrayList;
-
-import static com.eco.MyApplication.getContext;
 
 public class EditProfilePresenter extends BasePresenter<IEditProfileView> implements IEditProfilePresenter {
 
@@ -40,10 +34,24 @@ public class EditProfilePresenter extends BasePresenter<IEditProfileView> implem
             @Override
             public void onSuccess(UserEntity result) {
                 if (isViewAvailable()) {
-                    mView.get().success(result);
-                    stopProgress();
-                    mView.get().callHome();
-                    showMsg("ویرایش اطلاعات شما با موفقیت انجام شد");}
+                    UserEntity userEntity = PrefManager.getInstance().getUser();
+                    userEntity.provinceId = result.provinceId;
+                    userEntity.cityId = result.cityId;
+                    userEntity.countryId = result.countryId;
+                    userEntity.name = result.name;
+                    userEntity.family = result.family;
+                    userEntity.email = result.email;
+                    userEntity.address = result.address;
+                    userEntity.grade = result.grade;
+                    userEntity.shabaNumber = result.shabaNumber;
+                    userEntity.gender = result.gender;
+                    userEntity.familyNumber = result.familyNumber;
+                    userEntity.id = result.id;
+                    userEntity.mobileNumber = result.mobileNumber;
+                    PrefManager.getInstance().setUser(userEntity);
+                    showMsg("ویرایش اطلاعات شما با موفقیت انجام شد");
+
+                }
             }
 
             @Override
@@ -54,7 +62,7 @@ public class EditProfilePresenter extends BasePresenter<IEditProfileView> implem
             @Override
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
-                  if (!connection) mView.get().rupdate(requstUserUpdateEntity);
+                    if (!connection) mView.get().rupUpdate(requstUserUpdateEntity);
                     stopProgress();
                 }
             }

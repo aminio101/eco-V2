@@ -274,7 +274,7 @@ public class MethodApi {
         }
         RequestBody body = RequestBody.create(MediaType.parse("text/plain"), data.toString());
 
-        final Call<UserEntity> call = signatureApi.update(PrefManager.getInstance().getToken(), body);
+        final Call<UserEntity> call = signatureApi.update(PV.tokenPrefix+PrefManager.getInstance().getToken(), body);
         call.enqueue(new Enqueue<>(new IRemoteCallback<UserEntity>() {
             @Override
             public void onResponse(Boolean answer) {

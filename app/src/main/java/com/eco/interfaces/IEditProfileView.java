@@ -5,11 +5,6 @@ import com.eco.entitys.UserEntity;
 
 public interface IEditProfileView {
 
-    void success(UserEntity result
-    );
-    void rupdate(RequstUserUpdateEntity requstUserUpdateEntity);
-
-    void callHome();
-
+    void rupUpdate(RequstUserUpdateEntity requstUserUpdateEntity);
     void checkedOk();
 }

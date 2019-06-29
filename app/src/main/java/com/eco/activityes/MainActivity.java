@@ -9,8 +9,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-
 import com.eco.R;
+import com.eco.fragments.EditProfileFragment;
 import com.eco.fragments.FinalFragment;
 import com.eco.fragments.IntroduceFragment;
 import com.eco.fragments.MainFragment;
@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
     public void loadEditProfileFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
-        currentFragment = new IntroduceFragment();
+        currentFragment = new EditProfileFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "EditProfileFragment");
         fragmentTransaction.addToBackStack("EditProfileFragment");
         fragmentTransaction.commit();

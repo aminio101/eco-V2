@@ -13,10 +13,6 @@ public class LocationEntity {
 
 
 
-    public void LocationEntity(){
-
-    }
-
 
     public double getLng () {
         return lng;

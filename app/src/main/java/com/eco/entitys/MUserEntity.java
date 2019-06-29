@@ -25,7 +25,7 @@ public class MUserEntity {
     public String grade;
     public String shabaNumber;
     public String email;
-    public LocationEntity location;
+    public String location ;
 
 
  }

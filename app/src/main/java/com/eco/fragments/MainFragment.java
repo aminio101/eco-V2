@@ -3,6 +3,7 @@ package com.eco.fragments;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @BindView(R.id.progress)
     ProgressBar progressBar;
     @BindView(R.id.root)
-    ScrollView root;
+    NestedScrollView root;
     @BindView(R.id.linearBottom)
     LinearLayout linearBottom;
     @BindView(R.id.linearTop)
@@ -43,6 +44,9 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     ArrayList<MainListViewHolder> viewHolders;
     @BindView(R.id.textView2)
     TextView name;
+    @OnClick(R.id.button7)public void loadEditProfile(){
+        ((MainActivity) getActivity()).loadEditProfileFragment();
+    }
     boolean isSelect = false;
     ArrayList<RubbishEntity> rubbishEntityArrayList;
     int position;
