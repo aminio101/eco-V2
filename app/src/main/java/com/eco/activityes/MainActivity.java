@@ -33,27 +33,22 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     boolean firstLoad;
     @BindView(R.id.navigation_view) NavigationView navigationView;
-
     @OnClick(R.id.main_activity_image_back)
     public void back() {
         onBackPressed();
     }
-
     @BindView(R.id.drawable_right)
     DrawerLayout drawerLayout;
-
     @OnClick(R.id.btn_menu)
     public void openMenu() {
         drawerLayout.openDrawer(RIGHT);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
     }
-
     private void init() {
         ButterKnife.bind(this);
         firstLoad = true;

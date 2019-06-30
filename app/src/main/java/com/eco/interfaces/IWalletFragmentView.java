@@ -5,5 +5,8 @@ public interface IWalletFragmentView {
 
     void rPay(int score);
 
-    void checkeOk();
+    void checkOk();
+
+    void rGetUser();
+
 }

@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.eco.PrefManager;
@@ -27,21 +29,18 @@ import butterknife.OnClick;
 public class WalletFragment extends Fragment implements IWalletFragmentView {
     IWalletPresenter presenter;
     View view;
-    @BindView(R.id.progress_circular)
+    @BindView(R.id.progress)
     ProgressBar progressBar;
     @BindView(R.id.root)
-    ConstraintLayout root;
+    RelativeLayout root;
     @BindView(R.id.editText_shaba)
     EditText editTextShab;
-    @BindView(R.id.textView_grade)
+    @BindView(R.id.textView)
     TextView textViewScore;
     @BindView(R.id.textView_money)
     TextView textViewMoney;
     @BindView(R.id.button_submit)
     Button buttonSubmit;
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.wallet_fragment, container, false);
@@ -53,20 +52,17 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
     private void init() {
         presenter = new WalletFragmentPresenter(this, getContext(), progressBar, root);
         editTextShab.setText(PrefManager.getInstance().getUser().shabaNumber);
-        textViewScore.setText(PrefManager.getInstance().getUser().score);
+        textViewScore.setText(String.valueOf(PrefManager.getInstance().getUser().score));
         int score = Integer.parseInt(textViewScore.getText().toString());
         score = score * 3;
         String showScore = String.valueOf(score);
         textViewMoney.setText(String.format(new Locale("fa"), "%s%s",
                 showScore, " تومان "));
-
-        presenter.checkZeroGrade();
-
     }
-    @OnClick(R.id.button_submit)
-    public void sendRequest(){
-        presenter.checkValue(textViewScore.getText().toString(),editTextShab.getText().toString());
 
+    @OnClick(R.id.button_submit)
+    public void sendRequest() {
+        presenter.checkValue(textViewScore.getText().toString(), editTextShab.getText().toString());
     }
 
 
@@ -86,8 +82,18 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
     }
 
     @Override
-    public void checkeOk() {
-        int score=Integer.valueOf(textViewScore.getText().toString());
+    public void checkOk() {
+        int score = Integer.valueOf(textViewScore.getText().toString());
         presenter.pay(score);
+    }
+
+    @Override
+    public void rGetUser() {
+        DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.getUser();
+            }
+        });
     }
 }
