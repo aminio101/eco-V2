@@ -19,6 +19,7 @@ import com.eco.fragments.MapFragment;
 import com.eco.fragments.ShopFragment;
 import com.eco.fragments.TimeFragment;
 import com.eco.fragments.WalletFragment;
+import com.eco.fragments.XChangeFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.xChangeList:
                         if (!firstLoad)
-                            loadMapFragment();
+                            loadXChangeFragment();
                         break;
 
                 }
@@ -147,6 +148,13 @@ public class MainActivity extends AppCompatActivity {
         currentFragment = new ShopFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "ShopFragment");
         fragmentTransaction.addToBackStack("ShopFragment");
+        fragmentTransaction.commit();
+    }  public void loadXChangeFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        currentFragment = new XChangeFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "XChangeFragment");
+        fragmentTransaction.addToBackStack("XChangeFragment");
         fragmentTransaction.commit();
     }
 

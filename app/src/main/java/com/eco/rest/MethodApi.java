@@ -5,9 +5,12 @@ import android.app.Application;
 import com.eco.PV;
 import com.eco.PrefManager;
 import com.eco.entitys.AdvertisingEntity;
+import com.eco.entitys.CommentEntity;
+import com.eco.entitys.DriverEntity;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.entitys.InviteEntity;
+import com.eco.entitys.ListeEntity;
 import com.eco.entitys.LocationEntity;
 import com.eco.entitys.MUserEntity;
 import com.eco.entitys.MobileEntitiy;
@@ -27,6 +30,7 @@ import com.eco.entitys.UserEntity;
 import com.eco.entitys.UserNumberEntity;
 import com.eco.entitys.VerifiCodeEntity;
 import com.eco.entitys.VerifyCodeSuccessEntity;
+import com.eco.entitys.XChangeEntity;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -74,6 +78,87 @@ public class MethodApi {
             }
         }));
     }
+    public void sendComment(int url, CommentEntity CommentEntity, final IRemoteCallback<CommentEntity> callback) {
+
+        final Call<CommentEntity> call = signatureApi.sendComment("/api/users/rate/" + url, CommentEntity);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<CommentEntity>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(CommentEntity result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connect) {
+                callback.onFinish(answer,connect);
+            }
+        }));
+    }
+
+    public void getXChangeList(int url,final IRemoteCallback<ListeEntity<XChangeEntity>> callback) {
+        final Call<ListeEntity<XChangeEntity>> call = signatureApi.getXchangeList(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/shared/exchanges?pageSize=10&pageNumber="+url);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ListeEntity<XChangeEntity>>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ListeEntity<XChangeEntity> result) {
+                callback.onSuccess(result);
+
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connect) {
+                callback.onFinish(answer,connect);
+            }
+        }));
+    }
+
+    public void getRequstList(int id, final IRemoteCallback<DriverEntity> callback) {
+        final Call<ArrayList<DriverEntity>> call = signatureApi.getRequstList("/api/users/deliverInfo/" + id);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<DriverEntity>>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ArrayList<DriverEntity> result) {
+                callback.onSuccess(result.get(0));
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connect) {
+                callback.onFinish(answer,connect);
+            }
+        }));
+    }
+
+    
+    
+    
 
     public void scoreToMony(int score, final IRemoteCallback<String> callback) {
         ScoreToMoneyEntity scoreToMony = new ScoreToMoneyEntity(score);

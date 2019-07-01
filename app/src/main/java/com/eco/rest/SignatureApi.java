@@ -1,8 +1,11 @@
 package com.eco.rest;
 
+import com.eco.entitys.CommentEntity;
+import com.eco.entitys.DriverEntity;
 import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.entitys.AdvertisingEntity;
 import com.eco.entitys.InviteEntity;
+import com.eco.entitys.ListeEntity;
 import com.eco.entitys.LocationEntity;
 import com.eco.entitys.MUserEntity;
 import com.eco.entitys.MobileEntitiy;
@@ -21,6 +24,7 @@ import com.eco.entitys.UserEntity;
 import com.eco.entitys.UserNumberEntity;
 import com.eco.entitys.VerifiCodeEntity;
 import com.eco.entitys.VerifyCodeSuccessEntity;
+import com.eco.entitys.XChangeEntity;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -41,6 +45,21 @@ public interface SignatureApi {
     @GET("/api/users/randomAdvertise")
     Call<ArrayList<AdvertisingEntity>> getAdvertise(@Header("Authorization") String auth);
 
+    @Headers({"Content-Type:application/json"})
+    @GET
+    Call<ListeEntity<XChangeEntity>> getXchangeList(@Header("Authorization") String auth,@Url String url);
+
+
+
+    @Headers({"Content-Type:application/json"})
+    @PUT
+    Call<CommentEntity> sendComment(@Url String url, @Body CommentEntity username);
+
+
+
+    @Headers({"Content-Type:application/json"})
+    @GET
+    Call<ArrayList<DriverEntity>> getRequstList(@Url String url);
 
 
     @Headers({"Content-Type:application/json"})

@@ -40,6 +40,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
             @Override
             public void onSuccess(ArrayList<RubbishEntity> result) {
                 if (isViewAvailable()) mView.get().showList(result);
+                PV.rubbishList = result;
             }
 
             @Override

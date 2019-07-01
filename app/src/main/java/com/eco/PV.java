@@ -32,6 +32,7 @@ public class PV {
     public static RequstMode requstMode;
     public static String timeStamp;
     public static  int endPeriod;
+    public static  ArrayList<RubbishEntity> rubbishList = new ArrayList<>();
     public static int getHour(String time){
         return  Integer.parseInt( time.substring(9,11));
 
