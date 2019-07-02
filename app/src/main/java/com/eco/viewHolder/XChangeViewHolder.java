@@ -212,7 +212,7 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
                 String value = entry.getValue();
                 item.setName(value);
             }
-            name.setText("واریز "+item.getName()+" به حساب شما");
+            name.setText("واریز "+item.getName()+"تومان به حساب شما");
             this.date.setText(date+" انتقال شبا ");
         }
         else if (xChangeEntity.type == 4) {
