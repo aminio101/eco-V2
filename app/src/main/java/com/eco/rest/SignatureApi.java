@@ -98,7 +98,7 @@ public interface SignatureApi {
 
     @Headers({"Content-Type:application/json"})
     @POST("/api/guilds/request")
-    Call<JsonObject> addRequestSenf(@Header("Authorization") String auth,
+    Call<JsonObject> addFastRequest(@Header("Authorization") String auth,
                                     @Body RequestEntity requestModel);
 
     @Headers({"Content-Type:application/json"})

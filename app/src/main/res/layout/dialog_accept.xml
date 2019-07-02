@@ -4,7 +4,7 @@
     android:gravity="center_horizontal"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_marginTop="@dimen/_10sdp"
         app:cardElevation="2dp"
         app:cardCornerRadius="@dimen/_15sdp"
@@ -17,7 +17,7 @@
             <ImageView
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_20sdp"
-                app:srcCompat="@drawable/decacc"
+                app:srcCompat="@drawable/ic_delete"
                 android:layout_width="@dimen/_18sdp"
                 android:layout_height="@dimen/_18sdp" />
             <ImageView
@@ -81,6 +81,7 @@
             <TextView
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:layout_centerHorizontal="true"
+                android:id="@+id/time"
                 android:layout_alignParentBottom="true"
                 android:text="زمان تقریبی رسیدن :25 دقیقه"
                 android:layout_width="wrap_content"
@@ -89,6 +90,6 @@
 
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

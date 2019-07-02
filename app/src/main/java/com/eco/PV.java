@@ -1,5 +1,7 @@
 package com.eco;
 
+import android.app.Activity;
+
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.LocationEntity;
 import com.eco.entitys.RequestEntity;
@@ -30,6 +32,7 @@ public class PV {
     public static RequestEntity requestEntity = new RequestEntity();
     public static ArrayList<RubbishEntity> list = new ArrayList<>();
     public static RequstMode requstMode;
+    public static Activity activity;
     public static String timeStamp;
     public static  int endPeriod;
     public static  ArrayList<RubbishEntity> rubbishList = new ArrayList<>();

@@ -22,25 +22,25 @@
             android:layout_centerInParent="true"
             android:visibility="gone" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/shop_fragment_recyclerView_product"
             android:layout_below="@+id/header_card" />
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/header_card"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp"
             android:visibility="gone"
             app:cardElevation="@dimen/_5sdp">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/shop_fragment_recyclerView_header"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_10sdp" />
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
 </RelativeLayout>

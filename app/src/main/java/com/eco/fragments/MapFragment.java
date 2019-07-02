@@ -7,14 +7,16 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -63,7 +65,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.support.constraint.Constraints.TAG;
 import static com.eco.enums.MapAdapterMode.EDIT;
 import static com.eco.enums.MapAdapterMode.SELECT;
 
@@ -98,7 +99,9 @@ public class MapFragment extends Fragment implements
     ProgressBar progressBar;
     @BindView(R.id.root)
     ConstraintLayout constraintLayout;
-    @OnClick(R.id.map_fragment_button_next_step)public void timeFragment(){
+
+    @OnClick(R.id.map_fragment_button_next_step)
+    public void timeFragment() {
         if (buttonNextStep.getText().toString().equals("ویرایش")) {
             DialogSelectAddress dialogSelectAddress = new DialogSelectAddress(favoriteAddressEntity, getContext(), callBackFavoriteLocationDialog);
         } else if (buttonNextStep.getText().toString().equals("اضافه کردن")) {
@@ -107,6 +110,7 @@ public class MapFragment extends Fragment implements
             presenter.checkData(des.getText().toString(), mMap);
         }
     }
+
     ArrayList<FavoriteAddressEntity> list;
     @BindView(R.id.map_fragment_button_next_step)
     Button buttonNextStep;
@@ -118,16 +122,19 @@ public class MapFragment extends Fragment implements
     ImageView imageViewEditLocation;
     @BindView(R.id.mapFragmentEditTextDes)
     EditText des;
+
     @OnClick(R.id.addLocation)
     public void addLocation() {
         hideView();
         buttonNextStep.setText("اضافه کردن");
     }
-    void editMode(){
+
+    void editMode() {
         imageViewMyLocation.setVisibility(View.GONE);
         imageViewAddLocation.setVisibility(View.GONE);
         imageViewEditLocation.setVisibility(View.GONE);
     }
+
     @OnClick(R.id.mapFragmentRelativeMyLocation)
     public void goToMyLocation() {
         LocationManager locationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
@@ -167,6 +174,7 @@ public class MapFragment extends Fragment implements
     Context mContext;
     private boolean gpsCheck = true;
     Activity mActivity;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.map_fragment, container, false);
@@ -184,7 +192,7 @@ public class MapFragment extends Fragment implements
         adapter = new FavoriteAddressAdapter(getContext(), onLocationClick);
         presenter = new MapFragmentPresenter(this, getContext(), progressBar, constraintLayout);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mapInit();
         buildGoogleApiClient();
     }
@@ -239,24 +247,25 @@ public class MapFragment extends Fragment implements
             });
         }
     }
-   ILocationClick onLocationClick = new ILocationClick() {
-       @Override
-       public void onClick(FavoriteAddressEntity favoriteAddress) {
-           LatLng latLng = new LatLng(favoriteAddress.getLocation().getLat(), favoriteAddress.getLocation().getLng());
-           favoriteAddressEntity = favoriteAddress;
-           mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14), 100, null);
-           if (mapAdapterMode == EDIT) {
-               showAddressDialog(favoriteAddressEntity);
-           } else {
-               des.setText(favoriteAddress.getDescription());
-           }
-       }
-   };
+
+    ILocationClick onLocationClick = new ILocationClick() {
+        @Override
+        public void onClick(FavoriteAddressEntity favoriteAddress) {
+            LatLng latLng = new LatLng(favoriteAddress.getLocation().getLat(), favoriteAddress.getLocation().getLng());
+            favoriteAddressEntity = favoriteAddress;
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14), 100, null);
+            if (mapAdapterMode == EDIT) {
+                showAddressDialog(favoriteAddressEntity);
+            } else {
+                des.setText(favoriteAddress.getDescription());
+            }
+        }
+    };
 
     private void showAddressDialog(FavoriteAddressEntity favoriteAddressEntity) {
-        if (list.size()==6) // todo test
-            Toast.makeText(getContext(),"لیست مکان های منتخب شما پر شده است ",Toast.LENGTH_LONG).show();
-        else{
+        if (list.size() == 6) // todo test
+            Toast.makeText(getContext(), "لیست مکان های منتخب شما پر شده است ", Toast.LENGTH_LONG).show();
+        else {
             buttonNextStep.setText("ویرایش");
             hideView();
         }
@@ -365,6 +374,7 @@ public class MapFragment extends Fragment implements
         adapter.addItem(result);
         this.list = result;
     }
+
     @Override
     public void rGetFavoriteLocation() {
         DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
@@ -404,7 +414,7 @@ public class MapFragment extends Fragment implements
     }
 
     @Override
-    public void rAddLocation( FavoriteAddressEntity favoriteAddressEntity) {
+    public void rAddLocation(FavoriteAddressEntity favoriteAddressEntity) {
         DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -444,11 +454,11 @@ public class MapFragment extends Fragment implements
                 MapStyleOptions.loadRawResourceStyle(
                         mActivity, R.raw.map_style));
         if (!success) {
-            Log.d(TAG, "Style parsing failed.");
+//            Log.d(TAG, "Style parsing failed.");
         }
         mMap.setOnMapLoadedCallback(() -> {
             if (mMap != null) {
-                Log.d(TAG, "onMapLoaded: ");
+//                Log.d(TAG, "onMapLoaded: ");
                 mapLoad = true;
                 getLastLocation();
             }

@@ -1,11 +1,13 @@
 package com.eco.presenters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.eco.PV;
 import com.eco.PrefManager;
+import com.eco.activityes.MainActivity;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.MUserEntity;
 import com.eco.entitys.RubbishEntity;
@@ -20,10 +22,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> implements IMainFragmentPresenter {
-    public MainFragmentPresenter(IMainFragmentView view, Context context, ProgressBar progressBars,  View views) {
+    public MainFragmentPresenter(IMainFragmentView view, Context context, ProgressBar progressBars,  View views,Activity activity) {
         super(view, context, progressBars, views);
+        this.activity = activity;
     }
-
+    Activity activity;
     @Override
     public void detach() {
         detachView();
@@ -112,7 +115,10 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                     userEntity.username = result.userName;
                     PrefManager.getInstance().setUser(userEntity);
                     mView.get().showUserScore(String.valueOf(userEntity.score));
-                    getList();
+//                    if (result.uncompleteRequestId!=0)
+//                        ((MainActivity) activity).loadCommentFragment(String.valueOf(result.uncompleteRequestId));
+//                    else
+                        getList();
                 }
             }
 

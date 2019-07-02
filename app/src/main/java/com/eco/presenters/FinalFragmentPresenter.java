@@ -79,19 +79,41 @@ public class FinalFragmentPresenter extends BasePresenter<IFinalFragmentView> im
     }
 
     private void sendFastRequest() {
+        startProgress();
+        MethodApi.getInstance().addFastRequest(PV.requestEntity, new IRemoteCallback<JsonObject>() {
+            @Override
+            public void onResponse(Boolean answer) {
 
+            }
+
+            @Override
+            public void onSuccess(JsonObject result) {
+                if (isViewAvailable()) mView.get().success();
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                if (isViewAvailable()) showMsg(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer, boolean connection) {
+                if (isViewAvailable()) {
+                    if (!connection) mView.get().rSendRequest();
+                    stopProgress();
+                }
+            }
+        });
     }
 
     private void sendRequestNormal() {
         if (null == PV.requestEntity) {
             showMsg("لیست درخوات شما خالی میباشد");
             return;
-        }
-        else if(null == PV.requestEntity.request){
+        } else if (null == PV.requestEntity.request) {
             showMsg("لیست درخوات شما خالی میباشد");
             return;
-        }
-        else if (PV.requestEntity.request.size() == 0) {
+        } else if (PV.requestEntity.request.size() == 0) {
             showMsg("لیست درخوات شما خالی میباشد");
             return;
         }

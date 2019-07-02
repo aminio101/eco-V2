@@ -1,15 +1,14 @@
 package com.eco.fragments;
 
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.NestedScrollView;
+
+import androidx.fragment.app.Fragment;
+import androidx.core.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -94,7 +93,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
 
     private void init() {
         isSelect = false;
-        presenter = new MainFragmentPresenter(this,getContext(),progressBar,root);
+        presenter = new MainFragmentPresenter(this,getContext(),progressBar,root,getActivity());
         viewHolders = new ArrayList<>();
         rubbishEntityArrayList = new ArrayList<>();
     }

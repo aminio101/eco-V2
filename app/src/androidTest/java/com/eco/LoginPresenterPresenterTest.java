@@ -2,21 +2,16 @@ package com.eco;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.runner.AndroidJUnit4;
 
-import com.eco.interfaces.ILoginPresenter;
 import com.eco.interfaces.ILoginView;
 import com.eco.presenters.LoginPresenter;
 import com.eco.rest.MethodApi;
-import com.eco.rest.SignatureApi;
 
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
-import static org.mockito.Mockito.times;
+import static androidx.test.InstrumentationRegistry.getInstrumentation;
 
-import org.mockito.InOrder;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import org.junit.Before;

@@ -1,15 +1,14 @@
 package com.eco.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.eco.R;
 import com.eco.entitys.ListeEntity;
 import com.eco.entitys.XChangeEntity;
-import com.eco.viewHolder.ProductListViewHolder;
 import com.eco.viewHolder.XChangeViewHolder;
 
 import java.util.ArrayList;

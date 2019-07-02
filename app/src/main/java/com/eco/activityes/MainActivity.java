@@ -2,14 +2,24 @@ package com.eco.activityes;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+
+import com.eco.PV;
+import com.eco.entitys.AcceptDriverEntity;
+import com.eco.fragments.FragmentComment;
+import com.eco.fragments.MoreFragment;
+import com.eco.views.DialogAcceptDriver;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.MenuItem;
+
 import com.eco.R;
 import com.eco.fragments.EditProfileFragment;
 import com.eco.fragments.FinalFragment;
@@ -33,25 +43,32 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.navigation)
     BottomNavigationView bottomNavigationView;
     boolean firstLoad;
-    @BindView(R.id.navigation_view) NavigationView navigationView;
+    @BindView(R.id.navigation_view)
+    NavigationView navigationView;
+
     @OnClick(R.id.main_activity_image_back)
     public void back() {
         onBackPressed();
     }
+
     @BindView(R.id.drawable_right)
     DrawerLayout drawerLayout;
+
     @OnClick(R.id.btn_menu)
     public void openMenu() {
         drawerLayout.openDrawer(RIGHT);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
     }
+
     private void init() {
         ButterKnife.bind(this);
+        PV.activity = this;
         firstLoad = true;
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -72,7 +89,10 @@ public class MainActivity extends AppCompatActivity {
                         if (!firstLoad)
                             loadXChangeFragment();
                         break;
-
+                    case R.id.more:
+                        if (!firstLoad)
+                            loadMoreFragment();
+                        break;
                 }
                 return true;
             }
@@ -84,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadMainFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         currentFragment = new MainFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "MainFragment");
         fragmentTransaction.addToBackStack("MainFragment");
@@ -93,21 +113,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadMapFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         currentFragment = new MapFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "MapFragment");
         fragmentTransaction.addToBackStack("MapFragment");
         fragmentTransaction.commit();
     }
 
+    public void showDriverDialog(AcceptDriverEntity acceptDriverEntitiy) {
+        DialogAcceptDriver dialogAcceptDriver = new DialogAcceptDriver(this, acceptDriverEntitiy);
+        dialogAcceptDriver.show();
+    }
+
     public boolean onClick(int id) {
         switch (id) {
-//            case R.id.invite:
-//                loadIntroduceFragment();
-//                drawerLayout.closeDrawer(RIGHT);
-//                return true;
-           case R.id.profile:
-               loadEditProfileFragment();
+
+            case R.id.profile:
+                loadEditProfileFragment();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
             case R.id.invite:
@@ -119,39 +141,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
-           case R.id.wallet:
-              loadFragmentWallet();
-               drawerLayout.closeDrawer(RIGHT);
-                return true;
-
-
-           /*//  case R.id.about_us:
-                loadFragmentAboutUs();
+            case R.id.wallet:
+                loadFragmentWallet();
                 drawerLayout.closeDrawer(RIGHT);
                 return true;
-            case R.id.support:
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:" + getString(R.string.support_number)));
-                startActivity(intent);
-                drawerLayout.closeDrawer(RIGHT);
-                return true;
-            case R.id.exit:
-                logOut();
-                return true;*/
         }
         return false;
     }
 
     public void loadShopFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         currentFragment = new ShopFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "ShopFragment");
         fragmentTransaction.addToBackStack("ShopFragment");
         fragmentTransaction.commit();
-    }  public void loadXChangeFragment() {
+    }
+
+    public void loadXChangeFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         currentFragment = new XChangeFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "XChangeFragment");
         fragmentTransaction.addToBackStack("XChangeFragment");
@@ -160,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadTimeFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         currentFragment = new TimeFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "TimeFragment");
         fragmentTransaction.addToBackStack("TimeFragment");
@@ -169,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadFinalFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         currentFragment = new FinalFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "FinalFragment");
         fragmentTransaction.addToBackStack("FinalFragment");
@@ -178,28 +187,50 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadIntroduceFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         currentFragment = new IntroduceFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "IntroduceFragment");
         fragmentTransaction.addToBackStack("IntroduceFragment");
         fragmentTransaction.commit();
     }
+
     public void loadEditProfileFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         currentFragment = new EditProfileFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "EditProfileFragment");
         fragmentTransaction.addToBackStack("EditProfileFragment");
         fragmentTransaction.commit();
     }
+
     public void loadFragmentWallet() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         currentFragment = new WalletFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "WalletFragment");
         fragmentTransaction.addToBackStack("WalletFragment");
         fragmentTransaction.commit();
     }
 
+    public void loadMoreFragment() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        currentFragment = new MoreFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "MoreFragment");
+        fragmentTransaction.addToBackStack("MoreFragment");
+        fragmentTransaction.commit();
+    }
 
+
+    public void loadCommentFragment(String number) {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        currentFragment = new FragmentComment();
+        Bundle bundle = new Bundle();
+        bundle.putString("number", number);
+        currentFragment.setArguments(bundle);
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "FragmentComment");
+        fragmentTransaction.addToBackStack("FragmentComment");
+        fragmentTransaction.commit();
+    }
 }

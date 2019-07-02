@@ -1,29 +1,23 @@
 package com.eco.fragments;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.Fragment;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 
 import com.eco.R;
 import com.eco.interfaces.IIntroducePresenter;
 import com.eco.interfaces.IIntroduceView;
-import com.eco.interfaces.IWalletPresenter;
 import com.eco.presenters.IntroducePresenter;
-import com.eco.presenters.WalletFragmentPresenter;
 import com.eco.views.DialogConnection;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnEditorAction;
-import butterknife.Optional;
 
 public class IntroduceFragment extends Fragment implements IIntroduceView {
     View view;

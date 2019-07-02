@@ -104,6 +104,8 @@ public class MethodApi {
         }));
     }
 
+
+
     public void getXChangeList(int url,final IRemoteCallback<ListeEntity<XChangeEntity>> callback) {
         final Call<ListeEntity<XChangeEntity>> call = signatureApi.getXchangeList(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/shared/exchanges?pageSize=10&pageNumber="+url);
         call.enqueue(new Enqueue<>(new IRemoteCallback<ListeEntity<XChangeEntity>>() {
@@ -535,8 +537,8 @@ public class MethodApi {
         }));
     }
 
-    public void addRequestSenf(RequestEntity request, final IRemoteCallback<JsonObject> callback) {
-        final Call<JsonObject> call = signatureApi.addRequestSenf(PV.tokenPrefix + PrefManager.getInstance().getToken(), request);
+    public void addFastRequest(RequestEntity request, final IRemoteCallback<JsonObject> callback) {
+        final Call<JsonObject> call = signatureApi.addFastRequest(PV.tokenPrefix + PrefManager.getInstance().getToken(), request);
         call.enqueue(new Enqueue<>(new IRemoteCallback<JsonObject>() {
             @Override
             public void onResponse(Boolean answer) {

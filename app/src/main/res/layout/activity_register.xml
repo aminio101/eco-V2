@@ -14,7 +14,7 @@
         android:text="تکمیل پروفایل"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <RelativeLayout
@@ -309,5 +309,5 @@ android:layout_below="@+id/editText_shabaNumber"
                 android:layout_gravity="center"
                 android:visibility="gone" />
         </RelativeLayout>
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>
 </LinearLayout>

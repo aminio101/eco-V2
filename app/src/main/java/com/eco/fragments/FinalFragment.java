@@ -1,10 +1,10 @@
 package com.eco.fragments;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.core.widget.NestedScrollView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,7 +71,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
         list.setNestedScrollingEnabled(false);
         adapter = new FinalFragmentAdapter(getContext(), onClickListener);
         list.setAdapter(adapter);
-        list.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        list.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         presenter = new FinalFragmentPresenter(this, getContext(), progressBar, root);
         Log.i("data", PV.requestEntity.toString());
     }
