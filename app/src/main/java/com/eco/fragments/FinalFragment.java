@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -39,6 +40,8 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     FinalFragmentAdapter adapter;
     @BindView(R.id.textView6)
     TextView timeText;
+    @BindView(R.id.button)
+    Button button;
     @OnClick(R.id.button) public void sendRequest(){
         presenter.sendRequest();
     }
@@ -97,6 +100,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     @Override
     public void success() {
         adapter.hideDelete();
+        button.setVisibility(View.INVISIBLE);
     }
 
     @Override

@@ -69,27 +69,6 @@ public class Api  {
 
         httpClient.addInterceptor(interceptor);
 
-//        httpClient.addInterceptor(chain -> {
-//            Request original = chain.request();
-//
-//            if (!PV.token.equals("")){
-//                request = original.newBuilder()
-//                        .header("Content-Type", "application/json")
-//                        .header("Authorization", PV.tokenPrefix + PV.token)
-//                        .build();
-//                Log.d(TAG, "intercept: "+ PV.tokenPrefix + PV.token);
-//
-//            }else {
-//                request = original.newBuilder()
-//                        .header("Content-Type", "application/json")
-//                        //.header("Authorization", "Bearer " + session.getToken())
-//                        .build();
-//
-//            }
-//            Response response = chain.proceed(request);
-//            response.cacheResponse();
-//            return response;
-//        });
         httpClient.cache(cache);
         okHttpClient = httpClient.build();
     }

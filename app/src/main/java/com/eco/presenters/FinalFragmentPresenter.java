@@ -68,13 +68,13 @@ public class FinalFragmentPresenter extends BasePresenter<IFinalFragmentView> im
 
     @Override
     public void getTime() throws ParseException {
-        int day = Integer.valueOf(PV.requestEntity.runDate) - PV.getDayNumber(PV.timeStamp,0);
-        if (day<0)
-            day = 7-(-1*day);
+        int day = Integer.valueOf(PV.requestEntity.runDate) - PV.getDayNumber(PV.timeStamp, 0);
+        if (day < 0)
+            day = 7 - (-1 * day);
         int hour = PV.endPeriod - PV.getHour(PV.timeStamp);
-        if (hour<0)
-            hour = 24-(-1*hour);
-        mView.get().showTime(day,hour);
+        if (hour < 0)
+            hour = 24 - (-1 * hour);
+        mView.get().showTime(day, hour);
         stopProgress();
     }
 
@@ -83,7 +83,15 @@ public class FinalFragmentPresenter extends BasePresenter<IFinalFragmentView> im
     }
 
     private void sendRequestNormal() {
-        if (PV.requestEntity.request.size()==0){
+        if (null == PV.requestEntity) {
+            showMsg("لیست درخوات شما خالی میباشد");
+            return;
+        }
+        else if(null == PV.requestEntity.request){
+            showMsg("لیست درخوات شما خالی میباشد");
+            return;
+        }
+        else if (PV.requestEntity.request.size() == 0) {
             showMsg("لیست درخوات شما خالی میباشد");
             return;
         }
@@ -106,14 +114,14 @@ public class FinalFragmentPresenter extends BasePresenter<IFinalFragmentView> im
 
             @Override
             public void onFail(ErrorEntity errorObject) {
-                if (isViewAvailable())showMsg(errorObject);
+                if (isViewAvailable()) showMsg(errorObject);
             }
 
             @Override
             public void onFinish(Boolean answer, boolean connection) {
-                if(isViewAvailable()){
+                if (isViewAvailable()) {
                     stopProgress();
-                    if(!connection)
+                    if (!connection)
                         mView.get().rSendRequest();
                 }
             }
