@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadMainFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new MainFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "MainFragment");
         fragmentTransaction.addToBackStack("MainFragment");
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadMapFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new MapFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "MapFragment");
         fragmentTransaction.addToBackStack("MapFragment");
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadShopFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new ShopFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "ShopFragment");
         fragmentTransaction.addToBackStack("ShopFragment");
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadXChangeFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new XChangeFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "XChangeFragment");
         fragmentTransaction.addToBackStack("XChangeFragment");
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadTimeFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new TimeFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "TimeFragment");
         fragmentTransaction.addToBackStack("TimeFragment");
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadFinalFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new FinalFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "FinalFragment");
         fragmentTransaction.addToBackStack("FinalFragment");
@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadIntroduceFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new IntroduceFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "IntroduceFragment");
         fragmentTransaction.addToBackStack("IntroduceFragment");
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadEditProfileFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new EditProfileFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "EditProfileFragment");
         fragmentTransaction.addToBackStack("EditProfileFragment");
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadFragmentWallet() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new WalletFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "WalletFragment");
         fragmentTransaction.addToBackStack("WalletFragment");
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadMoreFragment() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new MoreFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "MoreFragment");
         fragmentTransaction.addToBackStack("MoreFragment");
@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadCommentFragment(String number) {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
         currentFragment = new FragmentComment();
         Bundle bundle = new Bundle();
         bundle.putString("number", number);

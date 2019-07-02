@@ -8,6 +8,7 @@ import com.eco.entitys.AdvertisingEntity;
 import com.eco.entitys.CommentEntity;
 import com.eco.entitys.DriverEntity;
 import com.eco.entitys.ErrorEntity;
+import com.eco.entitys.FCMEntity;
 import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.entitys.InviteEntity;
 import com.eco.entitys.ListeEntity;
@@ -31,6 +32,8 @@ import com.eco.entitys.UserNumberEntity;
 import com.eco.entitys.VerifiCodeEntity;
 import com.eco.entitys.VerifyCodeSuccessEntity;
 import com.eco.entitys.XChangeEntity;
+import com.eco.entitys.logOutEntity;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -78,6 +81,34 @@ public class MethodApi {
             }
         }));
     }
+
+
+    public void setFcmToken(String fcm,final IRemoteCallback<String> callback) {
+        FCMEntity fcmEntity = new FCMEntity(fcm);
+        final Call<String> call = signatureApi.sendToken(PV.tokenPrefix+PrefManager.getInstance().getToken(),fcmEntity);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<String>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(String result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connect) {
+                callback.onFinish(answer,connect);
+            }
+        }));
+    }
+
     public void sendComment(int url, CommentEntity CommentEntity, final IRemoteCallback<CommentEntity> callback) {
 
         final Call<CommentEntity> call = signatureApi.sendComment("/api/users/rate/" + url, CommentEntity);
@@ -558,6 +589,33 @@ public class MethodApi {
             @Override
             public void onFinish(Boolean answer, boolean connection) {
                 callback.onFinish(answer, connection);
+            }
+        }));
+    }
+
+    public void logOut(final IRemoteCallback<String> callback) {
+        logOutEntity userDelete = new logOutEntity(String.valueOf(PrefManager.getInstance().getUser().id));
+        final Call<String> call = signatureApi.logOut(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/fcm/" + userDelete.userId);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<String>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(String result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connect) {
+                callback.onFinish(answer,connect);
+
             }
         }));
     }

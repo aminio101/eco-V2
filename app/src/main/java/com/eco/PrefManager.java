@@ -11,6 +11,7 @@ public class PrefManager {
     private static final String PREF_NAME = "ECO";
     private static final String TOKEN = "token";
     private static final String FIRSTTOKEN = "firstToken";
+    private static final String FCM = "FCM";
     private static final String USER = "user";
     static Application application;
     private static PrefManager instance;
@@ -63,5 +64,13 @@ public class PrefManager {
       String json = null; json = pref.getString(USER, null);
         UserEntity userEntity =  gson.fromJson(json,UserEntity.class);
         return userEntity;
+    }
+    public void setFCM(int token) {
+        editor.putInt(FCM, token);
+        editor.commit();
+    }
+    public int getSetFCM() {
+        int token = pref.getInt(FCM, 0);
+        return token;
     }
 }

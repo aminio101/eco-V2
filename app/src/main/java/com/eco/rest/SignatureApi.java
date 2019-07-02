@@ -2,6 +2,7 @@ package com.eco.rest;
 
 import com.eco.entitys.CommentEntity;
 import com.eco.entitys.DriverEntity;
+import com.eco.entitys.FCMEntity;
 import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.entitys.AdvertisingEntity;
 import com.eco.entitys.InviteEntity;
@@ -33,6 +34,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -50,11 +52,19 @@ public interface SignatureApi {
     Call<ListeEntity<XChangeEntity>> getXchangeList(@Header("Authorization") String auth,@Url String url);
 
 
+    @Headers({"Content-Type:application/json"})
+    @PUT("/api/fcm")
+    Call<String> sendToken(@Header("Authorization") String auth,@Body FCMEntity username);
+
 
     @Headers({"Content-Type:application/json"})
     @PUT
     Call<CommentEntity> sendComment(@Url String url, @Body CommentEntity username);
 
+
+    @Headers({"Content-Type:application/json"})
+    @HTTP(method = "DELETE", hasBody = true)
+    Call<String> logOut(@Header("Authorization") String auth,@Url String url);
 
 
     @Headers({"Content-Type:application/json"})

@@ -14,4 +14,6 @@ public interface IMainFragmentView  {
     void showUserScore(String score);
 
     void rGetUser();
+
+    void rSendFCM();
 }

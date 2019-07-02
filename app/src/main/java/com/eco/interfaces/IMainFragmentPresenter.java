@@ -11,4 +11,6 @@ public interface IMainFragmentPresenter extends IBasePresenter {
 
 
     void getUser();
+
+    void setFCM();
 }
