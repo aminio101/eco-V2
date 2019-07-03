@@ -5,12 +5,23 @@
     android:layout_marginBottom="@dimen/_5sdp"
    >
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10 کیلو"
+        android:textColor="@android:color/black"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:id="@+id/number"
+        android:layout_marginEnd="@dimen/_15sdp"
+        />
+    <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_5sdp"
         android:gravity="center"
         android:layout_toStartOf="@+id/orange_circle"
+        android:text="تست"
         android:textColor="@android:color/black" />
     <View
         android:id="@+id/orange_circle"

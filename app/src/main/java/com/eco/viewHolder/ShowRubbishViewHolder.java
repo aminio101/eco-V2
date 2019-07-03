@@ -9,13 +9,15 @@ import com.eco.R;
 import com.eco.entitys.ItemEntity;
 
 public class ShowRubbishViewHolder extends RecyclerView.ViewHolder {
-    TextView name;
+    TextView name,number;
     public ShowRubbishViewHolder(@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.name);
+        number = itemView.findViewById(R.id.number);
     }
 
-    public void bind(ItemEntity itemEntitiy) {
-        name.setText(itemEntitiy.name);
+    public void bind(ItemEntity itemEntity) {
+        name.setText(itemEntity.name);
+        number.setText(String.valueOf(itemEntity.number)+"  کیلو  ");
     }
 }

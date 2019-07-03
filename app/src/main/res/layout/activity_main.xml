@@ -65,13 +65,5 @@
            android:foreground="?attr/selectableItemBackground"
            app:menu="@menu/main_navigation" />
    </RelativeLayout>
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="right"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/header"
-        android:layoutDirection="rtl"
-        app:menu="@menu/main_menu" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

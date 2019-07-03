@@ -10,14 +10,18 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.util.Log;
 
+import androidx.collection.ArrayMap;
 import androidx.core.app.NotificationCompat;
 
 import com.eco.PV;
 import com.eco.R;
 import com.eco.activityes.MainActivity;
 import com.eco.entitys.AcceptDriverEntity;
+import com.eco.entitys.ItemEntity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+
+import java.util.Map;
 
 
 public class NotificationReceiver extends FirebaseMessagingService {
@@ -59,6 +63,11 @@ public class NotificationReceiver extends FirebaseMessagingService {
                 AcceptDriverEntity acceptDriverEntity = new AcceptDriverEntity();
                 acceptDriverEntity.title = remoteMessage.getData().get("title");
                 acceptDriverEntity.body = remoteMessage.getData().get("body");
+                acceptDriverEntity.time = remoteMessage.getData().get("data");
+
+
+
+
                 if (PV.activity instanceof MainActivity) {
                     ((MainActivity) PV.activity).showDriverDialog(acceptDriverEntity);
                 }

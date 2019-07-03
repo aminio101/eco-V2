@@ -10,6 +10,7 @@ import com.eco.entitys.AcceptDriverEntity;
 import com.eco.fragments.FragmentComment;
 import com.eco.fragments.MoreFragment;
 import com.eco.views.DialogAcceptDriver;
+import com.eco.views.DialogConnection;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -19,6 +20,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.MenuItem;
+import android.view.View;
 
 import com.eco.R;
 import com.eco.fragments.EditProfileFragment;
@@ -43,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.navigation)
     BottomNavigationView bottomNavigationView;
     boolean firstLoad;
-    @BindView(R.id.navigation_view)
-    NavigationView navigationView;
+
 
     @OnClick(R.id.main_activity_image_back)
     public void back() {
@@ -70,12 +71,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         PV.activity = this;
         firstLoad = true;
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                return onClick(menuItem.getItemId());
-            }
-        });
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -121,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDriverDialog(AcceptDriverEntity acceptDriverEntitiy) {
-        DialogAcceptDriver dialogAcceptDriver = new DialogAcceptDriver(this, acceptDriverEntitiy);
-        dialogAcceptDriver.show();
+        DialogAcceptDriver dialogAcceptDriver = new DialogAcceptDriver( acceptDriverEntitiy);
+        dialogAcceptDriver.show(getSupportFragmentManager(),"DialogAcceptDriver");
     }
 
     public boolean onClick(int id) {

@@ -117,7 +117,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                     userEntity.username = result.userName;
                     PrefManager.getInstance().setUser(userEntity);
                     mView.get().showUserScore(String.valueOf(userEntity.score));
-                    if (result.uncompleteRequestId != 0)
+                    if (result.uncompleteRequestId != 0) // todo
                         ((MainActivity) activity).loadCommentFragment(String.valueOf(result.uncompleteRequestId));
                     else
                         getList();
