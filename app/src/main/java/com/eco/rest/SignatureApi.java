@@ -59,7 +59,7 @@ public interface SignatureApi {
 
     @Headers({"Content-Type:application/json"})
     @PUT
-    Call<CommentEntity> sendComment(@Url String url, @Body CommentEntity username);
+    Call<CommentEntity> sendComment(@Header("Authorization") String auth,@Url String url, @Body CommentEntity username);
 
 
     @Headers({"Content-Type:application/json"})
@@ -69,7 +69,7 @@ public interface SignatureApi {
 
     @Headers({"Content-Type:application/json"})
     @GET
-    Call<ArrayList<DriverEntity>> getRequstList(@Url String url);
+    Call<ArrayList<DriverEntity>> getRequstList(@Header("Authorization") String auth,@Url String url);
 
 
     @Headers({"Content-Type:application/json"})

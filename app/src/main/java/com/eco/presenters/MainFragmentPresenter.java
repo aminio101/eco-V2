@@ -47,6 +47,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
             public void onSuccess(ArrayList<RubbishEntity> result) {
                 if (isViewAvailable()) mView.get().showList(result);
                 PV.rubbishList = result;
+                getUser();
             }
 
             @Override
@@ -58,7 +59,6 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
             public void onFinish(Boolean answer, boolean connection) {
                 if (isViewAvailable()) {
                     if (!answer) mView.get().rGetList();
-                    stopProgress();
                 }
             }
         });
@@ -117,10 +117,9 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                     userEntity.username = result.userName;
                     PrefManager.getInstance().setUser(userEntity);
                     mView.get().showUserScore(String.valueOf(userEntity.score));
-                    if (result.uncompleteRequestId != 0) // todo
+                    if (result.uncompleteRequestId == 0) // todo change !=0
                         ((MainActivity) activity).loadCommentFragment(String.valueOf(result.uncompleteRequestId));
-                    else
-                        getList();
+
                 }
             }
 
@@ -135,6 +134,8 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                 if (isViewAvailable()) {
                     if (!answer)
                         mView.get().rGetUser();
+                    else
+                        stopProgress();
                 }
             }
         });
@@ -155,7 +156,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                 public void onSuccess(String result) {
                     if (isViewAvailable()) {
                         PrefManager.getInstance().setFCM(1);
-                        getUser();
+                        getList();
                     }
                 }
 
@@ -173,7 +174,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                 }
             });
         }else
-            getUser();
+            getList();
 
     }
 }

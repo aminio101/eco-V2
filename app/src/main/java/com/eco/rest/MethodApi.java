@@ -111,7 +111,7 @@ public class MethodApi {
 
     public void sendComment(int url, CommentEntity CommentEntity, final IRemoteCallback<CommentEntity> callback) {
 
-        final Call<CommentEntity> call = signatureApi.sendComment("/api/users/rate/" + url, CommentEntity);
+        final Call<CommentEntity> call = signatureApi.sendComment(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/users/rate/" + url, CommentEntity);
         call.enqueue(new Enqueue<>(new IRemoteCallback<CommentEntity>() {
             @Override
             public void onResponse(Boolean answer) {
@@ -165,7 +165,7 @@ public class MethodApi {
     }
 
     public void getRequstList(int id, final IRemoteCallback<DriverEntity> callback) {
-        final Call<ArrayList<DriverEntity>> call = signatureApi.getRequstList("/api/users/deliverInfo/" + id);
+        final Call<ArrayList<DriverEntity>> call = signatureApi.getRequstList(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/users/deliverInfo/" + id);
         call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<DriverEntity>>() {
             @Override
             public void onResponse(Boolean answer) {

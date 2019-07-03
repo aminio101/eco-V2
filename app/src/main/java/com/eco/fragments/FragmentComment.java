@@ -2,7 +2,10 @@ package com.eco.fragments;
 
 import android.os.Bundle;
 
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.activityes.MainActivity;
+import com.eco.adapter.CommentAdapter;
 import com.eco.entitys.DriverEntity;
 import com.eco.entitys.ItemEntity;
 import com.eco.interfaces.IFragmentRateDriverPresenter;
@@ -37,15 +41,19 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     @BindView(R.id.progress)
     ProgressBar progress;
     @BindView(R.id.root)
-    ScrollView root;
+    NestedScrollView root;
     @BindView(R.id.image)
     ImageView profile;
     @BindView(R.id.textView_name)
     TextView name;
     int id;
+    @BindView(R.id.list)
+    RecyclerView list;
+
     DriverEntity driverEntity;
     @BindView(R.id.rat)
     RatingBar ratingBar;
+    CommentAdapter commentAdapter;
 
     @OnClick(R.id.button_submit)
     public void onClick() {
@@ -63,6 +71,10 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     }
 
     private void init() {
+        commentAdapter = new CommentAdapter(getContext());
+        list.setNestedScrollingEnabled(false);
+        list.setAdapter(commentAdapter);
+        list.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         assert getArguments() != null;
         id = Integer.valueOf(getArguments().getString("number"));
         presenter = new FragmentRateDriverPresenter(this, getContext(), progress, root);
@@ -71,11 +83,10 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     @Override
     public void showList(DriverEntity result, ArrayList<ItemEntity> items) {
         name.setText(result.name + " " + result.family);
-
+        commentAdapter.addItem(items);
         this.driverEntity = result;
         assert result.thumbpic != null;
         Glide.with(getContext()).load(PV.getImage(result.thumbpic)).into(profile);
-
     }
 
     @Override

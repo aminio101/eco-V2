@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/toosi"
-   >
+    android:background="@color/toosi">
 
     <ProgressBar
         android:id="@+id/progress"
@@ -13,7 +12,7 @@
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -69,7 +68,6 @@
                 android:textStyle="bold" />
 
             <RatingBar
-
                 android:id="@+id/rat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +75,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_20sdp"
-                android:layout_toLeftOf="@+id/image" />
+                android:layout_toLeftOf="@+id/image"
+                android:layoutDirection="rtl" />
 
 
             <Button
@@ -108,8 +107,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
-                    android:text="تعداد"
                     android:gravity="center"
+                    android:text="تعداد"
                     android:textColor="@color/fili2"
                     android:textSize="@dimen/_15ssp"
                     android:textStyle="bold" />
@@ -118,19 +117,20 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
-                    android:text="امتیاز"
                     android:gravity="center"
+                    android:text="امتیاز"
 
 
                     android:textColor="@color/fili2"
                     android:textSize="@dimen/_15ssp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/text_name"
-                    android:gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
+                    android:gravity="center"
                     android:text="نام پسماند"
                     android:textColor="@color/fili2"
                     android:textSize="@dimen/_15ssp"
@@ -138,7 +138,7 @@
 
             </LinearLayout>
 
-            <view
+            <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_2sdp"
@@ -156,7 +156,7 @@
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:layout_marginRight="@dimen/_25sdp" />
 
-            <view
+            <View
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_2sdp"
@@ -189,5 +189,5 @@
                 android:textColor="@color/fili2"
                 android:textStyle="bold" />
         </RelativeLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
