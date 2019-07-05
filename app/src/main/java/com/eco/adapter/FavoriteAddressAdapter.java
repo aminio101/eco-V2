@@ -38,6 +38,7 @@ public class FavoriteAddressAdapter extends RecyclerView.Adapter<FavoriteAddress
             favoriteAddressViewHolderArrayList.get(j).root.setCardBackgroundColor(Color.parseColor("#686666"));
     }
     public void addItem(ArrayList<FavoriteAddressEntity> list) {
+        this.list.clear();
         this.list.addAll(list);
         notifyDataSetChanged();
     }

@@ -119,14 +119,19 @@ public class MapFragment extends Fragment implements
     @BindView(R.id.addLocation)
     ImageView imageViewAddLocation;
     @BindView(R.id.btnEditLocation)
-    ImageView imageViewEditLocation;
+    ImageView imageViewEditLocation;    @BindView(R.id.cancel)
+    ImageView cancel;
     @BindView(R.id.mapFragmentEditTextDes)
     EditText des;
-
+    @OnClick(R.id.cancel)public void cancel(){
+        successAddLocation();
+        cancel.setVisibility(View.GONE);
+    }
     @OnClick(R.id.addLocation)
     public void addLocation() {
         hideView();
         buttonNextStep.setText("اضافه کردن");
+        cancel.setVisibility(View.VISIBLE);
     }
 
     void editMode() {
@@ -410,7 +415,9 @@ public class MapFragment extends Fragment implements
     public void successAddLocation() {
         showView();
         adapter.unSelectAll();
+        buttonNextStep.setText("مرحله بعد");
         favoriteAddressEntity = null;
+        presenter.getFavoriteLocation();
     }
 
     @Override

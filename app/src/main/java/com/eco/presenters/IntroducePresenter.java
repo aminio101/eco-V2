@@ -40,7 +40,7 @@ public class IntroducePresenter extends BasePresenter<IIntroduceView> implements
             public void onSuccess(InviteEntity result) {
                 if (isViewAvailable()) {
                     mView.get().success();
-                    showMsg("دعوت از دوست شما موفقیت آمیز بود");
+                    showMsg("ارسال دعوت نامه موفقیت آمیز بود");
                 }
             }
 

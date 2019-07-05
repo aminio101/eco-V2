@@ -39,6 +39,7 @@ public class DayListAdapter extends RecyclerView.Adapter<DayListViewHolder> {
         DayListViewHolder dayListViewHolder = new DayListViewHolder(LayoutInflater.from(context).
                 inflate(R.layout.day_item_list, viewGroup, false),context);
         dayListViewHolders.add(dayListViewHolder);
+
         return dayListViewHolder;
     }
 
@@ -60,4 +61,6 @@ public class DayListAdapter extends RecyclerView.Adapter<DayListViewHolder> {
     public int getItemCount() {
         return list.size();
     }
+
+
 }

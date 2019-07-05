@@ -61,7 +61,7 @@
                     android:background="@drawable/custom_button_send"
                     android:text="@string/submitApplication"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_11ssp"
                     android:textStyle="bold" />
             </RelativeLayout>
 

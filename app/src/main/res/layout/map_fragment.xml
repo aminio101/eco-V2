@@ -26,6 +26,18 @@
             android:layout_height="match_parent" />
 
         <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="@dimen/_30sdp"
+            android:visibility="gone"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/background_map_fragment"
+            android:gravity="center"
+            android:tint="@android:color/white"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_delete" />
+        <ImageView
             android:id="@+id/mapFragmentRelativeMyLocation"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"

@@ -54,7 +54,8 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     int position;
     @OnClick(R.id.imageView19)public void add(){
         if (checkSelectItem()||isSelect) {
-            textViewNumber.setText(String.valueOf(viewHolders.get(position).addNum()));
+            String s = String.valueOf(viewHolders.get(position).addNum());
+            textViewNumber.setText(s);
             if (textViewNumber.getText().toString().equals("0"))
                 isSelect = false;
         }

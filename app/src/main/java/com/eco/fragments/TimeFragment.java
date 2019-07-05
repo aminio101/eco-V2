@@ -198,7 +198,11 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
 
     @Override
     public void showTimes(ArrayList<DayEntity> list,String timeStamp) {
-        dayListAdapter.addItem(list);
+        ArrayList<DayEntity> dayEntities = new ArrayList<>();
+        dayEntities.add(list.get(0));
+        dayEntities.add(list.get(1));
+        dayEntities.add(list.get(2));
+        dayListAdapter.addItem(dayEntities);
         this.timeStamp = timeStamp;
     }
 

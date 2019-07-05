@@ -143,7 +143,7 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
 
         }else if (xChangeEntity.type==5){
             name.setText("دریافت " + xChangeEntity.citizenScore + " امتیاز ");
-            this.date.setText(date+" دعوت از دوستان ");
+            this.date.setText(date+" ارسال دعوت نامه");
         }
 
     }

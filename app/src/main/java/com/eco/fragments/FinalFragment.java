@@ -1,10 +1,12 @@
 package com.eco.fragments;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import com.eco.PV;
 import com.eco.R;
+import com.eco.activityes.MainActivity;
 import com.eco.adapter.FinalFragmentAdapter;
 import com.eco.entitys.RubbishEntity;
 import com.eco.interfaces.IFinalFragmentPresenter;
@@ -42,9 +45,15 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     TextView timeText;
     @BindView(R.id.button)
     Button button;
-    @OnClick(R.id.button) public void sendRequest(){
-        presenter.sendRequest();
+
+    @OnClick(R.id.button)
+    public void sendRequest() {
+        if (button.getText().equals("بازگشت به منو اصلی"))
+            ((MainActivity) getActivity()).loadMainFragment();
+        else
+            presenter.sendRequest();
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.final_fragment, container, false);
@@ -81,7 +90,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
         adapter.add(list);
         try {
             presenter.getTime();
-        }catch (Exception er){
+        } catch (Exception er) {
             er.printStackTrace();
         }
 
@@ -89,7 +98,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
 
     @Override
     public void rSendRequest() {
-        DialogConnection  dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
+        DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.sendRequest();
@@ -100,11 +109,11 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     @Override
     public void success() {
         adapter.hideDelete();
-        button.setVisibility(View.INVISIBLE);
+        button.setText("بازگشت به منو اصلی");
     }
 
     @Override
     public void showTime(int day, int hour) {
-        timeText.setText(hour+" ساعت و "+day+" روز باقی مانده است ");
+        timeText.setText(hour + " ساعت و " + day + " روز باقی مانده است ");
     }
 }
