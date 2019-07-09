@@ -1,5 +1,6 @@
 package com.eco.activityes;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -37,6 +38,7 @@ import com.eco.fragments.XChangeFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 import static android.view.Gravity.RIGHT;
 
@@ -237,5 +239,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "FragmentComment");
         fragmentTransaction.addToBackStack("FragmentComment");
         fragmentTransaction.commit();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

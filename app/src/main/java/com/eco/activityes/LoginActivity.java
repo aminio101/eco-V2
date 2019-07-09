@@ -2,6 +2,7 @@ package com.eco.activityes;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.RequiresApi;
@@ -18,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.eco.R;
 import com.eco.interfaces.ILoginView;
@@ -27,6 +29,7 @@ import com.eco.views.DialogConnection;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class LoginActivity extends AppCompatActivity implements ILoginView {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -110,6 +113,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         constraintSetNew.clone(this, R.layout.activity_login_2);
         openKeyboard = false;
         presenter.checkLogin();
+
     }
 
     @Override
@@ -140,6 +144,11 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
 }

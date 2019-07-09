@@ -129,11 +129,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline207"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.47" />
+            android:id="@+id/guideline207"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
 
         <View
         android:id="@+id/view7"
@@ -347,7 +347,7 @@
         android:background="@drawable/background_btn_main"
         android:text="@string/despositAcc"
         android:textColor="@color/white"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_5ssp"
         app:layout_constraintBottom_toTopOf="@+id/guideline225"
         app:layout_constraintEnd_toStartOf="@+id/guideline219" />
 
@@ -368,7 +368,7 @@
         android:text="@string/settingsAcc"
         android:textColor="@color/black"
         android:layout_marginTop="@dimen/_10sdp"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_8ssp"
         app:layout_constraintEnd_toStartOf="@+id/guideline219"
         app:layout_constraintTop_toTopOf="@+id/guideline225" />
 
