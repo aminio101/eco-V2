@@ -5,6 +5,8 @@ import android.content.Context;
 
 import com.eco.rest.MethodApi;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
 
 public class MyApplication extends Application {
     @Override
@@ -12,6 +14,12 @@ public class MyApplication extends Application {
         super.onCreate();
         MethodApi.init(this);
         PrefManager prefManager=new PrefManager(this);
+
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("IRANSansMobile.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
     }
     public static Context getContext (){
        return getContext();

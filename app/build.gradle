@@ -59,6 +59,8 @@ dependencies {
     androidTestImplementation 'org.mockito:mockito-android:2.27.0'
     implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
 
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
@@ -96,7 +98,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:16.0.0'
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     implementation 'com.google.android.gms:play-services-maps:16.0.0'
-
 
 
 

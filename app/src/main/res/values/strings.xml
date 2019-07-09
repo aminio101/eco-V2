@@ -40,7 +40,7 @@
     <string name="app_name">Eco</string>
     <string name="verifyCode">بررسی صحت کد</string>
     <string name="numberPackage">تعداد بسته ها</string>
-    <string name="package1">کیلو</string>
+    <string name="package1">کیلوگرم</string>
     <string name="shop">فروشگاه</string>
     <string name="home">خانه</string>
     <string name="xChange">لیست تبادلات</string>

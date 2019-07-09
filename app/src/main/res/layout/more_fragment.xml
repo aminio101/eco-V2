@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textStyle="bold"
-        android:textSize="@dimen/_15ssp"
+        android:textSize="@dimen/_18ssp"
         android:textColor="@android:color/black"
         android:layout_marginEnd="8dp"
         android:text="بیشتر"
@@ -80,6 +80,8 @@
                 app:srcCompat="@drawable/ic_profile" />
 
             <TextView
+                android:gravity="center"
+                android:textSize="@dimen/_10ssp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -114,6 +116,8 @@
                 app:srcCompat="@drawable/ic_wallet" />
 
             <TextView
+                android:gravity="center"
+                android:textSize="@dimen/_10ssp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -151,9 +155,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="ارسال دعوت نامه"
+                android:text="ارسال دعوت نامه به دوستان"
                 android:textColor="@android:color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="@dimen/_10ssp"
+                />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -182,6 +189,8 @@
                 app:srcCompat="@drawable/ic_exit" />
 
             <TextView
+                android:gravity="center"
+                android:textSize="@dimen/_10ssp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -216,6 +225,8 @@
                 app:srcCompat="@drawable/ic_about" />
 
             <TextView
+                android:gravity="center"
+                android:textSize="@dimen/_10ssp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"

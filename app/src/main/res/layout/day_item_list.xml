@@ -24,7 +24,7 @@
             android:layout_marginBottom="@dimen/_6sdp"
             android:text="شنبه"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/_19ssp"
+            android:textSize="@dimen/_10ssp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,6 +35,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/_15sdp"
             android:text="فردا"
+            android:textSize="@dimen/_8ssp"
             android:textColor="@color/orange" />
 
         <TextView
@@ -42,7 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/_5sdp"
+            android:layout_margin="@dimen/_5ssp"
+            android:textSize="@dimen/_8sdp"
             android:text="1397/01/01" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

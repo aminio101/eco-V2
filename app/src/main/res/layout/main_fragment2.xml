@@ -98,7 +98,7 @@
                         android:background="@drawable/background_btn_main"
                         android:text="@string/despositAcc"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_10ssp" />
+                        android:textSize="@dimen/_8ssp" />
 
                     <Button
                         android:id="@+id/button7"
@@ -111,7 +111,7 @@
                         android:background="@drawable/background_btn_main_fragment"
                         android:text="@string/settingsAcc"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_10ssp" />
+                        android:textSize="@dimen/_8ssp" />
 
                 </LinearLayout>
 
@@ -148,7 +148,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_108sdp"
+                    android:layout_height="@dimen/_115sdp"
                     android:background="#0097a7" />
 
                 <RelativeLayout
@@ -167,7 +167,7 @@
                         android:layout_toLeftOf="@+id/textView4"
                         android:text="@string/package1"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/_7ssp" />
+                        android:textSize="@dimen/_8ssp" />
 
                     <ImageView
                         android:id="@+id/imageView19"
@@ -198,7 +198,7 @@
                         android:layout_marginTop="@dimen/_2sdp"
                         android:text="0"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/_25sdp" />
+                        android:textSize="@dimen/_20sdp" />
 
                     <TextView
                         android:id="@+id/textView3"
@@ -207,6 +207,7 @@
                         android:layout_below="@+id/imageView19"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="@dimen/_5sdp"
+                        android:textSize="@dimen/_8ssp"
                         android:text="@string/numberPackage"
                         android:textColor="@android:color/white" />
 

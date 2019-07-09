@@ -1,5 +1,6 @@
 package com.eco.activityes;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,7 @@ import com.eco.views.DialogConnection;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class RegisterActivity extends AppCompatActivity implements IRegisterView {
 
@@ -143,5 +145,9 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterView
                 presenter.register(user);
             }
         });
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

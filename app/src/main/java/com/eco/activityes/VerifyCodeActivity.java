@@ -31,6 +31,7 @@ import com.mukesh.OtpView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class VerifyCodeActivity extends Activity implements IVerifyCodeView {
     @BindView(R.id.verify_cod_button_check_code)
@@ -185,5 +186,10 @@ public class VerifyCodeActivity extends Activity implements IVerifyCodeView {
     @Override
     public void onSuccessSendCode() {
         countDownTimer.start();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }
