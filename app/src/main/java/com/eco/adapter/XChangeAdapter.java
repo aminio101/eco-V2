@@ -1,8 +1,10 @@
 package com.eco.adapter;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -19,17 +21,19 @@ public class XChangeAdapter extends RecyclerView.Adapter<XChangeViewHolder> {
     ArrayList<XChangeEntity> list;
     Context context;
     IXChangePresenter presenter;
+
     public XChangeAdapter(Context context, IXChangePresenter presenter) {
         this.context = context;
         list = new ArrayList<>();
         this.presenter = presenter;
-    } public void removeItem(XChangeEntity xChangeEntity) {
-        int position = 0 ;
-        for (int i =0 ; i<list.size();i++){
-            if (list.get(i).id==xChangeEntity.id)
-                position = i ;
+    }
+
+    public void removeItem(XChangeEntity xChangeEntity) {
+        int position = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).id == xChangeEntity.id)
+                position = i;
         }
-        list.remove(position);
         notifyItemRemoved(position);
     }
 
@@ -38,7 +42,7 @@ public class XChangeAdapter extends RecyclerView.Adapter<XChangeViewHolder> {
     @Override
     public XChangeViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         XChangeViewHolder xChangeViewHolder = new XChangeViewHolder(LayoutInflater.from(context).
-                inflate(R.layout.x_change_item, viewGroup, false),context,presenter);
+                inflate(R.layout.x_change_item, viewGroup, false), context, presenter);
         return xChangeViewHolder;
     }
 

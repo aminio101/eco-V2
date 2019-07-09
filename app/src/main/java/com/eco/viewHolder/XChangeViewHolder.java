@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,7 +36,7 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
     public Context context;
     ImageView delete;
     TextView textView;
-    SwipeRevealLayout swipeRevealLayout;
+    CardView cardView;
     ProgressBar progressBar;
     IXChangePresenter presenter;
     RelativeLayout root;
@@ -44,11 +45,11 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
     public ImageView imageView;
     public void startProgress(){
         progressBar.setVisibility(View.VISIBLE);
-        swipeRevealLayout.setVisibility(View.INVISIBLE);
+        cardView.setVisibility(View.INVISIBLE);
     }
     public void stopProgress(){
         progressBar.setVisibility(View.INVISIBLE);
-        swipeRevealLayout.setVisibility(View.VISIBLE);
+        cardView.setVisibility(View.VISIBLE);
     }
     public XChangeViewHolder(@NonNull View itemView, Context context, IXChangePresenter presenter) {
         super(itemView);
@@ -58,7 +59,7 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
         date = itemView.findViewById(R.id.date);
         status = itemView.findViewById(R.id.status);
         progressBar = itemView.findViewById(R.id.progress);
-        swipeRevealLayout = itemView.findViewById(R.id.swipe);
+        cardView = itemView.findViewById(R.id.cardView);
         name = itemView.findViewById(R.id.name);
         textView = itemView.findViewById(R.id.text);
         delete = itemView.findViewById(R.id.delete);

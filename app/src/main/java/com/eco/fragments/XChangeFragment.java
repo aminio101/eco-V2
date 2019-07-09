@@ -78,8 +78,6 @@ public class XChangeFragment extends Fragment implements IXChangeView {
                 super.onScrolled(recyclerView, dx, dy);
                 totalItemCount = layoutManager.getItemCount();
                 lastVisibleItem = layoutManager.findLastCompletelyVisibleItemPosition();
-                Log.i("totalItemCount",totalItemCount+"");
-                Log.i("lastVisibleItem",lastVisibleItem+"");
                 if (
                         !isLoading &&
                         totalItemCount >= 10 && totalItemCount <= (lastVisibleItem + visibleThreshold) && nextPage != 1) {
@@ -106,8 +104,11 @@ public class XChangeFragment extends Fragment implements IXChangeView {
     public void showList(ListeEntity<XChangeEntity> result) {
         adapter.addItem(result);
         isLoading = false;
-        if (result.data.size()==10)
+        if (result.data.size()==10&&nextPage!=Integer.valueOf(result.pageNumber))
             nextPage++;
+        else if (nextPage == Integer.valueOf(result.pageNumber))
+            nextPage = 1;
+
     }
 
     @Override
@@ -127,7 +128,7 @@ public class XChangeFragment extends Fragment implements IXChangeView {
 
     @Override
     public void showNull() {
-        textNull.setText(View.VISIBLE);
+        textNull.setVisibility(View.VISIBLE);
         list.setVisibility(View.GONE);
     }
 }

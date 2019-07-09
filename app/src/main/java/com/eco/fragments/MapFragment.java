@@ -268,7 +268,7 @@ public class MapFragment extends Fragment implements
     };
 
     private void showAddressDialog(FavoriteAddressEntity favoriteAddressEntity) {
-        if (list.size() == 6) // todo test
+        if (list.size() == 5)
             Toast.makeText(getContext(), "لیست مکان های منتخب شما پر شده است ", Toast.LENGTH_LONG).show();
         else {
             buttonNextStep.setText("ویرایش");

@@ -138,7 +138,7 @@ public class MethodApi {
 
 
     public void getXChangeList(int url,final IRemoteCallback<ListeEntity<XChangeEntity>> callback) {
-        final Call<ListeEntity<XChangeEntity>> call = signatureApi.getXchangeList(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/shared/exchanges?pageSize=10&pageNumber="+url);
+        final Call<ListeEntity<XChangeEntity>> call = signatureApi.getXchangeList(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/shared/exchanges?pageSize=100&pageNumber="+url);//todo
         call.enqueue(new Enqueue<>(new IRemoteCallback<ListeEntity<XChangeEntity>>() {
             @Override
             public void onResponse(Boolean answer) {

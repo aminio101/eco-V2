@@ -29,8 +29,8 @@ public class XChangePresenter extends BasePresenter<IXChangeView> implements IXC
 
     @Override
     public void getList(int id) {
-if (id==1)
-    startProgress();
+        if (id == 1)
+            startProgress();
 
         MethodApi.getInstance().getXChangeList(id, new IRemoteCallback<ListeEntity<XChangeEntity>>() {
             @Override
@@ -42,9 +42,8 @@ if (id==1)
                 if (isViewAvailable()) {
                     if (PV.rubbishList.size() == 0)
                         getMinaList(result, id);
-                    else
-                    {
-                        if (result.data.size()==0)
+                    else {
+                        if (result.data.size() == 0)
                             mView.get().showNull();
                         else
                             mView.get().showList(result);
@@ -62,7 +61,7 @@ if (id==1)
                 if (isViewAvailable()) {
                     if (!answer)
                         mView.get().rGetList(id);
-                    if (PV.rubbishList.size() != 0&&id==1)
+                    if (PV.rubbishList.size() != 0 && id == 1)
                         stopProgress();
                 }
             }
