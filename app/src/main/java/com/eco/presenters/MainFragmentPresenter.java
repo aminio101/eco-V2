@@ -68,7 +68,6 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
     public void save(ArrayList<MainListViewHolder> viewHolders) {
         HashMap<String, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < viewHolders.size(); i++) {
-//            if (viewHolders.get(i).num != 0) {
 
 
 
@@ -79,7 +78,6 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                 rubbishEntity.number = viewHolders
                         .get(i).num;
                 PV.list.add(rubbishEntity);
-//            }
         }
         PV.requestEntity.request = hashMap;
         if (PV.requestEntity.request.size() == 0)
@@ -120,7 +118,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                     userEntity.username = result.userName;
                     PrefManager.getInstance().setUser(userEntity);
                     mView.get().showUserScore(String.valueOf(userEntity.score));
-                    if (result.uncompleteRequestId == 0) // todo change !=0
+                    if (result.uncompleteRequestId != 0) // todo change !=0
                         ((MainActivity) activity).loadCommentFragment(String.valueOf(result.uncompleteRequestId));
 
                 }
