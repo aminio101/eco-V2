@@ -70,4 +70,5 @@
     <string name="namefamily">نام و نام خانوادگی</string>
     <string name="male">آقا</string>
     <string name="female">خانم</string>
+    <string name="score">امتیاز</string>
 </resources>

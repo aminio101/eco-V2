@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.eco.PV;
 import com.eco.R;
 import com.eco.activityes.MainActivity;
 import com.eco.entitys.RubbishEntity;
@@ -95,6 +96,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     }
 
     private void init() {
+        PV.list.clear();
         isSelect = false;
         presenter = new MainFragmentPresenter(this,getContext(),progressBar,root,getActivity());
         viewHolders = new ArrayList<>();

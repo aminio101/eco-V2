@@ -13,6 +13,7 @@ import com.eco.interfaces.IXChangePresenter;
 import com.eco.interfaces.IXChangeView;
 import com.eco.rest.IRemoteCallback;
 import com.eco.rest.MethodApi;
+import com.eco.viewHolder.XChangeViewHolder;
 
 import java.util.ArrayList;
 
@@ -28,7 +29,9 @@ public class XChangePresenter extends BasePresenter<IXChangeView> implements IXC
 
     @Override
     public void getList(int id) {
-        startProgress();
+if (id==1)
+    startProgress();
+
         MethodApi.getInstance().getXChangeList(id, new IRemoteCallback<ListeEntity<XChangeEntity>>() {
             @Override
             public void onResponse(Boolean answer) {
@@ -40,7 +43,12 @@ public class XChangePresenter extends BasePresenter<IXChangeView> implements IXC
                     if (PV.rubbishList.size() == 0)
                         getMinaList(result, id);
                     else
-                        mView.get().showList(result);
+                    {
+                        if (result.data.size()==0)
+                            mView.get().showNull();
+                        else
+                            mView.get().showList(result);
+                    }
                 }
             }
 
@@ -54,7 +62,7 @@ public class XChangePresenter extends BasePresenter<IXChangeView> implements IXC
                 if (isViewAvailable()) {
                     if (!answer)
                         mView.get().rGetList(id);
-                    if (PV.rubbishList.size() != 0)
+                    if (PV.rubbishList.size() != 0&&id==1)
                         stopProgress();
                 }
             }
@@ -90,5 +98,64 @@ public class XChangePresenter extends BasePresenter<IXChangeView> implements IXC
                 }
             }
         });
+    }
+
+    @Override
+    public void delete(XChangeEntity xChangeEntity, XChangeViewHolder xChangeViewHolder) {
+        xChangeViewHolder.startProgress();
+        if (xChangeEntity.type == 2) {
+            MethodApi.getInstance().deleteSell(xChangeEntity.id, new IRemoteCallback<String>() {
+                @Override
+                public void onResponse(Boolean answer) {
+
+                }
+
+                @Override
+                public void onSuccess(String result) {
+                    if (isViewAvailable()) mView.get().delete(xChangeEntity);
+
+                }
+
+                @Override
+                public void onFail(ErrorEntity errorObject) {
+                    if (isViewAvailable()) showMsg(errorObject);
+                }
+
+                @Override
+                public void onFinish(Boolean answer, boolean connection) {
+                    if (isViewAvailable()) {
+                        if (!connection)
+                            mView.get().rDelete(xChangeEntity, xChangeViewHolder);
+                        stopProgress();
+                    }
+                }
+            });
+        } else {
+            MethodApi.getInstance().deleteRequest(xChangeEntity.id, new IRemoteCallback<String>() {
+                @Override
+                public void onResponse(Boolean answer) {
+
+                }
+
+                @Override
+                public void onSuccess(String result) {
+                    if (isViewAvailable()) mView.get().delete(xChangeEntity);
+                }
+
+                @Override
+                public void onFail(ErrorEntity errorObject) {
+                    if (isViewAvailable()) showMsg(errorObject);
+                }
+
+                @Override
+                public void onFinish(Boolean answer, boolean connection) {
+                    if (isViewAvailable()) {
+                        if (!connection)
+                            mView.get().rDelete(xChangeEntity, xChangeViewHolder);
+                        stopProgress();
+                    }
+                }
+            });
+        }
     }
 }

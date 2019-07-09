@@ -3,6 +3,7 @@ package com.eco.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,9 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
     TextView textViewMoney;
     @BindView(R.id.button_submit)
     Button buttonSubmit;
+    @BindView(R.id.score)
+    EditText editTextScore;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.wallet_fragment, container, false);
@@ -61,13 +65,13 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
 
     @OnClick(R.id.button_submit)
     public void sendRequest() {
-        presenter.checkValue(textViewScore.getText().toString(), editTextShab.getText().toString());
+        presenter.checkValue(editTextScore.getText().toString(), editTextShab.getText().toString());
     }
 
 
     @Override
-    public void success() {
-
+    public void success(int i) {
+        textViewScore.setText(String.valueOf(i));
     }
 
     @Override
@@ -82,8 +86,7 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
 
     @Override
     public void checkOk() {
-        int score = Integer.valueOf(textViewScore.getText().toString());
-        presenter.pay(score);
+        presenter.pay(Integer.valueOf(editTextScore.getText().toString()));
     }
 
     @Override

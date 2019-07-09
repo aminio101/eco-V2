@@ -1,6 +1,7 @@
 package com.eco.presenters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -88,6 +89,7 @@ public class WalletFragmentPresenter extends BasePresenter<IWalletFragmentView> 
                     userEntity.shabaNumber = result.shabaNumber;
                     userEntity.username = result.userName;
                     PrefManager.getInstance().setUser(userEntity);
+                    mView.get().success(userEntity.score);
                 }
             }
 
@@ -114,8 +116,11 @@ public class WalletFragmentPresenter extends BasePresenter<IWalletFragmentView> 
         if (!PV.checkText(shaba)) {
             showMsg("شماره شبا را وارد کنید.");
         } else if (!PV.checkText(grade)||grade.equals("0")) {
+            showMsg("امتیاز مورد نظر خود را وارد کنید");
+        }else if (PrefManager.getInstance().getUser().score< Long.valueOf(grade)){
             showMsg("امتیاز شما کافی نمی باشد.");
-        } else {
+        }
+        else {
             mView.get().checkOk();
         }
 

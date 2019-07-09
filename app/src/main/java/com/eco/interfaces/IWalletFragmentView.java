@@ -1,7 +1,7 @@
 package com.eco.interfaces;
 
 public interface IWalletFragmentView {
-    void success();
+    void success(int score);
 
     void rPay(int score);
 

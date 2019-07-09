@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -50,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.main_activity_image_back)
     public void back() {
         onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (currentFragment instanceof MainFragment)
+            Log.i("a", "a");
+        else
+            super.onBackPressed();
     }
 
     @BindView(R.id.drawable_right)
@@ -117,8 +126,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showDriverDialog(AcceptDriverEntity acceptDriverEntitiy) {
-        DialogAcceptDriver dialogAcceptDriver = new DialogAcceptDriver( acceptDriverEntitiy);
-        dialogAcceptDriver.show(getSupportFragmentManager(),"DialogAcceptDriver");
+        DialogAcceptDriver dialogAcceptDriver = new DialogAcceptDriver(acceptDriverEntitiy);
+        dialogAcceptDriver.show(getSupportFragmentManager(), "DialogAcceptDriver");
     }
 
     public boolean onClick(int id) {

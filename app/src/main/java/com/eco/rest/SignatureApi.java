@@ -51,6 +51,15 @@ public interface SignatureApi {
     @GET
     Call<ListeEntity<XChangeEntity>> getXchangeList(@Header("Authorization") String auth,@Url String url);
 
+    @Headers({"Content-Type:application/json"})
+    @HTTP(method = "DELETE", hasBody = true)
+    Call<String> deleteBuy(@Header("Authorization") String auth,@Url String url);
+
+
+    @Headers({"Content-Type:application/json"})
+    @HTTP(method = "DELETE", hasBody = true)
+    Call<String> deleteRequest(@Header("Authorization") String auth,@Url String url);
+
 
     @Headers({"Content-Type:application/json"})
     @PUT("/api/fcm")

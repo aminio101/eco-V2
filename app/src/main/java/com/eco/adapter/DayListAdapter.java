@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class DayListAdapter extends RecyclerView.Adapter<DayListViewHolder> {
     ArrayList<DayEntity> list;
+    boolean first;
     Context context;
     IOnDayClickListener onDayClickListener;
     ArrayList<DayListViewHolder> dayListViewHolders;
@@ -24,6 +25,7 @@ public class DayListAdapter extends RecyclerView.Adapter<DayListViewHolder> {
         this.context = context;
         this.onDayClickListener = onDayClickListener;
         list = new ArrayList<>();
+        first = true;
         dayListViewHolders = new ArrayList<>();
     }
 
@@ -39,7 +41,6 @@ public class DayListAdapter extends RecyclerView.Adapter<DayListViewHolder> {
         DayListViewHolder dayListViewHolder = new DayListViewHolder(LayoutInflater.from(context).
                 inflate(R.layout.day_item_list, viewGroup, false),context);
         dayListViewHolders.add(dayListViewHolder);
-
         return dayListViewHolder;
     }
 
@@ -55,6 +56,10 @@ public class DayListAdapter extends RecyclerView.Adapter<DayListViewHolder> {
                 onDayClickListener.onClick(list.get(i));
             }
         });
+        if (i==0&&first){
+            first = false;
+            dayListViewHolder.itemView.callOnClick();
+        }
     }
 
     @Override

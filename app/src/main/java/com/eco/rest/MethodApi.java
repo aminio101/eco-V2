@@ -163,7 +163,54 @@ public class MethodApi {
             }
         }));
     }
+    public void deleteSell(int id, final IRemoteCallback<String> callback) {
+        Call<String> call = signatureApi.deleteBuy(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/users/purchaseProduct/" + id);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<String>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
 
+            @Override
+            public void onSuccess(String result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
+    public void deleteRequest(int id, final IRemoteCallback<String> callback) {
+        Call<String> call = signatureApi.deleteRequest(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/shared/request/" + id);
+        call.enqueue(new Enqueue<>(new IRemoteCallback<String>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(String result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connection) {
+                callback.onFinish(answer,connection);
+            }
+        }));
+    }
     public void getRequstList(int id, final IRemoteCallback<DriverEntity> callback) {
         final Call<ArrayList<DriverEntity>> call = signatureApi.getRequstList(PV.tokenPrefix+PrefManager.getInstance().getToken(),"/api/users/deliverInfo/" + id);
         call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<DriverEntity>>() {

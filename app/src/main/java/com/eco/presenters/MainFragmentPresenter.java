@@ -68,7 +68,10 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
     public void save(ArrayList<MainListViewHolder> viewHolders) {
         HashMap<String, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < viewHolders.size(); i++) {
-            if (viewHolders.get(i).num != 0) {
+//            if (viewHolders.get(i).num != 0) {
+
+
+
                 hashMap.put(String.valueOf(viewHolders.get(i).rubbishEntity.id), viewHolders
                         .get(i).num);
                 RubbishEntity rubbishEntity = new RubbishEntity();
@@ -76,7 +79,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
                 rubbishEntity.number = viewHolders
                         .get(i).num;
                 PV.list.add(rubbishEntity);
-            }
+//            }
         }
         PV.requestEntity.request = hashMap;
         if (PV.requestEntity.request.size() == 0)

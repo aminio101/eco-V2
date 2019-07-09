@@ -129,6 +129,31 @@
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:textColor="@color/yellow_800" />
 
+            <TextView
+                android:id="@+id/textView101"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText_shaba"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:text="@string/score"
+                android:textColor="#0097a7"
+                android:textSize="@dimen/_15ssp" />
+            <EditText
+                android:id="@+id/score"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:paddingRight="@dimen/_15sdp"
+                android:paddingLeft="@dimen/_15sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_below="@+id/textView101"
+                android:hint="امتیاز مورد نظر خود را برای واریز وارد کنید"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:background="@drawable/custom_shaba_edit_text_gray"
+                android:textColor="@color/yellow_800" />
 
         </RelativeLayout>
 
