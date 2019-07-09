@@ -34,7 +34,9 @@ public class XChangeAdapter extends RecyclerView.Adapter<XChangeViewHolder> {
             if (list.get(i).id == xChangeEntity.id)
                 position = i;
         }
+        this.list.remove(position);
         notifyItemRemoved(position);
+//        notifyDataSetChanged();
     }
 
 
