@@ -44,7 +44,7 @@
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/edituser"
                 app:layout_constraintEnd_toStartOf="@+id/guideline40"
@@ -63,10 +63,11 @@
                 android:textSize="@dimen/_13ssp"
                 />
             <EditText
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_12ssp"
                 android:id="@+id/editText_name"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
@@ -83,10 +84,11 @@
                 android:textSize="@dimen/_13ssp"
                 />
             <EditText
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_12ssp"
                 android:id="@+id/editText_family"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
@@ -103,10 +105,11 @@
                 android:textSize="@dimen/_13ssp"
                 />
             <EditText
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_12ssp"
                 android:id="@+id/editText_address"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
@@ -124,10 +127,11 @@
                 android:textSize="@dimen/_13ssp"
                 />
             <EditText
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_12ssp"
                 android:id="@+id/editText_Education"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
@@ -145,10 +149,11 @@
                 android:textSize="@dimen/_13ssp"
                 />
             <EditText
+                android:padding="@dimen/_2sdp"
+                android:textSize="@dimen/_12ssp"
                 android:id="@+id/editText_email"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
@@ -166,10 +171,11 @@
                 android:textSize="@dimen/_13ssp"
                 />
             <EditText
+                android:padding="@dimen/_2sdp"
+                android:textSize="@dimen/_12ssp"
                 android:id="@+id/editText_work"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
@@ -188,10 +194,11 @@
 
 
             <EditText
+                android:padding="@dimen/_2sdp"
+                android:textSize="@dimen/_12ssp"
                 android:id="@+id/editText_familyNumber"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
@@ -210,10 +217,11 @@
 
 
             <EditText
+                android:padding="@dimen/_2sdp"
+                android:textSize="@dimen/_12ssp"
                 android:id="@+id/editText_shabaNumber"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"

@@ -7,10 +7,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.eco.PrefManager;
@@ -20,6 +23,8 @@ import com.eco.interfaces.IWalletPresenter;
 import com.eco.presenters.WalletFragmentPresenter;
 import com.eco.views.DialogConnection;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -29,6 +34,7 @@ import butterknife.OnClick;
 public class WalletFragment extends Fragment implements IWalletFragmentView {
     IWalletPresenter presenter;
     View view;
+    String scoreValue;
     @BindView(R.id.progress)
     ProgressBar progressBar;
     @BindView(R.id.root)
@@ -42,7 +48,7 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
     @BindView(R.id.button_submit)
     Button buttonSubmit;
     @BindView(R.id.score)
-    EditText editTextScore;
+    Spinner spinnerScore;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,11 +67,45 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
         String showScore = String.valueOf(score);
         textViewMoney.setText(String.format(new Locale("fa"), "%s%s",
                 showScore, " تومان "));
+
+        List<String> items =  new ArrayList<String>();
+        items.add("۱۰۰۰");
+        items.add("۲۰۰۰");
+        items.add("۳۰۰۰");
+        items.add("۴۰۰۰");
+        items.add("۵۰۰۰");
+        items.add("۱۰۰۰۰");
+        items.add("۲۰۰۰۰");
+        items.add("۳۰۰۰۰");
+        items.add("۴۰۰۰۰");
+        items.add("۵۰۰۰۰");
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_spinner_item,items);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerScore.setAdapter(spinnerArrayAdapter);
+        scoreValue= spinnerArrayAdapter.getItem(0);
+        spinnerScore.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                scoreValue = adapterView.getItemAtPosition(i).toString();
+                int score = Integer.parseInt(scoreValue);
+                score = score * 3;
+                String showScore = String.valueOf(score);
+                textViewMoney.setText(String.format(new Locale("fa"), "%s%s",
+                        showScore, " تومان "));
+            }
+
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     @OnClick(R.id.button_submit)
     public void sendRequest() {
-        presenter.checkValue(editTextScore.getText().toString(), editTextShab.getText().toString());
+        presenter.checkValue(spinnerScore.getSelectedItem().toString(), editTextShab.getText().toString());
     }
 
 
@@ -86,7 +126,7 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
 
     @Override
     public void checkOk() {
-        presenter.pay(Integer.valueOf(editTextScore.getText().toString()));
+        presenter.pay(Integer.valueOf(spinnerScore.getSelectedItem().toString()));
     }
 
     @Override
