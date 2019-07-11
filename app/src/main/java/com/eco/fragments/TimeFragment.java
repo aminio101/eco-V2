@@ -4,9 +4,11 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
@@ -58,6 +61,8 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     @BindView(R.id.recyclerView)
     RecyclerView dayList;
     DayListAdapter dayListAdapter;
+
+
     @BindView(R.id.timeList)
     RecyclerView recyclerViewTime;
     String timeStamp;
@@ -70,9 +75,12 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
             PV.requestEntity.runDate = String.valueOf(runDatePeriodsEntity.runDate);
         }
     };
-    @OnClick(R.id.nextStep)public void nextFragmentOnclick(){
+
+    @OnClick(R.id.nextStep)
+    public void nextFragmentOnclick() {
         presenter.nextFragment(runDatePeriods);
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.time_fragment, container, false);
@@ -85,11 +93,11 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     IOnDayClickListener onDayClickListener = new IOnDayClickListener() {
         @Override
         public void onClick(DayEntity dayEntity) {
-            runDatePeriods=null;
-            TimeAdapter timeAdapter= new TimeAdapter(getContext(),onSetTime);
+            runDatePeriods = null;
+            TimeAdapter timeAdapter = new TimeAdapter(getContext(), onSetTime);
             timeAdapter.setTimeStamp(timeStamp);
             recyclerViewTime.setAdapter(timeAdapter);
-            recyclerViewTime.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,true));
+            recyclerViewTime.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true));
             timeAdapter.add(dayEntity.list);
         }
     };
@@ -200,7 +208,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     }
 
     @Override
-    public void showTimes(ArrayList<DayEntity> list,String timeStamp) {
+    public void showTimes(ArrayList<DayEntity> list, String timeStamp) {
         ArrayList<DayEntity> dayEntities = new ArrayList<>();
         dayEntities.add(list.get(0));
         dayEntities.add(list.get(1));
@@ -213,10 +221,11 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     public void nextFragment() {
         ((MainActivity) getActivity()).loadFinalFragment();
     }
-    void hideKeyboard(){
+
+    void hideKeyboard() {
         View view1 = getActivity().getCurrentFocus();
-        if (view1 != null){
-            InputMethodManager imm = (InputMethodManager)getActivity(). getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (view1 != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);
         }
     }

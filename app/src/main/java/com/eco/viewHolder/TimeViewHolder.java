@@ -29,6 +29,7 @@ public class TimeViewHolder extends RecyclerView.ViewHolder {
         root.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
         date.setTextColor(context.getResources().getColor(R.color.orange));
     } public void setFastMode(){
+        date.setText("درخواست آنلاین");
         root.setCardBackgroundColor(Color.parseColor("#f0b142"));
     }
 

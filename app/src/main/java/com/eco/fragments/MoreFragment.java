@@ -42,15 +42,13 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
     }
 
     @OnClick(R.id.profile)
-    public void loadPofileFragment() {
+    public void loadProfileFragment() {
         ((MainActivity) getActivity()).loadEditProfileFragment();
     }
 
     @OnClick(R.id.wallet)
     public void loadWalletFragment() {
         ((MainActivity) getActivity()).loadFragmentWallet();
-
-
     }
 
     @OnClick(R.id.invite)
@@ -63,6 +61,24 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
     public void loadAboutUs() {
         Toast.makeText(getContext(), "ناقص", Toast.LENGTH_LONG).show();
     }
+
+
+    @OnClick(R.id.question)
+    public void qu() {
+        Toast.makeText(getActivity(), "این بخش غیر فعال میباشد", Toast.LENGTH_LONG).show();
+    }
+
+    @OnClick(R.id.shop)
+    public void shop() {
+        Toast.makeText(getActivity(), "این بخش غیر فعال میباشد", Toast.LENGTH_LONG).show();
+    }
+
+    @OnClick(R.id.learn)
+    public void learn() {
+        Toast.makeText(getActivity(), "این بخش غیر فعال میباشد", Toast.LENGTH_LONG).show();
+    }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
