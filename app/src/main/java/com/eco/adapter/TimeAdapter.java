@@ -59,11 +59,11 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
         timeViewHolder.date.setText(list.get(i).startPeriod+" الی "+list.get(i).endPeriod);
 
         try {
-            if ((PV.getDayNumber(timeStamp, 0) == list.get(i).runDate && PV.getHour(timeStamp) > list.get(i).startPeriod)
+            if ((PV.getDayNumber(timeStamp, 0) == list.get(i).runDate && PV.getHour(timeStamp) >= list.get(i).startPeriod)
                     ||
                     (list.get(i).isEnable == 0) || (list.get(i).status == 0)
             ) {
-                if (roleId == 2 && PV.getHour(timeStamp) >= list.get(i).startPeriod && PV.getHour(timeStamp) <= list.get(i).endPeriod) {
+                if (roleId == 2 && PV.getHour(timeStamp) >= list.get(i).startPeriod && PV.getHour(timeStamp) < list.get(i).endPeriod) {
                     timeViewHolder.setFastMode();
                 } else
                     timeViewHolder.disable();
@@ -86,7 +86,7 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
                                     ||
                                     (list.get(j).isEnable == 0) || (list.get(j).status == 0)
                             ) {
-                                if (roleId == 2 && PV.getHour(timeStamp) >= list.get(j).startPeriod && PV.getHour(timeStamp) <= list.get(j).endPeriod)
+                                if (roleId == 2 && PV.getHour(timeStamp) >= list.get(j).startPeriod && PV.getHour(timeStamp) < list.get(j).endPeriod)
                                     viewHolders.get(j).setFastMode();
                                  else
                                     viewHolders.get(j).disable();
