@@ -6,10 +6,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.R;
 
 public class CategoryShopViewHolder extends RecyclerView.ViewHolder {
-    private TextView name;
+    private CoustomTextView name;
     private RelativeLayout root;
 
     public CategoryShopViewHolder(@NonNull View itemView) {

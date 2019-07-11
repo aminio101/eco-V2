@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.activityes.MainActivity;
@@ -42,11 +43,13 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     LinearLayout linearBottom;
     @BindView(R.id.linearTop)
     LinearLayout linearTop;
-    @BindView(R.id.textView4)TextView textViewNumber;
+    @BindView(R.id.textView4)
+    CoustomTextView textViewNumber;
     ArrayList<MainListViewHolder> viewHolders;
-    @BindView(R.id.main_fragment_text_score)TextView textViewScore;
+    @BindView(R.id.main_fragment_text_score)
+    CoustomTextView textViewScore;
     @BindView(R.id.textView2)
-    TextView name;
+    CoustomTextView name;
     @OnClick(R.id.button7)public void loadEditProfile(){
         ((MainActivity) getActivity()).loadEditProfileFragment();
     }
@@ -91,7 +94,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.main_fragment2, container, false);
+        view = inflater.inflate(R.layout.main_fragment, container, false);
         hideKeyboard();
         ButterKnife.bind(this,view);
         init();

@@ -5,11 +5,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.R;
 import com.eco.entitys.ItemEntity;
 
 public class ShowRubbishViewHolder extends RecyclerView.ViewHolder {
-    TextView name,number;
+    CoustomTextView name,number;
     public ShowRubbishViewHolder(@NonNull View itemView) {
         super(itemView);
         name = itemView.findViewById(R.id.name);

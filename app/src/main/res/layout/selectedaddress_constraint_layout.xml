@@ -72,12 +72,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/button_dialogadres"
-        android:padding="@dimen/_5sdp"
+        android:padding="@dimen/_2sdp"
         android:drawableRight="@drawable/ic_check"
         android:gravity="center"
         android:text="@string/addaddress"
         android:textColor="@color/white"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_8ssp"
         app:layout_constraintBottom_toTopOf="@+id/guideline112"
         app:layout_constraintEnd_toStartOf="@+id/guideline113"
         app:layout_constraintStart_toStartOf="@+id/guideline109"
@@ -113,7 +113,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.22" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/textView_detailsaddress"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -164,7 +164,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.41" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/textView_name"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -183,11 +183,11 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.55" />
 
-    <EditText
+    <com.eco.CoustomEditText
         android:id="@+id/editText_nameadres"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:drawableRight="@drawable/ic_name"
+        android:drawableEnd="@drawable/ic_name"
         android:ems="10"
         android:background="@drawable/custom_editetxt"
         android:textSize="@dimen/_12sdp"
@@ -246,14 +246,13 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.81" />
 
-    <EditText
+    <com.eco.CoustomEditText
         android:id="@+id/editText_explainadres"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:drawableRight="@drawable/ic_location_black"
+        android:drawableStart="@drawable/ic_location_black"
         android:ems="10"
         android:background="@drawable/custom_editetxt"
-
         android:inputType="text"
         android:textSize="@dimen/_12ssp"
         android:textColor="@color/black"

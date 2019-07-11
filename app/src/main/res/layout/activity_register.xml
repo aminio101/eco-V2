@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/toosi"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
+    <com.eco.CoustomTextView
         android:textColor="@color/fili2"
         android:textSize="@dimen/_20ssp"
         android:textStyle="bold"
@@ -44,14 +44,16 @@
             android:layout_centerHorizontal="true"
             />
 
-        <TextView
+        <com.eco.CoustomTextView
+            android:textSize="@dimen/_12ssp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@id/type"
             android:text="شخصی" />
 
-        <TextView
+        <com.eco.CoustomTextView
+            android:textSize="@dimen/_12ssp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
@@ -59,7 +61,7 @@
             android:text="صنفی" />
     </RelativeLayout>
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_below="@+id/swRL"
                 android:gravity="right"
                 android:layout_alignParentRight="true"
@@ -71,18 +73,19 @@
                 android:textColor="#0097a7"
                 android:textSize="@dimen/_13ssp"
                 />
-            <EditText
+            <com.eco.CoustomEditText
+                android:textSize="@dimen/_14ssp"
                 android:layout_below="@+id/textView_name"
                 android:id="@+id/editText_name"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
                 android:textColor="@color/yellow_800"
                 />
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_alignParentRight="true"
 
                 android:layout_below="@+id/editText_name"
@@ -95,18 +98,19 @@
                 android:textColor="#0097a7"
                 android:textSize="@dimen/_13ssp"
                 />
-            <EditText
+            <com.eco.CoustomEditText
+                android:textSize="@dimen/_14ssp"
                 android:layout_below="@+id/textView_family"
                 android:id="@+id/editText_family"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
                 android:textColor="@color/yellow_800"
                 />
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_alignParentRight="true"
 
                 android:layout_below="@+id/editText_family"
@@ -119,19 +123,20 @@
                 android:textColor="#0097a7"
                 android:textSize="@dimen/_13ssp"
                 />
-            <EditText
+            <com.eco.CoustomEditText
+                android:textSize="@dimen/_14ssp"
                 android:layout_below="@+id/textView_address"
                 android:id="@+id/editText_address"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
                 android:textColor="@color/yellow_800"
                 />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_alignParentRight="true"
 
                 android:layout_below="@+id/editText_address"
@@ -144,18 +149,19 @@
                 android:textColor="#0097a7"
                 android:textSize="@dimen/_13ssp"
                 />
-            <EditText
+            <com.eco.CoustomEditText
+                android:textSize="@dimen/_14ssp"
                 android:layout_below="@+id/textView_Education"
                 android:id="@+id/editText_Education"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
                 android:textColor="@color/yellow_800"
                 />
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_alignParentRight="true"
 
                 android:layout_below="@+id/editText_Education"
@@ -168,19 +174,20 @@
                 android:textColor="#0097a7"
                 android:textSize="@dimen/_13ssp"
                 />
-            <EditText
+            <com.eco.CoustomEditText
+                android:textSize="@dimen/_14ssp"
                 android:layout_below="@+id/textView_email"
                 android:id="@+id/editText_email"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
                 android:textColor="@color/yellow_800"
                 />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_alignParentRight="true"
 
                 android:layout_below="@+id/editText_email"
@@ -193,18 +200,19 @@
                 android:textColor="#0097a7"
                 android:textSize="@dimen/_13ssp"
                 />
-            <EditText
+            <com.eco.CoustomEditText
+                android:textSize="@dimen/_14ssp"
                 android:layout_below="@+id/textView_work"
                 android:id="@+id/editText_work"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
                 android:textColor="@color/yellow_800" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_alignParentRight="true"
 
                 android:layout_below="@+id/editText_work"
@@ -219,18 +227,19 @@
                 />
 
 
-            <EditText
+            <com.eco.CoustomEditText
+                android:textSize="@dimen/_14ssp"
                 android:layout_below="@+id/textView_familyNumber"
                 android:id="@+id/editText_familyNumber"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="text"
                 android:textColor="@color/yellow_800" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_alignParentRight="true"
 
                 android:layout_below="@+id/editText_familyNumber"
@@ -245,12 +254,13 @@
                 />
 
 
-            <EditText
+            <com.eco.CoustomEditText
+                android:textSize="@dimen/_14ssp"
                 android:layout_below="@+id/textView_shabaNumber"
                 android:id="@+id/editText_shabaNumber"
                 android:layout_width="match_parent"
                 android:layout_margin="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
                 android:inputType="number"

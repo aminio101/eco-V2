@@ -87,7 +87,7 @@
                 android:tint="#6FDAD0D0"
                 app:srcCompat="@drawable/ic_profile" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:gravity="center"
                 android:textSize="@dimen/_10ssp"
                 android:layout_width="wrap_content"
@@ -123,7 +123,7 @@
                 android:tint="#6FDAD0D0"
                 app:srcCompat="@drawable/ic_wallet" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:gravity="center"
                 android:textSize="@dimen/_10ssp"
                 android:layout_width="wrap_content"
@@ -159,11 +159,11 @@
                 android:tint="#6FDAD0D0"
                 app:srcCompat="@drawable/ic_gift" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="ارسال دعوت نامه به دوستان"
+                android:text="دعوت از دوستان"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:gravity="center"
@@ -196,7 +196,7 @@
                 android:tint="#6FDAD0D0"
                 app:srcCompat="@drawable/ic_exit" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:gravity="center"
                 android:textSize="@dimen/_10ssp"
                 android:layout_width="wrap_content"
@@ -232,7 +232,7 @@
                 android:tint="#6FDAD0D0"
                 app:srcCompat="@drawable/ic_about" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:gravity="center"
                 android:textSize="@dimen/_10ssp"
                 android:layout_width="wrap_content"

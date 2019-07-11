@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/_5sdp"
    >
-    <TextView
+    <com.eco.CoustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10 کیلو"
@@ -14,7 +14,7 @@
         android:id="@+id/number"
         android:layout_marginEnd="@dimen/_15sdp"
         />
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

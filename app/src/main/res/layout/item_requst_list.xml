@@ -8,7 +8,7 @@
     >
 
 
-        <TextView
+        <com.eco.CoustomTextView
             android:id="@+id/text_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             android:textSize="@dimen/_15ssp"
             android:textStyle="bold" />
 
-        <TextView
+        <com.eco.CoustomTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
@@ -30,7 +30,7 @@
             android:textColor="@color/fili2"
             android:textSize="@dimen/_15ssp"
             android:textStyle="bold" />
-        <TextView
+        <com.eco.CoustomTextView
             android:id="@+id/text_name"
             android:gravity="center"
             android:layout_width="0dp"

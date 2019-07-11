@@ -122,14 +122,14 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline22"
         app:layout_constraintStart_toStartOf="@+id/guideline20">
 
-        <EditText
+        <com.eco.CoustomEditText
         android:id="@+id/mapFragmentEditTextDes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top"
         android:layout_margin="@dimen/_5sdp"
         android:background="@null"
-        android:textSize="@dimen/_7ssp"
+        android:textSize="@dimen/_9ssp"
         android:gravity="top"
         android:hint="توضیحات" />
     </androidx.cardview.widget.CardView>

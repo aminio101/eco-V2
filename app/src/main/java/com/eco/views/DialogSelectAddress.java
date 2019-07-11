@@ -8,6 +8,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.eco.CoustomEditText;
 import com.eco.R;
 import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.interfaces.ICallBackFavoriteLocationDialog;
@@ -15,8 +16,8 @@ import com.eco.interfaces.ICallBackFavoriteLocationDialog;
 public class DialogSelectAddress extends Dialog {
     ICallBackFavoriteLocationDialog iCallBackFavoriteLocationDialog;
     Button button;
-    EditText name;
-    EditText des;
+    CoustomEditText name;
+    CoustomEditText des;
     FavoriteAddressEntity favoriteAddressEntity;
 
     public DialogSelectAddress(FavoriteAddressEntity favoriteAddressEntity, Context context, ICallBackFavoriteLocationDialog iCallBackFavoriteLocationDialog) {

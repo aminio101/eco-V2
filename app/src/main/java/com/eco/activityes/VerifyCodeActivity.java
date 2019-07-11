@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.R;
 import com.eco.entitys.VerifiCodeEntity;
 import com.eco.interfaces.IVerifyCodeView;
@@ -41,7 +42,7 @@ public class VerifyCodeActivity extends Activity implements IVerifyCodeView {
     @BindView(R.id.verify_code_progress_circular_send_code)
     ProgressBar progressBar;
     @BindView(R.id.verify_code_text_timer)
-    TextView textViewTimer;
+    CoustomTextView textViewTimer;
     VerifyCodePresenter presenter;
     CountDownTimer countDownTimer;
     @BindView(R.id.root)

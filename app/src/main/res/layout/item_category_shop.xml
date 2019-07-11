@@ -7,7 +7,7 @@
     app:layout_goneMarginRight="@dimen/_5sdp"
     android:layout_marginRight="@dimen/_5sdp">
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/textViewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

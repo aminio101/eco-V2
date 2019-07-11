@@ -8,12 +8,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
+import com.eco.CoustomTextView;
 import com.eco.R;
 
 public class ProductListViewHolder extends RecyclerView.ViewHolder {
     public ImageView imageView;
-    public TextView name;
-    public TextView score,nickName;
+    public CoustomTextView name;
+    public CoustomTextView score,nickName;
     public CircleProgressBar progressBar;
     public RelativeLayout btnSell;
     public ProductListViewHolder(@NonNull View itemView) {

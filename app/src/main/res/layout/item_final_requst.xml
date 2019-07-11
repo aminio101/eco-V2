@@ -15,7 +15,7 @@
         android:visibility="visible"
         app:srcCompat="@drawable/ic_delete" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/numberRubbish"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -25,7 +25,7 @@
         android:textColor="#546e7a"
         android:textSize="@dimen/_10ssp" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -35,7 +35,7 @@
         android:textColor="#546e7a"
         android:textSize="@dimen/_10ssp" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/number"
         android:layout_width="0dp"
         android:layout_height="match_parent"

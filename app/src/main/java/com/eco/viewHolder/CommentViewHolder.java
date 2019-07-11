@@ -7,12 +7,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.entitys.ItemEntity;
 
 public class CommentViewHolder extends RecyclerView.ViewHolder {
-    TextView name, number;
+    CoustomTextView name, number;
 
     public CommentViewHolder(@NonNull View itemView) {
         super(itemView);

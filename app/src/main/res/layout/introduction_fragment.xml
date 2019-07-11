@@ -26,7 +26,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.0" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline40"
         app:layout_constraintTop_toTopOf="@+id/guideline41" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.18" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:layout_marginBottom="5dp"
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline48" />
 
 
-    <EditText
+    <com.eco.CoustomEditText
         android:id="@+id/editText2"
         android:layout_width="0dp"
 
@@ -109,7 +109,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
 
-    <EditText
+    <com.eco.CoustomEditText
         android:id="@+id/editText3"
         android:layout_width="0dp"
         android:padding="@dimen/_10sdp"

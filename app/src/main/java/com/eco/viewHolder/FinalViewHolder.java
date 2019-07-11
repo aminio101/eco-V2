@@ -6,10 +6,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.R;
 
 public class FinalViewHolder extends RecyclerView.ViewHolder {
-    public TextView name,number,numberRubbish;
+    public CoustomTextView name,number,numberRubbish;
     public ImageView delete;
     public FinalViewHolder(@NonNull View itemView) {
         super(itemView);

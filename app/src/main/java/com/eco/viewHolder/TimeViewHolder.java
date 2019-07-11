@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.R;
 
 public class TimeViewHolder extends RecyclerView.ViewHolder {
-    public TextView date;
+    public CoustomTextView date;
     public CardView root;
     Context context;
 

@@ -42,7 +42,7 @@
             app:layout_constraintStart_toStartOf="@id/img_profile_header"
             app:layout_constraintTop_toTopOf="@id/img_profile_header">
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:id="@+id/txt_score_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.3" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:id="@+id/txt_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                 app:layout_constraintTop_toBottomOf="@id/txt_score_text" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
+        <com.eco.CoustomTextView
             android:id="@+id/txt_name_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.3" />
 
-        <TextView
+        <com.eco.CoustomTextView
             android:id="@+id/txt_phone_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

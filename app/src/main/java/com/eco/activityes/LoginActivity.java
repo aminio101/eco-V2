@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.eco.CoustomEditText;
 import com.eco.R;
 import com.eco.interfaces.ILoginView;
 import com.eco.presenters.LoginPresenter;
@@ -59,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     @BindView(R.id.guideline7)
     Guideline guidelineTop;
     @BindView(R.id.editText_login_number)
-    EditText editTextPhoneNumber;
+    CoustomEditText editTextPhoneNumber;
     @BindView(R.id.login_button_send_code)
     Button buttonSendCode;
     @BindView(R.id.root)

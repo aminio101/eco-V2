@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.entitys.DayEntity;
 
 public class DayListViewHolder extends ViewHolder
 {
-   public TextView name,dayNumber,date;
+   public CoustomTextView name,dayNumber,date;
    public CardView root;
    Context context;
     public DayListViewHolder(@NonNull View itemView,Context context) {
