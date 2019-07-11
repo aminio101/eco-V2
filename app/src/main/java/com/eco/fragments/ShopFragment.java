@@ -1,5 +1,6 @@
 package com.eco.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.cardview.widget.CardView;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -54,6 +56,7 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.shop_fragment, container, false);
+        hideKeyboard();
         init();
         presenter.getCategory();
         return view;
@@ -138,5 +141,12 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
     public void showNullProductList() {
         textViewNull.setText("لیست خالی میباشد");
         adapter.clearItem();
+    }
+    void hideKeyboard(){
+        View view1 = getActivity().getCurrentFocus();
+        if (view1 != null){
+            InputMethodManager imm = (InputMethodManager)getActivity(). getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);
+        }
     }
 }

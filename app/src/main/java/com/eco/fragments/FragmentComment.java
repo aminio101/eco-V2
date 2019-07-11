@@ -1,5 +1,6 @@
 package com.eco.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.core.widget.NestedScrollView;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
@@ -64,6 +66,7 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.rate_fragment, container, false);
+        hideKeyboard();
         ButterKnife.bind(this, view);
         init();
         presenter.getList(id);
@@ -113,5 +116,13 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     public void success() {
         ((MainActivity) getActivity()).loadMainFragment();
 
+    }
+
+    void hideKeyboard(){
+        View view1 = getActivity().getCurrentFocus();
+        if (view1 != null){
+            InputMethodManager imm = (InputMethodManager)getActivity(). getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);
+        }
     }
 }
