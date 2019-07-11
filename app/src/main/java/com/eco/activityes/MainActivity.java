@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.eco.R;
 import com.eco.fragments.EditProfileFragment;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.navigation)
     BottomNavigationView bottomNavigationView;
     boolean firstLoad;
+
 
 
     @OnClick(R.id.main_activity_image_back)
