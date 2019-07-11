@@ -2,54 +2,56 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<ProgressBar
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
-    android:id="@+id/progress"
-    />
 
-      <RelativeLayout
-          android:layout_width="match_parent"
-          android:id="@+id/root"
-          android:layout_height="match_parent">
-          <TextView
-              android:id="@+id/header"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_alignParentEnd="true"
-              android:layout_marginTop="@dimen/_15sdp"
-              android:layout_marginEnd="@dimen/_15sdp"
-              android:text="تبادلات"
-              android:textColor="@android:color/black"
-              android:textSize="@dimen/_25ssp" />
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
-          <TextView
-              android:id="@+id/text"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_below="@+id/header"
-              android:layout_alignParentEnd="true"
-              android:layout_marginTop="@dimen/_10sdp"
-              android:layout_marginEnd="@dimen/_15sdp"
-              android:text="جزئیات تبادلات" />
-          <androidx.recyclerview.widget.RecyclerView
-              android:layout_width="match_parent"
-              android:layout_below="@+id/text"
-              android:id="@+id/list"
-              android:layout_margin="@dimen/_10sdp"
-              android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-          </androidx.recyclerview.widget.RecyclerView>
-          <TextView
-              android:layout_width="wrap_content"
-              android:visibility="invisible"
-              android:layout_height="wrap_content"
-              android:id="@+id/textNull"
-              android:layout_centerInParent="true"
-              android:textColor="@android:color/black"
-              android:text="لیست تبادلات شما خالی میباشد"
-              />
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:text="تبادلات"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_25ssp" />
 
-      </RelativeLayout>
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:text="جزئیات تبادلات" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/text"
+            android:layout_margin="@dimen/_10sdp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/textNull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="لیست تبادلات شما خالی میباشد"
+            android:textColor="@android:color/black"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
 </RelativeLayout>

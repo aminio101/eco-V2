@@ -36,7 +36,7 @@ public class XChangeAdapter extends RecyclerView.Adapter<XChangeViewHolder> {
         }
         this.list.remove(position);
         notifyItemRemoved(position);
-//        notifyDataSetChanged();
+        notifyDataSetChanged();
     }
 
 
@@ -44,7 +44,7 @@ public class XChangeAdapter extends RecyclerView.Adapter<XChangeViewHolder> {
     @Override
     public XChangeViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         XChangeViewHolder xChangeViewHolder = new XChangeViewHolder(LayoutInflater.from(context).
-                inflate(R.layout.x_change_item, viewGroup, false), context, presenter);
+                inflate(R.layout.x_change_item, viewGroup, false), context, presenter,this);
         return xChangeViewHolder;
     }
 

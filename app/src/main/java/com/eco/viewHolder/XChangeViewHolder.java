@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -20,6 +21,7 @@ import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.adapter.RequestListAdapter;
+import com.eco.adapter.XChangeAdapter;
 import com.eco.entitys.ItemEntity;
 import com.eco.entitys.XChangeEntity;
 import com.eco.interfaces.IXChangePresenter;
@@ -41,21 +43,26 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
     IXChangePresenter presenter;
     RelativeLayout root;
     View line;
+    SwipeRevealLayout swipeRevealLayout;
     public RelativeLayout singleItem;
     public ImageView imageView;
     public void startProgress(){
         progressBar.setVisibility(View.VISIBLE);
         cardView.setVisibility(View.INVISIBLE);
     }
+    XChangeAdapter adapter;
     public void stopProgress(){
         progressBar.setVisibility(View.INVISIBLE);
         cardView.setVisibility(View.VISIBLE);
     }
-    public XChangeViewHolder(@NonNull View itemView, Context context, IXChangePresenter presenter) {
+    public XChangeViewHolder(@NonNull View itemView, Context context, IXChangePresenter presenter, XChangeAdapter adapter) {
         super(itemView);
+        this.adapter = adapter;
+
         this.presenter = presenter;
         root = itemView.findViewById(R.id.root);
         this.context = context;
+        swipeRevealLayout = itemView.findViewById(R.id.sweep);
         date = itemView.findViewById(R.id.date);
         status = itemView.findViewById(R.id.status);
         progressBar = itemView.findViewById(R.id.progress);
@@ -71,6 +78,24 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(XChangeEntity xChangeEntity) {
+        swipeRevealLayout.setSwipeListener(new SwipeRevealLayout.SwipeListener() {
+            @Override
+            public void onClosed(SwipeRevealLayout view) {
+                Log.i("sweep","onClosed");
+            }
+
+            @Override
+            public void onOpened(SwipeRevealLayout view) {
+                Log.i("sweep","onOpened");
+
+            }
+
+            @Override
+            public void onSlide(SwipeRevealLayout view, float slideOffset) {
+                Log.i("sweep","onSlide");
+
+            }
+        });
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
