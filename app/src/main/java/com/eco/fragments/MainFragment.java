@@ -47,7 +47,8 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     TextView name;
     @OnClick(R.id.button7)public void loadEditProfile(){
         ((MainActivity) getActivity()).loadEditProfileFragment();
-    }  @OnClick(R.id.button6)public void loadٌشممثف(){
+    }
+    @OnClick(R.id.button6)public void loadWallet(){
         ((MainActivity) getActivity()).loadFragmentWallet();
     }
     boolean isSelect = false;

@@ -25,14 +25,14 @@
             <RelativeLayout
                 android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp">
+                android:layout_height="@dimen/_130sdp">
 
                 <ImageView
                     android:id="@+id/imageView22"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_100sdp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     app:srcCompat="@drawable/ic_bag" />
 
                 <TextView
@@ -40,7 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginRight="@dimen/_40sdp"
                     android:text="@string/wallet"
                     android:textColor="@color/fili2"
@@ -148,107 +148,112 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_115sdp"
+                    android:layout_height="@dimen/_110sdp"
                     android:background="#0097a7" />
 
+
                 <RelativeLayout
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_5sdp">
-
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_110sdp">
                     <TextView
-                        android:id="@+id/text"
+                        android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/textView3"
-                        android:layout_marginTop="@dimen/_9sdp"
-                        android:layout_marginRight="@dimen/_5sdp"
-                        android:layout_toLeftOf="@+id/textView4"
-                        android:text="@string/package1"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:text="پسماند خود را انتخاب کنید"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/_8ssp" />
+                        android:textSize="@dimen/_13ssp" />
 
-                    <ImageView
-                        android:id="@+id/imageView19"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_centerHorizontal="true"
-                        android:scaleType="fitXY"
-                        android:tint="@android:color/white"
-
-                        app:srcCompat="@drawable/ic_arrow_up" />
-
-                    <ImageView
-                        android:id="@+id/imageView20"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_below="@+id/textView4"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:tint="@android:color/white"
-                        app:srcCompat="@drawable/ic_arrow_down" />
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/textView3"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/_2sdp"
-                        android:text="0"
+                        android:layout_below="@+id/textView2"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:text="پسماند خود را انتخاب کنید"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/_20sdp" />
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
+                        android:textSize="@dimen/_10ssp" />
+                    <RelativeLayout
+                        android:layout_width="@dimen/_80sdp"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/imageView19"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:textSize="@dimen/_8ssp"
-                        android:text="@string/numberPackage"
-                        android:textColor="@android:color/white" />
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/_20sdp">
+
+                        <TextView
+                            android:id="@+id/text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textView3"
+                            android:layout_marginTop="@dimen/_9sdp"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_toLeftOf="@+id/textView4"
+                            android:text="@string/package1"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_8ssp" />
+
+                        <ImageView
+                            android:id="@+id/imageView19"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_centerHorizontal="true"
+                            android:scaleType="fitXY"
+                            android:tint="@android:color/white"
+
+                            app:srcCompat="@drawable/ic_arrow_up" />
+
+                        <ImageView
+                            android:id="@+id/imageView20"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_below="@+id/textView4"
+                            android:layout_centerHorizontal="true"
+                            android:padding="@dimen/_5sdp"
+                            android:tint="@android:color/white"
+                            app:srcCompat="@drawable/ic_arrow_down" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textView3"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:text="0"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_20sdp" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imageView19"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@string/numberPackage"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/_8ssp" />
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/_30sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
-                    android:text="پسماند خود را انتخاب کنید"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/_15ssp" />
-
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/textView2"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:layout_marginRight="@dimen/_15sdp"
-                    android:text="پسماند خود را انتخاب کنید"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/_10ssp" />
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
+                android:layout_height="@dimen/_160sdp"
                 android:layout_below="@+id/relative"
-                android:layout_marginTop="@dimen/_25sdp">
+                android:layout_marginTop="@dimen/_10sdp">
 
                 <ImageView
                     android:id="@+id/timeDayRight"
                     android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_200sdp"
+                    android:layout_height="@dimen/_160sdp"
                     android:layout_alignParentRight="true"
                     android:tint="#75BEBCBC"
                     app:srcCompat="@drawable/ic_arrow_right" />
@@ -256,7 +261,7 @@
                 <ImageView
                     android:id="@+id/timeDayLeft"
                     android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_200sdp"
+                    android:layout_height="@dimen/_160sdp"
                     android:layout_alignParentLeft="true"
                     android:tint="#75BEBCBC"
                     app:srcCompat="@drawable/ic_arrow_left" />
@@ -264,7 +269,7 @@
                 <HorizontalScrollView
                     android:id="@+id/list"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_200sdp"
+                    android:layout_height="@dimen/_160sdp"
                     android:layout_toLeftOf="@+id/timeDayRight"
                     android:layout_toRightOf="@+id/timeDayLeft"
                     android:layoutDirection="rtl"
