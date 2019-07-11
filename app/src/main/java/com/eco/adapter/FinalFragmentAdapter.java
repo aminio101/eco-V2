@@ -1,8 +1,10 @@
 package com.eco.adapter;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +36,11 @@ public class FinalFragmentAdapter extends RecyclerView.Adapter<FinalViewHolder> 
 
     public void add(ArrayList<RubbishEntity> list) {
         this.list.clear();
-        this.list.addAll(list);
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).number != 0) {
+                this.list.add(list.get(i));
+            }
+        }
         notifyDataSetChanged();
     }
 
