@@ -23,7 +23,6 @@ import android.widget.Toast;
 import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
-import com.eco.entitys.VersionEntity;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 import org.json.JSONException;
@@ -37,8 +36,7 @@ import okhttp3.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SplashActivity extends AppCompatActivity {
-    VersionEntity versionEntity;
-    Dialog dialog;
+     Dialog dialog;
     String mainVersion;
     String lastVersion;
     CoustomTextView cancel, download;
@@ -48,10 +46,9 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        loadMain(); // todo test
-//        init();
-//        setOnClick();
-//        getData();
+        init();
+        setOnClick();
+        getData();
     }
 
     private void getData() {
@@ -60,8 +57,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
     void init() {
-        versionEntity = new VersionEntity();
-        dialog = new Dialog(SplashActivity.this);
+         dialog = new Dialog(SplashActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_update);
         cancel = dialog.findViewById(R.id.cancel);
@@ -83,7 +79,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(versionEntity.eco_android_link));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(PV.versionEntity.eco_android_link));
                 startActivity(browserIntent);
             }
         });
@@ -115,9 +111,11 @@ public class SplashActivity extends AppCompatActivity {
                 assert response.body() != null;
                 String data = response.body().string();
                 JSONObject jsonObj = new JSONObject(data);
-                versionEntity.apiUrl = jsonObj.getString("apiUrl");
-                versionEntity.eco_android = jsonObj.getString("eco_android");
-                versionEntity.eco_android_link = jsonObj.getString("eco_android_link");
+                PV.versionEntity.apiUrl = jsonObj.getString("apiUrl");
+                PV.versionEntity.eco_android = jsonObj.getString("eco_android");
+                PV.versionEntity.eco_android_link = jsonObj.getString("eco_android_link");
+                PV.versionEntity.challenge_url_page = jsonObj.getString("challenge_url_page");
+                PV.versionEntity.challenge_number = jsonObj.getInt("challenge_number");
             } catch (final IOException e) {
                 Handler handler = new Handler(Looper.getMainLooper());
 
@@ -148,14 +146,14 @@ public class SplashActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            if (versionEntity.apiUrl != null) {
-                char charAtZero = versionEntity.apiUrl.charAt(7);
+            if (PV.versionEntity.apiUrl != null) {
+                char charAtZero = PV.versionEntity.apiUrl.charAt(7);
                 if (charAtZero != '/') {
-                    PV.PROTOCOL = versionEntity.apiUrl.substring(0, 7);
-                    PV.URL = versionEntity.apiUrl.substring(7);
+                    PV.PROTOCOL = PV.versionEntity.apiUrl.substring(0, 7);
+                    PV.URL = PV.versionEntity.apiUrl.substring(7);
                 }
-                mainVersion = versionEntity.eco_android.substring(0, 1);
-                lastVersion = versionEntity.eco_android.substring(2);
+                mainVersion = PV.versionEntity.eco_android.substring(0, 1);
+                lastVersion = PV.versionEntity.eco_android.substring(2);
                 if (PV.mainVersion.equals(mainVersion) && PV.lasteVrsion.equals(lastVersion))
                     getPermission();
                 else {

@@ -6,6 +6,7 @@ import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.LocationEntity;
 import com.eco.entitys.RequestEntity;
 import com.eco.entitys.RubbishEntity;
+import com.eco.entitys.VersionEntity;
 import com.eco.enums.RequstMode;
 
 import java.lang.reflect.Array;
@@ -27,6 +28,7 @@ public class PV {
     public static String PROTOCOL = "http://";
     public static String tokenPrefix = "Bearer ";
     public static String mainVersion = "0";
+    public static VersionEntity versionEntity = new VersionEntity();
     public static String lasteVrsion = "302.8";
     public static String urlCheckVersion = "https://ecoiwm.ir/api/";
     public static RequestEntity requestEntity = new RequestEntity();

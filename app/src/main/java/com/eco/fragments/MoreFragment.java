@@ -1,7 +1,9 @@
 package com.eco.fragments;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import com.eco.PV;
 import com.eco.PrefManager;
 import com.eco.R;
 import com.eco.activityes.MainActivity;
@@ -36,6 +39,7 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
     ProgressBar progressBar;
     @BindView(R.id.roott)
     ConstraintLayout root;
+
     @OnClick(R.id.exit)
     public void exit() {
         presenter.exit();
@@ -65,7 +69,21 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
 
     @OnClick(R.id.question)
     public void qu() {
-        Toast.makeText(getActivity(), "این بخش غیر فعال میباشد", Toast.LENGTH_LONG).show();
+        if (PV.versionEntity.challenge_number>0){
+            String urlString = PV.versionEntity.challenge_url_page;
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setPackage("com.android.chrome");
+            try {
+                getActivity().startActivity(intent);
+            } catch (ActivityNotFoundException ex) {
+                // Chrome browser presumably not installed so allow user to choose instead
+                intent.setPackage(null);
+                getActivity().startActivity(intent);
+            }
+        }else
+            Toast.makeText(getActivity(), "شما چالشی ندارید", Toast.LENGTH_LONG).show();
+
     }
 
     @OnClick(R.id.shop)
@@ -77,7 +95,6 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
     public void learn() {
         Toast.makeText(getActivity(), "این بخش غیر فعال میباشد", Toast.LENGTH_LONG).show();
     }
-
 
 
     @Override
@@ -109,10 +126,11 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
             }
         });
     }
-    void hideKeyboard(){
+
+    void hideKeyboard() {
         View view1 = getActivity().getCurrentFocus();
-        if (view1 != null){
-            InputMethodManager imm = (InputMethodManager)getActivity(). getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (view1 != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);
         }
     }
