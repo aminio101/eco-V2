@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.adapter.RequestListAdapter;
@@ -33,11 +34,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class XChangeViewHolder extends RecyclerView.ViewHolder {
-    public TextView date, status, name, rate;
+    public CoustomTextView date, status, name, rate;
     public RecyclerView list;
     public Context context;
     ImageView delete;
-    TextView textView;
+    CoustomTextView textView;
     CardView cardView;
     ProgressBar progressBar;
     IXChangePresenter presenter;
