@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
     android:background="#DFDCDC"
-    android:layout_width="@dimen/_80sdp"
-    android:layout_height="@dimen/_80sdp">
+    android:layout_width="@dimen/_85sdp"
+    android:layout_height="@dimen/_85sdp">
     <View
         android:layout_width="3dp"
         android:layout_height="match_parent"
@@ -36,8 +36,8 @@
         android:id="@+id/line_right"
         />
     <ImageView
-        android:layout_width="@dimen/_40sdp"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
         android:layout_centerHorizontal="true"
         android:tint="#AFADAD"
         android:padding="@dimen/_5sdp"
@@ -48,13 +48,13 @@
  <TextView
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
-     android:gravity="center"
      android:id="@+id/name"
+     android:paddingBottom="2dp"
      android:text="پلاستیکی"
      android:textColor="#AFADAD"
-     android:layout_marginTop="@dimen/_2sdp"
      android:layout_below="@id/image"
+     android:gravity="center_horizontal"
      android:layout_centerHorizontal="true"
-     android:textSize="@dimen/_12ssp"
+     android:textSize="@dimen/_13ssp"
      />
 </RelativeLayout>

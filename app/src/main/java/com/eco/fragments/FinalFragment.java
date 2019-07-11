@@ -1,5 +1,6 @@
 package com.eco.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -57,6 +59,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.final_fragment, container, false);
+        hideKeyboard();
         ButterKnife.bind(this, view);
         init();
         presenter.getList();
@@ -115,5 +118,12 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     @Override
     public void showTime(int day, int hour) {
         timeText.setText(hour + " ساعت و " + day + " روز باقی مانده است ");
+    }
+    void hideKeyboard(){
+        View view1 = getActivity().getCurrentFocus();
+        if (view1 != null){
+            InputMethodManager imm = (InputMethodManager)getActivity(). getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);
+        }
     }
 }

@@ -89,6 +89,7 @@
                             android:layout_toStartOf="@+id/view">
 
                             <TextView
+                                android:textSize="@dimen/_12ssp"
                                 android:id="@+id/date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -102,7 +103,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
-
+                                android:textSize="@dimen/_12ssp"
                                 android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginRight="@dimen/_5sdp"
                                 android:text="ثبت شده"
@@ -113,7 +114,7 @@
                                 android:id="@+id/rate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
+                                android:textSize="@dimen/_12ssp"
                                 android:layout_centerVertical="true"
                                 android:layout_marginStart="@dimen/_5sdp"
                                 android:layout_toEndOf="@+id/status_image"

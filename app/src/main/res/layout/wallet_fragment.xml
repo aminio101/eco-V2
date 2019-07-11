@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/toosi">
@@ -9,14 +8,17 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
+    android:layout_gravity="center"
     android:visibility="gone"
     android:id="@+id/progress"
     />
 
 
+
+
         <RelativeLayout
-            android:layout_width="match_parent"
             android:id="@+id/root"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
@@ -24,11 +26,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:text="@string/wallet"
                 android:textColor="@color/fili2"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_20ssp"
                 android:textStyle="bold" />
 
             <TextView
@@ -37,17 +39,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView10"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginRight="@dimen/_15sdp"
-                android:text="@string/walletFragment" />
+                android:text="@string/walletFragment"
+                android:textSize="@dimen/_12ssp" />
 
 
             <RelativeLayout
                 android:id="@+id/relative"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_below="@+id/textView11"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:background="@color/orange">
 
                 <TextView
@@ -58,10 +60,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
-
                     android:text="2,568"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_15ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -69,11 +70,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:text="@string/grade"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_28ssp"
+                    android:textSize="@dimen/_20ssp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -95,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/relative"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_25sdp"
                 android:text="@string/shabanumber"
                 android:textColor="#0097a7"
@@ -105,11 +106,11 @@
             <Button
                 android:id="@+id/button_submit"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/_15sdp"
-                android:layout_marginRight="@dimen/_25sdp"
                 android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/custom_button_send"
                 android:text="@string/save"
                 android:textColor="@color/white"
@@ -119,15 +120,16 @@
             <EditText
                 android:id="@+id/editText_shaba"
                 android:layout_width="match_parent"
-                android:paddingRight="@dimen/_15sdp"
-                android:paddingLeft="@dimen/_15sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_below="@+id/textView19"
                 android:layout_marginLeft="@dimen/_25sdp"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_25sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
-                android:textColor="@color/yellow_800" />
+                android:paddingLeft="@dimen/_15sdp"
+                android:paddingRight="@dimen/_15sdp"
+                android:textColor="@color/yellow_800"
+                android:textSize="@dimen/_12ssp" />
 
             <TextView
                 android:id="@+id/textView101"
@@ -135,26 +137,27 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/editText_shaba"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginRight="@dimen/_25sdp"
                 android:text="@string/score"
                 android:textColor="#0097a7"
                 android:textSize="@dimen/_15ssp" />
-            <EditText
+
+            <Spinner
                 android:id="@+id/score"
                 android:layout_width="match_parent"
-                android:inputType="number"
-                android:paddingRight="@dimen/_15sdp"
-                android:paddingLeft="@dimen/_15sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_below="@+id/textView101"
-                android:hint="امتیاز مورد نظر خود را برای واریز وارد کنید"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginRight="@dimen/_25sdp"
                 android:background="@drawable/custom_shaba_edit_text_gray"
-                android:textColor="@color/yellow_800" />
+                android:gravity="center"
+                android:inputType="number"
+                android:textColor="@color/yellow_800"
+                android:textDirection="ltr"
+                android:textSize="@dimen/_10ssp" />
+
 
         </RelativeLayout>
-
 </RelativeLayout>

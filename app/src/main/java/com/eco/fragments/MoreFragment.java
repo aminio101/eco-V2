@@ -1,10 +1,12 @@
 package com.eco.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -65,6 +67,7 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.more_fragment, container, false);
+        hideKeyboard();
         ButterKnife.bind(this, view);
         init();
         return view;
@@ -89,5 +92,12 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
                 presenter.exit();
             }
         });
+    }
+    void hideKeyboard(){
+        View view1 = getActivity().getCurrentFocus();
+        if (view1 != null){
+            InputMethodManager imm = (InputMethodManager)getActivity(). getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);
+        }
     }
 }

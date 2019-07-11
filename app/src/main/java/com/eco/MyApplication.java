@@ -16,7 +16,7 @@ public class MyApplication extends Application {
         PrefManager prefManager=new PrefManager(this);
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("IRANSansMobile.ttf")
+                .setDefaultFontPath("IRANSansMobile1.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );

@@ -131,4 +131,5 @@ public class XChangeFragment extends Fragment implements IXChangeView {
         textNull.setVisibility(View.VISIBLE);
         list.setVisibility(View.GONE);
     }
+
 }
