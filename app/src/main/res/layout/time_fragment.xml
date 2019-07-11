@@ -3,23 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ImageView
+        android:id="@+id/imageBackMore"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:alpha="0.2"
         android:scaleType="fitXY"
-        android:id="@+id/imageBackMore"
-        android:src="@drawable/overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:src="@drawable/overlay" />
+
     <ProgressBar
+        android:id="@+id/progress_circular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progress_circular"
         android:layout_centerInParent="true" />
 
     <ScrollView
-    android:layout_width="match_parent"
-    android:id="@+id/root"
-    android:layout_height="match_parent">
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -81,6 +83,7 @@
                 android:layout_below="@+id/headerDate"
                 android:layout_marginTop="@dimen/_10sdp"
                 app:srcCompat="@drawable/ic_arrow_left" />
+
             <ImageView
                 android:id="@+id/timeRight"
                 android:layout_width="@dimen/_25sdp"
@@ -89,6 +92,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_10sdp"
                 app:srcCompat="@drawable/ic_arrow_right" />
+
             <ImageView
                 android:id="@+id/timeLeft"
                 android:layout_width="@dimen/_25sdp"
@@ -96,6 +100,7 @@
                 android:layout_below="@+id/headerTime"
                 android:layout_marginTop="@dimen/_10sdp"
                 app:srcCompat="@drawable/ic_arrow_left" />
+
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
@@ -109,13 +114,13 @@
                 android:textAlignment="center"
                 android:textColor="#0F7DF1"
                 android:textSize="@dimen/_11ssp" />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 android:layout_below="@+id/textView9"
-                android:layout_margin="@dimen/_10sdp"
-                />
+                android:layout_margin="@dimen/_10sdp" />
 
 
             <VideoView
@@ -145,11 +150,11 @@
                 android:background="@drawable/background_btn_next_fragment_time">
 
                 <TextView
+                    android:id="@+id/nextStep"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@string/nextStep"
-                    android:id="@+id/nextStep"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_15ssp" />
             </RelativeLayout>
