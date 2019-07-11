@@ -94,6 +94,7 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 scoreValue = adapterView.getItemAtPosition(i).toString();
                 int score = Integer.parseInt(scoreValue);
+                textViewScore.setText(String.valueOf(score));
                 score = score * 3;
                 String showScore = String.valueOf(score);
                 textViewMoney.setText(String.format(new Locale("fa"), "%s%s",
