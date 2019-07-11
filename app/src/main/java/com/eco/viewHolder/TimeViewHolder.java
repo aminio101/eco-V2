@@ -34,6 +34,7 @@ public class TimeViewHolder extends RecyclerView.ViewHolder {
 
     public void disable(){
         root.setCardBackgroundColor(Color.parseColor("#546e7a"));
+
      }
 
 }

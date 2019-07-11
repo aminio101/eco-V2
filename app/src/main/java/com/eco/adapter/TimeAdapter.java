@@ -3,6 +3,8 @@ package com.eco.adapter;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,8 +41,25 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
 
     public void add(ArrayList<RunDatePeriodsEntity> list){
         this.list.clear();
+        int d= 0 ;
         notifyDataSetChanged();
-        this.list.addAll(list);
+        for (int i=0 ; i< list.size();i++){
+            d =0 ;
+            try {
+                if (PV.getDayNumber(timeStamp, 0) == list.get(i).runDate &&PV.getHour(timeStamp) >= list.get(i).startPeriod) {
+                    d=  1;
+                }
+                if (roleId==2&&PV.getDayNumber(timeStamp, 0) == list.get(i).runDate &&PV.getHour(timeStamp) >= list.get(i).startPeriod && PV.getHour(timeStamp) <list.get(i).endPeriod ){
+                    this.list.add(list.get(i));
+                }else{
+                    if (d==0)
+                        this.list.add(list.get(i));
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
         notifyDataSetChanged();
     }
     Context context;
@@ -88,7 +107,7 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
                             ) {
                                 if (roleId == 2 && PV.getHour(timeStamp) >= list.get(j).startPeriod && PV.getHour(timeStamp) < list.get(j).endPeriod)
                                     viewHolders.get(j).setFastMode();
-                                 else
+                                else
                                     viewHolders.get(j).disable();
                             }
                             else
