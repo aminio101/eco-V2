@@ -21,7 +21,6 @@ public class XChangeAdapter extends RecyclerView.Adapter<XChangeViewHolder> {
     ArrayList<XChangeEntity> list;
     Context context;
     IXChangePresenter presenter;
-
     public XChangeAdapter(Context context, IXChangePresenter presenter) {
         this.context = context;
         list = new ArrayList<>();

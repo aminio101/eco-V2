@@ -78,24 +78,10 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(XChangeEntity xChangeEntity) {
-        swipeRevealLayout.setSwipeListener(new SwipeRevealLayout.SwipeListener() {
-            @Override
-            public void onClosed(SwipeRevealLayout view) {
-                Log.i("sweep","onClosed");
-            }
+        swipeRevealLayout.close(false);
+        stopProgress();
+        root.setBackground(null);
 
-            @Override
-            public void onOpened(SwipeRevealLayout view) {
-                Log.i("sweep","onOpened");
-
-            }
-
-            @Override
-            public void onSlide(SwipeRevealLayout view, float slideOffset) {
-                Log.i("sweep","onSlide");
-
-            }
-        });
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
