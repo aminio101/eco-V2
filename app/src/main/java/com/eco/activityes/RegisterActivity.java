@@ -13,6 +13,8 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.eco.CoustomEditText;
+import com.eco.CoustomTextView;
 import com.eco.PrefManager;
 import com.eco.R;
 import com.eco.entitys.LocationEntity;
@@ -35,21 +37,21 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterView
     @BindView(R.id.progress_circular)
     ProgressBar progressBar;
     @BindView(R.id.editText_name)
-    EditText editTextName;
+    CoustomEditText editTextName;
     @BindView(R.id.editText_family)
-    EditText editTextFamily;
+    CoustomEditText editTextFamily;
     @BindView(R.id.editText_address)
-    EditText editTextAddress;
+    CoustomEditText editTextAddress;
     @BindView(R.id.editText_Education)
-    EditText editTexteducation;
+    CoustomEditText editTexteducation;
     @BindView(R.id.editText_email)
-    EditText editTextEmail;
+    CoustomEditText editTextEmail;
     @BindView(R.id.editText_work)
-    EditText editTextWork;
+    CoustomEditText editTextWork;
     @BindView(R.id.editText_familyNumber)
-    EditText editTextFamilyNumber;
+    CoustomEditText editTextFamilyNumber;
     @BindView(R.id.editText_shabaNumber)
-    EditText editTextShabaNumber;
+    CoustomEditText editTextShabaNumber;
     @BindView(R.id.button_register)
     Button button_register;
     @BindView(R.id.rdb_female)
@@ -61,15 +63,15 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterView
     RegisterPresenter presenter;
 
     @BindView(R.id.textView_name)
-    TextView textView_name;
+    CoustomTextView textView_name;
     @BindView(R.id.textView_family)
-    TextView textView_family;
+    CoustomTextView textView_family;
     @BindView(R.id.textView_address)
-    TextView textView_addres;
+    CoustomTextView textView_addres;
     @BindView(R.id.textView_Education)
-    TextView textView_education;
+    CoustomTextView textView_education;
     @BindView(R.id.textView_email)
-    TextView textView_email;
+    CoustomTextView textView_email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

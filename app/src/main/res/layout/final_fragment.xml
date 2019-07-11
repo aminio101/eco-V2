@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <TextView
+                <com.eco.CoustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -85,7 +85,7 @@
                             android:layout_weight="0.15"
                             android:visibility="invisible" />
 
-                        <TextView
+                        <com.eco.CoustomTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.35"
@@ -94,7 +94,7 @@
                             android:textColor="#546e7a"
                             android:textSize="@dimen/_15ssp" />
 
-                        <TextView
+                        <com.eco.CoustomTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.35"
@@ -103,7 +103,7 @@
                             android:textColor="#546e7a"
                             android:textSize="@dimen/_15ssp" />
 
-                        <TextView
+                        <com.eco.CoustomTextView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.15"
@@ -139,7 +139,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/clock2" />
 
-        <TextView
+        <com.eco.CoustomTextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
             android:textSize="@dimen/_16ssp"
             app:layout_constraintBottom_toTopOf="@+id/textView4" />
 
-        <TextView
+        <com.eco.CoustomTextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

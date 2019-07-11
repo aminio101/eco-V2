@@ -29,7 +29,7 @@
                 app:srcCompat="@drawable/accept"
                 android:layout_width="@dimen/_18sdp"
                 android:layout_height="@dimen/_18sdp" />
-            <TextView
+            <com.eco.CoustomTextView
                 android:textColor="@color/green_600"
                 android:textSize="@dimen/_13ssp"
                 android:layout_marginRight="@dimen/_3sdp"
@@ -47,7 +47,7 @@
                 android:src="@color/black"
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp" />
-            <TextView
+            <com.eco.CoustomTextView
                 android:id="@+id/textView_name"
                 android:textStyle="bold"
                 android:textColor="@color/fili2"
@@ -58,7 +58,7 @@
                 android:text="پوریا الهی"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <TextView
+            <com.eco.CoustomTextView
                 android:id="@+id/textView_car"
                 android:textColor="@color/fili2"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -68,7 +68,7 @@
                 android:text="پراید نوک مدادی"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <TextView
+            <com.eco.CoustomTextView
                 android:id="@+id/textView_pelak"
                 android:textColor="@color/fili2"
                 android:layout_marginTop="@dimen/_5sdp"
@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/time"

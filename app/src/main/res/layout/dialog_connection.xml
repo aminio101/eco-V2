@@ -12,7 +12,7 @@
         android:layout_marginTop="@dimen/_20sdp"
 
         />
-    <TextView
+    <com.eco.CoustomTextView
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/black"
         android:id="@+id/text"
@@ -37,7 +37,7 @@
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/dialog_connection_background_accept"
                 >
-                <TextView
+                <com.eco.CoustomTextView
                     android:textColor="@android:color/black"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
                 android:layout_height="@dimen/_40sdp"
                 android:background="@drawable/dialog_connection_background_cancle"
                 >
-                <TextView
+                <com.eco.CoustomTextView
                     android:textColor="@android:color/black"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"

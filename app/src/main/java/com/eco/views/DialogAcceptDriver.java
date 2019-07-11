@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
+import com.eco.CoustomTextView;
 import com.eco.R;
 import com.eco.entitys.AcceptDriverEntity;
 import com.google.gson.Gson;
@@ -22,7 +23,7 @@ import org.json.JSONObject;
 
 public class DialogAcceptDriver extends DialogFragment {
     private ImageView imageView;
-    private TextView name, number, car, time;
+    private CoustomTextView name, number, car, time;
     private AcceptDriverEntity acceptDriverEntity;
     View v;
     public DialogAcceptDriver(AcceptDriverEntity acceptDriverEntity){

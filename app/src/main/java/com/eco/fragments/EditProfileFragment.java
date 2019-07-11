@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 
+import com.eco.CoustomEditText;
 import com.eco.PrefManager;
 import com.eco.R;
 import com.eco.entitys.RequstUserUpdateEntity;
@@ -29,21 +30,21 @@ public class EditProfileFragment extends Fragment implements IEditProfileView {
     @BindView(R.id.progress_circular)
     ProgressBar progressBar;
     @BindView(R.id.editText_name)
-    EditText editTextName;
+    CoustomEditText editTextName;
     @BindView(R.id.editText_family)
-    EditText editTextFamily;
+    CoustomEditText editTextFamily;
     @BindView(R.id.editText_address)
-    EditText editTextAddress;
+    CoustomEditText editTextAddress;
     @BindView(R.id.editText_Education)
-    EditText editTexteducation;
+    CoustomEditText editTexteducation;
     @BindView(R.id.editText_email)
-    EditText editTextEmail;
+    CoustomEditText editTextEmail;
     @BindView(R.id.editText_work)
-    EditText editTextWork;
+    CoustomEditText editTextWork;
     @BindView(R.id.editText_familyNumber)
-    EditText editTextFamilyNumber;
+    CoustomEditText editTextFamilyNumber;
     @BindView(R.id.editText_shabaNumber)
-    EditText editTextShabaNumber;
+    CoustomEditText editTextShabaNumber;
     @BindView(R.id.button_submit)
     Button button_submit;
     @BindView(R.id.root)

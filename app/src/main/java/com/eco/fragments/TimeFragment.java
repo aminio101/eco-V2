@@ -22,6 +22,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.activityes.MainActivity;
@@ -51,7 +52,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     ScrollView root;
     TimeFragmentPresenter presenter;
     @BindView(R.id.textView9)
-    TextView textViewRequestNumber;
+    CoustomTextView textViewRequestNumber;
     @BindView(R.id.videoViewProgressBar)
     ProgressBar videoViewProgressBar;
     @BindView(R.id.imageView)

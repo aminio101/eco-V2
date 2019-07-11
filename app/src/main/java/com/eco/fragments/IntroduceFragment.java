@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.eco.CoustomEditText;
 import com.eco.R;
 import com.eco.interfaces.IIntroducePresenter;
 import com.eco.interfaces.IIntroduceView;
@@ -28,9 +29,9 @@ public class IntroduceFragment extends Fragment implements IIntroduceView {
     @BindView(R.id.root)
     ConstraintLayout root;
     @BindView(R.id.editText2)
-    EditText name;
+    CoustomEditText name;
     @BindView(R.id.editText3)
-    EditText phone;
+    CoustomEditText phone;
     IIntroducePresenter presenter;
 
     @OnClick(R.id.button2)

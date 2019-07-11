@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.activityes.MainActivity;
@@ -44,7 +45,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     RecyclerView list;
     FinalFragmentAdapter adapter;
     @BindView(R.id.textView6)
-    TextView timeText;
+    CoustomTextView timeText;
     @BindView(R.id.button)
     Button button;
 

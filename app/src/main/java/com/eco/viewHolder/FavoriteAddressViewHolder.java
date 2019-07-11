@@ -7,10 +7,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.R;
 
 public class FavoriteAddressViewHolder extends RecyclerView.ViewHolder {
-    public TextView addressName;
+    public CoustomTextView addressName;
     public CardView root;
     public ImageView imageView;
 

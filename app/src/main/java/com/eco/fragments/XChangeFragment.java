@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.R;
 import com.eco.adapter.XChangeAdapter;
 import com.eco.entitys.ListeEntity;
@@ -38,7 +39,7 @@ public class XChangeFragment extends Fragment implements IXChangeView {
     @BindView(R.id.list)
     RecyclerView list;
     @BindView(R.id.textNull)
-    TextView textNull;
+    CoustomTextView textNull;
     @BindView(R.id.progress)
     ProgressBar progressBar;
     XChangeAdapter adapter;

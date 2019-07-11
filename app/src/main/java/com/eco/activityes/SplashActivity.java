@@ -20,6 +20,7 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.entitys.VersionEntity;
@@ -40,7 +41,7 @@ public class SplashActivity extends AppCompatActivity {
     Dialog dialog;
     String mainVersion;
     String lastVersion;
-    TextView cancel, download;
+    CoustomTextView cancel, download;
     private static final int MULTIPLE_PERMISSION_REQUEST_CODE = 4;
 
     @Override

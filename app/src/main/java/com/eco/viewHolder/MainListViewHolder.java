@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.entitys.RubbishEntity;
@@ -17,8 +18,8 @@ import com.eco.interfaces.MainAdapterListener;
 
 public class MainListViewHolder {
     public ImageView imageView;
-    public TextView name;
-    public TextView number;
+    public CoustomTextView name;
+    public CoustomTextView number;
     public RelativeLayout root;
     public boolean haveNumber;
     public boolean isSelected;

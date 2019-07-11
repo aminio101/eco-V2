@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <TextView
+        <com.eco.CoustomTextView
             android:id="@+id/addressName"
             android:layout_width="0dp"
             android:layout_height="match_parent"

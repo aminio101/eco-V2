@@ -95,7 +95,7 @@
             android:id="@+id/relative_layout"
             android:layout_height="match_parent">
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:id="@+id/login_phone_edit_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                 android:textSize="@dimen/_17ssp"
                 android:textStyle="bold" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/text_view"
@@ -137,7 +137,7 @@
                     android:padding="@dimen/_2sdp"
                     android:src="@drawable/ic_phone" />
 
-                <EditText
+                <com.eco.CoustomEditText
                     android:id="@+id/editText_login_number"
                     android:layout_width="@dimen/_150sdp"
                     android:layout_height="@dimen/_30sdp"
@@ -177,7 +177,7 @@
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
-    <TextView
+    <com.eco.CoustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

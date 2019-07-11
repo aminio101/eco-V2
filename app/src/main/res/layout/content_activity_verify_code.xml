@@ -6,7 +6,7 @@
     android:id="@+id/verify_code_constraint"
     android:layout_height="match_parent">
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/login_phone_edit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/verify_code_text_show_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline16" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/verify_code_text_timer"
         android:layout_width="match_parent"
         android:layout_height="0dp"

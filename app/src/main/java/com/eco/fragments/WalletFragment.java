@@ -18,6 +18,8 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.eco.CoustomEditText;
+import com.eco.CoustomTextView;
 import com.eco.PrefManager;
 import com.eco.R;
 import com.eco.interfaces.IWalletFragmentView;
@@ -42,11 +44,11 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
     @BindView(R.id.root)
     RelativeLayout root;
     @BindView(R.id.editText_shaba)
-    EditText editTextShab;
+    CoustomEditText editTextShab;
     @BindView(R.id.textView)
-    TextView textViewScore;
+    CoustomTextView textViewScore;
     @BindView(R.id.textView_money)
-    TextView textViewMoney;
+    CoustomTextView textViewMoney;
     @BindView(R.id.button_submit)
     Button buttonSubmit;
     @BindView(R.id.score)

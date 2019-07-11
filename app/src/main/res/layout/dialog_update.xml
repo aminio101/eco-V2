@@ -12,7 +12,7 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -22,7 +22,7 @@
                 android:text="به روز رسانی"
                 android:textColor="@color/colorPrimary" />
 
-            <TextView
+            <com.eco.CoustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="نسخه جدید برنامه آماده دریافت می باشد"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp">
 
-                <TextView
+                <com.eco.CoustomTextView
                     android:id="@+id/cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                     android:textColor="#000"
                     android:textSize="14sp" />
 
-                <TextView
+                <com.eco.CoustomTextView
                     android:id="@+id/download"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

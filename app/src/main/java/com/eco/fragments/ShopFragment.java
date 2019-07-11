@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.eco.CoustomTextView;
 import com.eco.R;
 import com.eco.activityes.MainActivity;
 import com.eco.adapter.CategoryShopAdapter;
@@ -38,7 +39,7 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
     @BindView(R.id.shop_fragment_recyclerView_product)
     RecyclerView mainList;
     @BindView(R.id.textNull)
-    TextView textViewNull;
+    CoustomTextView textViewNull;
     @BindView(R.id.shop_fragment_recyclerView_header)
     RecyclerView recyclerViewCategory;
     @BindView(R.id.header_card)

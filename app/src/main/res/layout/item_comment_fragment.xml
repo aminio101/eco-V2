@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+    <com.eco.CoustomTextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.3"
@@ -14,7 +14,7 @@
         android:textStyle="bold" />
 
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/text_number"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
         android:textSize="@dimen/_15ssp"
         android:textStyle="bold" />
 
-    <TextView
+    <com.eco.CoustomTextView
         android:id="@+id/text_name"
         android:gravity="center"
 
