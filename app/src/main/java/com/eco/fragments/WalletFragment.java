@@ -1,5 +1,6 @@
 package com.eco.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -53,6 +55,7 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.wallet_fragment, container, false);
+        hideKeyboard();
         ButterKnife.bind(this, view);
         init();
         return view;
@@ -137,5 +140,12 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
                 presenter.getUser();
             }
         });
+    }
+    void hideKeyboard(){
+        View view1 = getActivity().getCurrentFocus();
+        if (view1 != null){
+            InputMethodManager imm = (InputMethodManager)getActivity(). getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);
+        }
     }
 }
