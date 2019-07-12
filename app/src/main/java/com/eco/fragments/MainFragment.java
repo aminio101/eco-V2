@@ -1,6 +1,7 @@
 package com.eco.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -44,7 +45,8 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @BindView(R.id.linearTop)
     LinearLayout linearTop;
     @BindView(R.id.textView4)
-    CoustomTextView textViewNumber;
+    CoustomTextView textViewNumber; @BindView(R.id.textView33)
+    CoustomTextView coustomTextView;
     ArrayList<MainListViewHolder> viewHolders;
     @BindView(R.id.main_fragment_text_score)
     CoustomTextView textViewScore;
@@ -168,6 +170,9 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @Override
     public void showUserScore(String score) {
         textViewScore.setText(score+" امتیاز ");
+        float i = (Integer.valueOf(score) / 100)*3;
+
+        coustomTextView.setText(" موجودی شما "+String.valueOf(i)+" میباشد ");
     }
 
     @Override
