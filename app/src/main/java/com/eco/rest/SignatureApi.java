@@ -47,6 +47,11 @@ public interface SignatureApi {
     @GET("/api/users/randomAdvertise")
     Call<ArrayList<AdvertisingEntity>> getAdvertise(@Header("Authorization") String auth);
 
+
+    @GET("/api/shared/rubbishPrice")
+    Call<ArrayList<RubbishEntity>> getPriceList(@Header("Authorization") String auth);
+
+
     @Headers({"Content-Type:application/json"})
     @GET
     Call<ListeEntity<XChangeEntity>> getXchangeList(@Header("Authorization") String auth,@Url String url);

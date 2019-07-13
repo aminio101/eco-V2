@@ -33,7 +33,6 @@ import com.eco.entitys.VerifiCodeEntity;
 import com.eco.entitys.VerifyCodeSuccessEntity;
 import com.eco.entitys.XChangeEntity;
 import com.eco.entitys.logOutEntity;
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -67,6 +66,31 @@ public class MethodApi {
 
             @Override
             public void onSuccess(InviteEntity result) {
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onFail(ErrorEntity errorObject) {
+                callback.onFail(errorObject);
+            }
+
+            @Override
+            public void onFinish(Boolean answer,boolean connect) {
+                callback.onFinish(answer,connect);
+            }
+        }));
+    }
+
+   public void getPriceList( final IRemoteCallback<ArrayList<RubbishEntity>> callback) {
+         final Call<ArrayList<RubbishEntity>> call = signatureApi.getPriceList(PV.tokenPrefix+PrefManager.getInstance().getToken());
+        call.enqueue(new Enqueue<>(new IRemoteCallback<ArrayList<RubbishEntity>>() {
+            @Override
+            public void onResponse(Boolean answer) {
+                callback.onResponse(answer);
+            }
+
+            @Override
+            public void onSuccess(ArrayList<RubbishEntity> result) {
                 callback.onSuccess(result);
             }
 

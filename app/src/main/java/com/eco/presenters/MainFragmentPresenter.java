@@ -37,7 +37,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
 
     @Override
     public void getList() {
-        MethodApi.getInstance().getRubbishList(new IRemoteCallback<ArrayList<RubbishEntity>>() {
+        MethodApi.getInstance().getPriceList(new IRemoteCallback<ArrayList<RubbishEntity>>() {
             @Override
             public void onResponse(Boolean answer) {
 
@@ -53,6 +53,7 @@ public class MainFragmentPresenter extends BasePresenter<IMainFragmentView> impl
             @Override
             public void onFail(ErrorEntity errorObject) {
                 if (isViewAvailable()) showMsg(errorObject);
+
             }
 
             @Override

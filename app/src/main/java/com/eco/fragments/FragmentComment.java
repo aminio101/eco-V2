@@ -60,7 +60,7 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     @OnClick(R.id.button_submit)
     public void onClick() {
         assert driverEntity != null;
-        presenter.sendComment(ratingBar.getRating(), driverEntity.driverId);
+        presenter.sendComment(ratingBar.getRating(), driverEntity.id);
     }
 
     @Override

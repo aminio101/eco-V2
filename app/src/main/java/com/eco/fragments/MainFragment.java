@@ -49,7 +49,8 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     CoustomTextView coustomTextView;
     ArrayList<MainListViewHolder> viewHolders;
     @BindView(R.id.main_fragment_text_score)
-    CoustomTextView textViewScore;
+    CoustomTextView textViewScore; @BindView(R.id.textView5)
+    CoustomTextView textViewPrice;
     @BindView(R.id.textView2)
     CoustomTextView name;
 
@@ -143,6 +144,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
                     viewHolders.get(j).setHaveNumber();
             }
             name.setText(rubbishEntity.type);
+            textViewPrice.setText("قیمت پایه هر کیلوگرم "+rubbishEntity.price+" ریال");
             textViewNumber.setText(String.valueOf(viewHolders.get(i).num));
             position = i;
             isSelect = true;
