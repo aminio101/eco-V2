@@ -247,7 +247,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:layout_marginRight="@dimen/_15sdp"
-                    android:text="قیمت پایه هر کیلو گرم:7 هزار ریال"
+                    android:text="پسماند خود را انتخاب کنید"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_10ssp" />
 
