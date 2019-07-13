@@ -25,6 +25,7 @@ public class DialogAcceptDriver extends DialogFragment {
     private ImageView imageView;
     private CoustomTextView name, number, car, time;
     private AcceptDriverEntity acceptDriverEntity;
+    ImageView ic_delete;
     View v;
     public DialogAcceptDriver(AcceptDriverEntity acceptDriverEntity){
         this.acceptDriverEntity = acceptDriverEntity;
@@ -32,10 +33,8 @@ public class DialogAcceptDriver extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          v = inflater.inflate(R.layout.dialog_accept, container, false);
-
         init();
         showData();
-
         return v;
     }
     @Override
@@ -67,6 +66,13 @@ public class DialogAcceptDriver extends DialogFragment {
         time = v.findViewById(R.id.time);
         name = v.findViewById(R.id.textView_name);
         car = v.findViewById(R.id.textView_car);
+        ic_delete=v.findViewById(R.id.ic_delete);
+        ic_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onDestroy();
+            }
+        });
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
