@@ -81,7 +81,7 @@
                 android:id="@+id/button_submit"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_below="@id/text_sum"
+                android:layout_below="@id/linear2"
                 android:layout_marginLeft="@dimen/_25sdp"
                 android:layout_marginRight="@dimen/_25sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
@@ -107,9 +107,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:gravity="center"
-                    android:text="تعداد"
+                    android:text="کیلو گرم"
+                    android:textSize="@dimen/_10ssp"
+
                     android:textColor="@color/fili2"
-                    android:textSize="@dimen/_15ssp"
                     android:textStyle="bold" />
 
                 <com.eco.CoustomTextView
@@ -118,10 +119,10 @@
                     android:layout_weight="0.3"
                     android:gravity="center"
                     android:text="امتیاز"
+                    android:textSize="@dimen/_10ssp"
 
 
                     android:textColor="@color/fili2"
-                    android:textSize="@dimen/_15ssp"
                     android:textStyle="bold" />
 
                 <com.eco.CoustomTextView
@@ -130,9 +131,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
                     android:gravity="center"
+                    android:textSize="@dimen/_10sdp"
+
                     android:text="نام پسماند"
                     android:textColor="@color/fili2"
-                    android:textSize="@dimen/_15ssp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -165,30 +167,53 @@
                 android:layout_marginRight="@dimen/_25sdp"
                 android:background="#FF9800" />
 
-            <com.eco.CoustomTextView
-                android:textSize="@dimen/_12ssp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/view2"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:text="مجموع امتیازات"
-                android:textColor="@color/fili2"
-                android:textStyle="bold" />
 
-            <com.eco.CoustomTextView
-                android:textSize="@dimen/_12ssp"
-                android:id="@+id/text_sum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+
+
+            <LinearLayout
                 android:layout_below="@+id/view2"
                 android:layout_alignParentLeft="true"
-                android:layout_marginStart="@dimen/_50sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:text="30"
-                android:textColor="@color/fili2"
-                android:textStyle="bold" />
+
+                android:id="@+id/linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_25sdp">
+
+
+                <com.eco.CoustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:text="کیلو گرم"
+                    android:textSize="@dimen/_10ssp"
+                    android:id="@+id/score"
+                    android:textColor="@color/fili2"
+                    android:textStyle="bold" />
+
+                <com.eco.CoustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:textSize="@dimen/_10ssp"
+                    android:textColor="@color/fili2"
+                    android:textStyle="bold" />
+
+                <com.eco.CoustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:textSize="@dimen/_10sdp"
+
+                    android:text="مجموع امتیازات"
+                    android:textColor="@color/fili2"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

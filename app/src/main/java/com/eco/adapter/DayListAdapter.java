@@ -56,10 +56,10 @@ public class DayListAdapter extends RecyclerView.Adapter<DayListViewHolder> {
                 onDayClickListener.onClick(list.get(i));
             }
         });
-        if (i==0&&first){
-            first = false;
-            dayListViewHolder.itemView.callOnClick();
-        }
+//        if (i==0&&first){
+//            first = false;
+//            dayListViewHolder.itemView.callOnClick();
+//        }
     }
 
     @Override

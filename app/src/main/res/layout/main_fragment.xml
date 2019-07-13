@@ -79,8 +79,6 @@
                     android:layout_toLeftOf="@+id/imageView23"
                     android:text="موجودی 2000 تومان کیبا"
                     android:textSize="@dimen/_6ssp" />
-
-
                 <ImageView
                     android:id="@+id/imageView23"
                     android:layout_width="@dimen/_30sdp"
@@ -90,7 +88,6 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_30sdp"
                     app:srcCompat="@drawable/ic_light" />
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

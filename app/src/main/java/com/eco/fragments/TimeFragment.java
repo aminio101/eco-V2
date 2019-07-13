@@ -62,8 +62,6 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     @BindView(R.id.recyclerView)
     RecyclerView dayList;
     DayListAdapter dayListAdapter;
-
-
     @BindView(R.id.timeList)
     RecyclerView recyclerViewTime;
     String timeStamp;
@@ -217,6 +215,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
         dayEntities.add(list.get(1));
         dayEntities.add(list.get(2));
         dayListAdapter.addItem(dayEntities);
+//        dayListAdapter.getItemId()
         this.timeStamp = timeStamp;
     }
 

@@ -19,6 +19,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
 import com.eco.activityes.MainActivity;
@@ -55,6 +56,8 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     DriverEntity driverEntity;
     @BindView(R.id.rat)
     RatingBar ratingBar;
+    @BindView(R.id.score)
+    CoustomTextView score;
     CommentAdapter commentAdapter;
 
     @OnClick(R.id.button_submit)
@@ -90,6 +93,7 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
         this.driverEntity = result;
         assert result.thumbpic != null;
         Glide.with(getContext()).load(PV.getImage(result.thumbpic)).into(profile);
+        score.setText(String.valueOf(result.score));
     }
 
     @Override

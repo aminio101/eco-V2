@@ -144,7 +144,11 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
                                     else
                                         Toast.makeText(context, "غیر قابل انتخاب", Toast.LENGTH_SHORT).show();
 
-
+                                if (roleId == 2 && PV.getHour(timeStamp) >= list.get(j).startPeriod && PV.getHour(timeStamp) <= list.get(j).endPeriod){
+                                    timeViewHolder.setClick();
+                                    onSetTime.onClick(list.get(i));
+                                    PV.requstMode = RequstMode.FAST;
+                                }
                                 else {
                                     timeViewHolder.setClick();
                                     onSetTime.onClick(list.get(i));

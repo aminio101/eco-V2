@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.eco.PV;
 import com.eco.entitys.CommentEntity;
 import com.eco.entitys.DriverEntity;
 import com.eco.entitys.ErrorEntity;
@@ -51,6 +52,7 @@ public class FragmentRateDriverPresenter extends BasePresenter<IFragmentRateDriv
                         items.add(item);
                     }
                     mView.get().showList(result,items);
+                    stopProgress();
                 }}
 
             @Override
@@ -63,7 +65,6 @@ public class FragmentRateDriverPresenter extends BasePresenter<IFragmentRateDriv
                 if (isViewAvailable()) {
                     if (!answer)
                         mView.get().rGetList(id);
-                    stopProgress();
                 }
             }
         });
