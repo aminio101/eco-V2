@@ -15,13 +15,7 @@
             android:layout_width="@dimen/_250sdp"
             android:layout_margin="@dimen/_3sdp"
             android:layout_height="@dimen/_300sdp">
-            <ImageView
-                android:id="@+id/ic_delete"
-                android:layout_marginLeft="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                app:srcCompat="@drawable/ic_delete"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp" />
+
             <ImageView
                 android:id="@+id/image"
                 android:layout_alignParentRight="true"

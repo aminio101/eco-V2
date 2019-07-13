@@ -22,7 +22,7 @@ import com.google.gson.Gson;
 import org.json.JSONObject;
 
 public class DialogAcceptDriver extends DialogFragment {
-    private ImageView imageView;
+
     private CoustomTextView name, number, car, time;
     private AcceptDriverEntity acceptDriverEntity;
     ImageView ic_delete;
@@ -61,18 +61,12 @@ public class DialogAcceptDriver extends DialogFragment {
     }
 
     private void init() {
-        imageView = v.findViewById(R.id.imageView);
+
         number = v.findViewById(R.id.textView_pelak);
         time = v.findViewById(R.id.time);
         name = v.findViewById(R.id.textView_name);
         car = v.findViewById(R.id.textView_car);
-        ic_delete=v.findViewById(R.id.ic_delete);
-        ic_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onDestroy();
-            }
-        });
+
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
