@@ -22,7 +22,7 @@
         android:layout_marginRight="@dimen/_25sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         android:background="@drawable/custom_button_send"
-        android:text="@string/save"
+        android:text="انتقال"
         android:textColor="@color/white"
         android:textSize="@dimen/_17ssp" />
 <ScrollView
