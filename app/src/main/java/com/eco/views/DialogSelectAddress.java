@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.eco.CoustomEditText;
+import com.eco.PV;
 import com.eco.R;
 import com.eco.entitys.FavoriteAddressEntity;
 import com.eco.interfaces.ICallBackFavoriteLocationDialog;
@@ -30,6 +32,7 @@ public class DialogSelectAddress extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_select_adderss);
         init();
     }
@@ -39,8 +42,11 @@ public class DialogSelectAddress extends Dialog {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iCallBackFavoriteLocationDialog.set(name.getText().toString(), des.getText().toString());
-                dismiss();
+                if (PV.checkText(name.getText().toString()) && PV.checkText(des.getText().toString())) {
+                    iCallBackFavoriteLocationDialog.set(name.getText().toString(), des.getText().toString());
+                    dismiss();
+                } else
+                    Toast.makeText(getContext(), "فیلد های اجباری را پر بفرمایید", Toast.LENGTH_SHORT).show();
             }
         });
         name = findViewById(R.id.editText_nameadres);
@@ -49,7 +55,7 @@ public class DialogSelectAddress extends Dialog {
             des.setText(favoriteAddressEntity.getDescription());
             name.setText(favoriteAddressEntity.getName());
             button.setText("ویرایش آدرس منتخب");
-        }else
+        } else
             button.setText("اضافه کردن آدرس منتخب");
     }
 }

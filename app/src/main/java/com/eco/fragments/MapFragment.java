@@ -1,6 +1,7 @@
 package com.eco.fragments;
 
 import android.Manifest;
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
@@ -29,6 +30,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.eco.R;
 import com.eco.activityes.MainActivity;
@@ -118,14 +121,18 @@ public class MapFragment extends Fragment implements
     ArrayList<FavoriteAddressEntity> list;
     @BindView(R.id.map_fragment_button_next_step)
     Button buttonNextStep;
+    @BindView(R.id.myLocationText)
+    TextView myLocationText;@BindView(R.id.textAddLocation)
+    TextView textAddLocation;
     @BindView(R.id.mapFragmentRelativeMyLocation)
-    ImageView imageViewMyLocation;
+    RelativeLayout imageViewMyLocation;
     @BindView(R.id.addLocation)
-    ImageView imageViewAddLocation;
+    RelativeLayout imageViewAddLocation;
     @BindView(R.id.btnEditLocation)
-    ImageView imageViewEditLocation;
+    RelativeLayout imageViewEditLocation;
     @BindView(R.id.cancel)
-    ImageView cancel;
+    ImageView cancel; @BindView(R.id.textEditLocation)
+    TextView textEditLocation;
     @BindView(R.id.mapFragmentEditTextDes)
     EditText des;
 
@@ -152,7 +159,7 @@ public class MapFragment extends Fragment implements
 
     public void finishAnim(View v) {
         int end = (int) getActivity().getResources().getDimension(R.dimen._30sdp);
-        int start = (int) getActivity().getResources().getDimension(R.dimen._60sdp);
+        int start = (int) getActivity().getResources().getDimension(R.dimen._110sdp);
         ValueAnimator va = ValueAnimator.ofInt(start, end);
         va.setDuration(400);
         va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -163,11 +170,18 @@ public class MapFragment extends Fragment implements
             }
         });
         va.start();
+        if (v.getId()==R.id.mapFragmentRelativeMyLocation){
+            myLocationText.setVisibility(View.GONE);
+        }if (v.getId() == R.id.addLocation){
+            textAddLocation.setVisibility(View.GONE);
+        }if (v.getId() == R.id.btnEditLocation){
+            textEditLocation.setVisibility(View.GONE);
+        }
     }
 
     public void startAnim(View v) {
         int start = (int) getActivity().getResources().getDimension(R.dimen._30sdp);
-        int end = (int) getActivity().getResources().getDimension(R.dimen._60sdp);
+        int end = (int) getActivity().getResources().getDimension(R.dimen._110sdp);
         ValueAnimator va = ValueAnimator.ofInt(start, end);
         va.setDuration(400);
         va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -178,6 +192,33 @@ public class MapFragment extends Fragment implements
             }
         });
         va.start();
+        va.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (v.getId()==R.id.mapFragmentRelativeMyLocation){
+                    myLocationText.setVisibility(View.VISIBLE);
+                }if (v.getId() == R.id.addLocation){
+                    textAddLocation.setVisibility(View.VISIBLE);
+                }if (v.getId() == R.id.btnEditLocation){
+                    textEditLocation.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
     @OnClick(R.id.addLocation)

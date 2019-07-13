@@ -110,6 +110,7 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
             root.setBackground(drawableCompat);
             status.setText("انجام شده ");
             status.setTextColor(Color.parseColor("#16B40A"));
+            swipeRevealLayout.setLockDrag(true);
         } else {
             textView.setVisibility(View.GONE);
             delete.setVisibility(View.VISIBLE);
