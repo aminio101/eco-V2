@@ -52,6 +52,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     CoustomTextView textViewScore;
     @BindView(R.id.textView2)
     CoustomTextView name;
+
     @OnClick(R.id.button7)public void loadEditProfile(){
         ((MainActivity) getActivity()).loadEditProfileFragment();
     }
@@ -82,6 +83,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
 
     @OnClick(R.id.nextFragment)
     public void nextFragment() {
+        if(! textViewNumber.getText().toString().equals("0"))
         presenter.save(viewHolders);
     }
     public boolean checkSelectItem(){
