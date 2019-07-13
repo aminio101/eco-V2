@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
     android:background="#DFDCDC"
-    android:layout_width="@dimen/_74sdp"
-    android:layout_height="@dimen/_74sdp">
+    android:layout_width="@dimen/_100sdp"
+    android:layout_height="@dimen/_100sdp">
     <View
         android:layout_width="3dp"
         android:layout_height="match_parent"
@@ -23,11 +23,11 @@
         android:id="@+id/number"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:text="25"
         android:visibility="gone"
+        android:gravity="center"
         android:textColor="#31444040"
-        android:textSize="@dimen/_40ssp" />
+        android:textSize="@dimen/_28ssp" />
     <View
         android:layout_width="2dp"
         android:layout_alignParentRight="true"

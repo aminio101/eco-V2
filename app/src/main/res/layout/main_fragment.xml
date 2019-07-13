@@ -142,7 +142,7 @@
             <RelativeLayout
                 android:id="@+id/relative"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_129sdp"
+                android:layout_height="@dimen/_119sdp"
                 android:layout_below="@+id/header">
 
                 <Button
@@ -159,8 +159,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-
-                    android:layout_height="@dimen/_117sdp"
+                    android:layout_height="@dimen/_107sdp"
                     android:background="#0097a7">
 
                     <RelativeLayout
@@ -248,22 +247,23 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:layout_marginRight="@dimen/_15sdp"
-                    android:text="پسماند خود را انتخاب کنید"
+                    android:text="قیمت پایه هر کیلو گرم:7 هزار ریال"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_10ssp" />
 
             </RelativeLayout>
 
             <RelativeLayout
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
+                android:layout_height="@dimen/_200sdp"
                 android:layout_below="@+id/relative"
                 android:layout_marginTop="@dimen/_10sdp">
 
                 <ImageView
                     android:id="@+id/timeDayRight"
                     android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_150sdp"
+                    android:layout_height="@dimen/_200sdp"
                     android:layout_alignParentRight="true"
                     android:tint="#75BEBCBC"
                     app:srcCompat="@drawable/ic_arrow_right" />
@@ -271,7 +271,7 @@
                 <ImageView
                     android:id="@+id/timeDayLeft"
                     android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_150sdp"
+                    android:layout_height="@dimen/_200sdp"
                     android:layout_alignParentLeft="true"
                     android:tint="#75BEBCBC"
                     app:srcCompat="@drawable/ic_arrow_left" />
@@ -279,7 +279,7 @@
                 <HorizontalScrollView
                     android:id="@+id/list"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_150sdp"
+                    android:layout_height="@dimen/_200sdp"
                     android:layout_toLeftOf="@+id/timeDayRight"
                     android:layout_toRightOf="@+id/timeDayLeft"
                     android:layoutDirection="rtl"
@@ -301,7 +301,7 @@
 
                         <View
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_2sdp"
+                            android:layout_height="2dp"
                             android:background="#AFADAD" />
 
                         <LinearLayout

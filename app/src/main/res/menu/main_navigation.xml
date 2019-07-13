@@ -5,14 +5,15 @@
         android:icon="@drawable/ic_menu"
         android:title="بیشتر" />
     <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+    <item
         android:id="@+id/xChangeList"
         android:icon="@drawable/ic_list"
         android:title="@string/xChange" />
 
-    <item
-        android:id="@+id/mainFragment"
-        android:icon="@drawable/ic_home"
-        android:title="@string/home" />
+
 
 
 

@@ -82,9 +82,14 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     }
 
     @OnClick(R.id.nextFragment)
-    public void nextFragment() {
+    public void nextFragment() {// todo
         if(! textViewNumber.getText().toString().equals("0"))
-        presenter.save(viewHolders);
+        {
+             presenter.save(viewHolders);
+        }
+        else{
+            Toast.makeText(getContext(),"لطفا یک پسماند را ابتدا انتخاب کنید",Toast.LENGTH_LONG).show();
+        }
     }
     public boolean checkSelectItem(){
         boolean haveItem = false;
@@ -141,13 +146,14 @@ public class MainFragment extends Fragment implements IMainFragmentView {
             textViewNumber.setText(String.valueOf(viewHolders.get(i).num));
             position = i;
             isSelect = true;
+
         }
     };
     void addItem() {
         for (int i = 0; i < viewHolders.size(); i++) {
             viewHolders.get(i).itemView.setLayoutParams(new LinearLayout.LayoutParams(
-                    (int) getResources().getDimension(R.dimen._100ssp),
-                    (int) getResources().getDimension(R.dimen._100ssp)));
+                    (int) getResources().getDimension(R.dimen._100sdp),
+                    (int) getResources().getDimension(R.dimen._100sdp)));
             if (i == 0 || i % 2 == 0)
                 linearTop.addView(viewHolders.get(i).itemView);
             else

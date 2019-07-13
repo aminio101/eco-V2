@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.eco.PV;
 import com.eco.entitys.AcceptDriverEntity;
+import com.eco.fragments.AboutUsFragment;
 import com.eco.fragments.FragmentComment;
 import com.eco.fragments.MoreFragment;
 import com.eco.views.DialogAcceptDriver;
@@ -209,6 +210,14 @@ public class MainActivity extends AppCompatActivity {
         currentFragment = new EditProfileFragment();
         fragmentTransaction.replace(R.id.frame_container, currentFragment, "EditProfileFragment");
         fragmentTransaction.addToBackStack("EditProfileFragment");
+        fragmentTransaction.commit();
+    }
+    public void AboutUs() {
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
+        currentFragment = new AboutUsFragment();
+        fragmentTransaction.replace(R.id.frame_container, currentFragment, "AboutUsFragment");
+        fragmentTransaction.addToBackStack("AboutUsFragment");
         fragmentTransaction.commit();
     }
 

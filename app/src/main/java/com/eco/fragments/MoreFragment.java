@@ -63,7 +63,7 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
 
     @OnClick(R.id.about_us)
     public void loadAboutUs() {
-        Toast.makeText(getContext(), "ناقص", Toast.LENGTH_LONG).show();
+        ((MainActivity) getActivity()).AboutUs();
     }
 
 

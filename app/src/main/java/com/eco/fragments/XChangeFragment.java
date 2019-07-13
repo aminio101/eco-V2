@@ -103,6 +103,7 @@ public class XChangeFragment extends Fragment implements IXChangeView {
 
     @Override
     public void showList(ListeEntity<XChangeEntity> result) {
+
         adapter.addItem(result);
         isLoading = false;
         if (result.data.size()==10&&nextPage!=Integer.valueOf(result.pageNumber))
