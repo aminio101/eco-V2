@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.eco.CoustomEditText;
 import com.eco.R;
@@ -36,7 +37,12 @@ public class IntroduceFragment extends Fragment implements IIntroduceView {
 
     @OnClick(R.id.button2)
     public void introduce() {
+        if(phone.getText().toString().length()==11)
         presenter.invite(phone.getText().toString());
+        else{
+            Toast.makeText(getContext(),"لطفا شماره موبایل صحیح وارد کنید",Toast.LENGTH_LONG).show();
+        }
+
     }
 
     @Override

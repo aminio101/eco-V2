@@ -130,7 +130,7 @@ public class FinalFragmentPresenter extends BasePresenter<IFinalFragmentView> im
                     PV.requestEntity = null;
                     PV.list.clear();
                     mView.get().success();
-                    showMsg("در خواست شما با موفقیت ثیت شد");
+                    showMsg("در خواست شما با موفقیت ثبت شد");
                 }
             }
 

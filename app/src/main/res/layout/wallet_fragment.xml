@@ -119,6 +119,7 @@
 
 
         <com.eco.CoustomEditText
+            android:inputType="number"
             android:id="@+id/editText_shaba"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_30sdp"
@@ -130,7 +131,7 @@
             android:paddingLeft="@dimen/_15sdp"
             android:paddingRight="@dimen/_15sdp"
             android:textColor="@color/yellow_800"
-            android:textSize="@dimen/_12ssp" />
+            android:textSize="@dimen/_10ssp" />
 
         <com.eco.CoustomTextView
             android:id="@+id/textView101"
