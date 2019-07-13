@@ -119,6 +119,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
             @Override
             public boolean onInfo(MediaPlayer mediaPlayer, int i, int i1) {
                 if (i == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
+                    videoView.setVisibility(View.VISIBLE);
                     videoViewProgressBar.setVisibility(View.GONE);
                 }
                 return false;
@@ -158,7 +159,8 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
         videoViewProgressBar.setVisibility(View.VISIBLE);
         videoView.start();
         imageView.setVisibility(View.INVISIBLE);
-        videoView.setVisibility(View.VISIBLE);
+        videoView.setVisibility(View.INVISIBLE);
+
     }
 
     @Override

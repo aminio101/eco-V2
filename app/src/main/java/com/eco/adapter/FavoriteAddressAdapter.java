@@ -60,13 +60,13 @@ public class FavoriteAddressAdapter extends RecyclerView.Adapter<FavoriteAddress
     @Override
     public void onBindViewHolder(@NonNull FavoriteAddressViewHolder favoriteLocationViewHolder,final int i) {
         favoriteLocationViewHolder.setAddressName(list.get(i).getName());
-        if (mapAdapterMode == SELECT) {
+//        if (mapAdapterMode == SELECT) {
             Drawable drawableCompat = ContextCompat.getDrawable(context, R.drawable.ic_location);
             favoriteLocationViewHolder.imageView.setImageDrawable(drawableCompat);
-        }else{
-            Drawable drawableCompat = ContextCompat.getDrawable(context, R.drawable.ic_pen);
-            favoriteLocationViewHolder.imageView.setImageDrawable(drawableCompat);
-        }
+//        }else{
+//            Drawable drawableCompat = ContextCompat.getDrawable(context, R.drawable.ic_pen);
+//            favoriteLocationViewHolder.imageView.setImageDrawable(drawableCompat);
+//        }
         favoriteLocationViewHolder.root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
