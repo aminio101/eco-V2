@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -46,21 +47,26 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
     View line;
     SwipeRevealLayout swipeRevealLayout;
     public RelativeLayout singleItem;
+    public RelativeLayout relativeLayout;
     public ImageView imageView;
-    public void startProgress(){
+
+    public void startProgress() {
         progressBar.setVisibility(View.VISIBLE);
         cardView.setVisibility(View.INVISIBLE);
     }
+
     XChangeAdapter adapter;
-    public void stopProgress(){
+
+    public void stopProgress() {
         progressBar.setVisibility(View.INVISIBLE);
         cardView.setVisibility(View.VISIBLE);
     }
+
     public XChangeViewHolder(@NonNull View itemView, Context context, IXChangePresenter presenter, XChangeAdapter adapter) {
         super(itemView);
         this.adapter = adapter;
-
         this.presenter = presenter;
+        relativeLayout = itemView.findViewById(R.id.relative_layout);
         root = itemView.findViewById(R.id.root);
         this.context = context;
         swipeRevealLayout = itemView.findViewById(R.id.sweep);
@@ -79,6 +85,8 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(XChangeEntity xChangeEntity) {
+
+
         swipeRevealLayout.close(false);
         stopProgress();
         root.setBackground(null);
@@ -86,7 +94,7 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.delete(xChangeEntity,XChangeViewHolder.this);
+                presenter.delete(xChangeEntity, XChangeViewHolder.this);
             }
         });
         String date = "";
@@ -112,6 +120,8 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
             status.setTextColor(Color.parseColor("#16B40A"));
             swipeRevealLayout.setLockDrag(true);
         } else {
+            swipeRevealLayout.setLockDrag(false);
+
             textView.setVisibility(View.GONE);
             delete.setVisibility(View.VISIBLE);
             Drawable drawableCompat = ContextCompat.getDrawable(context, R.drawable.x_change_bac_brown);
@@ -151,7 +161,8 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
             this.list.setAdapter(requestListAdapter);
             this.list.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
             this.date.setText(date + "  تحویل پسماند  ");
-        } else if (xChangeEntity.type == 2) {
+        }
+        else if (xChangeEntity.type == 2) {
             ItemEntity item = new ItemEntity();
             for (Map.Entry<String, String> entry : xChangeEntity.list.entrySet()) {
                 String value = entry.getValue();
@@ -189,6 +200,5 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
             name.setText("دریافت " + xChangeEntity.citizenScore + " امتیاز ");
             this.date.setText(date + " ارسال دعوت نامه");
         }
-
     }
 }

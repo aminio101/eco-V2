@@ -66,7 +66,7 @@ public class XChangeFragment extends Fragment implements IXChangeView {
 
     private void init() {
         presenter = new XChangePresenter(this, getContext(), progressBar, root);
-
+        list.setHasFixedSize(false);
         adapter = new XChangeAdapter(getContext(), presenter);
         list.setAdapter(adapter);
         layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
