@@ -147,6 +147,7 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
                 ItemEntity item = new ItemEntity();
                 item.setNumber(value);
                 item.setId(Integer.valueOf(key));
+                if (Integer.valueOf(item.number)!=0)
                 list.add(item);
             }
             for (int i = 0; i < list.size(); i++) {

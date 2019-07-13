@@ -48,7 +48,7 @@ public class FinalFragmentAdapter extends RecyclerView.Adapter<FinalViewHolder> 
     public void onBindViewHolder(@NonNull FinalViewHolder finalViewHolder, int i) {
         finalViewHolder.name.setText(list.get(i).type);
         finalViewHolder.numberRubbish.setText(String.valueOf(list.get(i).number));
-        finalViewHolder.number.setText(String.valueOf(i));
+        finalViewHolder.number.setText(String.valueOf(i+1));
         finalViewHolder.delete.setTag(list.get(i));
         finalViewHolder.delete.setOnClickListener(onClickListener);
         if (showDelete)
