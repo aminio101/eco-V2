@@ -26,8 +26,8 @@
         android:text="25"
         android:visibility="gone"
         android:gravity="center"
-        android:textColor="#31444040"
-        android:textSize="@dimen/_28ssp" />
+        android:textColor="#B7444040"
+        android:textSize="@dimen/_40ssp" />
     <View
         android:layout_width="2dp"
         android:layout_alignParentRight="true"
