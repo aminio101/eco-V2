@@ -5,7 +5,6 @@
     android:layout_height="match_parent">
 
 
-
     <ProgressBar
         android:id="@+id/progress_circular"
         android:layout_width="wrap_content"
@@ -109,36 +108,42 @@
                 android:textColor="#0F7DF1"
                 android:textSize="@dimen/_11ssp" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
-                android:layout_below="@+id/textView9"
-                android:layout_margin="@dimen/_10sdp" />
-
-
-            <VideoView
-                android:id="@+id/videoView"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
-                android:layout_below="@+id/textView9"
-                android:layout_margin="@dimen/_10sdp" />
-
-
-            <ProgressBar
-                android:id="@+id/videoViewProgressBar"
+            <RelativeLayout
+                android:id="@+id/relative_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_150sdp"
                 android:layout_below="@+id/textView9"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="@dimen/_70sdp"
-                android:visibility="invisible" />
+                android:layout_margin="@dimen/_10sdp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:visibility="invisible"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp" />
+
+
+                <VideoView
+                    android:id="@+id/videoView"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+                <ProgressBar
+                    android:id="@+id/videoViewProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_below="@+id/videoView"
+                android:layout_below="@+id/relative_layout"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:background="@drawable/background_btn_next_fragment_time">
