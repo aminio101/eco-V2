@@ -147,8 +147,8 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
                 ItemEntity item = new ItemEntity();
                 item.setNumber(value);
                 item.setId(Integer.valueOf(key));
-                if (Integer.valueOf(item.number)!=0)
-                list.add(item);
+                if (!item.number.equals("0"))
+                    list.add(item);
             }
             for (int i = 0; i < list.size(); i++) {
                 for (int j = 0; j < PV.rubbishList.size(); j++) {
@@ -162,8 +162,7 @@ public class XChangeViewHolder extends RecyclerView.ViewHolder {
             this.list.setAdapter(requestListAdapter);
             this.list.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
             this.date.setText(date + "  تحویل پسماند  ");
-        }
-        else if (xChangeEntity.type == 2) {
+        } else if (xChangeEntity.type == 2) {
             ItemEntity item = new ItemEntity();
             for (Map.Entry<String, String> entry : xChangeEntity.list.entrySet()) {
                 String value = entry.getValue();

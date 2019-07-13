@@ -122,7 +122,8 @@ public class MapFragment extends Fragment implements
     @BindView(R.id.map_fragment_button_next_step)
     Button buttonNextStep;
     @BindView(R.id.myLocationText)
-    TextView myLocationText;@BindView(R.id.textAddLocation)
+    TextView myLocationText;
+    @BindView(R.id.textAddLocation)
     TextView textAddLocation;
     @BindView(R.id.mapFragmentRelativeMyLocation)
     RelativeLayout imageViewMyLocation;
@@ -131,27 +132,33 @@ public class MapFragment extends Fragment implements
     @BindView(R.id.btnEditLocation)
     RelativeLayout imageViewEditLocation;
     @BindView(R.id.cancel)
-    ImageView cancel; @BindView(R.id.textEditLocation)
+    ImageView cancel;
+    @BindView(R.id.textEditLocation)
     TextView textEditLocation;
     @BindView(R.id.mapFragmentEditTextDes)
     EditText des;
 
     @OnClick(R.id.cancel)
     public void cancel() {
+        if (buttonNextStep.getText().equals("ویرایش")) {
+          recyclerView.setVisibility(View.VISIBLE);
+        }
         showView();
         adapter.unSelectAll();
         buttonNextStep.setText("مرحله بعد");
         favoriteAddressEntity = null;
         adapter.setMode(SELECT);
-        mapAdapterMode  = SELECT;
+        mapAdapterMode = SELECT;
         cancel.setVisibility(View.INVISIBLE);
-        if (myLocationAnim){
+        if (myLocationAnim) {
             finishAnim(imageViewMyLocation);
             myLocationAnim = false;
-        }if (addLocationAnim){
+        }
+        if (addLocationAnim) {
             finishAnim(imageViewAddLocation);
             addLocationAnim = false;
-        }if (editLocationAnim){
+        }
+        if (editLocationAnim) {
             finishAnim(imageViewEditLocation);
             editLocationAnim = false;
         }
@@ -170,11 +177,13 @@ public class MapFragment extends Fragment implements
             }
         });
         va.start();
-        if (v.getId()==R.id.mapFragmentRelativeMyLocation){
+        if (v.getId() == R.id.mapFragmentRelativeMyLocation) {
             myLocationText.setVisibility(View.GONE);
-        }if (v.getId() == R.id.addLocation){
+        }
+        if (v.getId() == R.id.addLocation) {
             textAddLocation.setVisibility(View.GONE);
-        }if (v.getId() == R.id.btnEditLocation){
+        }
+        if (v.getId() == R.id.btnEditLocation) {
             textEditLocation.setVisibility(View.GONE);
         }
     }
@@ -200,11 +209,13 @@ public class MapFragment extends Fragment implements
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                if (v.getId()==R.id.mapFragmentRelativeMyLocation){
+                if (v.getId() == R.id.mapFragmentRelativeMyLocation) {
                     myLocationText.setVisibility(View.VISIBLE);
-                }if (v.getId() == R.id.addLocation){
+                }
+                if (v.getId() == R.id.addLocation) {
                     textAddLocation.setVisibility(View.VISIBLE);
-                }if (v.getId() == R.id.btnEditLocation){
+                }
+                if (v.getId() == R.id.btnEditLocation) {
                     textEditLocation.setVisibility(View.VISIBLE);
                 }
             }
@@ -245,6 +256,7 @@ public class MapFragment extends Fragment implements
         imageViewMyLocation.setVisibility(View.INVISIBLE);
         imageViewAddLocation.setVisibility(View.INVISIBLE);
         cancel.setVisibility(View.VISIBLE);
+        cardView.setVisibility(View.INVISIBLE);
     }
 
     @OnClick(R.id.mapFragmentRelativeMyLocation)
@@ -264,7 +276,7 @@ public class MapFragment extends Fragment implements
 
     @OnClick(R.id.btnEditLocation)
     public void editLocation() {
-        if (!editLocationAnim){
+        if (!editLocationAnim) {
             adapter.setMode(EDIT);
             mapAdapterMode = EDIT;
             buttonNextStep.setText("ویرایش");
@@ -273,6 +285,7 @@ public class MapFragment extends Fragment implements
             startAnim(imageViewEditLocation);
             editLocationAnim = true;
 
+recyclerView.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -387,8 +400,9 @@ public class MapFragment extends Fragment implements
 
     private void showAddressDialog(FavoriteAddressEntity favoriteAddressEntity) {
 
-            buttonNextStep.setText("ویرایش");
-            hideView();
+        buttonNextStep.setText("ویرایش");
+        recyclerView.setVisibility(View.INVISIBLE);
+        hideView();
 
     }
 
@@ -516,19 +530,25 @@ public class MapFragment extends Fragment implements
         adapter.unSelectAll();
         favoriteAddressEntity = null;
         finishAllAnim();
+       recyclerView.setVisibility(View.VISIBLE);
+        cardView.setVisibility(View.VISIBLE);
     }
-    public void finishAllAnim(){
-        if (myLocationAnim){
-            myLocationAnim=false;
+
+    public void finishAllAnim() {
+        if (myLocationAnim) {
+            myLocationAnim = false;
             finishAnim(imageViewMyLocation);
-        }if (addLocationAnim){
+        }
+        if (addLocationAnim) {
             addLocationAnim = false;
             finishAnim(imageViewAddLocation);
-        }if(editLocationAnim){
+        }
+        if (editLocationAnim) {
             editLocationAnim = false;
             finishAnim(imageViewEditLocation);
         }
     }
+
     @Override
     public void rChangeLocation(FavoriteAddressEntity favoriteAddressEntity) {
         DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
