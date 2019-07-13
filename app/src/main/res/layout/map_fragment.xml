@@ -68,6 +68,7 @@
             android:layout_height="@dimen/_25sdp"
             android:layout_below="@+id/addLocation"
             android:layout_alignParentRight="true"
+            android:visibility="gone"
             android:id="@+id/btnEditLocation"
             android:layout_marginTop="@dimen/_8sdp"
             android:background="@drawable/background_map_fragment"

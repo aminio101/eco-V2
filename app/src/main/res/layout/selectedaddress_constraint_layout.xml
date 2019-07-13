@@ -77,7 +77,7 @@
         android:gravity="center"
         android:text="@string/addaddress"
         android:textColor="@color/white"
-        android:textSize="@dimen/_8ssp"
+        android:textSize="@dimen/_5ssp"
         app:layout_constraintBottom_toTopOf="@+id/guideline112"
         app:layout_constraintEnd_toStartOf="@+id/guideline113"
         app:layout_constraintStart_toStartOf="@+id/guideline109"

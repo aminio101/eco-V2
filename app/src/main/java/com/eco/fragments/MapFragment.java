@@ -1,6 +1,7 @@
 package com.eco.fragments;
 
 import android.Manifest;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -17,7 +18,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -29,7 +29,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.eco.R;
 import com.eco.activityes.MainActivity;
@@ -112,6 +111,10 @@ public class MapFragment extends Fragment implements
         }
     }
 
+    boolean myLocationAnim;
+    boolean addLocationAnim;
+    boolean editLocationAnim;
+
     ArrayList<FavoriteAddressEntity> list;
     @BindView(R.id.map_fragment_button_next_step)
     Button buttonNextStep;
@@ -120,25 +123,87 @@ public class MapFragment extends Fragment implements
     @BindView(R.id.addLocation)
     ImageView imageViewAddLocation;
     @BindView(R.id.btnEditLocation)
-    ImageView imageViewEditLocation;    @BindView(R.id.cancel)
+    ImageView imageViewEditLocation;
+    @BindView(R.id.cancel)
     ImageView cancel;
     @BindView(R.id.mapFragmentEditTextDes)
     EditText des;
-    @OnClick(R.id.cancel)public void cancel(){
-        successAddLocation();
-        cancel.setVisibility(View.GONE);
+
+    @OnClick(R.id.cancel)
+    public void cancel() {
+        showView();
+        adapter.unSelectAll();
+        buttonNextStep.setText("مرحله بعد");
+        favoriteAddressEntity = null;
+        adapter.setMode(SELECT);
+        mapAdapterMode  = SELECT;
+        cancel.setVisibility(View.INVISIBLE);
+        if (myLocationAnim){
+            finishAnim(imageViewMyLocation);
+            myLocationAnim = false;
+        }if (addLocationAnim){
+            finishAnim(imageViewAddLocation);
+            addLocationAnim = false;
+        }if (editLocationAnim){
+            finishAnim(imageViewEditLocation);
+            editLocationAnim = false;
+        }
     }
+
+    public void finishAnim(View v) {
+        int end = (int) getActivity().getResources().getDimension(R.dimen._30sdp);
+        int start = (int) getActivity().getResources().getDimension(R.dimen._60sdp);
+        ValueAnimator va = ValueAnimator.ofInt(start, end);
+        va.setDuration(400);
+        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Integer value = (Integer) animation.getAnimatedValue();
+                v.getLayoutParams().width = value.intValue();
+                v.requestLayout();
+            }
+        });
+        va.start();
+    }
+
+    public void startAnim(View v) {
+        int start = (int) getActivity().getResources().getDimension(R.dimen._30sdp);
+        int end = (int) getActivity().getResources().getDimension(R.dimen._60sdp);
+        ValueAnimator va = ValueAnimator.ofInt(start, end);
+        va.setDuration(400);
+        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                Integer value = (Integer) animation.getAnimatedValue();
+                v.getLayoutParams().width = value.intValue();
+                v.requestLayout();
+            }
+        });
+        va.start();
+    }
+
     @OnClick(R.id.addLocation)
     public void addLocation() {
         hideView();
         buttonNextStep.setText("اضافه کردن");
         cancel.setVisibility(View.VISIBLE);
+
+
+        startAnim(imageViewAddLocation);
+        addLocationAnim = true;
+
+        if (imageViewEditLocation.getVisibility() == View.VISIBLE) {
+            finishAnim(imageViewEditLocation);
+            editLocationAnim = false;
+        }
+        if (myLocationAnim) {
+            finishAnim(imageViewMyLocation);
+            myLocationAnim = false;
+        }
     }
 
     void editMode() {
-        imageViewMyLocation.setVisibility(View.GONE);
-        imageViewAddLocation.setVisibility(View.GONE);
-        imageViewEditLocation.setVisibility(View.GONE);
+        imageViewMyLocation.setVisibility(View.INVISIBLE);
+        imageViewAddLocation.setVisibility(View.INVISIBLE);
+        cancel.setVisibility(View.VISIBLE);
     }
 
     @OnClick(R.id.mapFragmentRelativeMyLocation)
@@ -149,31 +214,40 @@ public class MapFragment extends Fragment implements
         if (userLocation != null) {
             latLng = new LatLng(userLocation.getLongitude(), userLocation.getLatitude());
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14), 100, null);
+            if (!myLocationAnim) {
+                myLocationAnim = true;
+                startAnim(imageViewMyLocation);
+            }
         }
     }
 
     @OnClick(R.id.btnEditLocation)
     public void editLocation() {
-        adapter.setMode(EDIT);
-        mapAdapterMode = EDIT;
-        buttonNextStep.setText("ویرایش");
-        editMode();
+        if (!editLocationAnim){
+            adapter.setMode(EDIT);
+            mapAdapterMode = EDIT;
+            buttonNextStep.setText("ویرایش");
+            editMode();
+
+            startAnim(imageViewEditLocation);
+            editLocationAnim = true;
+
+        }
     }
 
     public void showView() {
-        imageViewEditLocation.setVisibility(View.VISIBLE);
         imageViewAddLocation.setVisibility(View.VISIBLE);
         imageViewMyLocation.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
         cardView.setVisibility(View.VISIBLE);
+        imageViewEditLocation.setVisibility(View.INVISIBLE);
+        cancel.setVisibility(View.INVISIBLE);
     }
 
     public void hideView() {
-        imageViewEditLocation.setVisibility(View.GONE);
-        imageViewAddLocation.setVisibility(View.GONE);
-        imageViewMyLocation.setVisibility(View.GONE);
-        recyclerView.setVisibility(View.GONE);
-        cardView.setVisibility(View.GONE);
+        imageViewMyLocation.setVisibility(View.INVISIBLE);
+        recyclerView.setVisibility(View.INVISIBLE);
+        cardView.setVisibility(View.INVISIBLE);
     }
 
     private FusedLocationProviderClient fusedLocationClient;
@@ -258,6 +332,7 @@ public class MapFragment extends Fragment implements
     ILocationClick onLocationClick = new ILocationClick() {
         @Override
         public void onClick(FavoriteAddressEntity favoriteAddress) {
+            imageViewEditLocation.setVisibility(View.VISIBLE);
             LatLng latLng = new LatLng(favoriteAddress.getLocation().getLat(), favoriteAddress.getLocation().getLng());
             favoriteAddressEntity = favoriteAddress;
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14), 100, null);
@@ -270,12 +345,10 @@ public class MapFragment extends Fragment implements
     };
 
     private void showAddressDialog(FavoriteAddressEntity favoriteAddressEntity) {
-        if (list.size() == 5)
-            Toast.makeText(getContext(), "لیست مکان های منتخب شما پر شده است ", Toast.LENGTH_LONG).show();
-        else {
+
             buttonNextStep.setText("ویرایش");
             hideView();
-        }
+
     }
 
     ICallBackFavoriteLocationDialog callBackFavoriteLocationDialog = new ICallBackFavoriteLocationDialog() {
@@ -401,8 +474,20 @@ public class MapFragment extends Fragment implements
         mapAdapterMode = SELECT;
         adapter.unSelectAll();
         favoriteAddressEntity = null;
+        finishAllAnim();
     }
-
+    public void finishAllAnim(){
+        if (myLocationAnim){
+            myLocationAnim=false;
+            finishAnim(imageViewMyLocation);
+        }if (addLocationAnim){
+            addLocationAnim = false;
+            finishAnim(imageViewAddLocation);
+        }if(editLocationAnim){
+            editLocationAnim = false;
+            finishAnim(imageViewEditLocation);
+        }
+    }
     @Override
     public void rChangeLocation(FavoriteAddressEntity favoriteAddressEntity) {
         DialogConnection dialogConnection = new DialogConnection(getActivity(), new View.OnClickListener() {
@@ -420,6 +505,7 @@ public class MapFragment extends Fragment implements
         buttonNextStep.setText("مرحله بعد");
         favoriteAddressEntity = null;
         presenter.getFavoriteLocation();
+        finishAllAnim();
     }
 
     @Override
@@ -481,10 +567,11 @@ public class MapFragment extends Fragment implements
             });
         }
     }
-    void hideKeyboard(){
+
+    void hideKeyboard() {
         View view1 = getActivity().getCurrentFocus();
-        if (view1 != null){
-            InputMethodManager imm = (InputMethodManager)getActivity(). getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (view1 != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);
         }
     }
