@@ -117,7 +117,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
             @Override
             public boolean onInfo(MediaPlayer mediaPlayer, int i, int i1) {
                 if (i == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
-                    videoView.setVisibility(View.VISIBLE);
+//                    videoView.setVisibility(View.VISIBLE);
                     videoViewProgressBar.setVisibility(View.GONE);
                 }
                 return false;
@@ -158,7 +158,6 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
         videoView.start();
         imageView.setVisibility(View.INVISIBLE);
         videoView.setVisibility(View.INVISIBLE);
-
     }
 
     @Override
@@ -215,7 +214,6 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
         dayEntities.add(list.get(1));
         dayEntities.add(list.get(2));
         dayListAdapter.addItem(dayEntities);
-//        dayListAdapter.getItemId()
         this.timeStamp = timeStamp;
     }
 
