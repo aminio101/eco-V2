@@ -171,7 +171,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/exit"
+            android:id="@+id/learn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/_8sdp"
@@ -192,7 +192,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/_5sdp"
                     android:tint="#6FDAD0D0"
-                    app:srcCompat="@drawable/ic_exit" />
+                    app:srcCompat="@drawable/ic_lear" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -245,7 +245,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/question"
+            android:id="@+id/shop"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/_8sdp"
@@ -266,7 +266,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/_5sdp"
                     android:tint="#6FDAD0D0"
-                    app:srcCompat="@drawable/ic_information" />
+                    app:srcCompat="@drawable/ic_cart" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -282,7 +282,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/shop"
+            android:id="@+id/question"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/_8sdp"
@@ -304,7 +304,7 @@
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/_5sdp"
                     android:tint="#6FDAD0D0"
-                    app:srcCompat="@drawable/ic_cart" />
+                    app:srcCompat="@drawable/ic_information" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -320,7 +320,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/learn"
+            android:id="@+id/exit"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/_8sdp"
@@ -341,7 +341,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/_5sdp"
             android:tint="#6FDAD0D0"
-            app:srcCompat="@drawable/ic_lear" />
+            app:srcCompat="@drawable/ic_exit" />
 
             <TextView
             android:layout_width="wrap_content"

@@ -70,8 +70,8 @@ public class NotificationReceiver extends FirebaseMessagingService {
                 acceptDriverEntity.thumbnail = jsonObject1.getString("thumbnail");
                 acceptDriverEntity.carName = jsonObject1.getString("carName");
                 acceptDriverEntity.time = jsonObject1.getString("time");
-                acceptDriverEntity.name = jsonObject1.getString("time");
-                acceptDriverEntity.family = jsonObject1.getString("time");
+                acceptDriverEntity.name = jsonObject1.getString("name");
+                acceptDriverEntity.family = jsonObject1.getString("family");
 //                acceptDriverEntity.thumbnail = remoteMessage.getData().get("thumbnail");
 
 

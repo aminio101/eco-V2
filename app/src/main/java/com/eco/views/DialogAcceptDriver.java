@@ -24,11 +24,12 @@ import com.google.gson.Gson;
 import org.json.JSONObject;
 
 public class DialogAcceptDriver extends DialogFragment {
+
     public ImageView imageView;
     private CoustomTextView name, number, car, time;
     private AcceptDriverEntity acceptDriverEntity;
-    ImageView ic_delete;
     View v;
+
     public DialogAcceptDriver(AcceptDriverEntity acceptDriverEntity){
         this.acceptDriverEntity = acceptDriverEntity;
     }
@@ -50,16 +51,18 @@ public class DialogAcceptDriver extends DialogFragment {
 
 
     private void showData() {
-        name.setText(acceptDriverEntity.body);
-        number.setText(acceptDriverEntity.title);
+        name.setText(acceptDriverEntity.name+" "+acceptDriverEntity.family);
+//        number.setText(acceptDriverEntity.title);
+        car.setText(acceptDriverEntity.carName);
+        time.setText("زمان تقریبی رسیدن راننده "+acceptDriverEntity.time+" دقیقه ");
         JSONObject obj;
-        try {
-             obj = new JSONObject(acceptDriverEntity.time);
-            time.setText("زمان تقریبی رسیدن راننده "+obj.getString("time")+" دقیقه ");
-        }catch (Exception e){
-            time.setText("زمان تقریبی رسیدن راننده نا معلوم است");
-            e.printStackTrace();
-        }
+//        try {
+//             obj = new JSONObject(acceptDriverEntity.time);
+//            time.setText("زمان تقریبی رسیدن راننده "+obj.getString("time")+" دقیقه ");
+//        }catch (Exception e){
+//            time.setText("زمان تقریبی رسیدن راننده نا معلوم است");
+//            e.printStackTrace();
+//        }
         Glide.with(this)
                 .load(PV.getImage(acceptDriverEntity.thumbnail))
                 .into(imageView);
@@ -67,7 +70,7 @@ public class DialogAcceptDriver extends DialogFragment {
 
     private void init() {
         imageView = v.findViewById(R.id.imageView);
-        number = v.findViewById(R.id.textView_pelak);
+       // number = v.findViewById(R.id.textView_pelak);
         time = v.findViewById(R.id.time);
         name = v.findViewById(R.id.textView_name);
         car = v.findViewById(R.id.textView_car);

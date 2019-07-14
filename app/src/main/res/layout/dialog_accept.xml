@@ -36,19 +36,18 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/image"
                 android:scaleType="fitXY"
-                android:src="@drawable/test"
+                app:srcCompat="@drawable/user_pro"
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp" />
             <com.eco.CoustomTextView
                 android:id="@+id/textView_name"
                 android:textStyle="bold"
                 android:textColor="@color/fili2"
-                android:layout_marginTop="@dimen/_10sdp"
-
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/imageView"
                 android:textSize="@dimen/_12ssp"
@@ -65,22 +64,22 @@
                 android:text="نیسان آبی"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <com.eco.CoustomTextView
-                android:id="@+id/textView_pelak"
-                android:textColor="@color/fili2"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/textView_car"
-                android:textSize="@dimen/_9ssp"
-                android:text="12ب 365"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <!--<com.eco.CoustomTextView-->
+                <!--android:id="@+id/textView_pelak"-->
+                <!--android:textColor="@color/fili2"-->
+                <!--android:layout_marginTop="@dimen/_5sdp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_below="@+id/textView_car"-->
+                <!--android:textSize="@dimen/_9ssp"-->
+                <!--android:text="12ب 365"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" />-->
 
             <com.eco.CoustomTextView
-                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/time"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_12ssp"
                 android:layout_alignParentBottom="true"
                 android:text="زمان تقریبی رسیدن :25 دقیقه"
                 android:layout_width="wrap_content"
