@@ -84,7 +84,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
 
     @OnClick(R.id.nextFragment)
     public void nextFragment() {// todo
-        if(! textViewNumber.getText().toString().equals("0"))
+        if((! textViewNumber.getText().toString().equals("0")) && checkSelectItem()||isSelect )
         {
              presenter.save(viewHolders);
         }
@@ -204,6 +204,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
             }
         });
     }
+
     void hideKeyboard(){
         View view1 = getActivity().getCurrentFocus();
         if (view1 != null){
