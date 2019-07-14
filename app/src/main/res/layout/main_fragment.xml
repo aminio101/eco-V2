@@ -64,7 +64,7 @@
                     android:layout_marginEnd="3dp"
                     android:layout_toLeftOf="@+id/imageView23"
                     android:gravity="right|center"
-                    android:text="هر100 امتیاز برابر 3 هزار تومان می باشد"
+                    android:text="هر100 امتیاز برابر 3 هزار ریال می باشد"
                     android:textSize="@dimen/_8ssp"
 
                     />
