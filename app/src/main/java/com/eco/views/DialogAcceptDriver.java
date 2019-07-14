@@ -14,7 +14,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
+import com.bumptech.glide.Glide;
 import com.eco.CoustomTextView;
+import com.eco.PV;
 import com.eco.R;
 import com.eco.entitys.AcceptDriverEntity;
 import com.google.gson.Gson;
@@ -22,7 +24,7 @@ import com.google.gson.Gson;
 import org.json.JSONObject;
 
 public class DialogAcceptDriver extends DialogFragment {
-
+    public ImageView imageView;
     private CoustomTextView name, number, car, time;
     private AcceptDriverEntity acceptDriverEntity;
     ImageView ic_delete;
@@ -58,10 +60,13 @@ public class DialogAcceptDriver extends DialogFragment {
             time.setText("زمان تقریبی رسیدن راننده نا معلوم است");
             e.printStackTrace();
         }
+        Glide.with(this)
+                .load(PV.getImage(acceptDriverEntity.thumbnail))
+                .into(imageView);
     }
 
     private void init() {
-
+        imageView = v.findViewById(R.id.imageView);
         number = v.findViewById(R.id.textView_pelak);
         time = v.findViewById(R.id.time);
         name = v.findViewById(R.id.textView_name);

@@ -21,6 +21,8 @@ import com.eco.entitys.ItemEntity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import org.json.JSONObject;
+
 import java.util.Map;
 
 
@@ -64,8 +66,13 @@ public class NotificationReceiver extends FirebaseMessagingService {
                 acceptDriverEntity.title = remoteMessage.getData().get("title");
                 acceptDriverEntity.body = remoteMessage.getData().get("body");
                 acceptDriverEntity.time = remoteMessage.getData().get("data");
-
-
+                JSONObject jsonObject1 = new JSONObject(acceptDriverEntity.time);
+                acceptDriverEntity.thumbnail = jsonObject1.getString("thumbnail");
+                acceptDriverEntity.carName = jsonObject1.getString("carName");
+                acceptDriverEntity.time = jsonObject1.getString("time");
+                acceptDriverEntity.name = jsonObject1.getString("time");
+                acceptDriverEntity.family = jsonObject1.getString("time");
+//                acceptDriverEntity.thumbnail = remoteMessage.getData().get("thumbnail");
 
 
                 if (PV.activity instanceof MainActivity) {
