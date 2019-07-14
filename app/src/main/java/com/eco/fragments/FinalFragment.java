@@ -23,6 +23,7 @@ import com.eco.R;
 import com.eco.activityes.MainActivity;
 import com.eco.adapter.FinalFragmentAdapter;
 import com.eco.entitys.RubbishEntity;
+import com.eco.enums.RequstMode;
 import com.eco.interfaces.IFinalFragmentPresenter;
 import com.eco.interfaces.IFinalFragmentView;
 import com.eco.presenters.FinalFragmentPresenter;
@@ -51,7 +52,6 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
 
     @OnClick(R.id.button)
     public void sendRequest() {
-
         if (button.getText().equals("بازگشت به منو اصلی"))
             ((MainActivity) getActivity()).loadMainFragment();
         else
@@ -122,7 +122,10 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
 
     @Override
     public void showTime(int day, int hour) {
-        timeText.setText(hour + " ساعت و " + day + " روز باقی مانده است ");
+        if (PV.requstMode == RequstMode.NORMAL)
+            timeText.setText(hour + " ساعت و " + day + " روز باقی مانده است ");
+        else
+            timeText.setText("جمع آوری تا لحظاتی دیگر");
     }
     void hideKeyboard(){
         View view1 = getActivity().getCurrentFocus();
