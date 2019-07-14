@@ -51,6 +51,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
 
     @OnClick(R.id.button)
     public void sendRequest() {
+
         if (button.getText().equals("بازگشت به منو اصلی"))
             ((MainActivity) getActivity()).loadMainFragment();
         else
@@ -87,6 +88,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
         list.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         presenter = new FinalFragmentPresenter(this, getContext(), progressBar, root);
         Log.i("data", PV.requestEntity.toString());
+
     }
 
     @Override
@@ -97,6 +99,8 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
         } catch (Exception er) {
             er.printStackTrace();
         }
+        if (adapter.getItemCount()==0)
+            button.setText("بازگشت به منو اصلی");
 
     }
 

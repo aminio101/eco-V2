@@ -14,8 +14,8 @@
         android:scaleType="fitXY"
         app:srcCompat="@drawable/overlay" />
 <ImageView
-    android:layout_width="@dimen/_100sdp"
-    android:layout_height="@dimen/_50sdp"
+    android:layout_width="@dimen/_150sdp"
+    android:layout_height="@dimen/_100sdp"
     android:layout_centerInParent="true"
     android:id="@+id/image"
     android:src="@drawable/logo"

@@ -199,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:gravity="center"
-                    android:text="خروج"
+                    android:text="آموزش"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_10ssp"
                     android:textStyle="bold" />
@@ -273,7 +273,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:gravity="center"
-                    android:text="چالش ها"
+                    android:text="فروشگاه"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_10ssp"
                     android:textStyle="bold" />
@@ -311,7 +311,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:gravity="center"
-                    android:text="فروشگاه"
+                    android:text="چالش ها"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_10ssp"
                     android:textStyle="bold" />
@@ -348,7 +348,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="آموزش"
+            android:text="خروج"
             android:textColor="@android:color/white"
             android:textSize="@dimen/_10ssp"
             android:textStyle="bold" />

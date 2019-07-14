@@ -20,7 +20,7 @@
             android:layout_below="@+id/textView4"
             android:layout_marginLeft="@dimen/_30sdp"
             app:cardCornerRadius="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_25sdp"
             android:layout_marginRight="@dimen/_30sdp">
 
 
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/card_view"
             android:layout_marginLeft="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_30sdp">
 
             <RelativeLayout
@@ -144,7 +144,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:layout_marginRight="@dimen/_30sdp"
             android:gravity="center_vertical"
             android:text="@string/timerLeft"
