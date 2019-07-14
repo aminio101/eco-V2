@@ -23,10 +23,12 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
+
 public class DialogAcceptDriver extends DialogFragment {
 
     public ImageView imageView;
-    private CoustomTextView name, number, car, time;
+    private CoustomTextView name, number, car, time,pelak1,pelak2;
     private AcceptDriverEntity acceptDriverEntity;
     View v;
 
@@ -53,7 +55,10 @@ public class DialogAcceptDriver extends DialogFragment {
     private void showData() {
         name.setText(acceptDriverEntity.name+" "+acceptDriverEntity.family);
 //        number.setText(acceptDriverEntity.title);
-        car.setText(acceptDriverEntity.carName);
+        String pelak[]=acceptDriverEntity.carName.split(":");
+        car.setText(pelak[0]);
+        pelak1.setText(pelak[1]+" "+pelak[2]+" "+pelak[3]);
+        pelak2.setText(pelak[4]);
         time.setText("زمان تقریبی رسیدن راننده "+acceptDriverEntity.time+" دقیقه ");
         JSONObject obj;
 //        try {
@@ -74,6 +79,8 @@ public class DialogAcceptDriver extends DialogFragment {
         time = v.findViewById(R.id.time);
         name = v.findViewById(R.id.textView_name);
         car = v.findViewById(R.id.textView_car);
+        pelak1 = v.findViewById(R.id.textView_pelak1);
+        pelak2 = v.findViewById(R.id.textView_pelak2);
 
     }
     @Override

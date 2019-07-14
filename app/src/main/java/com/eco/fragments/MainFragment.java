@@ -63,10 +63,12 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     boolean isSelect = false;
     ArrayList<RubbishEntity> rubbishEntityArrayList;
     int position;
+    int checkBag=0;
     @OnClick(R.id.imageView19)public void add(){
         if (checkSelectItem()||isSelect) {
             String s = String.valueOf(viewHolders.get(position).addNum());
             textViewNumber.setText(s);
+            checkBag++;
             if (textViewNumber.getText().toString().equals("0"))
                 isSelect = false;
         }
@@ -76,15 +78,19 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @OnClick(R.id.imageView20)public void mines(){
         if (checkSelectItem()||isSelect) {
             textViewNumber.setText(String.valueOf(viewHolders.get(position).mines()));
+
             if (textViewNumber.getText().toString().equals("0"))
                 isSelect = false;
+            else checkBag--;
+
         }else
             Toast.makeText(getContext(),"لطفا یک پسماند را ابتدا انتخاب کنید",Toast.LENGTH_LONG).show();
     }
 
     @OnClick(R.id.nextFragment)
     public void nextFragment() {// todo
-        if((! textViewNumber.getText().toString().equals("0")) && checkSelectItem()||isSelect )
+//        if((! textViewNumber.getText().toString().equals("0")) && (isSelect) )
+        if(checkBag >0)
         {
              presenter.save(viewHolders);
         }
@@ -108,6 +114,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
         hideKeyboard();
         ButterKnife.bind(this,view);
         init();
+        checkBag=0;
         presenter.setFCM();
         return view;
     }
