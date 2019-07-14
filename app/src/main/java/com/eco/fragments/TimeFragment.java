@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,6 +66,8 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     @BindView(R.id.timeList)
     RecyclerView recyclerViewTime;
     String timeStamp;
+    @BindView(R.id.relative_layout)
+    RelativeLayout relativeLayout;
     RunDatePeriodsEntity runDatePeriods;
     IOnSetTime onSetTime = new IOnSetTime() {
         @Override
@@ -117,8 +120,8 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
             @Override
             public boolean onInfo(MediaPlayer mediaPlayer, int i, int i1) {
                 if (i == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
-//                    videoView.setVisibility(View.VISIBLE);
-                    videoViewProgressBar.setVisibility(View.GONE);
+                    relativeLayout.setVisibility(View.VISIBLE);
+                     videoViewProgressBar.setVisibility(View.GONE);
                 }
                 return false;
             }
@@ -157,7 +160,6 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
         videoViewProgressBar.setVisibility(View.VISIBLE);
         videoView.start();
         imageView.setVisibility(View.INVISIBLE);
-        videoView.setVisibility(View.INVISIBLE);
     }
 
     @Override
