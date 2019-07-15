@@ -1,121 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:gravity="center_horizontal"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="@dimen/_10sdp"
-    app:cardBackgroundColor="@color/yellow_200"
     android:layout_width="@dimen/_250sdp"
     android:layout_height="@dimen/_300sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:gravity="center_horizontal"
+    app:cardBackgroundColor="@color/yellow_200"
 
     >
 
+    <RelativeLayout
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_300sdp"
+        android:layout_margin="@dimen/_3sdp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            app:srcCompat="@drawable/accept" />
+
+        <com.eco.CoustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_3sdp"
+            android:layout_toLeftOf="@+id/image"
+            android:text="درخواست قبول شد"
+            android:textColor="@color/green_600"
+            android:textSize="@dimen/_13ssp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_below="@+id/image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/user_pro" />
+
+        <com.eco.CoustomTextView
+            android:id="@+id/textView_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="امین خسروی"
+            android:textColor="@color/fili2"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+        <com.eco.CoustomTextView
+            android:id="@+id/textView_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="نیسان آبی"
+            android:textColor="@color/fili2"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold" />
+
         <RelativeLayout
-            android:layout_width="@dimen/_250sdp"
-            android:layout_margin="@dimen/_3sdp"
-            android:layout_height="@dimen/_300sdp">
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/pelak"
+            android:layout_below="@+id/textView_car"
+            android:layout_centerHorizontal="true">
 
-            <ImageView
-                android:id="@+id/image"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                app:srcCompat="@drawable/accept"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp" />
-            <com.eco.CoustomTextView
-                android:textColor="@color/green_600"
-                android:textSize="@dimen/_13ssp"
-                android:layout_marginRight="@dimen/_3sdp"
-                android:layout_toLeftOf="@+id/image"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:text="درخواست قبول شد"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/image"
-                android:scaleType="fitXY"
-                app:srcCompat="@drawable/user_pro"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_70sdp" />
-            <com.eco.CoustomTextView
-                android:id="@+id/textView_name"
-                android:textStyle="bold"
-                android:textColor="@color/fili2"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/imageView"
-                android:textSize="@dimen/_12ssp"
-                android:text="امین خسروی"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <com.eco.CoustomTextView
-                android:id="@+id/textView_car"
-                android:textColor="@color/fili2"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/textView_name"
-                android:textSize="@dimen/_10ssp"
-                android:textStyle="bold"
-                android:text="نیسان آبی"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <!--<com.eco.CoustomTextView-->
-                <!--android:id="@+id/textView_pelak"-->
-                <!--android:textColor="@color/fili2"-->
-                <!--android:layout_marginTop="@dimen/_5sdp"-->
-                <!--android:layout_centerHorizontal="true"-->
-                <!--android:layout_below="@+id/textView_car"-->
-                <!--android:textSize="@dimen/_9ssp"-->
-                <!--android:text="12ب 365"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content" />-->
 
-            <ImageView
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_below="@+id/textView_car"
-                android:src="@drawable/pelak"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_35sdp" />
             <com.eco.CoustomTextView
                 android:id="@+id/textView_pelak1"
-                android:textSize="@dimen/_10ssp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_13sdp"
-                android:layout_below="@+id/textView_car"
-                android:text="352ق25"
-                android:paddingEnd="@dimen/_12sdp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:paddingEnd="@dimen/_12sdp"
+                android:text="352ق25"
+                android:textSize="@dimen/_10ssp" />
+
             <com.eco.CoustomTextView
                 android:id="@+id/textView_pelak2"
-                android:textSize="@dimen/_10ssp"
-                android:layout_centerHorizontal="true"
-                android:layout_toRightOf="@+id/textView_pelak1"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_below="@+id/textView_car"
-                android:layout_marginStart="@dimen/_9sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:text="25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <com.eco.CoustomTextView
-                android:layout_marginBottom="@dimen/_15sdp"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/time"
-                android:textSize="@dimen/_12ssp"
-                android:layout_alignParentBottom="true"
-                android:text="زمان تقریبی رسیدن :25 دقیقه"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
+                android:textSize="@dimen/_10ssp" />
         </RelativeLayout>
+
+
+        <com.eco.CoustomTextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:text="زمان تقریبی رسیدن :25 دقیقه"
+            android:textSize="@dimen/_12ssp" />
+
+
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>
