@@ -91,7 +91,13 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     @Override
     public void showList(DriverEntity result, ArrayList<ItemEntity> items) {
         name.setText(result.name + " " + result.family);
-        commentAdapter.addItem(items);
+        ArrayList<ItemEntity> list = new ArrayList<>();
+        for (int i = 0; i < items.size(); i++) {
+            if (!items.get(i).number.equals("0")) {
+                list.add(items.get(i));
+            }
+        }
+        commentAdapter.addItem(list);
         this.driverEntity = result;
         assert result.thumbpic != null;
         Glide.with(getContext()).load(PV.getImage(result.thumbpic)).into(profile);
@@ -124,10 +130,10 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
 
     }
 
-    void hideKeyboard(){
+    void hideKeyboard() {
         View view1 = getActivity().getCurrentFocus();
-        if (view1 != null){
-            InputMethodManager imm = (InputMethodManager)getActivity(). getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (view1 != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view1.getWindowToken(), 0);
         }
     }
