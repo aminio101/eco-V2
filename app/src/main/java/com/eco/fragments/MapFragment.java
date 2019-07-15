@@ -78,6 +78,7 @@ public class MapFragment extends Fragment implements
         GoogleApiClient.OnConnectionFailedListener,
         IMapView {
     View view;
+    public boolean change;
     private boolean locationFirst;
     private boolean mapLoad;
     FavoriteAddressEntity favoriteAddressEntity;
@@ -141,7 +142,7 @@ public class MapFragment extends Fragment implements
     @OnClick(R.id.cancel)
     public void cancel() {
         if (buttonNextStep.getText().equals("ویرایش")) {
-          recyclerView.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
         }
         showView();
         adapter.unSelectAll();
@@ -182,10 +183,13 @@ public class MapFragment extends Fragment implements
         }
         if (v.getId() == R.id.addLocation) {
             textAddLocation.setVisibility(View.GONE);
+
         }
         if (v.getId() == R.id.btnEditLocation) {
             textEditLocation.setVisibility(View.GONE);
+
         }
+        change = false;
     }
 
     public void startAnim(View v) {
@@ -218,6 +222,7 @@ public class MapFragment extends Fragment implements
                 if (v.getId() == R.id.btnEditLocation) {
                     textEditLocation.setVisibility(View.VISIBLE);
                 }
+                change = true;
             }
 
             @Override
@@ -285,7 +290,7 @@ public class MapFragment extends Fragment implements
             startAnim(imageViewEditLocation);
             editLocationAnim = true;
 
-recyclerView.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -319,6 +324,7 @@ recyclerView.setVisibility(View.INVISIBLE);
     }
 
     private void init() {
+        change = false;
         ((MainActivity) getActivity()).setTollbarName("انتخاب آدرس");
         list = new ArrayList<>();
         mapAdapterMode = SELECT;
@@ -331,6 +337,7 @@ recyclerView.setVisibility(View.INVISIBLE);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mapInit();
         buildGoogleApiClient();
+
     }
 
 
@@ -531,7 +538,7 @@ recyclerView.setVisibility(View.INVISIBLE);
         adapter.unSelectAll();
         favoriteAddressEntity = null;
         finishAllAnim();
-       recyclerView.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.VISIBLE);
         cardView.setVisibility(View.VISIBLE);
     }
 
@@ -599,6 +606,14 @@ recyclerView.setVisibility(View.INVISIBLE);
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
+            @Override
+            public void onCameraMove() {
+                if (change) {
+                    finishAllAnim();
+                }
+            }
+        });
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
