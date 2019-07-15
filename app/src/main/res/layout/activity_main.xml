@@ -63,7 +63,7 @@
            android:layout_alignParentBottom="true"
            app:menu="@menu/main_navigation"
 
-
+           app:labelVisibilityMode="unlabeled"
            app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
            app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
 
