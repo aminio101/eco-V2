@@ -43,17 +43,18 @@ public class FragmentRateDriverPresenter extends BasePresenter<IFragmentRateDriv
                 if (isViewAvailable()) {
 
                     ArrayList<ItemEntity> items = new ArrayList<>();
-                    for ( Map.Entry<String, Integer> entry : result.rubish.entrySet()) {
-                        String key= entry.getKey();
-                        int value=entry.getValue();
+                    for (Map.Entry<String, Integer> entry : result.rubish.entrySet()) {
+                        String key = entry.getKey();
+                        int value = entry.getValue();
                         ItemEntity item = new ItemEntity();
                         item.setNumber(String.valueOf(value));
                         item.setName(key);
                         items.add(item);
                     }
-                    mView.get().showList(result,items);
+                    mView.get().showList(result, items);
                     stopProgress();
-                }}
+                }
+            }
 
             @Override
             public void onFail(ErrorEntity errorObject) {

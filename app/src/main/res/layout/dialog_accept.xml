@@ -19,14 +19,14 @@
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_20sdp"
             app:srcCompat="@drawable/accept" />
 
         <com.eco.CoustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_3sdp"
             android:layout_toLeftOf="@+id/image"
             android:text="درخواست پذیرفته شد"
@@ -40,7 +40,6 @@
             android:layout_below="@+id/image"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_15sdp"
-            android:scaleType="fitXY"
             android:src="@color/black"/>
 
         <com.eco.CoustomTextView
@@ -92,6 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/_5sdp"
                 android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_centerVertical="true"
                 android:text="25"
                 android:textSize="@dimen/_10ssp" />
