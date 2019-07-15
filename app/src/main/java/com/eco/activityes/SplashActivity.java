@@ -11,9 +11,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -23,6 +25,7 @@ import android.widget.Toast;
 import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.R;
+import com.eco.views.DialogConnection;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 import org.json.JSONException;
@@ -36,7 +39,7 @@ import okhttp3.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SplashActivity extends AppCompatActivity {
-     Dialog dialog;
+    Dialog dialog;
     String mainVersion;
     String lastVersion;
     CoustomTextView cancel, download;
@@ -57,12 +60,13 @@ public class SplashActivity extends AppCompatActivity {
 
 
     void init() {
-         dialog = new Dialog(SplashActivity.this);
+        dialog = new Dialog(SplashActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_update);
         cancel = dialog.findViewById(R.id.cancel);
         download = dialog.findViewById(R.id.download);
     }
+
     void setOnClick() {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,11 +126,16 @@ public class SplashActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Log.i("splashError",e.getMessage());
-                        Toast.makeText(SplashActivity.this, "مشکل در ارتباط با سرور", Toast.LENGTH_LONG).show();
-                        getData();
+                        Log.i("splashError", e.getMessage());
+                        DialogConnection dialogConnection = new DialogConnection(SplashActivity.this, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                getData();
+
+                            }
+                        });
                     }
-                }, 0 );
+                }, 0);
 
                 e.printStackTrace();
             } catch (JSONException e) {
@@ -134,10 +143,14 @@ public class SplashActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(SplashActivity.this, "مشکل در ارتباط با سرور", Toast.LENGTH_LONG).show();
-                        getData();
+                        DialogConnection dialogConnection = new DialogConnection(SplashActivity.this, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                getData();
+                            }
+                        });
                     }
-                }, 0 );
+                }, 0);
                 e.printStackTrace();
             }
             return null;
@@ -207,12 +220,12 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         private void goToLoginActivity() throws PackageManager.NameNotFoundException {
-            int v = getPackageManager().getPackageInfo(GoogleApiAvailability.GOOGLE_PLAY_SERVICES_PACKAGE, 0 ).versionCode;
-            Log.i ("amirhosen",""+v);
+            int v = getPackageManager().getPackageInfo(GoogleApiAvailability.GOOGLE_PLAY_SERVICES_PACKAGE, 0).versionCode;
+            Log.i("amirhosen", "" + v);
             int apkVersion = GoogleApiAvailability.getInstance().getApkVersion(SplashActivity.this);
-            Log.i ("amirhosen",""+apkVersion);
+            Log.i("amirhosen", "" + apkVersion);
 
-            startActivity(new Intent(SplashActivity.this,LoginActivity.class));
+            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             finish();
         }
 

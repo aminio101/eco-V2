@@ -48,8 +48,7 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeViewHolder> {
     public void add(ArrayList<RunDatePeriodsEntity> list) {
         this.list.clear();
         int d = 0;
-        notifyDataSetChanged();
-        for (int i = 0; i < list.size(); i++) {
+         for (int i = 0; i < list.size(); i++) {
             d = 0;
             try {
                 if (PV.getDayNumber(timeStamp, 0) == list.get(i).runDate && PV.getHour(timeStamp) >= list.get(i).startPeriod) {

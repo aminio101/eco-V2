@@ -52,6 +52,8 @@ public class XChangeFragment extends Fragment implements IXChangeView {
     int totalItemCount, lastVisibleItem;
     int nextPage = 1;
     LinearLayoutManager layoutManager;
+    @BindView(R.id.progress2)
+    ProgressBar progressBarLazyLoad;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -88,9 +90,10 @@ public class XChangeFragment extends Fragment implements IXChangeView {
                         lastVisibleItem = layoutManager.findFirstVisibleItemPosition();
                         if (
                                 !isLoading &&
-                                        totalItemCount >= 10  && nextPage != 1) {
+                                        totalItemCount >= 10 && nextPage != 1) {
                             isLoading = true;
                             presenter.getList(nextPage);
+                            progressBarLazyLoad.setVisibility(View.VISIBLE);
                         }
                     }
                 }
@@ -110,7 +113,7 @@ public class XChangeFragment extends Fragment implements IXChangeView {
 
     @Override
     public void showList(ListeEntity<XChangeEntity> result) {
-
+        progressBarLazyLoad.setVisibility(View.INVISIBLE);
         adapter.addItem(result);
         isLoading = false;
         if (result.data.size() == 10 && nextPage != Integer.valueOf(result.pageNumber))
