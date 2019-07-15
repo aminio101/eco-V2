@@ -25,9 +25,11 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class DialogAcceptDriver extends DialogFragment {
 
-    public ImageView imageView;
+    public CircleImageView imageView;
     private CoustomTextView name, car, time,pelak1,pelak2;
     private AcceptDriverEntity acceptDriverEntity;
     View v;
