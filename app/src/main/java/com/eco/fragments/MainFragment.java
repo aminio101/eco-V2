@@ -54,9 +54,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @BindView(R.id.textView2)
     CoustomTextView name;
 
-    @OnClick(R.id.button7)public void loadEditProfile(){
-        ((MainActivity) getActivity()).loadEditProfileFragment();
-    }
+
     @OnClick(R.id.button6)public void loadWallet(){
         ((MainActivity) getActivity()).loadFragmentWallet();
     }

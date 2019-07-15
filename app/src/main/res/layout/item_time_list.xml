@@ -30,7 +30,7 @@
             android:textSize="@dimen/_8ssp"
             android:layout_below="@+id/header"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:text="35465"
             android:textColor="@color/orange"
             />

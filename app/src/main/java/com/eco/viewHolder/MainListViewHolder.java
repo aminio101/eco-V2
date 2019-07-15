@@ -95,8 +95,7 @@ public class MainListViewHolder {
     }
 
     private void setNoneSelected() {
-        root.setBackgroundColor(Color.parseColor("#DFDCDC"));
-        root.setBackgroundColor(Color.parseColor("#DFDCDC"));
+        root.setBackgroundColor(Color.parseColor("#eceff1"));
         name.setTextColor(Color.parseColor("#AFADAD"));
         imageView.setColorFilter(Color.parseColor("#AFADAD"));
         number.setVisibility(View.GONE);
@@ -111,7 +110,7 @@ public class MainListViewHolder {
 
     public void setHaveNumber() {
         if (num != 0) {
-            root.setBackgroundColor(Color.parseColor("#DFDCDC"));
+            root.setBackgroundColor(Color.parseColor("#eceff1"));
             name.setTextColor(Color.parseColor("#0A3F75"));
             number.setVisibility(View.VISIBLE);
             imageView.setColorFilter(Color.parseColor("#0A3F75"));

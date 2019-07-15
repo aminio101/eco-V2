@@ -124,7 +124,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     @Override
     public void showTime(int day, int hour) {
         if (PV.requstMode == RequstMode.NORMAL)
-            timeText.setText(hour + " ساعت و " + day + " روز باقی مانده است ");
+            timeText.setText(hour + " ساعت و " + day + " روز باقیمانده است ");
         else
             timeText.setText("جمع آوری تا لحظاتی دیگر");
     }

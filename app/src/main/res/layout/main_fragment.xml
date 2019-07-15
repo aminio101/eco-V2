@@ -24,7 +24,7 @@
             <RelativeLayout
                 android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_125sdp">
+                android:layout_height="@dimen/_135sdp">
 
                 <ImageView
                     android:id="@+id/imageView22"
@@ -46,26 +46,17 @@
                     android:textSize="@dimen/_20ssp"
                     android:textStyle="bold" />
 
-                <View
-                    android:id="@+id/view8"
-                    android:layout_width="1dp"
-                    android:layout_height="@dimen/_100sdp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_toLeftOf="@+id/textView21"
-                    android:background="@drawable/background_column_main_page" />
-
                 <com.eco.CoustomTextView
                     android:id="@+id/textView21"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/main_fragment_text_score"
-                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginEnd="3dp"
                     android:layout_toLeftOf="@+id/imageView23"
                     android:gravity="right|center"
                     android:text="هر100 امتیاز برابر 3 هزار ریال می باشد"
-                    android:textSize="@dimen/_8ssp"
+                    android:textSize="@dimen/_10ssp"
 
                     />
 
@@ -78,7 +69,7 @@
                     android:layout_marginEnd="3dp"
                     android:layout_toLeftOf="@+id/imageView23"
                     android:text="موجودی 2000 تومان کیبا"
-                    android:textSize="@dimen/_6ssp" />
+                    android:textSize="@dimen/_8ssp" />
                 <ImageView
                     android:id="@+id/imageView23"
                     android:layout_width="@dimen/_30sdp"
@@ -88,41 +79,21 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_30sdp"
                     app:srcCompat="@drawable/ic_light" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_2sdp"
-                    android:layout_toLeftOf="@+id/view8"
-                    android:orientation="vertical">
+
 
                     <Button
                         android:id="@+id/button6"
                         android:layout_width="@dimen/_70sdp"
                         android:layout_height="@dimen/_25sdp"
                         android:layout_marginLeft="@dimen/_2sdp"
-                        android:layout_marginTop="@dimen/_2sdp"
-                        android:layout_marginRight="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                       android:layout_marginStart="@dimen/_20sdp"
                         android:background="@drawable/background_btn_main"
                         android:text="@string/despositAcc"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_8ssp" />
 
-                    <Button
-                        android:id="@+id/button7"
-                        android:layout_width="@dimen/_70sdp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_marginLeft="@dimen/_2sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginRight="@dimen/_2sdp"
-                        android:layout_marginBottom="@dimen/_2sdp"
-                        android:background="@drawable/background_btn_main_fragment"
-                        android:text="@string/settingsAcc"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_8ssp" />
 
-                </LinearLayout>
 
                 <com.eco.CoustomTextView
                     android:id="@+id/main_fragment_text_score"
@@ -137,6 +108,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:id="@+id/relative"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_119sdp"
@@ -217,7 +189,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:text="@string/numberPackage"
                             android:textColor="@android:color/white"
-                            android:textSize="@dimen/_8ssp" />
+                            android:textSize="@dimen/_10ssp" />
 
                     </RelativeLayout>
 
@@ -255,7 +227,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_200sdp"
                 android:layout_below="@+id/relative"
-                android:layout_marginTop="@dimen/_10sdp">
+                android:layout_marginTop="@dimen/_5sdp">
 
                 <ImageView
                     android:id="@+id/timeDayRight"

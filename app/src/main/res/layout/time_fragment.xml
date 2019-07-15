@@ -34,7 +34,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_90sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_below="@+id/headerDate"
                 android:layout_margin="@dimen/_10sdp"
                 android:layout_toLeftOf="@+id/timeDayRight"
@@ -64,7 +64,7 @@
             <ImageView
                 android:id="@+id/timeDayRight"
                 android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_90sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_below="@+id/headerDate"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/_10sdp"
@@ -73,7 +73,7 @@
             <ImageView
                 android:id="@+id/timeDayLeft"
                 android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_90sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_below="@+id/headerDate"
                 android:layout_marginTop="@dimen/_10sdp"
                 app:srcCompat="@drawable/ic_arrow_left" />
