@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.eco.PV;
 import com.eco.PrefManager;
 import com.eco.entitys.ErrorEntity;
 import com.eco.entitys.SignupAnswerEntity;
@@ -30,6 +31,10 @@ public class RegisterPresenter extends BasePresenter<IRegisterView> implements I
     @Override
     public void register(UserEntity user) {
         startProgress();
+        if (!PV.checkText(user.name) || !PV.checkText(user.family)) {
+            showMsg("فیلد های اجباری خالی است");
+            return;
+        }
         MethodApi.getInstance().signUp(user, new IRemoteCallback<SignupAnswerEntity>() {
             @Override
             public void onResponse(Boolean answer) {
