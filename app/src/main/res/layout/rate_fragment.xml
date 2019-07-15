@@ -21,27 +21,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.eco.CoustomTextView
-                android:id="@+id/textView_point"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:text="امتیاز دهی "
-                android:textColor="@color/fili2"
-                android:textSize="@dimen/_20ssp"
-                android:textStyle="bold"
-                tools:ignore="InvalidId" />
 
             <com.eco.CoustomTextView
                 android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView_point"
                 android:layout_alignParentRight="true"
-                android:textSize="@dimen/_12ssp"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:textSize="@dimen/_14ssp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:text="فاکتور پسماند ها و امتیاز به راننده" />
 

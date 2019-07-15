@@ -35,7 +35,7 @@
                android:layout_alignParentLeft="true"
                android:layout_marginLeft="@dimen/_15sdp"
                android:padding="@dimen/_3sdp"
-               android:tint="@color/colorPrimary"
+               android:tint="#0097a7"
                app:srcCompat="@drawable/ic_back" />
 
            <com.eco.CoustomTextView
@@ -44,7 +44,7 @@
                android:layout_height="wrap_content"
                android:layout_centerInParent="true"
                android:text="@string/eco"
-               android:textColor="@color/colorPrimary"
+               android:textColor="#0097a7"
                android:textSize="@dimen/_15ssp"
                android:textStyle="bold" />
        </RelativeLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DFDCDC">
+    android:background="@color/toosi">
 
     <ProgressBar
         android:id="@+id/progress"
@@ -157,7 +157,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_107sdp"
-                    android:background="#0097a7">
+                    android:background="@color/refresh4">
 
                     <RelativeLayout
                         android:layout_width="@dimen/_80sdp"

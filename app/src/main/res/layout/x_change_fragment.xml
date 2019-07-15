@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:background="#DFDCDC"
+    android:background="#eceff1"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -18,25 +18,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.eco.CoustomTextView
-            android:id="@+id/header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:text="تبادلات"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/_20ssp" />
 
         <com.eco.CoustomTextView
             android:id="@+id/text"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_14ssp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/header"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_15sdp"
             android:text="جزئیات تبادلات" />
 

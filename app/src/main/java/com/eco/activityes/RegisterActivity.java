@@ -80,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity implements IRegisterView
         init();
     }
     private void init() {
+
        presenter = new RegisterPresenter(this, this, progressBar,button_register);
         mobile = getIntent().getStringExtra("mobile");
         switch_type.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

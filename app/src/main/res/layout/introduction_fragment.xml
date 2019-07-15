@@ -27,27 +27,16 @@
         app:layout_constraintGuide_percent="0.0" />
 
     <com.eco.CoustomTextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Introduction"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:textColor="@color/fili2"
-        android:textSize="@dimen/_20ssp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline40"
-        app:layout_constraintTop_toTopOf="@+id/guideline41" />
-
-    <com.eco.CoustomTextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:textSize="@dimen/_10ssp"
         android:layout_marginEnd="8dp"
         android:text="@string/friendIntroduction"
+        android:textSize="@dimen/_12ssp"
+        android:layout_marginTop="@dimen/_15sdp"
         app:layout_constraintEnd_toStartOf="@+id/guideline40"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        tools:layout_editor_absoluteY="15dp"
+        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline46"
@@ -75,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.18" />
+        app:layout_constraintGuide_percent="0.13" />
 
     <com.eco.CoustomTextView
         android:layout_marginBottom="5dp"
@@ -108,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.2" />
 
     <com.eco.CoustomTextView
         android:id="@+id/textView22"

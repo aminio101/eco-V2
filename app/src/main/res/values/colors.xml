@@ -5,13 +5,14 @@
     <color name="black0">#263238</color>
     <color name="narenji">#FF0000</color>
 
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#ef6c00</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#9da6ac</color>
     <color name="toolbar">#1A237E</color>
     <color name="main">#0E89B9</color>
     <color name="white">#ffffff</color>
     <color name="toosi">#eceff1</color>
+
     <color name="fili">#90a4ae</color>
     <color name="fili0">#8d8d8d</color>
     <color name="fili1">#546e7a</color>
@@ -29,7 +30,6 @@
     <color name="green">#2F5A14</color>
     <color name="brown">#442714</color>
     <color name="brick">#947824</color>
-
 
     <color name="teal_200">#d0d1f1</color>
     <color name="teal_300">#a4a5e3</color>

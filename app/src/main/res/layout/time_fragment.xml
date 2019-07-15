@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/toosi"
     android:layout_height="match_parent">
 
 
@@ -28,7 +29,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:text="انتخاب تاریخ"
-                android:textColor="#0F7DF1" />
+                android:textColor="#0097a7" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -47,7 +48,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:text="انتخاب زمان"
-                android:textColor="#0F7DF1" />
+                android:textColor="#0097a7" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/timeList"
@@ -103,9 +104,9 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:gravity="center"
                 android:lineSpacingExtra="@dimen/_5sdp"
-                android:text="در شعلع 100 متری شما برای 0 نفر درخواست مشابه ای از طریق سامانه اکو ثبت شده است"
+                android:text="در شعلع 100 متری شما برای 0 نفر درخواست مشابهی از طریق سامانه اکو ثبت شده است"
                 android:textAlignment="center"
-                android:textColor="#0F7DF1"
+                android:textColor="#0097a7"
                 android:textSize="@dimen/_11ssp" />
 
             <ProgressBar
@@ -146,7 +147,7 @@
                 android:layout_below="@+id/relative_layout"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_10sdp"
-                android:background="@drawable/background_btn_next_fragment_time">
+                android:background="@drawable/background_btn_main">
 
                 <TextView
                     android:id="@+id/nextStep"

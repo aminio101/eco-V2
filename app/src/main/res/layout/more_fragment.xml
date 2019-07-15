@@ -26,18 +26,6 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.95" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="بیشتر"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/_18ssp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline23"
-            app:layout_constraintTop_toTopOf="@+id/guideline49" />
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline43"
             android:layout_width="wrap_content"
