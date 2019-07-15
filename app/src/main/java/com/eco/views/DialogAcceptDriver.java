@@ -28,7 +28,7 @@ import java.lang.reflect.Array;
 public class DialogAcceptDriver extends DialogFragment {
 
     public ImageView imageView;
-    private CoustomTextView name, number, car, time,pelak1,pelak2;
+    private CoustomTextView name, car, time,pelak1,pelak2;
     private AcceptDriverEntity acceptDriverEntity;
     View v;
 
@@ -54,20 +54,11 @@ public class DialogAcceptDriver extends DialogFragment {
 
     private void showData() {
         name.setText(acceptDriverEntity.name+" "+acceptDriverEntity.family);
-//        number.setText(acceptDriverEntity.title);
         String pelak[]=acceptDriverEntity.carName.split(":");
         car.setText(pelak[0]);
         pelak1.setText(pelak[1]+" "+pelak[2]+" "+pelak[3]);
         pelak2.setText(pelak[4]);
         time.setText("زمان تقریبی رسیدن راننده "+acceptDriverEntity.time+" دقیقه ");
-        JSONObject obj;
-//        try {
-//             obj = new JSONObject(acceptDriverEntity.time);
-//            time.setText("زمان تقریبی رسیدن راننده "+obj.getString("time")+" دقیقه ");
-//        }catch (Exception e){
-//            time.setText("زمان تقریبی رسیدن راننده نا معلوم است");
-//            e.printStackTrace();
-//        }
         Glide.with(this)
                 .load(PV.getImage(acceptDriverEntity.thumbnail))
                 .into(imageView);
@@ -75,7 +66,6 @@ public class DialogAcceptDriver extends DialogFragment {
 
     private void init() {
         imageView = v.findViewById(R.id.imageView);
-       // number = v.findViewById(R.id.textView_pelak);
         time = v.findViewById(R.id.time);
         name = v.findViewById(R.id.textView_name);
         car = v.findViewById(R.id.textView_car);
