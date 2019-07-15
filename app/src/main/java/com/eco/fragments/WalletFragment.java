@@ -22,6 +22,7 @@ import com.eco.CoustomEditText;
 import com.eco.CoustomTextView;
 import com.eco.PrefManager;
 import com.eco.R;
+import com.eco.activityes.MainActivity;
 import com.eco.interfaces.IWalletFragmentView;
 import com.eco.interfaces.IWalletPresenter;
 import com.eco.presenters.WalletFragmentPresenter;
@@ -64,6 +65,7 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
     }
 
     private void init() {
+        ((MainActivity) getActivity()).setTollbarName(" کیف پول");
         presenter = new WalletFragmentPresenter(this, getContext(), progressBar, root);
         editTextShab.setText(PrefManager.getInstance().getUser().shabaNumber);
         textViewScore.setText(String.valueOf(PrefManager.getInstance().getUser().score));

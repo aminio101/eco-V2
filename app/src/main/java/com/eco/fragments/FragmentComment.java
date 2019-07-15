@@ -77,6 +77,7 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     }
 
     private void init() {
+        ((MainActivity) getActivity()).setTollbarName(" امتیازدهی");
         commentAdapter = new CommentAdapter(getContext());
         list.setNestedScrollingEnabled(false);
         list.setAdapter(commentAdapter);

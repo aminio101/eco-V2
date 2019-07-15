@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import com.eco.CoustomTextView;
 import com.eco.PV;
 import com.eco.entitys.AcceptDriverEntity;
 import com.eco.fragments.AboutUsFragment;
@@ -51,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     boolean firstLoad;
 
-
+    @BindView(R.id.eco_name)
+    CoustomTextView tollbarName;
 
     @OnClick(R.id.main_activity_image_back)
     public void back() {
@@ -64,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
             Log.i("a", "a");
         else
             super.onBackPressed();
+    }
+
+    public void setTollbarName(String name) {
+        tollbarName.setText(name);
     }
 
     @BindView(R.id.drawable_right)
@@ -212,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.addToBackStack("EditProfileFragment");
         fragmentTransaction.commit();
     }
+
     public void AboutUs() {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);

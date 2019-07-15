@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.eco.CoustomEditText;
 import com.eco.R;
+import com.eco.activityes.MainActivity;
 import com.eco.interfaces.IIntroducePresenter;
 import com.eco.interfaces.IIntroduceView;
 import com.eco.presenters.IntroducePresenter;
@@ -55,6 +56,7 @@ public class IntroduceFragment extends Fragment implements IIntroduceView {
 
     private void init() {
         ButterKnife.bind(this, view);
+        ((MainActivity) getActivity()).setTollbarName(" دعوت از دوستان");
         presenter = new IntroducePresenter(this, getContext(), progressBar, root);
         name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

@@ -82,6 +82,7 @@ public class FinalFragment extends Fragment implements IFinalFragmentView {
     }
 
     private void init() {
+        ((MainActivity) getActivity()).setTollbarName(" تائید پیش فاکتور");
         list.setNestedScrollingEnabled(false);
         adapter = new FinalFragmentAdapter(getContext(), onClickListener);
         list.setAdapter(adapter);

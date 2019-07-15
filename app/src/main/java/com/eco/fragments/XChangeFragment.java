@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.eco.CoustomTextView;
 import com.eco.R;
+import com.eco.activityes.MainActivity;
 import com.eco.adapter.XChangeAdapter;
 import com.eco.entitys.ListeEntity;
 import com.eco.entitys.XChangeEntity;
@@ -65,6 +66,7 @@ public class XChangeFragment extends Fragment implements IXChangeView {
     }
 
     private void init() {
+        ((MainActivity) getActivity()).setTollbarName(" تبادلات");
         presenter = new XChangePresenter(this, getContext(), progressBar, root);
         list.setHasFixedSize(false);
         adapter = new XChangeAdapter(getContext(), presenter);

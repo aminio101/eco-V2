@@ -65,6 +65,7 @@ public class ShopFragment extends Fragment implements IShopFragmentView {
 
     private void init() {
         ButterKnife.bind(this, view);
+        ((MainActivity) getActivity()).setTollbarName(" فروشگاه");
         ArrayList<View> viewArrayList = new ArrayList<>();
         viewArrayList.add(mainList);
         viewArrayList.add(textViewNull);

@@ -107,6 +107,7 @@ public class MoreFragment extends Fragment implements IMoreFragmentView {
     }
 
     private void init() {
+        ((MainActivity) getActivity()).setTollbarName(" ویرایش");
         presenter = new MoreFragmentPresenter(this, getContext(), progressBar, root);
     }
 

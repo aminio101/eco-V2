@@ -16,6 +16,7 @@ import android.widget.ScrollView;
 import com.eco.CoustomEditText;
 import com.eco.PrefManager;
 import com.eco.R;
+import com.eco.activityes.MainActivity;
 import com.eco.entitys.RequstUserUpdateEntity;
 import com.eco.interfaces.IEditProfileView;
 import com.eco.presenters.EditProfilePresenter;
@@ -66,6 +67,7 @@ public class EditProfileFragment extends Fragment implements IEditProfileView {
     }
 
     void init(){
+        ((MainActivity) getActivity()).setTollbarName(" ویرایش");
         editTextName.setText(PrefManager.getInstance().getUser().name);
         editTextFamily.setText(PrefManager.getInstance().getUser().family);
         editTextAddress.setText(PrefManager.getInstance().getUser().address);
