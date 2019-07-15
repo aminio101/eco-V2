@@ -56,7 +56,7 @@ public class DialogAcceptDriver extends DialogFragment {
         name.setText(acceptDriverEntity.name+" "+acceptDriverEntity.family);
         String pelak[]=acceptDriverEntity.carName.split(":");
         car.setText("خودرو"+" "+pelak[0]);
-        pelak1.setText(pelak[1]+" "+pelak[2]+" "+pelak[3]);
+        pelak1.setText(pelak[3]+" "+pelak[2]+" "+pelak[1]);
         pelak2.setText(pelak[4]);
         time.setText("کاربرمحترم زمان تقریبی تا دریافت پسماند ازشما حدود "+acceptDriverEntity.time+" دقیقه خواهد بود. از صبر و شکیبایی شما سپاگزاریم ");
         Glide.with(this)
