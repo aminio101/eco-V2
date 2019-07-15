@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,6 +114,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     private void init() {
         ((MainActivity) getActivity()).setTollbarName(" انتخاب زمان");
         ButterKnife.bind(this, view);
+
         dayListAdapter = new DayListAdapter(getContext(), onDayClickListener);
         dayList.setAdapter(dayListAdapter);
         dayList.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, true));
@@ -122,7 +124,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
             public boolean onInfo(MediaPlayer mediaPlayer, int i, int i1) {
                 if (i == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
                     relativeLayout.setVisibility(View.VISIBLE);
-                     videoViewProgressBar.setVisibility(View.GONE);
+                    videoViewProgressBar.setVisibility(View.GONE);
                 }
                 return false;
             }
