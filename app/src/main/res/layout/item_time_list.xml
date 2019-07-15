@@ -34,5 +34,9 @@
             android:text="35465"
             android:textColor="@color/orange"
             />
+        <ImageView
+            android:src="@drawable/clock2"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="match_parent" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
