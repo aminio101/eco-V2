@@ -43,7 +43,7 @@
                     android:layout_marginEnd="@dimen/_40sdp"
                     android:text="@string/wallet"
                     android:textColor="@color/fili2"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_18ssp"
                     android:textStyle="bold" />
 
                 <com.eco.CoustomTextView
