@@ -44,17 +44,21 @@ public class XChangeFragment extends Fragment implements IXChangeView {
     @BindView(R.id.progress)
     ProgressBar progressBar;
     XChangeAdapter adapter;
+    @BindView(R.id.scroll)
+    NestedScrollView nestedScrollView;
     IXChangePresenter presenter;
     boolean isLoading = true;
     int visibleThreshold = 2;
     int totalItemCount, lastVisibleItem;
     int nextPage = 1;
     LinearLayoutManager layoutManager;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.x_change_fragment, container, false);
         ButterKnife.bind(this, view);
-        init();isLoading = true;
+        init();
+        isLoading = true;
         presenter.getList(1);
         return view;
     }
@@ -74,23 +78,24 @@ public class XChangeFragment extends Fragment implements IXChangeView {
         layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         list.setLayoutManager(layoutManager);
         list.setNestedScrollingEnabled(false);
-
-        list.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                totalItemCount = layoutManager.getItemCount();
-                lastVisibleItem = layoutManager.findLastCompletelyVisibleItemPosition();
-                if (
-                        !isLoading &&
-                        totalItemCount >= 10 && totalItemCount <= (lastVisibleItem + visibleThreshold) && nextPage != 1) {
-                    isLoading = true;
-                    presenter.getList(nextPage);
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (v.getChildAt(v.getChildCount() - 1) != null) {
+                    if ((scrollY >= (v.getChildAt(v.getChildCount() - 1).getMeasuredHeight() - v.getMeasuredHeight())) &&
+                            scrollY > oldScrollY) {
+                        totalItemCount = layoutManager.getItemCount();
+                        lastVisibleItem = layoutManager.findFirstVisibleItemPosition();
+                        if (
+                                !isLoading &&
+                                        totalItemCount >= 10  && nextPage != 1) {
+                            isLoading = true;
+                            presenter.getList(nextPage);
+                        }
+                    }
                 }
             }
         });
-
-
     }
 
     @Override
@@ -108,7 +113,7 @@ public class XChangeFragment extends Fragment implements IXChangeView {
 
         adapter.addItem(result);
         isLoading = false;
-        if (result.data.size()==10&&nextPage!=Integer.valueOf(result.pageNumber))
+        if (result.data.size() == 10 && nextPage != Integer.valueOf(result.pageNumber))
             nextPage++;
         else if (nextPage == Integer.valueOf(result.pageNumber))
             nextPage = 1;

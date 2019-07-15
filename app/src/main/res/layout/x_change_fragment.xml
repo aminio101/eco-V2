@@ -12,6 +12,7 @@
         android:layout_centerInParent="true" />
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:id="@+id/scroll"
         android:layout_height="wrap_content">
     <RelativeLayout
         android:id="@+id/root"
