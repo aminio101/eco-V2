@@ -29,11 +29,11 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_3sdp"
             android:layout_toLeftOf="@+id/image"
-            android:text="درخواست قبول شد"
+            android:text="درخواست پذیرفته شد"
             android:textColor="@color/green_600"
-            android:textSize="@dimen/_13ssp" />
+            android:textSize="@dimen/_14ssp" />
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_70sdp"
@@ -41,7 +41,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_15sdp"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/user_pro" />
+            android:src="@color/black"/>
 
         <com.eco.CoustomTextView
             android:id="@+id/textView_name"
@@ -52,7 +52,7 @@
             android:layout_marginTop="@dimen/_15sdp"
             android:text="امین خسروی"
             android:textColor="@color/fili2"
-            android:textSize="@dimen/_12ssp"
+            android:textSize="@dimen/_14ssp"
             android:textStyle="bold" />
 
         <com.eco.CoustomTextView
@@ -64,19 +64,18 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:text="نیسان آبی"
             android:textColor="@color/fili2"
-            android:textSize="@dimen/_10ssp"
+            android:textSize="@dimen/_12ssp"
             android:textStyle="bold" />
 
         <RelativeLayout
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_20sdp"
             android:background="@drawable/pelak"
             android:layout_below="@+id/textView_car"
             android:layout_centerHorizontal="true">
-
-
-
             <com.eco.CoustomTextView
+                android:textColor="@color/black"
                 android:id="@+id/textView_pelak1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,6 +86,7 @@
                 android:textSize="@dimen/_10ssp" />
 
             <com.eco.CoustomTextView
+                android:textColor="@color/black"
                 android:id="@+id/textView_pelak2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -102,11 +102,15 @@
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_7sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
             android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/_15sdp"
             android:text="زمان تقریبی رسیدن :25 دقیقه"
-            android:textSize="@dimen/_12ssp" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp" />
 
 
     </RelativeLayout>

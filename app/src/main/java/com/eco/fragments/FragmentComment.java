@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FragmentComment extends Fragment implements IFragmentRateDriverView {
     View view;
@@ -46,7 +47,7 @@ public class FragmentComment extends Fragment implements IFragmentRateDriverView
     @BindView(R.id.root)
     NestedScrollView root;
     @BindView(R.id.image)
-    ImageView profile;
+    CircleImageView profile;
     @BindView(R.id.textView_name)
     TextView name;
     int id;
