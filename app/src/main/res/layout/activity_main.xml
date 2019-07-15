@@ -60,12 +60,14 @@
            android:id="@+id/navigation"
            android:layout_width="match_parent"
            android:layout_height="?attr/actionBarSize"
-            android:foregroundTint="@color/red"
            android:layout_alignParentBottom="true"
-           android:layout_gravity="bottom"
-           android:background="?android:attr/windowBackground"
-           android:foreground="?attr/selectableItemBackground"
-           app:menu="@menu/main_navigation" />
+           app:menu="@menu/main_navigation"
+
+
+           app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
+           app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
+
+           />
    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

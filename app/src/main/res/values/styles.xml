@@ -26,5 +26,10 @@
         <item name="colorControlActivated">#FF9800</item>
     </style>
 
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">#B10000</item>
+        <item name="android:textColorSecondary">#00FF05</item>
+        <item name="colorAccent">#00FF05</item>
 
+    </style>
 </resources>

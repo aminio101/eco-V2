@@ -40,9 +40,7 @@
            android:layout_marginRight="@dimen/_5sdp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-         >
-
-       </androidx.recyclerview.widget.RecyclerView>
+         />
 
     <ProgressBar
         android:layout_width="@dimen/_20sdp"
