@@ -33,6 +33,7 @@ public class TimeViewHolder extends RecyclerView.ViewHolder {
     } public void setFastMode(){
         date.setText("درخواست آنلاین");
         header.setVisibility(View.INVISIBLE);
+        
         root.setCardBackgroundColor(Color.parseColor("#f0b142"));
     }
 

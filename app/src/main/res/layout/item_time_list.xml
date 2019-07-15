@@ -12,6 +12,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ImageView
+            android:scaleType="fitXY"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/clock"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp" />
         <com.eco.CoustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,9 +41,6 @@
             android:text="35465"
             android:textColor="@color/orange"
             />
-        <ImageView
-            android:src="@drawable/clock2"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="match_parent" />
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
