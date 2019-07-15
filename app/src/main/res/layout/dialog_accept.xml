@@ -99,7 +99,7 @@
                 android:layout_toRightOf="@+id/textView_pelak1"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_below="@+id/textView_car"
-                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginStart="@dimen/_9sdp"
                 android:text="25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

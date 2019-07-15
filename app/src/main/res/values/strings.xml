@@ -16,7 +16,7 @@
     <string name="sendCode">ارسال کد تایید</string>
     <string name="wallet">کیف پول</string>
     <string name="despositAcc">واریز به حساب</string>
-    <string name="settingsAcc">ناحیه کاربری</string>
+    <string name="settingsAcc">حساب کاربری</string>
     <string name="nextStep">مرحله بعد</string>
     <string name="mylocation">برو به مکان من</string>
     <string name="selectdate">انتخاب تاریخ</string>
@@ -35,7 +35,7 @@
     <string name="dexcadd">توضیحات آدرس جهت مسیریابی :</string>
     <string name="Specifiedselectedaddress">مشخصات آدرس منتخب</string>
     <string name="EcoSamane">سامانه هوشمند اکو</string>
-    <string name="rightOfOwnership">تمام حق و حقوق برای اکو محفوض است</string>
+    <string name="rightOfOwnership">تمام حق این سامانه متعلق به شرکت توسعه هوشمند پایدار می باشد</string>
 
     <string name="app_name">Eco</string>
     <string name="verifyCode">بررسی صحت کد</string>
@@ -44,7 +44,7 @@
     <string name="shop">فروشگاه</string>
     <string name="home">خانه</string>
     <string name="xChange">لیست تبادلات</string>
-    <string name="eco">اکو</string>
+    <string name="eco">سامانه هوشمند اکو</string>
     <string name="myLocation">برو به مکان من</string>
     <string name="profile">پروفایل</string>
     <string name="introduce">معرفی به دوستان</string>

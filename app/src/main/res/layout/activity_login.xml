@@ -184,6 +184,7 @@
         android:layout_marginEnd="8dp"
         android:id="@+id/danger"
         android:layout_marginBottom="8dp"
+        android:textSize="@dimen/_8ssp"
         android:text="@string/rightOfOwnership"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"

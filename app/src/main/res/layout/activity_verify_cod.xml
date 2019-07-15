@@ -98,6 +98,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.eco.CoustomTextView
+        android:textSize="@dimen/_8ssp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

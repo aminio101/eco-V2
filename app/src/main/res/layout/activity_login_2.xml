@@ -183,6 +183,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:id="@+id/danger"
+        android:textSize="@dimen/_8ssp"
         android:layout_marginBottom="8dp"
         android:text="@string/rightOfOwnership"
         android:textColor="@android:color/black"
