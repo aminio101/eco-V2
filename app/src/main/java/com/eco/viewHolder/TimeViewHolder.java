@@ -12,7 +12,7 @@ import com.eco.CoustomTextView;
 import com.eco.R;
 
 public class TimeViewHolder extends RecyclerView.ViewHolder {
-    public CoustomTextView date;
+    public CoustomTextView date,header;
     public CardView root;
     Context context;
 
@@ -21,6 +21,7 @@ public class TimeViewHolder extends RecyclerView.ViewHolder {
         this.context = context;
         root = itemView.findViewById(R.id.root);
         date = itemView .findViewById(R.id.hour);
+        header = itemView .findViewById(R.id.header);
     }
     public void setClick(){
         root.setCardBackgroundColor(context.getResources().getColor(R.color.orange));
@@ -31,6 +32,7 @@ public class TimeViewHolder extends RecyclerView.ViewHolder {
         date.setTextColor(context.getResources().getColor(R.color.orange));
     } public void setFastMode(){
         date.setText("درخواست آنلاین");
+        header.setVisibility(View.INVISIBLE);
         root.setCardBackgroundColor(Color.parseColor("#f0b142"));
     }
 
