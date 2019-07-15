@@ -111,6 +111,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
     }
 
     private void init() {
+        ((MainActivity) getActivity()).setTollbarName(" انتخاب زمان");
         ButterKnife.bind(this, view);
         dayListAdapter = new DayListAdapter(getContext(), onDayClickListener);
         dayList.setAdapter(dayListAdapter);

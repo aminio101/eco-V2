@@ -319,6 +319,7 @@ recyclerView.setVisibility(View.INVISIBLE);
     }
 
     private void init() {
+        ((MainActivity) getActivity()).setTollbarName("انتخاب آدرس");
         list = new ArrayList<>();
         mapAdapterMode = SELECT;
         mContext = getContext();

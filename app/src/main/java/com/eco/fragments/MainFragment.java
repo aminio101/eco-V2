@@ -121,6 +121,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
 
     private void init() {
         PV.list.clear();
+        ((MainActivity) getActivity()).setTollbarName(" سامانه هوشمند اکو");
         isSelect = false;
         presenter = new MainFragmentPresenter(this,getContext(),progressBar,root,getActivity());
         viewHolders = new ArrayList<>();
