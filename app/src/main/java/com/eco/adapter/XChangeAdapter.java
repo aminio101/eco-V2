@@ -35,7 +35,6 @@ public class XChangeAdapter extends RecyclerView.Adapter<XChangeViewHolder> {
         }
         this.list.remove(position);
         notifyItemRemoved(position);
-        notifyDataSetChanged();
     }
 
 
