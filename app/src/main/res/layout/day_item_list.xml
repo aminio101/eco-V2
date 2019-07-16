@@ -21,7 +21,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_6sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
             android:text="شنبه"
             android:textColor="@android:color/black"
             android:textSize="@dimen/_9ssp"
@@ -43,7 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/_5ssp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_3sdp"
             android:textSize="@dimen/_7sdp"
             android:text="1397/01/01" />
     </RelativeLayout>

@@ -33,12 +33,11 @@ public class TimeViewHolder extends RecyclerView.ViewHolder {
     public void setUnClick(){
         root.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
         date.setTextColor(context.getResources().getColor(R.color.orange));
-    } public void setFastMode(){
-        date.setText("درخواست آنلاین");
-        header.setVisibility(View.INVISIBLE);
-        date.setGravity(Gravity.CENTER);
-//        ((RelativeLayout) date).setGravity(Gravity.CENTER);
-
+    }
+    public void setFastMode(){
+        header.setText("درخواست آنلاین");
+        header.setGravity(Gravity.CENTER);
+        date.setVisibility(View.INVISIBLE);
         root.setCardBackgroundColor(Color.parseColor("#f0b142"));
     }
 
