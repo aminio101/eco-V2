@@ -140,7 +140,7 @@ public class TimeFragment extends Fragment implements ITimeFragmentView {
 
     @Override
     public void showRequestNumber(ArrayList<UserNumberEntity> result) {
-        textViewRequestNumber.setText("در شعاع 100 متری شما برای " + result.get(0).countRequest + " نفر درخواست مشابهی از طریق سامانه اکو ثبت شده است");
+        textViewRequestNumber.setText("در شعاع 1000 متری شما  " + result.get(0).countRequest + " نفر درخواست مشابهی از طریق سامانه اکو ثبت کرده\u200cاند.");
         presenter.getAdvertising();
     }
 

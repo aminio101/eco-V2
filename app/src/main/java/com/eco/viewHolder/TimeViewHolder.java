@@ -5,7 +5,10 @@ import android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.Gravity;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.eco.CoustomTextView;
@@ -33,7 +36,9 @@ public class TimeViewHolder extends RecyclerView.ViewHolder {
     } public void setFastMode(){
         date.setText("درخواست آنلاین");
         header.setVisibility(View.INVISIBLE);
-        
+        date.setGravity(Gravity.CENTER);
+//        ((RelativeLayout) date).setGravity(Gravity.CENTER);
+
         root.setCardBackgroundColor(Color.parseColor("#f0b142"));
     }
 

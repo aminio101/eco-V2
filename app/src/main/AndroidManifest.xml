@@ -27,7 +27,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activityes.SplashActivity">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activityes.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,14 +43,20 @@
             android:value="12451000" />
 
 
-        <activity android:name=".activityes.RegisterActivity" />
-        <activity android:name=".activityes.VerifyCodeActivity" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activityes.RegisterActivity" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activityes.VerifyCodeActivity" />
         <activity
             android:screenOrientation="portrait"
             android:name=".activityes.MainActivity" >
-
         </activity>
-        <activity android:name=".activityes.LoginActivity" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activityes.LoginActivity" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBOLu6K70fgpc6XqrHKu4gV_7CC1SYao7M" />
