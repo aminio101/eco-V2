@@ -46,8 +46,7 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     LinearLayout linearTop;
     @BindView(R.id.textView4)
     CoustomTextView textViewNumber;
-    @BindView(R.id.textView33)
-    CoustomTextView coustomTextView;
+
     ArrayList<MainListViewHolder> viewHolders;
     @BindView(R.id.main_fragment_text_score)
     CoustomTextView textViewScore; @BindView(R.id.textView5)
@@ -187,9 +186,6 @@ public class MainFragment extends Fragment implements IMainFragmentView {
     @Override
     public void showUserScore(String score) {
         textViewScore.setText(score+" امتیاز ");
-        float i = (Integer.valueOf(score) / 100)*3;
-
-        coustomTextView.setText(" موجودی شما "+String.valueOf(i)+"تومان می\u200cباشد ");
     }
 
     @Override

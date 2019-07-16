@@ -120,7 +120,7 @@
             android:paddingLeft="@dimen/_15sdp"
             android:paddingRight="@dimen/_15sdp"
             android:textColor="@color/yellow_800"
-            android:textSize="@dimen/_10ssp" />
+            android:textSize="@dimen/_11ssp" />
 
         <com.eco.CoustomTextView
             android:id="@+id/textView101"

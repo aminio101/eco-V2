@@ -51,25 +51,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/main_fragment_text_score"
-                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_17sdp"
                     android:layout_marginEnd="3dp"
                     android:layout_toLeftOf="@+id/imageView23"
                     android:gravity="right|center"
-                    android:text="هر100 امتیاز برابر 3 هزار ریال می باشد"
+                    android:text="هر100 امتیاز معادل 100 تومان می‌‌‌‌\u200c‌باشد"
                     android:textSize="@dimen/_10ssp"
 
                     />
 
-                <com.eco.CoustomTextView
-                    android:id="@+id/textView33"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/textView21"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_marginEnd="3dp"
-                    android:layout_toLeftOf="@+id/imageView23"
-                    android:text="موجودی 2000 تومان کیبا"
-                    android:textSize="@dimen/_8ssp" />
+
                 <ImageView
                     android:id="@+id/imageView23"
                     android:layout_width="@dimen/_30sdp"

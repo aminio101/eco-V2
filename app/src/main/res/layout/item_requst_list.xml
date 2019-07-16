@@ -15,7 +15,6 @@
             android:layout_weight="0.3"
             android:text="تعداد"
             android:textSize="@dimen/_10ssp"
-
             android:gravity="center"
             android:textColor="@color/fili2"
             android:textStyle="bold" />
@@ -26,8 +25,7 @@
             android:layout_weight="0.3"
             android:text="امتیاز"
             android:gravity="center"
-android:id="@+id/score"
-
+            android:id="@+id/score"
             android:textColor="@color/fili2"
             android:textSize="@dimen/_10ssp"
             android:textStyle="bold" />

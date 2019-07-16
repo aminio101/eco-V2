@@ -26,7 +26,9 @@ public class CommentViewHolder extends RecyclerView.ViewHolder {
         for (int j = 0; j < PV.rubbishList.size(); j++) {
             if (PV.rubbishList.get(j).id == Integer.valueOf(itemEntity.name)) {
                 name.setText(PV.rubbishList.get(j).type);
-                score.setText(String.valueOf(PV.rubbishList.get(j).price/3));
+                double emtiaz=Integer.parseInt(itemEntity.number)* 0.1;
+                int i= (int) ((int)PV.rubbishList.get(j).price * emtiaz);
+                score.setText(String.valueOf(i));
             }
         }
         number.setText(itemEntity.number);

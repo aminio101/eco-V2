@@ -70,7 +70,6 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
         editTextShab.setText(PrefManager.getInstance().getUser().shabaNumber);
         textViewScore.setText(String.valueOf(PrefManager.getInstance().getUser().score));
         int score = Integer.parseInt(textViewScore.getText().toString());
-        score = score * 3;
         String showScore = String.valueOf(score);
         textViewMoney.setText(String.format(new Locale("fa"), "%s%s",
                 showScore, " تومان "));
@@ -97,7 +96,6 @@ public class WalletFragment extends Fragment implements IWalletFragmentView {
                 scoreValue = adapterView.getItemAtPosition(i).toString();
                 int score = Integer.parseInt(scoreValue);
 //                textViewScore.setText(String.valueOf(score));
-                score = score * 3;
                 String showScore = String.valueOf(score);
                 textViewMoney.setText(String.format(new Locale("fa"), "%s%s",
                         showScore, " تومان "));
