@@ -28,6 +28,7 @@
                app:srcCompat="@drawable/ic_menu" />
 
            <ImageView
+               android:visibility="invisible"
                android:id="@+id/main_activity_image_back"
                android:layout_width="@dimen/_25sdp"
                android:layout_height="@dimen/_25sdp"
@@ -70,3 +71,4 @@
    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
+

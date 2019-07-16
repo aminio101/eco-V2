@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/more"
-        android:icon="@drawable/ic_menu"
-        android:title="بیشتر" />
+        android:id="@+id/xChangeList"
+        android:icon="@drawable/ic_list"
+        android:title="@string/xChange" />
+
     <item
         android:id="@+id/mainFragment"
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
     <item
-        android:id="@+id/xChangeList"
-        android:icon="@drawable/ic_list"
-        android:title="@string/xChange" />
+        android:id="@+id/more"
+        android:icon="@drawable/ic_menu"
+        android:title="بیشتر" />
 
 
 

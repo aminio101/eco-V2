@@ -55,10 +55,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.eco_name)
     CoustomTextView tollbarName;
 
-    @OnClick(R.id.main_activity_image_back)
-    public void back() {
-        onBackPressed();
-    }
+
 
     @Override
     public void onBackPressed() {
